@@ -9,7 +9,7 @@
   <title>Clever King (最大权闭合子图模板) | HeartBeat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Clever King题意T组数据，有n个产品，m个矿坑。接下来n个数字happiness[i]表示第i个产品的幸福指数，接下来m个数字，ori[i]表示第i个矿坑的开发费用。接下来n行，每行先输入两个数字n1，n2，分别表示第i号产品需要开发的矿坑，和需要的原材料产品。（矿坑开发后材料无限，产品生产后幸福指数一定会增加，不管是作为产品本身还是原材料），要求 幸福指数 - 费用  的最大值。 思">
-<meta name="keywords" content="模板,最大权闭合子图">
+<meta name="keywords" content="最大权闭合子图,模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clever King (最大权闭合子图模板)">
 <meta property="og:url" content="http://github.com/xxq1999/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/index.html">
@@ -72,10 +72,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -197,37 +193,6 @@
       
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipayimg.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechatimg.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       
@@ -237,11 +202,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">最大权闭合子图</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">最大权闭合子图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
         		</li>
       		
 		</ul>
@@ -456,25 +421,17 @@ MathJax.Hub.Queue(function() {
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -495,14 +452,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CodeForeces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
@@ -512,6 +461,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +484,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,11 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +516,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,10 +525,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">HDU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +540,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,6 +553,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
             
             <div class="clearfix"></div>
@@ -645,46 +602,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://pattle.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>friend AC</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://jacklightchen.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>叫我陈续缘</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://luuman.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>世平阜康</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://nicelinks.site/?from=jianshu-sublime" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>倾城之链(网站收录)</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.spacetelescope.org/images/viewall/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HUBBLE宇宙</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>如果月球只有一个像素那么大</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.zcmol.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>早茶时光</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
