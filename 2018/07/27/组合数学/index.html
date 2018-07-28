@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="HeartBeat">
 <meta property="og:description" content="组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        ….. 如果要">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-07-28T18:06:21.196Z">
+<meta property="og:updated_time" content="2018-07-28T18:17:37.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数学（QAQ）">
 <meta name="twitter:description" content="组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        ….. 如果要">
@@ -202,8 +202,9 @@
 <h2 id="圆周排列"><a href="#圆周排列" class="headerlink" title="圆周排列"></a>圆周排列</h2><blockquote>
 <p>a、b、c、d，普通排列：24，圆周排列：6 = 24/4 也就说；普通数量/个数 = （n-1）！</p>
 </blockquote>
-<p>##生成全排列</p>
-<h3 id="序数法："><a href="#序数法：" class="headerlink" title="序数法："></a>序数法：</h3><p>任何 $m=a_{n-1}(n-1)!+a_{n-2}(n-2)!+a_{n-3}(n-3)!+……+a_2<em>2!+a_1</em>1!$              ………………………①</p>
+<h2>生成全排列</h2>
+
+<h3 id="序数法："><a href="#序数法：" class="headerlink" title="序数法："></a>序数法：</h3><p>任何  $m=a_{n-1}(n-1)!+a_{n-2}(n-2)!+a_{n-3}(n-3)!+……+a_2<em>2!+a_1</em>1!$ ①</p>
 <p>其中a1 = m%2， a2=(m/2)%3 , a3=(m/2/3)%4 ……直到m/……=0；</p>
 <p>那么！a集合（$a_{n-1}~a_1$）共有n！种排列对不对！那么怎样把1,2，……n的一个排列和①联系起来呢？</p>
 <blockquote>
@@ -421,7 +422,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合"><span class="toc-number">1.</span> <span class="toc-text">组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cayley公式："><span class="toc-number">2.</span> <span class="toc-text">Cayley公式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不全相异的排列"><span class="toc-number">3.</span> <span class="toc-text">不全相异的排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复排列和重复组合"><span class="toc-number">4.</span> <span class="toc-text">重复排列和重复组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆周排列"><span class="toc-number">5.</span> <span class="toc-text">圆周排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序数法："><span class="toc-number">5.1.</span> <span class="toc-text">序数法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典序法："><span class="toc-number">5.2.</span> <span class="toc-text">字典序法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邻位互换法"><span class="toc-number">5.3.</span> <span class="toc-text">邻位互换法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卡特兰数"><span class="toc-number">6.</span> <span class="toc-text">卡特兰数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#母函数"><span class="toc-number">7.</span> <span class="toc-text">母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整数拆分"><span class="toc-number">8.</span> <span class="toc-text">整数拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ferrrs图像"><span class="toc-number">9.</span> <span class="toc-text">Ferrrs图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数型母函数"><span class="toc-number">10.</span> <span class="toc-text">指数型母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递推关系"><span class="toc-number">11.</span> <span class="toc-text">递推关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斐波那契"><span class="toc-number">12.</span> <span class="toc-text">斐波那契</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斯特林数-Stiring"><span class="toc-number">13.</span> <span class="toc-text">斯特林数 Stiring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第二类斯特林数"><span class="toc-number">13.1.</span> <span class="toc-text">第二类斯特林数</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合"><span class="toc-number">1.</span> <span class="toc-text">组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cayley公式："><span class="toc-number">2.</span> <span class="toc-text">Cayley公式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不全相异的排列"><span class="toc-number">3.</span> <span class="toc-text">不全相异的排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复排列和重复组合"><span class="toc-number">4.</span> <span class="toc-text">重复排列和重复组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆周排列"><span class="toc-number">5.</span> <span class="toc-text">圆周排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">生成全排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序数法："><span class="toc-number">6.1.</span> <span class="toc-text">序数法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典序法："><span class="toc-number">6.2.</span> <span class="toc-text">字典序法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邻位互换法"><span class="toc-number">6.3.</span> <span class="toc-text">邻位互换法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卡特兰数"><span class="toc-number">7.</span> <span class="toc-text">卡特兰数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#母函数"><span class="toc-number">8.</span> <span class="toc-text">母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整数拆分"><span class="toc-number">9.</span> <span class="toc-text">整数拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ferrrs图像"><span class="toc-number">10.</span> <span class="toc-text">Ferrrs图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数型母函数"><span class="toc-number">11.</span> <span class="toc-text">指数型母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递推关系"><span class="toc-number">12.</span> <span class="toc-text">递推关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斐波那契"><span class="toc-number">13.</span> <span class="toc-text">斐波那契</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斯特林数-Stiring"><span class="toc-number">14.</span> <span class="toc-text">斯特林数 Stiring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第二类斯特林数"><span class="toc-number">14.1.</span> <span class="toc-text">第二类斯特林数</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -548,10 +549,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
@@ -565,6 +562,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,11 +637,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
