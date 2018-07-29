@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
-  <title>HeartBeat</title>
+  <title>在比赛中遇到的稀奇古怪的结论 | HeartBeat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jiugongge_demo 	 		*{ 			margin:0; 			padding: 0; 		} 		table{ 			margin: 30px; 			border-collapse: collapse; 		} 		#test0{ 			margin: 30px; 			width: 200px; 			height: 200px; 		} 		#test0 div">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HeartBeat">
-<meta property="og:url" content="http://github.com/xxq1999/assets/demo/jiugongge_demo.html">
+  <meta name="description" content="将多边形对角线相连，其对角线最多被分割成多少段？  $$max=(n^4-6n^3+17n^2-24*n)/12$$  一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?  $$max=(n^4-6n^3+23n^2-18*n+24)/24$$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在比赛中遇到的稀奇古怪的结论">
+<meta property="og:url" content="http://github.com/xxq1999/2018/07/29/在比赛中遇到的稀奇古怪的结论/index.html">
 <meta property="og:site_name" content="HeartBeat">
-<meta property="og:description" content="jiugongge_demo 	 		*{ 			margin:0; 			padding: 0; 		} 		table{ 			margin: 30px; 			border-collapse: collapse; 		} 		#test0{ 			margin: 30px; 			width: 200px; 			height: 200px; 		} 		#test0 div">
+<meta property="og:description" content="将多边形对角线相连，其对角线最多被分割成多少段？  $$max=(n^4-6n^3+17n^2-24*n)/12$$  一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?  $$max=(n^4-6n^3+23n^2-18*n+24)/24$$">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-04-05T07:59:57.330Z">
+<meta property="og:updated_time" content="2018-07-29T17:05:36.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HeartBeat">
-<meta name="twitter:description" content="jiugongge_demo 	 		*{ 			margin:0; 			padding: 0; 		} 		table{ 			margin: 30px; 			border-collapse: collapse; 		} 		#test0{ 			margin: 30px; 			width: 200px; 			height: 200px; 		} 		#test0 div">
+<meta name="twitter:title" content="在比赛中遇到的稀奇古怪的结论">
+<meta name="twitter:description" content="将多边形对角线相连，其对角线最多被分割成多少段？  $$max=(n^4-6n^3+17n^2-24*n)/12$$  一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?  $$max=(n^4-6n^3+23n^2-18*n+24)/24$$">
   
     <link rel="alternative" href="/atom.xml" title="HeartBeat" type="application/atom+xml">
   
@@ -156,164 +156,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-在比赛中遇到的稀奇古怪的结论" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在比赛中遇到的稀奇古怪的结论
+    </h1>
+  
+
+        
+        <a href="/2018/07/29/在比赛中遇到的稀奇古怪的结论/" class="archive-article-date">
+  	<time datetime="2018-07-29T15:46:12.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script>
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>jiugongge_demo</title>
-	<style>
-		*{
-			margin:0;
-			padding: 0;
-		}
-		table{
-			margin: 30px;
-			border-collapse: collapse;
-		}
-		#test0{
-			margin: 30px;
-			width: 200px;
-			height: 200px;
-		}
-		#test0 div{
-			width: 50px;
-			height: 50px;
-			float: left;
-			background: #eee;
-			border: 5px solid #00f;
-			text-align: center;
-			line-height: 50px;
-			color: #090;
-			position: relative;
-		}
-		#test0 .lr_indent{
-			margin-left: -5px;
-			margin-right: -5px;
-		}
-		#test0 .tb_indent{
-			margin-top: -5px;
-			margin-bottom: -5px;
-		}
-		#test0 div:hover{
-			border: 5px solid #f00;
-			z-index: 999;
-			background: #eee;
-		}
-		#test1 td{
-			width: 50px;
-			height: 50px;
-			background: #eee;
-			position: relative;
-			border: 5px solid #00f;
-			text-align: center;
-		}
-		#test1 td span{
-			color: #090;
-			display:block;
-			width: 50px;
-			height: 50px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			line-height: 50px;
-		}
-		#test1 td span:hover{
-			border: 5px solid #f00;
-			margin-top:-5px;
-			margin-left: -5px;
-		}
+        <script src="/assets/js/APlayer.min.js"> </script><ol>
+<li>将多边形对角线相连，其对角线最多被分割成多少段？</li>
+</ol>
+<p>$$<br>max=(n^4-6<em>n^3+17</em>n^2-24*n)/12<br>$$</p>
+<ol>
+<li>一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?</li>
+</ol>
+<p>$$<br>max=(n^4-6<em>n^3+23</em>n^2-18*n+24)/24<br>$$</p>
 
-		#test2 td{
-			width: 50px;
-			height: 50px;
-			background: #eee;
-			border: 5px solid #00f;
-			text-align: center;
-			vertical-align: top;
-		}
-		#test2 td div{
-			position:relative;
-			width: 50px;
-			height: 50px;
-		}
-		#test2 td div span{
-			color: #090;
-			display:block;
-			width: 50px;
-			height: 50px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			line-height: 50px;
-		}
-		#test2 td div span:hover{
-			border: 5px solid #f00;
-			margin-left: -5px;
-			margin-top: -5px;
-		}
-	</style>
-</head>
-<body>
-	<h2>1) div+负margin实现</h2>
-	<div id="test0">
-		<div>1</div>
-		<div class="lr_indent">2</div>
-		<div>3</div>
-		<div class="tb_indent">4</div>
-		<div class="lr_indent tb_indent">5</div>
-		<div class="tb_indent">6</div>
-		<div>7</div>
-		<div class="lr_indent">8</div>
-		<div>9</div>
-	</div>
-	<h2>2.1) table border-collapse: collapse实现</h2>
-	<div id="test1">
-		<table>
-			<tr>
-				<td><span>1</span></td>
-				<td><span>2</span></td>
-				<td><span>3</span></td>
-			</tr>
-			<tr>
-				<td><span>4</span></td>
-				<td><span>5</span></td>
-				<td><span>6</span></td>
-			</tr>
-			<tr>
-				<td><span>7</span></td>
-				<td><span>8</span></td>
-				<td><span>9</span></td>
-			</tr>
-		</table>
-	</div>
-	<h2>2.2) table思路改进</h2>
-	<div id="test2">
-		<table>
-			<tr>
-				<td><div><span>1</span></div></td>
-				<td><div><span>2</span></div></td>
-				<td><div><span>3</span></div></td>
-			</tr>
-			<tr>
-				<td><div><span>4</span></div></td>
-				<td><div><span>5</span></div></td>
-				<td><div><span>6</span></div></td>
-			</tr>
-			<tr>
-				<td><div><span>7</span></div></td>
-				<td><div><span>8</span></div></td>
-				<td><div><span>9</span></div></td>
-			</tr>
-		</table>
-	</div>
-</body>
-</html>
       
 
       
@@ -322,6 +193,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -371,7 +253,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/assets/demo/jiugongge_demo.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/07/29/在比赛中遇到的稀奇古怪的结论/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,6 +265,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/29/拉格朗日插值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">拉格朗日插值法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -404,7 +296,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1) div+负margin实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.1) table border-collapse: collapse实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">2.2) table思路改进</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -448,7 +340,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
