@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
-  <title>计蒜客暑期 | HeartBeat</title>
+  <title>莫比乌斯题集 | HeartBeat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="7.7 A. 思维题，重点在于当剩余的n&amp;lt;k时，只要k%n==0就可以成功，比如 64 6的时候，先约分：32：6，再约：16:6，一直约到 1:6 ，那n=1，当然ok。 B. dijkstra最短路一下 D. Dp，结束后想了一下，dp[i]表示第i层停下来的所有怨气，dp[i]=min(dp[i],dp[j] + val(j-&amp;gt;i)) ,（j&amp;lt;i）i之前电梯停在j层，然后">
+  <meta name="description" content="#YY的GCD 题意给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&amp;lt;=x&amp;lt;=N,1&amp;lt;=y&amp;lt;=M) 思路题目实际上是要求：$$ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim$$由莫比乌斯反演的基本公式：$$F(n)=\sum_{n|d}f(d)$$ $$f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计蒜客暑期">
-<meta property="og:url" content="http://github.com/xxq1999/2018/07/08/计蒜客暑期/index.html">
+<meta property="og:title" content="莫比乌斯题集">
+<meta property="og:url" content="http://github.com/xxq1999/2018/07/31/莫比乌斯题集/index.html">
 <meta property="og:site_name" content="HeartBeat">
-<meta property="og:description" content="7.7 A. 思维题，重点在于当剩余的n&amp;lt;k时，只要k%n==0就可以成功，比如 64 6的时候，先约分：32：6，再约：16:6，一直约到 1:6 ，那n=1，当然ok。 B. dijkstra最短路一下 D. Dp，结束后想了一下，dp[i]表示第i层停下来的所有怨气，dp[i]=min(dp[i],dp[j] + val(j-&amp;gt;i)) ,（j&amp;lt;i）i之前电梯停在j层，然后">
+<meta property="og:description" content="#YY的GCD 题意给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&amp;lt;=x&amp;lt;=N,1&amp;lt;=y&amp;lt;=M) 思路题目实际上是要求：$$ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim$$由莫比乌斯反演的基本公式：$$F(n)=\sum_{n|d}f(d)$$ $$f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:image" content="http://github.com/source/mdpicture/20180712A.jpg">
-<meta property="og:image" content="http://github.com/source/mdpicture/180710I.jpg">
-<meta property="og:updated_time" content="2018-07-27T17:00:40.897Z">
+<meta property="og:updated_time" content="2018-07-31T12:34:21.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计蒜客暑期">
-<meta name="twitter:description" content="7.7 A. 思维题，重点在于当剩余的n&amp;lt;k时，只要k%n==0就可以成功，比如 64 6的时候，先约分：32：6，再约：16:6，一直约到 1:6 ，那n=1，当然ok。 B. dijkstra最短路一下 D. Dp，结束后想了一下，dp[i]表示第i层停下来的所有怨气，dp[i]=min(dp[i],dp[j] + val(j-&amp;gt;i)) ,（j&amp;lt;i）i之前电梯停在j层，然后">
-<meta name="twitter:image" content="http://github.com/source/mdpicture/20180712A.jpg">
+<meta name="twitter:title" content="莫比乌斯题集">
+<meta name="twitter:description" content="#YY的GCD 题意给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&amp;lt;=x&amp;lt;=N,1&amp;lt;=y&amp;lt;=M) 思路题目实际上是要求：$$ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim$$由莫比乌斯反演的基本公式：$$F(n)=\sum_{n|d}f(d)$$ $$f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)">
   
     <link rel="alternative" href="/atom.xml" title="HeartBeat" type="application/atom+xml">
   
@@ -159,49 +156,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计蒜客暑期" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-莫比乌斯题集" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计蒜客暑期
+      莫比乌斯题集
     </h1>
   
 
         
-        <a href="/2018/07/08/计蒜客暑期/" class="archive-article-date">
-  	<time datetime="2018-07-08T07:20:48.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
+        <a href="/2018/07/31/莫比乌斯题集/" class="archive-article-date">
+  	<time datetime="2018-07-31T12:35:38.028Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>7.7</p>
-<p>A. 思维题，重点在于当剩余的n&lt;k时，只要k%n==0就可以成功，比如 64 6的时候，先约分：32：6，再约：16:6，一直约到 1:6 ，那n=1，当然ok。</p>
-<p>B. dijkstra最短路一下</p>
-<p>D. Dp，结束后想了一下，dp[i]表示第i层停下来的所有怨气，dp[i]=min(dp[i],dp[j] + val(j-&gt;i)) ,（j&lt;i）i之前电梯停在j层，然后从j直接到i 的话，加上这一部分的怨气就好了val，而valij的怨气就是i的前缀和加上若每一层都停的怨气，再减去了j层停下来的人消失的这部分怨气。</p>
-<p><img src="\source\mdpicture\20180712A.jpg" alt="20180712A"></p>
-<p>F. 飞行航道 水</p>
-<p>J. 找单词，八方找，正反找。看了题解 好像是先判断了一下回文减少了一下长度？</p>
-<p>7.10</p>
-<p>B.  最少按下的按钮次数</p>
-<p>用bfs，时间小于0，变成0，大于3600，变为3600。vis[i]记录时间为i的最少步骤数目。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> n,sum;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>],vis[<span class="number">3610</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">int</span> step;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;node&gt;q;</span><br><span class="line">    node temp,tp;</span><br><span class="line">    temp.val=<span class="number">0</span>;</span><br><span class="line">    temp.step=<span class="number">0</span>;</span><br><span class="line">    q.push(temp);</span><br><span class="line">    vis[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        temp=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> cur=temp.val+a[i];</span><br><span class="line">            <span class="keyword">if</span>(cur&lt;<span class="number">0</span>) cur=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(cur&gt;<span class="number">3600</span>) cur=<span class="number">3600</span>;</span><br><span class="line">            <span class="keyword">if</span>(vis[cur]==<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                vis[cur]=temp.step+<span class="number">1</span>;</span><br><span class="line">                tp.step=temp.step+<span class="number">1</span>;</span><br><span class="line">                tp.val=cur;</span><br><span class="line">                q.push(tp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;sum);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="number">-1</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">        solve();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=sum;i&lt;=<span class="number">3600</span>;i++)</span><br><span class="line">            <span class="keyword">if</span>(vis[i]!=<span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,vis[i],i-sum);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>G. 水</p>
-<p>I. 计算组成n的最小的两个斐波那契数a b，其中按b小来排，且a&lt;b</p>
-<p><img src="\source\mdpicture\180710I.jpg" alt="I"></p>
-<p>由上可知，先计算出最大的两个相邻数相加小于n的地方，设为x，y（x&lt;y），然后xa+yb=n,从b=1开始求满足条件的a，且a&lt;b。</p>
-<p>J. 把迷宫设置大，然后从中间模拟</p>
-<p>7.12</p>
-<p>B. 最小路径覆盖，网络流，最大流</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">5010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">3000010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,cap,nxt;</span><br><span class="line">&#125;e[M];;<span class="comment">//邻接表要开边数的两倍</span></span><br><span class="line"><span class="keyword">int</span> src,des,dis[N],head[N],ecnt;  <span class="comment">//memset dis,head-1 ecnt=0,src=0,des=2*n+1;</span></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[ecnt].v=v;</span><br><span class="line">    e[ecnt].cap=w;</span><br><span class="line">    e[ecnt].nxt=head[u];</span><br><span class="line">    head[u]=ecnt++;</span><br><span class="line">    e[ecnt].v=u;</span><br><span class="line">    e[ecnt].cap=<span class="number">0</span>;</span><br><span class="line">    e[ecnt].nxt=head[v];</span><br><span class="line">    head[v]=ecnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line">    q.push(src);</span><br><span class="line">    <span class="built_in">memset</span>(dis,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dis));</span><br><span class="line">    dis[src]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u=q.front();q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].nxt)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">            <span class="keyword">if</span>(e[i].cap&gt;<span class="number">0</span>&amp;&amp;dis[v]==<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v]=dis[u]+<span class="number">1</span>;</span><br><span class="line">                q.push(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dis[des]&gt;=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(u==des) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].nxt)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> v=e[i].v,t=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(e[i].cap&gt;<span class="number">0</span>&amp;&amp;dis[v]==dis[u]+<span class="number">1</span>&amp;&amp;(t=Dfs(v,min(a,e[i].cap))))</span><br><span class="line">        &#123;</span><br><span class="line">            e[i].cap-=t;</span><br><span class="line">            e[i^<span class="number">1</span>].cap+=t;</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dis[u]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(Bfs())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(t=Dfs(src,inf)) ans+=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num,u,v;</span><br><span class="line">    ecnt=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;num);</span><br><span class="line">    src=<span class="number">0</span>;des=<span class="number">2</span>*num+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;i++)</span><br><span class="line">        Addedge(<span class="number">0</span>,i,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=num+<span class="number">1</span>;i&lt;=<span class="number">2</span>*num;i++)</span><br><span class="line">        Addedge(i,<span class="number">2</span>*num+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;u);</span><br><span class="line">        <span class="keyword">while</span>(u--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;v);</span><br><span class="line">            Addedge(i,num+v+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n=num+<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,num-Dinic());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>E. 求次短路是否等于最短路长。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN (10000 + 10)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF (5000*5000*2)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to, cost;</span><br><span class="line">    edge(<span class="keyword">int</span> tv = <span class="number">0</span>, <span class="keyword">int</span> tc = <span class="number">0</span>):</span><br><span class="line">        to(tv), cost(tc) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">int</span> N, R;</span><br><span class="line"><span class="built_in">vector</span>&lt;edge&gt; graph[MAXN];</span><br><span class="line"><span class="keyword">int</span> dist[MAXN];     <span class="comment">//最短距离</span></span><br><span class="line"><span class="keyword">int</span> dist2[MAXN];    <span class="comment">//次短距离</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fill(dist, dist+N, INF);</span><br><span class="line">    fill(dist2, dist2+N, INF);</span><br><span class="line">    <span class="comment">//从小到大的优先队列</span></span><br><span class="line">    <span class="comment">//使用pair而不用edge结构体</span></span><br><span class="line">    <span class="comment">//是因为这样我们不需要重载运算符</span></span><br><span class="line">    <span class="comment">//pair是以first为主关键字进行排序</span></span><br><span class="line">    priority_queue&lt;P, <span class="built_in">vector</span>&lt;P&gt;, greater&lt;P&gt; &gt; Q;</span><br><span class="line">    <span class="comment">//初始化源点信息</span></span><br><span class="line">    dist[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    Q.push(P(<span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="comment">//同时求解最短路和次短路</span></span><br><span class="line">    <span class="keyword">while</span>(!Q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        P p = Q.top();</span><br><span class="line">        Q.pop();</span><br><span class="line">        <span class="comment">//first为s-&gt;to的距离，second为edge结构体的to</span></span><br><span class="line">        <span class="keyword">int</span> v = p.second, d = p.first;</span><br><span class="line">        <span class="comment">//当取出的值不是当前最短距离或次短距离，就舍弃他</span></span><br><span class="line">        <span class="keyword">if</span>(dist2[v] &lt; d) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; graph[v].size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            edge &amp;e = graph[v][i];</span><br><span class="line">            <span class="keyword">int</span> d2 = d + e.cost;</span><br><span class="line">            <span class="keyword">if</span>(dist[e.to] &gt; d2)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(dist[e.to], d2);</span><br><span class="line">                Q.push(P(dist[e.to], e.to));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(dist2[e.to] &gt; d2 &amp;&amp; dist[v] &lt; d2)</span><br><span class="line">            &#123;</span><br><span class="line">                dist2[e.to] = d2;</span><br><span class="line">                Q.push(P(dist2[e.to], e.to));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A, B, D,K;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;N, &amp;R,&amp;K);</span><br><span class="line">    <span class="keyword">while</span>(K--)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;A);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;A, &amp;B, &amp;D);</span><br><span class="line">        graph[A<span class="number">-1</span>].push_back(edge(B<span class="number">-1</span>, D));</span><br><span class="line">        graph[B<span class="number">-1</span>].push_back(edge(A<span class="number">-1</span>, D));</span><br><span class="line">    &#125;</span><br><span class="line">    solve();</span><br><span class="line">    <span class="keyword">if</span>(dist2[N<span class="number">-1</span>]==dist[N<span class="number">-1</span>])</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"yes\n"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"no\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>F. 求大数因子个数，用大数分解求出质因数</p>
-<p>…… 机房。记得传回来。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><p>#<a href="https://www.luogu.org/problemnew/show/P2257" target="_blank" rel="noopener">YY的GCD</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&lt;=x&lt;=N,1&lt;=y&lt;=M)</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题目实际上是要求：<br>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim<br>$$<br>由莫比乌斯反演的基本公式：<br>$$<br>F(n)=\sum_{n|d}f(d)<br>$$</p>
+<p>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)<br>$$</p>
+<p>听说一般这种题都是设f(d)= gcd(i,j)==d的个数，F(n) =gcd(i,j)== d和d的倍数的个数 (那么对于上界N和M，就有$F(n)=\lfloor\frac{N}{n}\rfloor \lfloor\frac{M}{n}\rfloor$，因为对于(i,j)，它们的上限为(N,M)，gcd(i,j)=n,而F(n)求的是d和d的倍数的个数，所以对于i，j来说，这样的搭配有N/n*M/n个）。</p>
+<p>所以我们可以得到下面的式子：<br>$$<br>f(d)=\sum_{i=1}^N\sum_{j=1}^M[gcd(i,j)==d]<br>$$</p>
+<p>$$<br>F(n)=\sum_{n|d}f(d) =\lfloor\frac{N}{n}\rfloor \lfloor\frac{M}{n}\rfloor<br>$$</p>
+<p>带入莫比乌斯公式：</p>
+<p>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)=\lfloor\frac{N}{n}\rfloor \lfloor\frac{M}{n}\rfloor\sum_{n|d}μ(\frac{d}{n})<br>$$</p>
+<p>$$<br>ans=\sum_{i=1}^{N}\sum_{j=1}^{M}[gcd==p]<br>$$</p>
+<p>$$<br>=\sum_{p=prim}f(p)<br>$$</p>
+<p>$$<br>=\sum_{p=prim}\sum_{p|d}μ(\frac{d}{p})\lfloor\frac{N}{p}\rfloor \lfloor\frac{M}{p}\rfloor<br>$$</p>
+<p>枚举$\lfloor\frac{d}{p}\rfloor$,或者说令d=dp，那么d就变成了p的倍数，所以sum枚举的值就变成了1~d(d最大可以取到N/p和M/p中的最小值，因为p是gcd(i,j)==p，那么就不可能取i，j中大的值)：<br>$$<br>ans=\sum_{p=prim}\sum_{d=1}^{min(\lfloor\frac{N}{p}\rfloor ,\lfloor\frac{M}{p}\rfloor)}μ(d)\lfloor\frac{N}{dp}\rfloor \lfloor\frac{M}{dp}\rfloor<br>$$<br>将dp=T，则p∈{t|T%t==0&amp;&amp;t==prim}：<br>$$<br>ans=\sum_{T=1}^{min(N,M)}\sum_{t|T,t∈prim}μ(\lfloor\frac{T}{t}\rfloor)\lfloor\frac{N}{T}\rfloor\lfloor\frac{M}{T}\rfloor<br>$$</p>
+<p>$$<br>=\sum_{T=1}^{min(N,M)}\lfloor\frac{N}{T}\rfloor\lfloor\frac{M}{T}\rfloor\sum_{t|T,t∈prim}μ(\lfloor\frac{T}{t}\rfloor)<br>$$</p>
+<p>就可以做了。</p>
 
       
 
@@ -260,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/07/08/计蒜客暑期/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/07/31/莫比乌斯题集/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +263,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/27/组合数学/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          组合数学（QAQ）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/11/2018-05-11-飞行员配对(最大流模板)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">飞行员配对(最大流模板)</div>
+    <a href="/2018/07/30/莫比乌斯反演/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">莫比乌斯反演</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +292,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -443,19 +423,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,19 +455,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,15 +483,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,11 +491,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,6 +512,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">

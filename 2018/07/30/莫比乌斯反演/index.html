@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
   <title>莫比乌斯反演 | HeartBeat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 12345for(int l=1">
+  <meta name="description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 123456for(int l=">
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫比乌斯反演">
 <meta property="og:url" content="http://github.com/xxq1999/2018/07/30/莫比乌斯反演/index.html">
 <meta property="og:site_name" content="HeartBeat">
-<meta property="og:description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 12345for(int l=1">
+<meta property="og:description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 123456for(int l=">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-07-30T15:45:26.208Z">
+<meta property="og:updated_time" content="2018-07-31T16:06:05.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫比乌斯反演">
-<meta name="twitter:description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 12345for(int l=1">
+<meta name="twitter:description" content="整数分块比如：$$\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor$$$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。 对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理： 123456for(int l=">
   
     <link rel="alternative" href="/atom.xml" title="HeartBeat" type="application/atom+xml">
   
@@ -178,7 +178,7 @@
       
         <script src="/assets/js/APlayer.min.js"> </script><h2 id="整数分块"><a href="#整数分块" class="headerlink" title="整数分块"></a>整数分块</h2><p>比如：<br>$$<br>\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor<br>$$<br>$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。</p>
 <p>对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    r=n/(n/l);<span class="built_in">printf</span>(<span class="string">"%d "</span>,r);</span><br><span class="line">    ans+=(r-l+<span class="number">1</span>)*(n/l);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    r=n/(n/l); <span class="comment">//右边的数应当取min，这里只有一个n就没关系</span></span><br><span class="line">    ans+=(r-l+<span class="number">1</span>)*(n/l);</span><br><span class="line">    <span class="comment">//这里根据情况改啊！r-（l-1）是因为这里的积性函数可以看作是μ(i)=1，n/l是后面的那个n/i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有时候可能推出来的式子没有这么裸，它可能乘了一个积性函数$\mu,\varphi $，这时候就要对这些函数统计一个前缀和，因为当我们跳过一个分块的时候，就相当于跳过了这个块的函数值。</p>
 <p>P.S. 当$O(n)$也T，杜教筛？？？？？？？？？？？？</p>
 <h2 id="莫比乌斯函数μ-d"><a href="#莫比乌斯函数μ-d" class="headerlink" title="莫比乌斯函数μ(d)"></a>莫比乌斯函数μ(d)</h2><p><strong>定义：</strong></p>
@@ -193,7 +193,7 @@
 <li>$\sum_{d|n}\frac{μ(d)}{d} = \frac{φ(n)}{n}$,其中φ为小于n与n互质的数字的个数</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 对于μ函数的线筛 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">    	<span class="keyword">if</span>(!vis[i])&#123;prim[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">   	 	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        	vis[prim[j]*i]=<span class="number">1</span>;</span><br><span class="line">        	<span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        	<span class="keyword">else</span> mu[i*prim[j]]=-mu[i];</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>定理：F(n)和f(n)是定义在非负整数集合上的两个函数，并且满足条件：<br>$$<br>F(n)=\sum_{d|n}f(d)<br>$$<br> 那么参考容斥的话，就能推出：<br>$$<br>f(n)=\sum_{d|n}μ(d)F(\frac{n}{d})<br>$$<br>一个更好用的形式，当满足：<br>$$<br>F(n)=\sum_{d|n}f(d)<br>$$<br>有：<br>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(d)<br>$$</p>
+<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>定理：F(n)和f(n)是定义在非负整数集合上的两个函数，并且满足条件：<br>$$<br>F(n)=\sum_{d|n}f(d)<br>$$<br> 那么参考容斥的话，就能推出：<br>$$<br>f(n)=\sum_{d|n}μ(d)F(\frac{n}{d})<br>$$<br>一个更好用的形式，当满足：<br>$$<br>F(n)=\sum_{n|d}f(d)<br>$$<br>有：<br>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(d)<br>$$</p>
 
       
 
@@ -276,6 +276,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/07/31/莫比乌斯题集/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          莫比乌斯题集
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/29/在比赛中遇到的稀奇古怪的结论/" id="article-nav-older" class="article-nav-link-wrap">
@@ -433,14 +442,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
@@ -450,6 +451,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,15 +478,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,15 +506,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,11 +514,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,10 +539,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
