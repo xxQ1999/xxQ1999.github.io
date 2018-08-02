@@ -157,6 +157,372 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2018-05-11-飞行员配对(最大流模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/2018-05-11-飞行员配对(最大流模板)/">飞行员配对(最大流模板)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/11/2018-05-11-飞行员配对(最大流模板)/" class="archive-article-date">
+  	<time datetime="2018-05-11T14:44:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">201</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> g[MAXN][MAXN];        <span class="comment">//残留网络，初始为原图</span></span><br><span class="line"><span class="keyword">int</span> flow[MAXN][MAXN];</span><br><span class="line"><span class="keyword">int</span> nodeNum;            <span class="comment">//节点总数量</span></span><br><span class="line"><span class="keyword">int</span> pre[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="comment">//bfs找增广路</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> que[<span class="number">201</span>],p,q,v,i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">        pre[i]=<span class="number">-1</span>;</span><br><span class="line">    que[<span class="number">0</span>]=s;</span><br><span class="line">    pre[s]=s;</span><br><span class="line">    p=<span class="number">0</span>,q=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(p&lt;q)</span><br><span class="line">    &#123;</span><br><span class="line">        v=que[p++];</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">            <span class="keyword">if</span> (pre[i]==<span class="number">-1</span>&amp;&amp;(flow[v][i]&lt;g[v][i]||flow[i][v]&gt;<span class="number">0</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                pre[i]=v;</span><br><span class="line">                que[q++]=i;</span><br><span class="line">                <span class="keyword">if</span> (i==t) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改残留矩阵和增广路</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">track_back</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=t,v,MIN=INF;</span><br><span class="line">    <span class="keyword">while</span> (i!=s)</span><br><span class="line">    &#123;</span><br><span class="line">        v = pre[i];</span><br><span class="line">        <span class="keyword">if</span> (flow[v][i]&lt;g[v][i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(MIN&gt;g[v][i]-flow[v][i])</span><br><span class="line">                MIN=g[v][i]-flow[v][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flow[i][v]&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(MIN&gt;flow[i][v])</span><br><span class="line">                MIN=flow[i][v];</span><br><span class="line">        &#125;</span><br><span class="line">        i=v;</span><br><span class="line">    &#125;</span><br><span class="line">    i=t;</span><br><span class="line">    <span class="keyword">while</span> (i!=s)</span><br><span class="line">    &#123;</span><br><span class="line">        v = pre[i];</span><br><span class="line">        <span class="keyword">if</span> (flow[v][i]&lt;g[v][i])</span><br><span class="line">            flow[v][i]+=MIN;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flow[i][v]&gt;<span class="number">0</span>)</span><br><span class="line">            flow[i][v]-= MIN;</span><br><span class="line">        i = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回 从节点s到节点t的最大流</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max_flow</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (bfs(s,t))</span><br><span class="line">        track_back(s,t);</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>,i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">        <span class="keyword">if</span> (i!=s)res+=flow[s][i];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m,b,e,c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;nodeNum);</span><br><span class="line">    <span class="built_in">memset</span>(g,<span class="number">0</span>,<span class="keyword">sizeof</span>(g));</span><br><span class="line">    <span class="built_in">memset</span>(flow,<span class="number">0</span>,<span class="keyword">sizeof</span>(flow));</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;b,&amp;e))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">-1</span>&amp;&amp;e==<span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">        g[e][b]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        g[i][nodeNum+<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m+<span class="number">1</span>;i&lt;=nodeNum;i++)</span><br><span class="line">        g[<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max_flow(<span class="number">0</span>,nodeNum+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/11/2018-05-11-飞行员配对(最大流模板)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-24-我依赖成瘾了的你" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/24/2018-04-24-我依赖成瘾了的你/">我依赖成瘾了的你</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/24/2018-04-24-我依赖成瘾了的你/" class="archive-article-date">
+  	<time datetime="2018-04-24T13:36:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        NEED PASSWORD./文章已加密
+        
+          <a class="article-more-a" href="/2018/04/24/2018-04-24-我依赖成瘾了的你/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/24/2018-04-24-我依赖成瘾了的你/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-23-网络流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/2018-04-23-网络流/">网络流 【待续】</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/23/2018-04-23-网络流/" class="archive-article-date">
+  	<time datetime="2018-04-23T11:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>例如：有一个自来水管道输送系统，起点是S，目标是T，图中经过的管道都有一个最大的容量：</p>
+<p><img src="\mdpicture\水管流量.jpg" alt="水管流量最大该是多少呢"></p>
+<h2 id="网络流的定义"><a href="#网络流的定义" class="headerlink" title="网络流的定义"></a>网络流的定义</h2><p>在有向图G=（V,E）中：</p>
+<p>1、有唯一的一个源点S（入度为0：出发点）</p>
+<p>2、有唯一的一个汇点（出度为0：结束点）</p>
+<p>3、图中的每条弧（u,v）都有一个非负的容量c（u,v）</p>
+<p>满足上述条件的图G称为网络流图。</p>
+<p>记为：G=（V,E,C）</p>
+        
+          <a class="article-more-a" href="/2018/04/23/2018-04-23-网络流/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/23/2018-04-23-网络流/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-23-Clever-King-(最大权闭合子图模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/">Clever King (最大权闭合子图模板)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/" class="archive-article-date">
+  	<time datetime="2018-04-23T08:42:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Clever-King"><a href="#Clever-King" class="headerlink" title="Clever King"></a><a href="https://nanti.jisuanke.com/t/26172" target="_blank" rel="noopener">Clever King</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>T组数据，有n个产品，m个矿坑。接下来n个数字happiness[i]表示第i个产品的幸福指数，接下来m个数字，ori[i]表示第i个矿坑的开发费用。接下来n行，每行先输入两个数字n1，n2，分别表示第i号产品需要开发的矿坑，和需要的原材料产品。（矿坑开发后材料无限，产品生产后幸福指数一定会增加，不管是作为产品本身还是原材料），要求 幸福指数 - 费用  的最大值。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最大权闭合子图模板。<a href="https://blog.csdn.net/jingmiaa/article/details/52814814" target="_blank" rel="noopener">【关于网络流】</a>（ND）</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一个子图（点集）， 如果它的所有的出边都在这个子图当中，那么它就是闭合子图。<br>点权和最大的闭合子图就是最大闭合子图。</p>
+<p>简单说就是有一些点，每个点有一些点权（正负都有），要选一个点，就必须要选它所连向的点。</p>
+<p>有可能连成一条链，像这样：x-&gt;y-&gt;z-&gt;…</p>
+<p>求合法的点集的最大的点权和。</p>
+<h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p>设s为源点，t为汇点。</p>
+<p>使s连向所有的正权点（非负权点），边权为点权。</p>
+<p>使所有非负权点（负权点）连向t，边权为点权的绝对值。</p>
+<p>若需要选y才能选x，连一条由x到y的边，边权是∞。</p>
+<p><strong>最大点权和 = 正权点和 - 最小割</strong></p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">505</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next,flow;</span><br><span class="line">&#125;e[maxn*maxn*<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> cur[maxn],co[maxn],d[maxn],Final[maxn],tot,s,t;</span><br><span class="line"><span class="comment">// s源点 t终点</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++tot].to=y,e[tot].next=Final[x],e[tot].flow=z,Final[x]=tot;</span><br><span class="line">    e[++tot].to=x,e[tot].next=Final[y],e[tot].flow=<span class="number">0</span>,Final[y]=tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dg</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> flow)</span> <span class="comment">//模板 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==t) <span class="keyword">return</span> flow;</span><br><span class="line">    <span class="keyword">int</span> use=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=cur[x];i;i=e[i].next)</span><br><span class="line">    &#123;</span><br><span class="line">        cur[x]=i;</span><br><span class="line">        <span class="keyword">if</span>(e[i].flow&gt;<span class="number">0</span>&amp;&amp;d[e[i].to]+<span class="number">1</span>==d[x])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> c=dg(e[i].to,min(flow-use,e[i].flow));</span><br><span class="line">            use+=c;</span><br><span class="line">            e[i].flow-=c;</span><br><span class="line">            e[i^<span class="number">1</span>].flow+=c;</span><br><span class="line">            <span class="keyword">if</span>(flow==use) <span class="keyword">return</span> use;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cur[x]=Final[x];</span><br><span class="line">    <span class="keyword">if</span>(!(--co[d[x]])) d[<span class="number">0</span>]=t;</span><br><span class="line">    ++co[++d[x]];</span><br><span class="line">    <span class="keyword">return</span> use;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T,n1,n2,temp,n,m;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        sum=<span class="number">0</span>;tot=<span class="number">1</span>;s=t=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(cur,<span class="number">0</span>,<span class="keyword">sizeof</span>(cur));</span><br><span class="line">        <span class="built_in">memset</span>(co,<span class="number">0</span>,<span class="keyword">sizeof</span>(co));</span><br><span class="line">        <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="keyword">sizeof</span>(d));</span><br><span class="line">        <span class="built_in">memset</span>(Final,<span class="number">0</span>,<span class="keyword">sizeof</span>(Final));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        ans=n+m;s=ans+<span class="number">1</span>;t=ans+<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//s和正权相连</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">            sum+=temp;</span><br><span class="line">            link(s,i,temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)  <span class="comment">//t和负权相连</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">            link(i+n,t,temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n1,&amp;n2);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n1;j++)  <span class="comment">//i个点需要j的话，就把i-&gt;j，边权是inf</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">                link(i,temp+n,<span class="number">1</span>&lt;&lt;<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n2;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">                link(i,temp,<span class="number">1</span>&lt;&lt;<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        co[<span class="number">0</span>]=t;</span><br><span class="line">        <span class="keyword">for</span>(;d[<span class="number">0</span>]&lt;t;) sum-=dg(s,<span class="number">1</span>&lt;&lt;<span class="number">30</span>); <span class="comment">//最小割</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">最大权闭合子图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -742,411 +1108,6 @@
 
 
   
-    <article id="post-2018-04-15-K序列（DP）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/15/2018-04-15-K序列（DP）/">K序列（DP）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/15/2018-04-15-K序列（DP）/" class="archive-article-date">
-  	<time datetime="2018-04-15T12:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="K序列"><a href="#K序列" class="headerlink" title="K序列"></a><a href="https://www.nowcoder.com/acm/contest/91/L" target="_blank" rel="noopener">K序列</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给一个数组 a，长度为 n，若某个子序列中的和为 K 的倍数，那么这个序列被称为“K 序列”。对数组 a 求出最长的子序列的长度，满足这个序列是 K 序列。 </p>
-<p>输入一个n，k，接下来输入n个整数，表示A[1]~A[n] ,1&lt;=n&lt;=1e5,1&lt;=a[i]&lt;=1e9,1&lt;=nK&lt;=1e7。输出最长子序列的长度。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>又一道DP。</p>
-<p>dp[i][j] : 表示前i个数中，对k取模余数为j的最长的子序列长度</p>
-<p>dp[i][j] =max (dp[i-1][j],dp[i-1][(k-a[i]%k+j)%k]+1) </p>
-<p>解释一下，指的是上一层（前i-1个数字）余数一样的，和上一层再加上a[i]（前i个数字）[余数]+1。</p>
-<p>这里有个条件是要判断一下这个取模的余数是否已经存在了，不然就不能比较。</p>
-<p>讲的不太清楚，看代码吧。</p>
-<p>（这里用二维 vector存dp）</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;dp(n+<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        dp[i].resize(k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]%k==j) dp[i][j]=<span class="number">1</span>;</span><br><span class="line">            dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i][j]);</span><br><span class="line">            <span class="keyword">if</span>(dp[i<span class="number">-1</span>][(j-a[i]%k+k)%k]!=<span class="number">0</span>)</span><br><span class="line">                dp[i][j]=max(dp[i][j],dp[i<span class="number">-1</span>][(j-a[i]%k+k)%k]+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/15/2018-04-15-K序列（DP）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018-04-15-1+2=3(奇怪的斐波那契规律题)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/15/2018-04-15-1+2=3(奇怪的斐波那契规律题)/">1+2=3?(奇怪的斐波那契规律题)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/15/2018-04-15-1+2=3(奇怪的斐波那契规律题)/" class="archive-article-date">
-  	<time datetime="2018-04-15T11:58:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="1-2-3？"><a href="#1-2-3？" class="headerlink" title="1+2=3？"></a><a href="https://www.nowcoder.com/acm/contest/91/F" target="_blank" rel="noopener">1+2=3？</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个T，接下来T行，每行一个N，输出满足 x异或2x== 3x 的第N个数字。</p>
-<p>T&lt;=100,N&lt;=1e12</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>打了表，<a href="http://oeis.org/?language=english" target="_blank" rel="noopener">整数数列百科全书</a>中找到符合规律的数列，观察二进制形式后发现：</p>
-<p><img src="\mdpicture\FB.jpg" alt="规律"></p>
-<p>斐波那契数列：</p>
-<p>1 2 3 5 8 13 21 34 55 ……</p>
-<p>题中若N=60，则60= 55 + 5 （第9项+第4项）</p>
-<p>则第60个满足条件的数为：1(9)00001(4)000 = 264 (4、9号位数为1，其他都是0)</p>
-<p>由于1e12小于斐波那契的第59项，故开一个59大的数组，里面存斐波那契数，然后对于每一个N寻找最少的组成它的斐波那契数，找到他是第x项，那么ans+2^x即可。</p>
-<p>（问题是我的代码怎么这么丑= =）</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt;fei; <span class="comment">//算斐波那契 1 2 3 5这样的</span></span><br><span class="line">    fei.push_back(<span class="number">1</span>);fei.push_back(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">while</span>(fei[fei.size()<span class="number">-1</span>]&lt;(<span class="number">1e12</span>+<span class="number">5</span>)) fei.push_back(fei[fei.size()<span class="number">-1</span>]+fei[fei.size()<span class="number">-2</span>]);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> n,temp;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">        temp=n;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> weishu[<span class="number">100</span>],x=<span class="number">1</span>,ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">60</span>;i++)</span><br><span class="line">            weishu[i]=x,x*=<span class="number">2</span>; <span class="comment">//计算2的i次</span></span><br><span class="line">      </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">57</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">            <span class="keyword">if</span>(temp&gt;=fei[i]) <span class="comment">//找能组成他的斐波那契数，直接算</span></span><br><span class="line">                temp-=fei[i],ans+=weishu[i];</span><br><span class="line">      </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">斐波那契</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">规律</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/15/2018-04-15-1+2=3(奇怪的斐波那契规律题)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-归途" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/05/归途/">归途</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/05/归途/" class="archive-article-date">
-  	<time datetime="2018-04-05T07:20:41.640Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p><img src="\mdpicture\拉杆箱会飞吗.jpg" alt="如果拉杆箱会飞"></p>
-<p>回家，带着我的拉杆箱。</p>
-<p>拉杆箱好沉啊，下着雨，要撑伞。红色的卫衣，薄荷绿的伞。</p>
-<p><br></p>
-<h2 id="城隍百味"><a href="#城隍百味" class="headerlink" title="城隍百味"></a>城隍百味</h2><p><img src="\mdpicture\城隍百味.jpg" alt="城隍庙地铁站"></p>
-<h3 id="食"><a href="#食" class="headerlink" title="食"></a>食</h3><p>和小可爱在一起。</p>
-<p>“我要吃三色杯！”</p>
-<p>“上口爱！”</p>
-<p>“给我尝一口！”</p>
-<p>“好冷呐哥！”</p>
-<p>“我要吃炸鱿鱼！”</p>
-<p>“好脆呀！”</p>
-<p>“别扯呀别扯！”</p>
-<p>“我没我咬不动！”</p>
-<p>“看你满嘴！”</p>
-<p>“哼！”</p>
-<p>“老板来三根肉串！”</p>
-<p>“还吃……”</p>
-<p>“臭豆腐要吗！”</p>
-<p>“……要！”</p>
-<p>“来一口！”</p>
-<p>“哇呜是香菜！！TOT “</p>
-<p>“很香！”</p>
-<p>“哦这个味道！”</p>
-<p>“这才是真正的臭豆腐！”</p>
-<p>“霉的很完美！”</p>
-<p>“……”</p>
-<p><br></p>
-<p><img src="\mdpicture\臭豆腐.jpg" alt="城隍庙臭豆腐"></p>
-<p><br></p>
-<h3 id="遇"><a href="#遇" class="headerlink" title="遇"></a>遇</h3><p>老地方，又遇见了一个乞讨的老爷爷，但是好像没有人愿意给他钱。</p>
-<p>以前也遇到过一次，等饮料的时候，他伸出破烂的碗，看着我，上下颠一颠，几块钱硬币在碗里面当啷响。</p>
-<p>我犹豫着响掏出一点碎钱，被小可爱制止了。</p>
-<p>貌似有些残酷的冲老爷爷摆摆手，然后拿了饮料转身离开，给他一个背影。</p>
-<p>后来我们往下走，在风很大的路口遇见了一个卖报纸的老婆婆，忘记了多少钱一份，两块还是三块？只记得小可爱二话不说就买了一份。报纸还是过期的，早就不知道哪儿去了。</p>
-<p>记得他当时这样说：</p>
-<p>“如果我们刚才给了那个乞丐钱，那对这个辛苦卖报的老婆婆是不是不公平？”</p>
-<p><br></p>
-<h2 id="归途"><a href="#归途" class="headerlink" title="归途"></a>归途</h2><blockquote>
-<p>不断更新着的一切</p>
-<p>高楼 大厦</p>
-<p>人</p>
-</blockquote>
-<p><img src="\mdpicture\高樓.jpg" alt="萬達新樓"></p>
-<p><br></p>
-<blockquote>
-<p>清明时节雨 纷纷</p>
-</blockquote>
-<p><img src="\mdpicture\我.jpg" alt="潮湿的"></p>
-<p><br></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/05/归途/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018-04-01-Missing-Leslie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/2018-04-01-Missing-Leslie/">Missing Leslie</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/01/2018-04-01-Missing-Leslie/" class="archive-article-date">
-  	<time datetime="2018-04-01T14:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p><img src="\mdpicture\Leslie1.jpg" alt="春天该很好，你若尚在场"></p>
-<blockquote>
-<p>春天该很好，你若尚在场。</p>
-</blockquote>
-<p><br></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/01/2018-04-01-Missing-Leslie/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1257,15 +1218,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1301,11 +1262,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,6 +1294,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
@@ -1341,15 +1306,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,11 +1322,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,19 +1346,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">

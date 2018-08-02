@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="HeartBeat">
 <meta property="og:description" content="[TOC] 组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        …">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-07-30T15:47:57.356Z">
+<meta property="og:updated_time" content="2018-08-02T16:11:33.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数学（QAQ）">
 <meta name="twitter:description" content="[TOC] 组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        …">
@@ -245,6 +245,9 @@
 <p><strong>② 给定一个入栈顺序：1  2  3 …. n，一共有多少种合法的出栈顺序？</strong></p>
 <p>答案是 卡特兰数。即一共有：$h(n)=\frac{C_{2n}^{n}}{n+1}   $ 种合法的出栈顺序。</p>
 <p>如果仅仅只需要求出一共有多少种合法的出栈顺序，其实就是求出组合 C(2n,n)就可以了。</p>
+<h2 id="组合数模板"><a href="#组合数模板" class="headerlink" title="组合数模板"></a>组合数模板</h2><h3 id="n-m大，MOD小"><a href="#n-m大，MOD小" class="headerlink" title="n,m大，MOD小"></a>n,m大，MOD小</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long  </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000100</span>;  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">99991</span>;  </span><br><span class="line">ll f[N];  </span><br><span class="line"><span class="function">ll <span class="title">Fp</span><span class="params">(ll a,ll n)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    ll ans=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">while</span>(n)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) ans=(ans*a)%MOD;  </span><br><span class="line">        a=a*a%MOD;  </span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> ans;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function">ll <span class="title">Lucas</span><span class="params">(ll a,ll k)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    ll ans=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">while</span>(a&amp;&amp;k)  </span><br><span class="line">    &#123;  </span><br><span class="line">        ll a1=a%MOD;  </span><br><span class="line">        ll b1=k%MOD;  </span><br><span class="line">        <span class="keyword">if</span>(a1&lt;b1) <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">        ans=ans*f[a1]*Fp(f[b1]*f[a1-b1]%MOD,MOD<span class="number">-2</span>)%MOD;  </span><br><span class="line">        a/=MOD;  </span><br><span class="line">        k/=MOD;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> ans;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MOD;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        f[i]=f[i<span class="number">-1</span>]*i%MOD;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Init();  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,Lucas(<span class="number">5</span>,<span class="number">2</span>));  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n，m小，mod大"><a href="#n，m小，mod大" class="headerlink" title="n，m小，mod大"></a>n，m小，mod大</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long  </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000100</span>;  </span><br><span class="line">ll f[N];  </span><br><span class="line"><span class="function">ll <span class="title">Fp</span><span class="params">(ll a,ll n)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    ll ans=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">while</span>(n)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) ans=ans*a%MOD;  </span><br><span class="line">        a=a*a%MOD;  </span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> ans;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span>(n&lt;m) <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">return</span> f[n]*Fp(f[m],MOD<span class="number">-2</span>)%MOD*Fp(f[n-m],MOD<span class="number">-2</span>)%MOD;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++) f[i]=f[i<span class="number">-1</span>]*i%MOD;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Init();  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,C(<span class="number">5</span>,<span class="number">2</span>));  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n，m很小"><a href="#n，m很小" class="headerlink" title="n，m很小"></a>n，m很小</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1000000007</span>;  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">20</span>;  </span><br><span class="line">ll C[N][N];  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    C[<span class="number">0</span>][<span class="number">0</span>]=C[<span class="number">1</span>][<span class="number">0</span>]=C[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        C[i][<span class="number">0</span>]=<span class="number">1</span>;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            C[i][j]=(C[i<span class="number">-1</span>][j]+C[i<span class="number">-1</span>][j<span class="number">-1</span>])%MOD;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="母函数"><a href="#母函数" class="headerlink" title="母函数"></a>母函数</h2><blockquote>
 <p>定义：对于序列$a_0,a_1,a_2 … $构造一个函数：</p>
 </blockquote>
@@ -294,6 +297,7 @@
 <p>​                            S（1，1） = 1</p>
 <p>​                            S（n+1，k）= S（n，k-1) + nS（n，k）</p>
 <p>第三个式子是这样的，n+1个元素分成k个环，可以理解为前n个元素分成k-1个环，第n+1个自成一个环的种类数量，加上前n个元素分成k个环，第n+1个元素插入到第i个元素左边。</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一类Stirling数s(p,k)计数的是把p个对象排成k个非空循环排列的方法数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">ll s[N][N];<span class="comment">//存放要求的Stirling数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    s[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            s[i][j]=(s[i<span class="number">-1</span>][j<span class="number">-1</span>]+(i<span class="number">-1</span>)*s[i<span class="number">-1</span>][j])%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><blockquote>
 <p>将包含n个元素的集合划分为正好k个非空子集方法的数目</p>
 </blockquote>
@@ -302,6 +306,7 @@
 <p>​                            S（n，n） = S（n，1） = 1 </p>
 <p>​                            S（n，k）= S（n-1，k-1) + kS（n-1，k）</p>
 <p>第三个式子是这样的，n个元素分成k集合，可以理解为前n-1个元素分成k-1个集合，第n个自成一个集合的种类数量，加上前n-1个元素分成k个环，第n个元素在k个集合中选择放到里面去。</p>
+<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">第二类Stirling数S(p,k)计数的是把p元素集合划分到k个不可区分的盒子里且没有空盒子的划分个数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">ll s[N][N];<span class="comment">//存放要求的Stirling数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    s[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            s[i][j]=(s[i<span class="number">-1</span>][j<span class="number">-1</span>]+j*s[i<span class="number">-1</span>][j])%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -423,7 +428,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合"><span class="toc-number">1.</span> <span class="toc-text">组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cayley公式"><span class="toc-number">2.</span> <span class="toc-text">Cayley公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不全相异的排列"><span class="toc-number">3.</span> <span class="toc-text">不全相异的排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复排列和重复组合"><span class="toc-number">4.</span> <span class="toc-text">重复排列和重复组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆周排列"><span class="toc-number">5.</span> <span class="toc-text">圆周排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">生成全排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序数法"><span class="toc-number">6.1.</span> <span class="toc-text">序数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典序法"><span class="toc-number">6.2.</span> <span class="toc-text">字典序法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邻位互换法"><span class="toc-number">6.3.</span> <span class="toc-text">邻位互换法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卡特兰数"><span class="toc-number">7.</span> <span class="toc-text">卡特兰数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#母函数"><span class="toc-number">8.</span> <span class="toc-text">母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整数拆分"><span class="toc-number">9.</span> <span class="toc-text">整数拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ferrrs图像"><span class="toc-number">10.</span> <span class="toc-text">Ferrrs图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数型母函数"><span class="toc-number">11.</span> <span class="toc-text">指数型母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递推关系"><span class="toc-number">12.</span> <span class="toc-text">递推关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斐波那契"><span class="toc-number">13.</span> <span class="toc-text">斐波那契</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斯特林数-Stiring"><span class="toc-number">14.</span> <span class="toc-text">斯特林数 Stiring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第二类斯特林数"><span class="toc-number">14.1.</span> <span class="toc-text">第二类斯特林数</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合"><span class="toc-number">1.</span> <span class="toc-text">组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cayley公式"><span class="toc-number">2.</span> <span class="toc-text">Cayley公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不全相异的排列"><span class="toc-number">3.</span> <span class="toc-text">不全相异的排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复排列和重复组合"><span class="toc-number">4.</span> <span class="toc-text">重复排列和重复组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆周排列"><span class="toc-number">5.</span> <span class="toc-text">圆周排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">生成全排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序数法"><span class="toc-number">6.1.</span> <span class="toc-text">序数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典序法"><span class="toc-number">6.2.</span> <span class="toc-text">字典序法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邻位互换法"><span class="toc-number">6.3.</span> <span class="toc-text">邻位互换法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卡特兰数"><span class="toc-number">7.</span> <span class="toc-text">卡特兰数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合数模板"><span class="toc-number">8.</span> <span class="toc-text">组合数模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#n-m大，MOD小"><span class="toc-number">8.1.</span> <span class="toc-text">n,m大，MOD小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n，m小，mod大"><span class="toc-number">8.2.</span> <span class="toc-text">n，m小，mod大</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n，m很小"><span class="toc-number">8.3.</span> <span class="toc-text">n，m很小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#母函数"><span class="toc-number">9.</span> <span class="toc-text">母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整数拆分"><span class="toc-number">10.</span> <span class="toc-text">整数拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ferrrs图像"><span class="toc-number">11.</span> <span class="toc-text">Ferrrs图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数型母函数"><span class="toc-number">12.</span> <span class="toc-text">指数型母函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递推关系"><span class="toc-number">13.</span> <span class="toc-text">递推关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斐波那契"><span class="toc-number">14.</span> <span class="toc-text">斐波那契</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斯特林数-Stiring"><span class="toc-number">15.</span> <span class="toc-text">斯特林数 Stiring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板"><span class="toc-number">15.1.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二类斯特林数"><span class="toc-number">15.2.</span> <span class="toc-text">第二类斯特林数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板-1"><span class="toc-number">15.3.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -550,15 +555,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,11 +599,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,6 +631,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
@@ -634,15 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,11 +659,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,19 +683,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
