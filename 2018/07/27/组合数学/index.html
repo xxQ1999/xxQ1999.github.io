@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="HeartBeat">
 <meta property="og:description" content="[TOC] 组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        …">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-08-02T16:11:33.788Z">
+<meta property="og:updated_time" content="2018-08-02T17:15:55.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数学（QAQ）">
 <meta name="twitter:description" content="[TOC] 组合$C_n^r=C_{n-1}^r+C_{n-1}^{r-1}$ 对于第n个元素，不取时，相当于前n-1个元素中取r个，取时，是前n-1个元素中取r-1个。 像个杨辉三角： C(0,0) C(1,0)   C(1,1) C(2,0)   C(2,1)   C(2,2) C(3,0)   C(3,1)   C(3,2)   C(3,3) …..        …..        …">
@@ -268,7 +268,7 @@
 <p>解：以2g砝码为例，那么2g砝码可以组成：$(1+x^2+x^4+x^6……)$</p>
 <p>因此：$G(x)=(1+x+x^2+x^3+……)(1+x^2+x^4+x^6+……)(1+x^3+x^6+x^9+……)$</p>
 <p>模板：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个比较快速</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">K对应具体问题中物品的种类数。</span></span><br><span class="line"><span class="comment">v[i]表示该乘积表达式第i个因子的权重，对应于具体问题的每个物品的价值或者权重。</span></span><br><span class="line"><span class="comment">n1[i]表示该乘积表达式第i个因子的起始系数，对应于具体问题中的每个物品的最少个数，即最少要取多少个。</span></span><br><span class="line"><span class="comment">n2[i]表示该乘积表达式第i个因子的终止系数，对应于具体问题中的每个物品的最多个数，即最多要取多少个。</span></span><br><span class="line"><span class="comment">对于表达式(1+x+x^2)(x^8+x^10)(x^5+x^10+x^15+x^20)，v[3]=&#123;1,2,5&#125;，n1[3]=&#123;0,4,1&#125;，n2[3]=&#123;2,5,4&#125;。</span></span><br><span class="line"><span class="comment">解题的关键是要确定v、n1、n2数组的值。</span></span><br><span class="line"><span class="comment">通常n1都为0，但有时候不是这样。</span></span><br><span class="line"><span class="comment">n2有时候是无限大。</span></span><br><span class="line"><span class="comment">P是可能的最大指数。</span></span><br><span class="line"><span class="comment">如果n2为无穷大，那么第二层循环条件j&lt;=n2[i]可以去掉。</span></span><br><span class="line"><span class="comment">a[i],i为指数，内容为系数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//初始化a，因为有last，所以这里无需初始化其他位</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> last=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K;i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> last2=min(last+n[i]*v[i],P);<span class="comment">//计算下一次的last</span></span><br><span class="line">	<span class="built_in">memset</span>(b,<span class="number">0</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//只清空b[0..last2]</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=n1[i];j&lt;=n2[i]&amp;&amp;j*v[i]&lt;=last2;j++)<span class="comment">//这里是last2</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=last&amp;&amp;k+j*v[i]&lt;=last2;k++)<span class="comment">//这里一个是last，一个是last2</span></span><br><span class="line">			b[k+j*v[i]]+=a[k];</span><br><span class="line">	<span class="built_in">memcpy</span>(a,b,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//b赋值给a，只赋值0..last2</span></span><br><span class="line">	last=last2;<span class="comment">//更新last</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个比较快速</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">K对应具体问题中物品的种类数。</span></span><br><span class="line"><span class="comment">v[i]表示该乘积表达式第i个因子的权重，对应于具体问题的每个物品的价值或者权重。</span></span><br><span class="line"><span class="comment">n1[i]表示该乘积表达式第i个因子的起始系数，对应于具体问题中的每个物品的最少个数，即最少要取多少个。</span></span><br><span class="line"><span class="comment">n2[i]表示该乘积表达式第i个因子的终止系数，对应于具体问题中的每个物品的最多个数，即最多要取多少个。</span></span><br><span class="line"><span class="comment">对于表达式(1+x+x^2)(x^8+x^10)(x^5+x^10+x^15+x^20)，v[3]=&#123;1,2,5&#125;，n1[3]=&#123;0,4,1&#125;，n2[3]=&#123;2,5,4&#125;。</span></span><br><span class="line"><span class="comment">解题的关键是要确定v、n1、n2数组的值。</span></span><br><span class="line"><span class="comment">通常n1都为0，但有时候不是这样。</span></span><br><span class="line"><span class="comment">n2有时候是无限大。</span></span><br><span class="line"><span class="comment">P是可能的最大指数。</span></span><br><span class="line"><span class="comment">如果n2为无穷大，那么第二层循环条件j&lt;=n2[i]可以去掉。</span></span><br><span class="line"><span class="comment">a[i],i为指数，内容为系数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//初始化a，因为有last，所以这里无需初始化其他位</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> last=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K;i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> last2=min(last+n1[i]*v[i],P);<span class="comment">//计算下一次的last</span></span><br><span class="line">	<span class="built_in">memset</span>(b,<span class="number">0</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//只清空b[0..last2]</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=n1[i];j&lt;=n2[i]&amp;&amp;j*v[i]&lt;=last2;j++)<span class="comment">//这里是last2</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=last&amp;&amp;k+j*v[i]&lt;=last2;k++)<span class="comment">//这里一个是last，一个是last2</span></span><br><span class="line">			b[k+j*v[i]]+=a[k];</span><br><span class="line">	<span class="built_in">memcpy</span>(a,b,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//b赋值给a，只赋值0..last2</span></span><br><span class="line">	last=last2;<span class="comment">//更新last</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例题：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2082" target="_blank" rel="noopener">HDU2082</a></p>
 <p>示例代码:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">100</span>],n[<span class="number">100</span>],a[<span class="number">100</span>],b[<span class="number">100</span>],last,last2,sum;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">26</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n[i]);</span><br><span class="line">            v[i]=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        a[<span class="number">0</span>]=<span class="number">1</span>;last=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//初始化a，因为有last，所以这里无需初始化其他位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">26</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> last2=min(last+n[i]*v[i],<span class="number">50</span>);<span class="comment">//计算下一次的last</span></span><br><span class="line">            <span class="built_in">memset</span>(b,<span class="number">0</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//只清空b[0..last2]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=n[i]&amp;&amp;j*v[i]&lt;=last2; j++) <span class="comment">//这里是last2</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;=last&amp;&amp;k+j*v[i]&lt;=last2; k++) <span class="comment">//这里一个是last，一个是last2</span></span><br><span class="line">                    b[k+j*v[i]]+=a[k];</span><br><span class="line">            <span class="built_in">memcpy</span>(a,b,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(last2+<span class="number">1</span>));<span class="comment">//b赋值给a，只赋值0..last2</span></span><br><span class="line">            last=last2;<span class="comment">//更新last</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">50</span>; i++)</span><br><span class="line">            <span class="keyword">if</span>(a[i])   ans+=a[i];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -555,10 +555,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
@@ -567,11 +563,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规律</a>
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +579,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
+                <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,6 +599,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
@@ -611,23 +611,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-贪心</a>
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,11 +651,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">HDU</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,11 +667,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,15 +687,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
