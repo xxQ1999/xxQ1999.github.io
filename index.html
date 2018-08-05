@@ -177,8 +177,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>#<a href="https://www.nowcoder.com/acm/contest/163/A" target="_blank" rel="noopener">Fruit Ninja</a> </p>
-<p>##题意</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1><a href="https://www.nowcoder.com/acm/contest/163/A" target="_blank" rel="noopener">Fruit Ninja</a></h1>
+
+<h2>题意</h2>
+
 <p>屏幕上有n个水果，你可以画一条直线切掉其中一些，给你N和x，M/N&gt;=x，M为切掉的水果数，x为0~1的纯小数，指的是切掉的水果比吧。问你是否有满足这个式子的这样一条直线，有输出yes，没有输出no。</p>
 <p>N&lt;=1e4 , x小数点后一位（0,1）。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>随机化，巧妙巧妙，厉害厉害，佩服佩服，不过要分析一波随机的数量。由于m是切掉的水果数，n是总水果数，x是两者之比，也就是说在这条直线上的水果数是m个，意味着随机选一个水果，刚好在直线上的概率是x，因此随机选两个刚好组成这条直线的概率是x^2，而x∈[0.1,0.9]，因此概率最小为0.01，也就是说取100次就能取到那条我们需要的直线，反之如果没有满足的，就说明“NO”。为了保险起见，我们将随机范围设置为200。</p>
