@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="YY的GCD  题意给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&amp;lt;=x&amp;lt;=N,1&amp;lt;=y&amp;lt;=M) 思路题目实际上是要求：$$ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim$$由莫比乌斯反演的基本公式：$$F(n)=\sum_{n|d}f(d)$$ $$f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-08-02T09:51:11.591Z">
+<meta property="og:updated_time" content="2018-08-09T12:09:06.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫比乌斯题集（有丶意思）">
 <meta name="twitter:description" content="YY的GCD  题意给你一个n,m，求gcd(i,j)=质数的(x,y)有多少对？(1&amp;lt;=x&amp;lt;=N,1&amp;lt;=y&amp;lt;=M) 思路题目实际上是要求：$$ans=\sum_{i=1}^N\sum_{j=1}^Mgcd(i,j)=prim$$由莫比乌斯反演的基本公式：$$F(n)=\sum_{n|d}f(d)$$ $$f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)">
@@ -205,11 +205,12 @@
 <h2>思路</h2><br>$$<br>ans=\sum_{i=1}^{a}\sum_{j=1}^{b}[gcd(x,y)=d]<br>$$<br><br>我们假设：<br>$$<br>f(d)=\sum_{i=1}^{a}\sum_{j=1}^{b}[gcd(x,y)=d]<br>$$<br><br>$$<br>F(n)=\sum_{d|n}f(d)=\lfloor\frac{a}{n}\rfloor\lfloor\frac{b}{n}\rfloor<br>$$<br><br>$$<br>f(d)=\sum_{d|n}μ(\lfloor\frac{n}{d}\rfloor)F(n)<br>$$<br><br>发现原来f(d)=ans，那么有：<br>$$<br>ans=\sum_{d|n}μ(\lfloor\frac{n}{d}\rfloor)F(n)=\sum_{d|n}μ(\lfloor\frac{n}{d}\rfloor)\lfloor\frac{a}{n}\rfloor\lfloor\frac{b}{n}\rfloor<br>$$<br>枚举$\lfloor{\frac{n}{d}\rfloor}$=t：<br>$$<br>ans=\sum_{t=1}^{min(a,b)}μ(t)\lfloor\frac{a}{dt}\rfloor\lfloor\frac{b}{dt}\rfloor<br>$$<br>就能做了。<br><br>因为前面已经做了一道比这题难的，所以就不写O(n)的写法了，直接上代码，一遍过，爽歪歪。<br><br><h2>看！代码</h2>
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">50010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> prim[N],pre[N],mu[N];</span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> sum[N];</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 对于μ函数的线筛*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// memset(vis,false,sizeof(vis));</span></span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">	mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123;mu[i]=<span class="number">-1</span>;prim[++cnt]=i;&#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            vis[i*prim[j]]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span> mu[prim[j]*i]=-mu[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sum[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        pre[i]+=mu[i]; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        sum[i]=sum[i<span class="number">-1</span>]+(<span class="keyword">long</span> <span class="keyword">long</span>)pre[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    get_mu(<span class="number">50000</span>);</span><br><span class="line">    <span class="keyword">int</span> t,a,b,d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;d);</span><br><span class="line">        <span class="keyword">int</span> Min=min(a,b);</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=Min;l=r+<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            r=min(a/(a/l),b/(b/l));</span><br><span class="line">            ans+=<span class="number">1l</span>l*(a/(l*d))*(b/(l*d))*(sum[r]-sum[l<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="约数个数和"><a href="#约数个数和" class="headerlink" title="约数个数和"></a><h1><a href="https://www.luogu.org/problemnew/show/P3327" target="_blank" rel="noopener">约数个数和</a></h1></h1><h2 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a><h2>题意</h2></h2><p>设d(x)为x的约数个数，给定N、M，求$\sum_{i=1}^{N}\sum_{j=1}^{M}d(ij)$</p>
+<h1 id="约数个数和"><a href="#约数个数和" class="headerlink" title="约数个数和"></a><a href="https://www.luogu.org/problemnew/show/P3327" target="_blank" rel="noopener">约数个数和</a></h1><h2 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h2><p>设d(x)为x的约数个数，给定N、M，求$\sum_{i=1}^{N}\sum_{j=1}^{M}d(ij)$</p>
 <p>多组，N,M。1&lt;=N, M&lt;=50000 </p>
-<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a><h2>思路</h2></h2><p>关于这个约数的个数d(x)，它其实有下面这样的函数式：<br>$$<br>d(ij)=\sum_{x|i}\sum_{y|j}[gcd(x,y)==1]<br>$$<br>接下来套路的设：<br>$$<br>f(d)=\sum_{i=1}^N\sum_{j=1}^{M}[gcd(i,j)==d]<br>$$</p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>关于这个约数的个数d(x)，它其实有下面这样的函数式：<br>$$<br>d(ij)=\sum_{x|i}\sum_{y|j}[gcd(x,y)==1]<br>$$<br>接下来套路的设：<br>$$<br>f(d)=\sum_{i=1}^N\sum_{j=1}^{M}[gcd(i,j)==d]<br>$$</p>
 <p>$$<br>F(n)=\sum_{n|d}f(d)=\lfloor\frac{N}{n}\rfloor\lfloor\frac{M}{n}\rfloor      –①<br>$$</p>
-<p>由莫比乌斯反演可以得到：<br>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)<br>$$<br>因为：<br>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j}[gcd(x,y)==1]<br>$$<br>由于$∑<em>{d|n}μ(d)$的性质，即d=1的时候=1，其他都是0，可以将式子化为：<br>$$<br>ans=\sum</em>{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} \sum_{d|gcd(x,y)}μ(d)<br>$$<br>枚举d|gcd(x,y)的情况 ，d从1取到min(N,M)<br>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} \sum_{d=1}^{min(N,M)}μ(d)*[d|gcd(x,y)]<br>$$<br>由于μ(d)与x，y，i，j无关，所以可以提到最前面<br>$$<br>ans=\sum_{d=1}^{min(N,M)}μ(d) \sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} [d|gcd(x,y)]<br>$$<br>对于x|i，y|j的情况，可以由①得到$=\lfloor\frac{N}{x}\rfloor\lfloor\frac{M}{y}\rfloor$</p>
+<p>由莫比乌斯反演可以得到：<br>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(n)<br>$$<br>因为：<br>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j}[gcd(x,y)==1]<br>$$<br>由于$∑_{d|n}μ(d)$的性质，即d=1的时候=1，其他都是0，可以将式子化为：</p>
+<p>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} \sum_{d|gcd(x,y)}μ(d)<br>$$<br>枚举d|gcd(x,y)的情况 ，d从1取到min(N,M)<br>$$<br>ans=\sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} \sum_{d=1}^{min(N,M)}μ(d)*[d|gcd(x,y)]<br>$$<br>由于μ(d)与x，y，i，j无关，所以可以提到最前面<br>$$<br>ans=\sum_{d=1}^{min(N,M)}μ(d) \sum_{i=1}^N\sum_{j=1}^M\sum_{x|i}\sum_{y|j} [d|gcd(x,y)]<br>$$<br>对于x|i，y|j的情况，可以由①得到$=\lfloor\frac{N}{x}\rfloor\lfloor\frac{M}{y}\rfloor$</p>
 <blockquote>
 <p>由<strong>枚举i,j和它们的约数</strong>改变为<strong>枚举它们的约数</strong>再直接乘上这些约数的倍数的个数。因为每一个约数都会对它的倍数产生贡献。 </p>
 </blockquote>
@@ -367,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">YY的GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">POI2007ZAP-Queries</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-1"><span class="toc-number">2.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#约数个数和"><span class="toc-number">3.</span> <span class="toc-text">约数个数和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">约数个数和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-2"><span class="toc-number">4.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-1"><span class="toc-number">4.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.4.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#problem-b"><span class="toc-number">5.</span> <span class="toc-text">problem b</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-3"><span class="toc-number">5.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-2"><span class="toc-number">5.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#crash的数字表格"><span class="toc-number">6.</span> <span class="toc-text">crash的数字表格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-4"><span class="toc-number">6.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-3"><span class="toc-number">6.2.</span> <span class="toc-text">思路</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">YY的GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">POI2007ZAP-Queries</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-1"><span class="toc-number">2.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#约数个数和"><span class="toc-number">3.</span> <span class="toc-text">约数个数和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-2"><span class="toc-number">3.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-1"><span class="toc-number">3.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#problem-b"><span class="toc-number">4.</span> <span class="toc-text">problem b</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-3"><span class="toc-number">4.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-2"><span class="toc-number">4.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#crash的数字表格"><span class="toc-number">5.</span> <span class="toc-text">crash的数字表格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意-4"><span class="toc-number">5.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路-3"><span class="toc-number">5.2.</span> <span class="toc-text">思路</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -494,15 +495,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,6 +527,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
@@ -542,7 +547,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,10 +556,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,11 +571,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,11 +583,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,15 +615,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,6 +635,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
@@ -642,15 +647,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">

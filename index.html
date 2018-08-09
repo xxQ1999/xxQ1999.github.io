@@ -157,6 +157,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在比赛中遇到的稀奇古怪的结论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/09/在比赛中遇到的稀奇古怪的结论/">在比赛中遇到的稀奇古怪的结论</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/09/在比赛中遇到的稀奇古怪的结论/" class="archive-article-date">
+  	<time datetime="2018-08-09T12:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p><strong>将多边形对角线相连，其对角线最多被分割成多少段？</strong><br>$$<br>max=(n^4-6<em>n^3+17</em>n^2-24<em>n)/12<br>$$<br><strong>一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?</strong><br>$$<br>max=(n^4-6</em>n^3+23<em>n^2-18</em>n+24)/24<br>$$<br><strong>根号函数的性质：</strong>$\sqrt{a+b+c+…}\le\sqrt{a}+\sqrt{b}+\sqrt{c}+…$</p>
+<p> <strong>多边形公式</strong></p>
+<p>$$S=\frac{1}{2}\left|\sum\limits_{i=0}^{n-1}(X_iY_{i+1}-X_{i+1}Y_i)\right|$$</p>
+<p>其中是相邻的点，对于n-1的i+1是0代表这第一个点，由于顺时针逆时针会使正负号改变，所以取绝对值。</p>
+<p><strong>摆线与圆面积关系</strong></p>
+<ol>
+<li>摆线留下的面积是圆面积的三倍。</li>
+<li>它的长度等于旋转圆直径的 4 倍，是 一个不依赖于π的有理数。</li>
+</ol>
+<p>摆线定义：摆线(cycloid)是数学中众多的迷人曲线之一．它是这样定义的：一个圆沿一直线缓慢地滚动，则圆上一固定点所经过的轨迹称为摆线．</p>
+<p><strong>两条直线夹角</strong></p>
+<p>$${\left|\frac{A_{1}B_{2}-A_{2}B_{1}}{A_{1}A_{2}+B_{1}B_{2}}\right|}$$</p>
+<p><strong>素数定理</strong><br>$$\lim\limits_{n-&gt;\infty}\frac{\pi(n)}{n/\ln{n}}$$</p>
+<p>描述素数的分布，素数分布规律，以36N（N+1）为单位，随着N的增大，素数的个数发波浪形式渐渐增多。素数定理可以给出第n个素数p(n)的渐近估计： 它也给出从整数中抽到素数的概率。从不大于n的自然数随机选一个，它是素数的概率大约是1/ln n。 π(n)为小于等于n的素数的个数。</p>
+<p><strong>GCD(1)</strong><br>a&gt; 0；m,n &gt; 0，那么有$$\gcd(a^m-1,a^n-1)=a^{gcd(m,n)}-1$$</p>
+<p><strong>GCD(2)</strong><br>a&gt;b;gcd(a,b)=1,那么$\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(m,n)}-{b^{\gcd(m,n)}} $</p>
+<p><strong>GCD(3)</strong><br>设$$\gcd(a^m-1,a^n-1)=a^{gcd(m,n)}-1$$,那么G的值为<br>(1)n为素数，那么答案就是n。<br>(2)n有多个素因子，那么答案就是1。<br>(3)n只有一个素因子，那么答案就是该因子。</p>
+<p><strong>GCD(4)</strong></p>
+<p>$$\sum\limits_{i=1}^{N}\gcd(i,N)=\sum\limits_{d|N}dφ(\frac{N}{d})=\sum\limits_{d|N}\frac{N}{d}φ(d)$$</p>
+<p>φ(x)为欧拉函数，d是N的质因子</p>
+<p><strong>欧拉函数</strong></p>
+<p>$\sum_{d|n}\varphi(d)=n $</p>
+<p><strong>Fibonacci(1)</strong><br>设Fn为Fib数，那么有$$\gcd(F_m,F_n) = F_{gcd(m,n)}$$</p>
+<p><strong>Fibonacci(2)</strong><br>给定两个互素的正整数A和B，那么它们最大不能组合的数为A∗B−A−B不能组合的个数为$$num=\frac{(A-1)(B-1)}{2}$$</p>
+<p><strong>lcm(1)</strong><br>$$(n+1)lcm(C_n^0,C_n^1,\cdots,C_n^n)=lcm(1,2,\cdots,n+1)$$</p>
+<p><strong>lcm(2)</strong><br>给一个正整数n，求lcm(1,2,3,⋯,n)lcm(1,2,3,⋯,n)的值，(1&lt;=n&lt;=10^8)</p>
+<p>定义L(n)L(n)为1,2,3,……,n的最小公倍数。则可以发现：</p>
+<p>$$L(n+1)=\left{ \begin{aligned} &amp; L(n)*p  &amp;&amp; 如果(n+1)是p的次方数   \ &amp; L(n) &amp;&amp; 否则 \end{aligned} \right.$$`</p>
+<p>所以有: </p>
+<p>L(1) = 1<br>L(2) = 1 <em> 2<br>L(3) = 1 </em> 2 <em> 3<br>L(4) = 1 </em> 2 <em> 3 </em> 2<br>L(5) = 1 <em> 2 </em> 3 <em> 2 </em> 5<br>L(6) = 1 <em> 2 </em> 3 <em> 2 </em> 5<br>L(7) = 1 <em> 2 </em> 3 <em> 2 </em> 5 * 7</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/09/在比赛中遇到的稀奇古怪的结论/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小偷家族" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -884,7 +987,13 @@
 <p>有：$C_n^m=K*tot+X$</p>
 <p>两边同对$pi$取模， </p>
 </blockquote>
-<p>$$<br>\left{ \begin{aligned} X \% p_1 = C_n^m \% p_1 = Lucas(n,m,p_1)\ X \% p_2 = C_n^m \% p_2 = Lucas(n,m,p_2)\ …\ X \% p_n = C_n^m \% p_n = Lucas(n,m,p_n)\ \end{aligned} \right.<br>$$</p>
+<p>$$<br>X \% p_1 = C_n^m \% p_1 = Lucas(n,m,p_1)<br>$$</p>
+<p>$$<br>X \% p_2 = C_n^m \% p_2 = Lucas(n,m,p_2)<br>$$</p>
+<p>$$<br>…<br>$$</p>
+<p>$$<br>X \% p_n = C_n^m \% p_n = Lucas(n,m,p_n)<br>$$</p>
+<p>$$<br>X \% p_1 = C_n^m \% p_1 = Lucas(n,m,p_1)<br>$$</p>
+<p>$$</p>
+<p>$$</p>
 <blockquote>
 <p>利用中国剩余定理求出X即可。</p>
 <p>因为做乘法过程中可能会超long long ，所以我们要用快速乘法去处理，方便取模 </p>
@@ -1050,101 +1159,6 @@
 
 
   
-    <article id="post-Glad-You-Came（线段树）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/Glad-You-Came（线段树）/">Glad You Came（线段树||ST表）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/06/Glad-You-Came（线段树）/" class="archive-article-date">
-  	<time datetime="2018-08-06T13:42:40.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Glad-You-Came"><a href="#Glad-You-Came" class="headerlink" title="Glad You Came"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6356" target="_blank" rel="noopener">Glad You Came</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>不晓得咋说……反正就是把m个区间对应m个vi，对于每一个区间的数字，小于vi的都变成vi，最后求最终结果的i*a[i]的异或。</p>
-<p>1、线段树：肯定要维护一个最小值，而且这题由于初始的ai都是0，因此min也是0，而且暴力单点更新，我们只需要建一个一维的数组就好了。然后一个update函数，一个最终结果的计算函数，注意剪枝：” $if(tree[index].val&gt;=v) return “$。</p>
-<p>2、反向ST表：我的理解是，对于一个区间$dp[i][d]$，表示的是从i位置开始长度为$2^d$的区间,也就是$[i , i+2^d-1]$。</p>
-<p>比如对于区间[1,10]，长度为10，那么我们找到最大的那个&lt;10的$2^d$，即8，d=3，可将区间分成两个：[1,8],[3,10]，用dp[],[]表示就是$dp[1][3]$和$dp[10-2^3+1][3]$。这样对于每一次询问L,R，从一个大区间分出来的两个小区间，维护他们的max值，取max(dp ,val ) 。这样，我们就从最大的区间开始往小了维护，直到$dp[i][0]$这样。</p>
-<p>##看！代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*线段树莽过的做法*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> uint;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> tree[MAXN&lt;&lt;<span class="number">2</span>];<span class="comment">//一定要开到4倍多的空间</span></span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line"></span><br><span class="line">uint mod=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line"><span class="function">uint <span class="title">fx</span><span class="params">(uint &amp;x,uint &amp;y,uint &amp;z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=x^(x&lt;&lt;<span class="number">11</span>);</span><br><span class="line">    x=x^(x&gt;&gt;<span class="number">4</span>);</span><br><span class="line">    x=x^(x&lt;&lt;<span class="number">5</span>);</span><br><span class="line">    x=x^(x&gt;&gt;<span class="number">14</span>);</span><br><span class="line">    uint w=x^(y^z);</span><br><span class="line">    x=y;</span><br><span class="line">    y=z;</span><br><span class="line">    z=w;</span><br><span class="line">    <span class="keyword">return</span> z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> L,R;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> v;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tree[index]&gt;=v)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(l==r&amp;&amp;tree[index]&lt;v)</span><br><span class="line">    &#123;</span><br><span class="line">        tree[index]=v;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(L&lt;=mid)update(l,mid,index&lt;&lt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(R&gt;mid)update(mid+<span class="number">1</span>,r,index&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    tree[index]=min(tree[index&lt;&lt;<span class="number">1</span>],tree[index&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">        <span class="keyword">return</span> tree[index];</span><br><span class="line">    <span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(cnt&lt;=mid)</span><br><span class="line">        <span class="keyword">return</span> cal(l,mid,index&lt;&lt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> cal(mid+<span class="number">1</span>,r,index&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(tree,<span class="number">0</span>,<span class="keyword">sizeof</span>(tree));</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        cnt=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        uint x,y,z;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%u%u%u"</span>,&amp;x,&amp;y,&amp;z);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            L=fx(x,y,z)%n+<span class="number">1</span>;</span><br><span class="line">            R=fx(x,y,z)%n+<span class="number">1</span>;</span><br><span class="line">            v=fx(x,y,z)%mod;</span><br><span class="line">            <span class="keyword">if</span>(L&gt;R) swap(L,R);</span><br><span class="line">            update(<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(cnt=<span class="number">1</span>;cnt&lt;=n;cnt++)</span><br><span class="line">            ans=ans^(cnt*cal(<span class="number">1</span>,n,<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> uint;</span><br><span class="line">uint f[<span class="number">15000010</span>];</span><br><span class="line">uint mod=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line"><span class="function">uint <span class="title">fx</span><span class="params">(uint &amp;x,uint &amp;y,uint &amp;z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=x^(x&lt;&lt;<span class="number">11</span>);</span><br><span class="line">    x=x^(x&gt;&gt;<span class="number">4</span>);</span><br><span class="line">    x=x^(x&lt;&lt;<span class="number">5</span>);</span><br><span class="line">    x=x^(x&gt;&gt;<span class="number">14</span>);</span><br><span class="line">    uint w=x^(y^z);</span><br><span class="line">    x=y;</span><br><span class="line">    y=z;</span><br><span class="line">    z=w;</span><br><span class="line">    <span class="keyword">return</span> z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> l[<span class="number">5000010</span>],r[<span class="number">5000010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> v[<span class="number">5000010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[<span class="number">100010</span>][<span class="number">18</span>];</span><br><span class="line"><span class="keyword">int</span> lg[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++) lg[i]=log2(i);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        uint x,y,z;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%u%u%u"</span>,&amp;x,&amp;y,&amp;z);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>*m;i++)</span><br><span class="line">            f[i]=fx(x,y,z);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            l[i]=min(f[i*<span class="number">3</span><span class="number">-2</span>]%n+<span class="number">1</span>,f[i*<span class="number">3</span><span class="number">-1</span>]%n+<span class="number">1</span>);</span><br><span class="line">            r[i]=max(f[i*<span class="number">3</span><span class="number">-2</span>]%n+<span class="number">1</span>,f[i*<span class="number">3</span><span class="number">-1</span>]%n+<span class="number">1</span>);</span><br><span class="line">            v[i]=f[i*<span class="number">3</span>]%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">int</span> d,MAX=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            d=lg[r[i]-l[i]+<span class="number">1</span>];</span><br><span class="line">            MAX=max(MAX,d);<span class="comment">//记录最长的长度</span></span><br><span class="line">            dp[l[i]][d]=max(v[i],dp[l[i]][d]); <span class="comment">//分为两部分，每一部分取覆盖的最小值和v比较</span></span><br><span class="line">            dp[r[i]-(<span class="number">1</span>&lt;&lt;d)+<span class="number">1</span>][d]=max(v[i],dp[r[i]-(<span class="number">1</span>&lt;&lt;d)+<span class="number">1</span>][d]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=MAX;j&gt;<span class="number">0</span>;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i+(<span class="number">1</span>&lt;&lt;j)<span class="number">-1</span>&lt;=n;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j<span class="number">-1</span>]=max(dp[i][j],dp[i][j<span class="number">-1</span>]);</span><br><span class="line">                dp[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>]=max(dp[i][j],dp[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">            ans=ans^(<span class="number">1l</span>l*i*dp[i][<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ST表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/06/Glad-You-Came（线段树）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1255,15 +1269,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,6 +1301,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
@@ -1303,7 +1321,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,10 +1330,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1331,11 +1345,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1343,11 +1357,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,15 +1389,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1395,6 +1409,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
@@ -1403,15 +1421,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
