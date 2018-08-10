@@ -177,7 +177,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p><strong>将多边形对角线相连，其对角线最多被分割成多少段？</strong><br>$$<br>max=(n^4-6<em>n^3+17</em>n^2-24<em>n)/12<br>$$<br><strong>一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?</strong><br>$$<br>max=(n^4-6</em>n^3+23<em>n^2-18</em>n+24)/24<br>$$<br><strong>根号函数的性质：</strong>$\sqrt{a+b+c+…}\le\sqrt{a}+\sqrt{b}+\sqrt{c}+…$</p>
+        <script src="/assets/js/APlayer.min.js"> </script><p><strong>将多边形对角线相连，其对角线最多被分割成多少段？</strong></p>
+<p>$$<br>max=(n^4-6n^3+17n^2-24n)/12<br>$$</p>
+<p><strong>一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?</strong></p>
+<p>$$<br>max=(n^4-6n^3+23n^2-18n+24)/24<br>$$</p>
+<p><strong>根号函数的性质：</strong>$\sqrt{a+b+c+…}\le\sqrt{a}+\sqrt{b}+\sqrt{c}+…$</p>
 <p> <strong>多边形公式</strong></p>
 <p>$$S=\frac{1}{2}\left|\sum\limits_{i=0}^{n-1}(X_iY_{i+1}-X_{i+1}Y_i)\right|$$</p>
 <p>其中是相邻的点，对于n-1的i+1是0代表这第一个点，由于顺时针逆时针会使正负号改变，所以取绝对值。</p>
@@ -199,14 +203,14 @@
 <p>φ(x)为欧拉函数，d是N的质因子</p>
 <p><strong>欧拉函数</strong></p>
 <p>$\sum_{d|n}\varphi(d)=n $</p>
-<p><strong>Fibonacci(1)</strong><br>设Fn为Fib数，那么有$$\gcd(F_m,F_n) = F_{gcd(m,n)}$$</p>
+<p><strong>Fibonacci(1)</strong><br>设Fn为Fib数，那么有$$\gcd(F_m,F_n) = F_{gcd(m,n)}​$$</p>
 <p><strong>Fibonacci(2)</strong><br>给定两个互素的正整数A和B，那么它们最大不能组合的数为A∗B−A−B不能组合的个数为$$num=\frac{(A-1)(B-1)}{2}$$</p>
 <p><strong>lcm(1)</strong><br>$$(n+1)lcm(C_n^0,C_n^1,\cdots,C_n^n)=lcm(1,2,\cdots,n+1)$$</p>
 <p><strong>lcm(2)</strong><br>给一个正整数n，求lcm(1,2,3,⋯,n)lcm(1,2,3,⋯,n)的值，(1&lt;=n&lt;=10^8)</p>
-<p>定义L(n)L(n)为1,2,3,……,n的最小公倍数。则可以发现：</p>
-<p>$$L(n+1)=\left{ \begin{aligned} &amp; L(n)*p  &amp;&amp; 如果(n+1)是p的次方数   \ &amp; L(n) &amp;&amp; 否则 \end{aligned} \right.$$`</p>
+<p>定义L(n)L(n)为1,2,3,……,n的最小公倍数。则可以发现：<br>$$<br>L(n+1)=L(n)*p \ \ \ \ \   \ \ \ \ \ 如果(n+1)是p的次方数<br>$$</p>
+<p>$$<br>= L(n)     \ \  \ \ \ \  \ \  \ \ \  \ 否则<br>$$</p>
 <p>所以有: </p>
-<p>L(1) = 1<br>L(2) = 1 <em> 2<br>L(3) = 1 </em> 2 <em> 3<br>L(4) = 1 </em> 2 <em> 3 </em> 2<br>L(5) = 1 <em> 2 </em> 3 <em> 2 </em> 5<br>L(6) = 1 <em> 2 </em> 3 <em> 2 </em> 5<br>L(7) = 1 <em> 2 </em> 3 <em> 2 </em> 5 * 7</p>
+<p>L(1) = 1<br>L(2) = 1 x 2<br>L(3) = 1 x 2 x 3<br>L(4) = 1 x 2 x 3 x 2<br>L(5) = 1 x 2 x 3 x 2 x 5<br>L(6) = 1 x 2 x 3 x 2 x 5<br>L(7) = 1 x 2 x 3 x 2 x 5 x 7</p>
 
       
 
@@ -508,18 +512,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Journey-with-Knapsack"><a href="#Journey-with-Knapsack" class="headerlink" title=" Journey with Knapsack"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6042" target="_blank" rel="noopener"> Journey with Knapsack</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Journey-with-Knapsack"><a href="#Journey-with-Knapsack" class="headerlink" title=" Journey with Knapsack"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6042" target="_blank" rel="noopener"> Journey with Knapsack</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个<em>容量</em>为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？</p>
 <p>1&lt;=n&lt;=5e4 , 0&lt;=ai&lt;=2n , 1&lt;=m&lt;=2n，0&lt;=bi&lt;=2n。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>背包全部装食物的方案数：</strong><br>$$<br>Ans=\prod_{i=1}^n(1+x^i+x^{2i}+…+x^{a_i<em>i})=\prod_{i=1}^n\frac{1-x^{i</em>(a_i+1)}}{1-x^i}<br>$$</p>
-<p>$$<br>=\prod_{i=1}^n(1-x^{i*(a_i+1)}) \prod_{i=1}^n(\frac{1}{1-x^i})<br>$$</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>背包全部装食物的方案数：</strong></p>
+<p>$$<br>\prod_{i=1}^n(1+x^i+x^{2i}+…+x^{a_ii})=\prod_{i=1}^n\frac{1-x^{i(a_i+1)}}{1-x^i}<br>$$</p>
+<p>$$<br>=\prod_{i=1}^n(1-x^{i(a_i+1)}) \prod_{i=1}^n(\frac{1}{1-x^i})<br>$$</p>
 <p><strong>对于左边的累乘进行分析：</strong></p>
 <ol>
 <li>假设右边部分已经求得，是一个2n项（后面会求到）多项式：$\sum_{i=1}^{2n}dp[i]*x^i$(dp[i]的i指的是体积，dp的值是种数)</li>
 <li>那么原式子就变成，左边的n个两项式与右边的的2n项式相乘，有：</li>
 </ol>
-<p>$$<br>(1-x^{i<em>(a_i+1)})(\sum_{j=1}^{2n}dp[j]</em>x^j)=\sum_{j=1}^{2n}dp[j]<em>x^j-\sum_{j=1}^{2n}dp[j]</em>x^{i*(a_i+1)+j}<br>$$</p>
-<p>​    我们将j向右移$i<em>(a_i+1)$位，则：<br>$$<br>=\sum_{j=1}^{2n}dp[j]</em>x^j-\sum_{j=i<em>(a_i+1)}^{2n+i</em>(a_i+1)}dp[j-i<em>(a_i+1)]</em>x^j<br>$$</p>
-<p>$$<br>=\sum_{j=1}^{i<em>(a_i+1)}dp[j]</em>x^j+\sum_{j=i<em>(a_i+1)}^{2n}(dp[j]-dp[j-i</em>(a_i+1)])*x^j<br>$$</p>
+<p>$$<br>(1-x^{i(a_i+1)})(\sum_{j=1}^{2n}dp[j]x^j)<br>$$</p>
+<p>$$<br>=\sum_{j=1}^{2n}dp[j]x^j-\sum_{j=1}^{2n}dp[j]x^{i(a_i+1)+j}<br>$$</p>
+<p>​    我们将j向右移$i*(a_i+1)$位，则：</p>
+<p>$$<br>=\sum_{j=1}^{2n}dp[j]x^j-\sum_{j=i(a_i+1)}^{2n+i(a_i+1)}dp[j-i(a_i+1)]x^j<br>$$</p>
+<p>$$<br>=\sum_{j=1}^{i(a_i+1)}dp[j]x^j+\sum_{j=i(a_i+1)}^{2n}(dp[j]-dp[j-i(a_i+1)])x^j<br>$$</p>
 <pre><code>（由于2n以后的项都没有意义，所以可以减少到2n）
 </code></pre><ol>
 <li>由于前面的假设1，dp[j]已经求得，因此我们只要再求得对所有$i*(a_i+1)\le{j}\le2n$，再求：</li>
@@ -991,8 +998,6 @@
 <p>$$<br>…<br>$$</p>
 <p>$$<br>X \% p_n = C_n^m \% p_n = Lucas(n,m,p_n)<br>$$</p>
 <p>$$<br>X \% p_1 = C_n^m \% p_1 = Lucas(n,m,p_1)<br>$$</p>
-<p>$$</p>
-<p>$$</p>
 <blockquote>
 <p>利用中国剩余定理求出X即可。</p>
 <p>因为做乘法过程中可能会超long long ，所以我们要用快速乘法去处理，方便取模 </p>
@@ -1280,15 +1285,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,11 +1317,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,10 +1334,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1404,11 +1409,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1428,11 +1433,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
   <title>Journey with Knapsack(令人自闭的母函数+五边形定理) | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数：$$A">
+  <meta name="description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数： $$">
 <meta name="keywords" content="母函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Journey with Knapsack(令人自闭的母函数+五边形定理)">
 <meta property="og:url" content="http://github.com/xxq1999/2018/08/09/Journey-with-Knapsack(令人自闭的母函数+五边形定理)/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数：$$A">
+<meta property="og:description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数： $$">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-08-09T12:02:10.561Z">
+<meta property="og:updated_time" content="2018-08-10T17:28:47.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Journey with Knapsack(令人自闭的母函数+五边形定理)">
-<meta name="twitter:description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数：$$A">
+<meta name="twitter:description" content="Journey with Knapsack题意有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？ 1&amp;lt;=n&amp;lt;=5e4 , 0&amp;lt;=ai&amp;lt;=2n , 1&amp;lt;=m&amp;lt;=2n，0&amp;lt;=bi&amp;lt;=2n。 思路背包全部装食物的方案数： $$">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -177,18 +177,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Journey-with-Knapsack"><a href="#Journey-with-Knapsack" class="headerlink" title=" Journey with Knapsack"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6042" target="_blank" rel="noopener"> Journey with Knapsack</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个容量为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Journey-with-Knapsack"><a href="#Journey-with-Knapsack" class="headerlink" title=" Journey with Knapsack"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6042" target="_blank" rel="noopener"> Journey with Knapsack</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个<em>容量</em>为2n的背包，n种食物，每种食物的体积为i，最多有$a_i$个，除了食物，还有m件装备，每件装备的体积是$b_i$，必须带一件装备，问2n的背包能够装下的所有情况种数？</p>
 <p>1&lt;=n&lt;=5e4 , 0&lt;=ai&lt;=2n , 1&lt;=m&lt;=2n，0&lt;=bi&lt;=2n。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>背包全部装食物的方案数：</strong><br>$$<br>Ans=\prod_{i=1}^n(1+x^i+x^{2i}+…+x^{a_i<em>i})=\prod_{i=1}^n\frac{1-x^{i</em>(a_i+1)}}{1-x^i}<br>$$</p>
-<p>$$<br>=\prod_{i=1}^n(1-x^{i*(a_i+1)}) \prod_{i=1}^n(\frac{1}{1-x^i})<br>$$</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>背包全部装食物的方案数：</strong></p>
+<p>$$<br>\prod_{i=1}^n(1+x^i+x^{2i}+…+x^{a_ii})=\prod_{i=1}^n\frac{1-x^{i(a_i+1)}}{1-x^i}<br>$$</p>
+<p>$$<br>=\prod_{i=1}^n(1-x^{i(a_i+1)}) \prod_{i=1}^n(\frac{1}{1-x^i})<br>$$</p>
 <p><strong>对于左边的累乘进行分析：</strong></p>
 <ol>
 <li>假设右边部分已经求得，是一个2n项（后面会求到）多项式：$\sum_{i=1}^{2n}dp[i]*x^i$(dp[i]的i指的是体积，dp的值是种数)</li>
 <li>那么原式子就变成，左边的n个两项式与右边的的2n项式相乘，有：</li>
 </ol>
-<p>$$<br>(1-x^{i<em>(a_i+1)})(\sum_{j=1}^{2n}dp[j]</em>x^j)=\sum_{j=1}^{2n}dp[j]<em>x^j-\sum_{j=1}^{2n}dp[j]</em>x^{i*(a_i+1)+j}<br>$$</p>
-<p>​    我们将j向右移$i<em>(a_i+1)$位，则：<br>$$<br>=\sum_{j=1}^{2n}dp[j]</em>x^j-\sum_{j=i<em>(a_i+1)}^{2n+i</em>(a_i+1)}dp[j-i<em>(a_i+1)]</em>x^j<br>$$</p>
-<p>$$<br>=\sum_{j=1}^{i<em>(a_i+1)}dp[j]</em>x^j+\sum_{j=i<em>(a_i+1)}^{2n}(dp[j]-dp[j-i</em>(a_i+1)])*x^j<br>$$</p>
+<p>$$<br>(1-x^{i(a_i+1)})(\sum_{j=1}^{2n}dp[j]x^j)<br>$$</p>
+<p>$$<br>=\sum_{j=1}^{2n}dp[j]x^j-\sum_{j=1}^{2n}dp[j]x^{i(a_i+1)+j}<br>$$</p>
+<p>​    我们将j向右移$i*(a_i+1)$位，则：</p>
+<p>$$<br>=\sum_{j=1}^{2n}dp[j]x^j-\sum_{j=i(a_i+1)}^{2n+i(a_i+1)}dp[j-i(a_i+1)]x^j<br>$$</p>
+<p>$$<br>=\sum_{j=1}^{i(a_i+1)}dp[j]x^j+\sum_{j=i(a_i+1)}^{2n}(dp[j]-dp[j-i(a_i+1)])x^j<br>$$</p>
 <pre><code>（由于2n以后的项都没有意义，所以可以减少到2n）
 </code></pre><ol>
 <li>由于前面的假设1，dp[j]已经求得，因此我们只要再求得对所有$i*(a_i+1)\le{j}\le2n$，再求：</li>
@@ -489,15 +492,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +524,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,10 +541,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,11 +616,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,11 +640,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
