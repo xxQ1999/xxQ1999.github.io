@@ -157,6 +157,414 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2018-04-23-Clever-King-(最大权闭合子图模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/">Clever King (最大权闭合子图模板)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/" class="archive-article-date">
+  	<time datetime="2018-04-23T08:42:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Clever-King"><a href="#Clever-King" class="headerlink" title="Clever King"></a><a href="https://nanti.jisuanke.com/t/26172" target="_blank" rel="noopener">Clever King</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>T组数据，有n个产品，m个矿坑。接下来n个数字happiness[i]表示第i个产品的幸福指数，接下来m个数字，ori[i]表示第i个矿坑的开发费用。接下来n行，每行先输入两个数字n1，n2，分别表示第i号产品需要开发的矿坑，和需要的原材料产品。（矿坑开发后材料无限，产品生产后幸福指数一定会增加，不管是作为产品本身还是原材料），要求 幸福指数 - 费用  的最大值。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最大权闭合子图模板。<a href="https://blog.csdn.net/jingmiaa/article/details/52814814" target="_blank" rel="noopener">【关于网络流】</a>（ND）</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一个子图（点集）， 如果它的所有的出边都在这个子图当中，那么它就是闭合子图。<br>点权和最大的闭合子图就是最大闭合子图。</p>
+<p>简单说就是有一些点，每个点有一些点权（正负都有），要选一个点，就必须要选它所连向的点。</p>
+<p>有可能连成一条链，像这样：x-&gt;y-&gt;z-&gt;…</p>
+<p>求合法的点集的最大的点权和。</p>
+<h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p>设s为源点，t为汇点。</p>
+<p>使s连向所有的正权点（非负权点），边权为点权。</p>
+<p>使所有非负权点（负权点）连向t，边权为点权的绝对值。</p>
+<p>若需要选y才能选x，连一条由x到y的边，边权是∞。</p>
+<p><strong>最大点权和 = 正权点和 - 最小割</strong></p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">505</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next,flow;</span><br><span class="line">&#125;e[maxn*maxn*<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> cur[maxn],co[maxn],d[maxn],Final[maxn],tot,s,t;</span><br><span class="line"><span class="comment">// s源点 t终点</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++tot].to=y,e[tot].next=Final[x],e[tot].flow=z,Final[x]=tot;</span><br><span class="line">    e[++tot].to=x,e[tot].next=Final[y],e[tot].flow=<span class="number">0</span>,Final[y]=tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dg</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> flow)</span> <span class="comment">//模板 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==t) <span class="keyword">return</span> flow;</span><br><span class="line">    <span class="keyword">int</span> use=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=cur[x];i;i=e[i].next)</span><br><span class="line">    &#123;</span><br><span class="line">        cur[x]=i;</span><br><span class="line">        <span class="keyword">if</span>(e[i].flow&gt;<span class="number">0</span>&amp;&amp;d[e[i].to]+<span class="number">1</span>==d[x])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> c=dg(e[i].to,min(flow-use,e[i].flow));</span><br><span class="line">            use+=c;</span><br><span class="line">            e[i].flow-=c;</span><br><span class="line">            e[i^<span class="number">1</span>].flow+=c;</span><br><span class="line">            <span class="keyword">if</span>(flow==use) <span class="keyword">return</span> use;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cur[x]=Final[x];</span><br><span class="line">    <span class="keyword">if</span>(!(--co[d[x]])) d[<span class="number">0</span>]=t;</span><br><span class="line">    ++co[++d[x]];</span><br><span class="line">    <span class="keyword">return</span> use;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T,n1,n2,temp,n,m;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        sum=<span class="number">0</span>;tot=<span class="number">1</span>;s=t=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(cur,<span class="number">0</span>,<span class="keyword">sizeof</span>(cur));</span><br><span class="line">        <span class="built_in">memset</span>(co,<span class="number">0</span>,<span class="keyword">sizeof</span>(co));</span><br><span class="line">        <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="keyword">sizeof</span>(d));</span><br><span class="line">        <span class="built_in">memset</span>(Final,<span class="number">0</span>,<span class="keyword">sizeof</span>(Final));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        ans=n+m;s=ans+<span class="number">1</span>;t=ans+<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//s和正权相连</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">            sum+=temp;</span><br><span class="line">            link(s,i,temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)  <span class="comment">//t和负权相连</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">            link(i+n,t,temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n1,&amp;n2);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n1;j++)  <span class="comment">//i个点需要j的话，就把i-&gt;j，边权是inf</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">                link(i,temp+n,<span class="number">1</span>&lt;&lt;<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n2;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">                link(i,temp,<span class="number">1</span>&lt;&lt;<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        co[<span class="number">0</span>]=t;</span><br><span class="line">        <span class="keyword">for</span>(;d[<span class="number">0</span>]&lt;t;) sum-=dg(s,<span class="number">1</span>&lt;&lt;<span class="number">30</span>); <span class="comment">//最小割</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">最大权闭合子图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/">Goldbach （Miller Rabin模板+埃氏筛模板)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/" class="archive-article-date">
+  	<time datetime="2018-04-23T07:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Goldbach"><a href="#Goldbach" class="headerlink" title="Goldbach"></a><a href="https://nanti.jisuanke.com/t/25985" target="_blank" rel="noopener">Goldbach</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&lt;n&lt;2^63），输出任意一组素数a，b，使得a+b=n。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。</p>
+<p><a href="https://blog.csdn.net/sunshine_cfbsl/article/details/52425798" target="_blank" rel="noopener">【Miller Rabin素数判定】</a></p>
+<p>这里注意，由于2^63次过大，在相乘得过程中会超longlong，因此要改用unsigned long long。</p>
+<blockquote>
+<p>做题的时候，遇到范围是2^63，取模2^64的这种题目。遇到这种限制条件时就要想到用unsigned long long类型。这样，如果ull类型的整数溢出了，就相当于取模2^64了。因为ull的范围是[0,2^64-1]。而ll的范围是[-2^63,2^63-1]，因为有符号的第63位表示“正负”而不表示数值。</p>
+</blockquote>
+<p><strong>附一个公式：(1+a1)(1+a2)(1+a3)……(1+an-1)(1+an) = 1+sum{ai}+sum{ai·aj}+sum{ai·aj·ak}+……+sum{a1·a2·…·an}</strong></p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">65</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX=<span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">typedef</span> ULL ULL;</span><br><span class="line">ULL n, x[MAXN];</span><br><span class="line"></span><br><span class="line">ULL pri[MAX+<span class="number">5</span>],num=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[MAX+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i]==<span class="literal">false</span>)pri[num++]=i;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;num&amp;&amp;i*pri[j]&lt;MAX;j++)</span><br><span class="line">            vis[i*pri[j]]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">multi</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = (ans+a)%p;</span><br><span class="line">        a = (a+a)%p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">qpow</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = multi(ans, a, p);</span><br><span class="line">        a = multi(a, a, p);</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Miller_Rabin</span><span class="params">(ULL n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">20</span>, i, t = <span class="number">0</span>;</span><br><span class="line">    ULL u = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!(u &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">        t++;</span><br><span class="line">        u &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(s--) &#123;</span><br><span class="line">        ULL a = rand()%(n<span class="number">-2</span>)+<span class="number">2</span>;</span><br><span class="line">        x[<span class="number">0</span>] = qpow(a, u, n);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= t; i++) &#123;</span><br><span class="line">            x[i] = multi(x[i<span class="number">-1</span>], x[i<span class="number">-1</span>], n);</span><br><span class="line">            <span class="keyword">if</span>(x[i] == <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != n<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x[t] != <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    ULL n,temp;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Miller_Rabin(n-pri[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>,pri[i],n-pri[i]);<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">素数</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-19-ACM-ICPC-&amp;-U" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/2018-04-19-ACM-ICPC-&-U/">ACM-ICPC &amp; U</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/19/2018-04-19-ACM-ICPC-&-U/" class="archive-article-date">
+  	<time datetime="2018-04-19T13:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32574246&auto=0&height=66"></iframe>
+
+<p><img src="\mdpicture\ACM.jpg" arc="ACM-ICPC :) "></p>
+<p>world final的直播，窝在图书馆的角落看了一下午，这种感觉真的很棒，真的让我有一种ACM即是力量的冲动。看着这么多的队伍们提交，Pending的进度条一点一点增加，然后高亮，切到队伍的镜头，一阵紧张，最后AC后的欢呼和击掌，然后匆匆进入下一题。</p>
+<p>代码的力量是什么呢？</p>
+<p>ACM的力量是什么呢？</p>
+<p>让我明明笨拙到坚持不下去，却又不舍得放弃它。</p>
+<p>大概是等待pending的期待的心情，WA了之后自言自语的不服，TLE绞尽脑汁优化的苦恼，或者是看着队友疯狂输出的感叹，大家叽里呱啦实在是很吵闹的讨论 …… 以及最后出现的世界上最好看的单词Accept的欣喜若狂。</p>
+<p>真是充满着魔力的一切。</p>
+<p><img src="\mdpicture\键盘上的秘密.jpg" arc="键盘上的星星点点"></p>
+<hr>
+<p><img src="\mdpicture\西装和狗毛.jpg" arc="西装领带，狗毛"></p>
+<blockquote>
+<p>四月十九号，倒计时：三天。</p>
+</blockquote>
+<hr>
+<p><img src="\mdpicture\JJ圣所.jpg" arc="丹宁执着"></p>
+<blockquote>
+<p>许下演唱会的心愿。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/19/2018-04-19-ACM-ICPC-&-U/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-18-木棒切割（二分+DP+滚动数组优化）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/2018-04-18-木棒切割（二分+DP+滚动数组优化）/">木棒切割（二分+DP+滚动数组优化）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/2018-04-18-木棒切割（二分+DP+滚动数组优化）/" class="archive-article-date">
+  	<time datetime="2018-04-18T13:55:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="木棒切割"><a href="#木棒切割" class="headerlink" title="木棒切割"></a><a href="https://vjudge.net/problem/HYSBZ-1044" target="_blank" rel="noopener">木棒切割</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有n个木棒，最多能切m下，接下来n行，给出n个木棒的长度，求出切割后最大长度的最小值，并求出有多少种切割方式，取模10007</p>
+<p>n&lt;=50000，0&lt;=m&lt;=min(n-1,1000)，1&lt;=Li&lt;=1000</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>二分答案，low=0，high=sum[n]。</p>
+<p>得到最小值ans。</p>
+<p>接下来用DP，求出切割种数。</p>
+<p><strong>dp[i][j]表示前i个木棒切割j下的种数，设sum[i] 是前i个木棒的长度和 ，那么dp[i][j]=求和{ dp[k][j-1] }，满足条件：k&lt;i &amp;&amp; sum[i] - sum[k]&lt;=ans</strong> 。</p>
+<p>但是写完之后，我们发现，诶，这个时间复杂度……O(n^2 * m)，这不超时有鬼……</p>
+<p>于是我们可以进行下面的优化：</p>
+<h3 id="1、空间"><a href="#1、空间" class="headerlink" title="1、空间"></a>1、空间</h3><p>由于当前的dp[][j]只与dp[][j-1]有关，所以呢，我们可以用滚动数组，用dp[][now]代替dp[i][j]，用dp[][pre]代替dp[][j-1]，其中pre=now^1。</p>
+<p>这样空间就小啦~</p>
+<h3 id="2、时间"><a href="#2、时间" class="headerlink" title="2、时间"></a>2、时间</h3><p>这个好难理解啊我觉得……大概是太笨了哼唧</p>
+<p>对于dp[i][now],其实是dp[Mink][pre]……dp[i-1][Mink]的和！！Mink 就是满足 k&lt;i &amp;&amp; sum[i]-sum[k]&lt;=ans的最小的k。那么，对于从 1 到 n 枚举的 i ，相对应的 Mink 也一定是非递减的（因为 Sum[i] 是递增的）。我们记录下 dp[1][pre]…dp[i-1][pre] 的和 S ，Mink 初始设为 1，每次对于 i 将 Mink 向后推移，推移的同时将被舍弃的 p 对应的 dp[p][pre] 从 S 中减去。那么 dp[i][Now] 就是 S 的值。</p>
+<p>时间复杂度O(nm)。</p>
+<p>接下来请欣赏代码——</p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">10007</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,ans;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">50010</span>],sum[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> mid)</span> <span class="comment">//看看有没有单比mid还大的 或者分割不了的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s=<span class="number">0</span>,cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(s&gt;mid) cnt++,s=a[i];</span><br><span class="line">        <span class="keyword">if</span>(cnt&gt;m) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;mid) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> <span class="comment">//二分答案</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l=<span class="number">0</span>,r=sum[n];</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(check(mid)) ans=mid,r=mid<span class="number">-1</span>; </span><br><span class="line">        <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    sum[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        sum[i]=sum[i<span class="number">-1</span>]+a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    solve();</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">50010</span>][<span class="number">2</span>]=&#123;<span class="number">0</span>&#125;; <span class="comment">//滚动数组，前i块切j下的数量</span></span><br><span class="line">    <span class="keyword">int</span> now=<span class="number">0</span>,pre=<span class="number">1</span>,s,Mink; <span class="comment">//mink 最小的满足k&lt;j &amp;&amp; s[i]-s[k]&lt;=ans 的</span></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++) <span class="comment">//切i下</span></span><br><span class="line">    &#123;</span><br><span class="line">         s=<span class="number">0</span>,Mink=<span class="number">1</span>; </span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++) <span class="comment">//前j块</span></span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">if</span>(i==<span class="number">0</span>) <span class="comment">//如果一下不割</span></span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="keyword">if</span>(sum[j]&lt;=ans) dp[j][now]=<span class="number">1</span>; <span class="comment">//如果这块东西比要求的要小，就前j块割0下是1钟</span></span><br><span class="line">                 <span class="keyword">else</span> dp[j][now]=<span class="number">0</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="comment">//s=sum&#123;dp[k][j-1]&#125; k&lt;j&amp;&amp;s[i]-s[k]&lt;=ans ，sum也相当于减去那些不满足条件的，</span></span><br><span class="line">                 <span class="comment">//因为这东西肯定单调非递减，所以一直找到最小的满足的k就好</span></span><br><span class="line">                 <span class="keyword">while</span>(Mink&lt;j&amp;&amp;(sum[j]-sum[Mink])&gt;ans) <span class="comment">//找到最小的满足条件的k</span></span><br><span class="line">                 &#123;</span><br><span class="line">                     s-=dp[Mink][pre]; <span class="comment">//减去前mink块不符合条件的 切了i-1下的</span></span><br><span class="line">                     s=(s+MOD)%MOD;</span><br><span class="line">                     Mink++;</span><br><span class="line">                 &#125;</span><br><span class="line">                 dp[j][now]=s%MOD; <span class="comment">//别忘了取模</span></span><br><span class="line">             &#125;</span><br><span class="line">             s=(s+dp[j][pre])%MOD; <span class="comment">// s加上前j块割i-1下的</span></span><br><span class="line">         &#125;</span><br><span class="line">         res=(res+dp[n][now])%MOD; <span class="comment">//总数相当于总数加上n块割i下的</span></span><br><span class="line">         now^=<span class="number">1</span>; <span class="comment">//滚动数组</span></span><br><span class="line">         pre=now^<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ans,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">二分</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">滚动数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/2018-04-18-木棒切割（二分+DP+滚动数组优化）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018-04-18-Buy-a-ticket-(最短路SPFA)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -761,363 +1169,6 @@
 
 
   
-    <article id="post-2018-04-01-Missing-Leslie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/2018-04-01-Missing-Leslie/">Missing Leslie</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/01/2018-04-01-Missing-Leslie/" class="archive-article-date">
-  	<time datetime="2018-04-01T14:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p><img src="\mdpicture\Leslie1.jpg" alt="春天该很好，你若尚在场"></p>
-<blockquote>
-<p>春天该很好，你若尚在场。</p>
-</blockquote>
-<p><br></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/01/2018-04-01-Missing-Leslie/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018-04-01-CF-957C-Three-level-Laser-(二分)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/2018-04-01-CF-957C-Three-level-Laser-(二分)/">CF 957C Three-level Laser (二分)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/01/2018-04-01-CF-957C-Three-level-Laser-(二分)/" class="archive-article-date">
-  	<time datetime="2018-04-01T14:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Three-level-Laser"><a href="#Three-level-Laser" class="headerlink" title="Three-level Laser"></a><a href="http://codeforces.com/contest/957/problem/C" target="_blank" rel="noopener">Three-level Laser</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>输入一个n，m，n代表接下来有n个数字（从小到大），</p>
-<p>接下来从n个数字中选3个数字i，j，k（i&lt;j&lt;k），</p>
-<p>使得k-j/k-i 最大，且（k-i）&lt;=m。(n&lt;1e5)</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>开头直接写，j=1开始遍历，要让值最大，i=j-1,（必定），k为可允许内最大的值。</p>
-<p>用for找k，会T，于是改用二分，输出用.15f（精度限制，double到.6）。</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,U;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;U);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">double</span> res=<span class="number">-1.0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-2</span>;i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t1=a[i],t2=a[i+<span class="number">1</span>],up=U+t1;</span><br><span class="line">        <span class="keyword">int</span> k=upper_bound(a+<span class="number">1</span>,a+<span class="number">1</span>+n,up)-a<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(k&lt;i+<span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line">        res=max(res,(a[k]-t2*<span class="number">1.0</span>)/(a[k]-t1));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.15f\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CodeForces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">二分</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/01/2018-04-01-CF-957C-Three-level-Laser-(二分)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Change" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/Change/">Yilia</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/Change/" class="archive-article-date">
-  	<time datetime="2018-03-31T13:34:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p><img src="\mdpicture\18033102.jpg" alt="回老家的时候，在奶奶家旁边的荒地前拍的，一轮小小的月亮， 好像一个小小的我"></p>
-<p><br></p>
-<p>Hexo 找如何搭建相册的时候，发现的一个主题，yilia，简洁，充满魅力。</p>
-<p>创作这个主题的作者Litten是鹅厂的一名前端。<br>好奇心的驱使，让我开始翻看着他的随笔，生活中的点点滴滴，却感叹于他的心思和文笔的细腻。</p>
-<p>他写凛冬将至，说人的老去，很多是因为忘记了年轻。<br>他写生病，说意外的中断是多么可爱，欢乐可放歌，悲伤可饮酒。<br>要是心情郁闷的话，就用手托腮，手臂会因为帮上忙而开心。<br>…</p>
-<p>以及各种稀奇古怪的专业文章，<br>讲反爬虫的，讲Unicode，<br>…</p>
-<p>他的相册里的照片，<br>我实在是喜欢。<br>非常的生活，和触动。</p>
-<p>我想了想，换掉了我执念的透明色主题。<br>毕竟看多了还是觉得花里胡哨。<br>博客嘛，<br>回到内容上来，还是更好。<br>我想谢谢这位陌生的，<br>不知道怎么称呼，<br>在这些天茫然的夜晚，我又重新感受到了，<br>生活该是什么样，就是什么样。</p>
-<p><br></p>
-<blockquote>
-<p>事情无非是let，变化历历；或者是const，永恒安息。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/Change/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文章置顶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/文章置顶/">文章置顶</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/文章置顶/" class="archive-article-date">
-  	<time datetime="2018-03-31T10:44:59.291Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>1、Hexo bash ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall hexo-generator-index --save</span><br><span class="line">$ npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
-<p>2、在需要置顶的文章的<code>Front-matter</code>中加上：<code>top: true</code></p>
-<p>完毕。</p>
-<p>3、置顶的文章添加置顶标志</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网站优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web-Dairy//" class="article-tag-list-link color5">Web Dairy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/文章置顶/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1228,23 +1279,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规律</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1261,6 +1304,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规律</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1292,7 +1343,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1300,7 +1351,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,11 +1367,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,6 +1387,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">HDU</a>
               </li>
              
@@ -1348,15 +1403,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1368,6 +1419,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
@@ -1376,15 +1439,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
