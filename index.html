@@ -181,7 +181,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>#<a href="https://vjudge.net/problem/UVA-861" target="_blank" rel="noopener">Little Bishops</a></p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1><a href="https://vjudge.net/problem/UVA-861" target="_blank" rel="noopener">Little Bishops</a></h1>
+
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>在国际棋盘中，象的走法是斜对角线，也就是说两个象不能容于一条斜对角线。国际象棋有黑白两色格子相交组成。给你n*n的棋盘和k个象，问你在满足任意两个象互不相斥的情况下，摆放的最大种数？</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>利用棋盘禁区排列这一思想。</p>
 <p>首先我们可以看到，在棋盘中，黑色的格子和白色的格子上的象绝对不会相斥，所以我们可以根据$R_k(C)=R_i(C_1)*R_{k-i}(C-C_1)$得，Ans就是在黑色棋盘上放i个象的种类乘以在白色棋盘上放k-i个象的种数。</p>
@@ -288,16 +289,14 @@
 <p>​    那么这个公式的意思就是，在棋盘C上放k个棋子的种数，等于（第k个棋子放在一个格子上，前k-1个数量的格子放在除了这个格子所在的行和列的地方），加上，（k个棋子放在除了这个格子的其他地方）。</p>
 <p><strong>棋盘多项式性质：</strong></p>
 <ol>
-<li><p>$R(C)=xR(C_x)+R(C_e)$</p>
-</li>
-<li><p>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</p>
-</li>
+<li>$R(C)=xR(C_x)+R(C_e)$</li>
+<li>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</li>
 </ol>
-<pre><code>&lt;img src=&quot;\mdpicture\禁区棋盘排列实例.jpg&quot; height=&quot;635&quot; width=&quot;413&quot; align=&quot;middle&quot; alt=&quot;棋盘排列构造多项式，利用棋盘多项式的性质，如图&quot;&gt;
-</code></pre><h4 id="有禁区的排列"><a href="#有禁区的排列" class="headerlink" title="有禁区的排列"></a>有禁区的排列</h4><p><strong>排列数定理：</strong><br>$$<br>n！-r_1(n-1)!+r_2(n-2)!-…±r_n<br>$$<br>$r_i$表示有$r_i$个棋子布置到禁区的方案数。（<strong><em>仅适用n·n的棋盘</em></strong>）</p>
+<p><img src="\mdpicture\禁区棋盘排列实例.jpg" height="635" width="413" alt="棋盘排列构造多项式，利棋盘多项式的性质，如图"></p>
+<h4 id="有禁区的排列"><a href="#有禁区的排列" class="headerlink" title="有禁区的排列"></a>有禁区的排列</h4><p><strong>排列数定理：</strong><br>$$<br>n！-r_1(n-1)!+r_2(n-2)!-…±r_n<br>$$<br>$r_i$表示有$r_i$个棋子布置到禁区的方案数。（<strong><em>仅适用n·n的棋盘</em></strong>）</p>
 <p><strong>&lt; 例题 &gt;</strong> 有1,2,3,4号工人，A,B,C,D四个人物，1号不做B，2号不做B、C，3号不做C、D，4号不做D，问有多少种分配方式？</p>
 <p>【解】先构造一个4*4的棋盘，然后画出这个棋盘的禁区，对于这个禁区计算它的棋盘多项式，得$R(C)=1+6x+10x^2+4x^3$，因此用容斥的思想，得到：<br>$$<br>4!- 6·(4-1)!+10·(4-2)!-4·(4-3)! +0(4-4)!= 4<br>$$</p>
-<p><img src="\mdpicture\禁区棋盘例题.jpg" height="123" width="296" align="middle" alt="例题棋盘禁区如图所示，构造的多项式原理同上图"></p>
+<p><img src="\mdpicture\禁区棋盘例题.jpg" height="123" width="296" alt="例题棋盘禁区如图所示，构造的多项式原理同上图"></p>
 <h1 id="鸽巢定理"><a href="#鸽巢定理" class="headerlink" title="鸽巢定理"></a>鸽巢定理</h1><h2 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h2><p><strong>n+1只鸽子飞回n个鸽巢，至少有一个鸽笼含有不少于2只的格子。</strong></p>
 <p><strong>数学描述：</strong></p>
 <p><strong>m($1\le m$)个元素分成n个组，那么总有一个组至少含有元素个数$\lceil\frac{m}{n}\rceil$</strong></p>
@@ -488,7 +487,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="/assets/js/APlayer.min.js"> </script><h3 id="不可重复的数字划分（基础dp）"><a href="#不可重复的数字划分（基础dp）" class="headerlink" title="不可重复的数字划分（基础dp）"></a><a href="https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1201" target="_blank" rel="noopener">不可重复的数字划分</a>（基础dp）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">50005</span>;</span><br><span class="line"><span class="keyword">const</span> LL MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN][<span class="number">350</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">//  int n,m,cas=1;</span></span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">   <span class="comment">// five();</span></span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        ans=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j*(j+<span class="number">1</span>)&lt;=i*<span class="number">2</span>;j++)</span><br><span class="line">            dp[i][j]=(dp[i-j][j<span class="number">-1</span>]+dp[i-j][j])%MOD;</span><br><span class="line">            <span class="comment">//1.i-j的数，j-1个划分，每个划分数+1，再加上1的划分；2.i-j的数。j个划分，每个划分数+1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">350</span>&amp;&amp;dp[n][i]!=<span class="number">0</span>;i++)</span><br><span class="line">            ans=(ans+dp[n][i])%MOD;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###<a href="https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1259" target="_blank" rel="noopener">1259 整数划分 V2</a> </p>
+<h3><a href="https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1259" target="_blank" rel="noopener">1259 整数划分 V2</a></h3>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可重复的划分，五边形定理</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">const</span> LL INF = <span class="number">1e9</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">50005</span>;</span><br><span class="line"><span class="keyword">const</span> LL MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> q[<span class="number">405</span>],f[MAXN];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">five</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">400</span>;i+=<span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        LL temp=(i+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        q[i]=(<span class="number">3</span>*temp*temp-temp)/<span class="number">2</span>;</span><br><span class="line">        q[i+<span class="number">1</span>]=(<span class="number">3</span>*temp*temp+temp)/<span class="number">2</span>;</span><br><span class="line">       <span class="comment">// printf("%lld,",q[i]);</span></span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MAXN;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>,c=<span class="number">1</span>;j&lt;=<span class="number">400</span>;j+=<span class="number">2</span>,c*=<span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i-q[j]&lt;<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            f[i]=(f[i]+f[i-q[j]]*c+MOD)%MOD;</span><br><span class="line">            <span class="keyword">if</span>(i-q[j+<span class="number">1</span>]&lt;<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            f[i]=(f[i]+f[i-q[j+<span class="number">1</span>]]*c+MOD)%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,cas=<span class="number">1</span>;</span><br><span class="line">    LL a;</span><br><span class="line">    five();</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,f[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -1217,15 +1217,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,15 +1325,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,6 +1345,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
@@ -1353,15 +1357,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,19 +1381,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">韩非</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">韩非</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
               </li>
             
             <div class="clearfix"></div>

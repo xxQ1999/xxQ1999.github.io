@@ -16,12 +16,13 @@
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="容斥公式$$|A_1∪A_2∪…∪A_n|=\sum_{i=1}^n|A_i|-\sum_{i=1}^n\sum_{j&amp;gt;i}|A_i∩A_j|+\sum_{i=1}^n\sum_{j&amp;gt;i}\sum_{k&amp;gt;j}|A_i∩A_j∩A_k|+…$$ $$+(-1)^{n-1}|A_1∩A_2∩…∩A_n|$$ 应用错排问题【已写】 棋盘多项式与有禁区的排列布棋问题一个n*m棋盘上放k">
 <meta property="og:locale" content="UTF-8">
+<meta property="og:image" content="http://github.com/mdpicture/禁区棋盘排列实例.jpg">
 <meta property="og:image" content="http://github.com/mdpicture/禁区棋盘例题.jpg">
-<meta property="og:updated_time" content="2018-08-16T15:43:33.739Z">
+<meta property="og:updated_time" content="2018-08-16T15:59:35.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥与鸽巢定理">
 <meta name="twitter:description" content="容斥公式$$|A_1∪A_2∪…∪A_n|=\sum_{i=1}^n|A_i|-\sum_{i=1}^n\sum_{j&amp;gt;i}|A_i∩A_j|+\sum_{i=1}^n\sum_{j&amp;gt;i}\sum_{k&amp;gt;j}|A_i∩A_j∩A_k|+…$$ $$+(-1)^{n-1}|A_1∩A_2∩…∩A_n|$$ 应用错排问题【已写】 棋盘多项式与有禁区的排列布棋问题一个n*m棋盘上放k">
-<meta name="twitter:image" content="http://github.com/mdpicture/禁区棋盘例题.jpg">
+<meta name="twitter:image" content="http://github.com/mdpicture/禁区棋盘排列实例.jpg">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -194,16 +195,14 @@
 <p>​    那么这个公式的意思就是，在棋盘C上放k个棋子的种数，等于（第k个棋子放在一个格子上，前k-1个数量的格子放在除了这个格子所在的行和列的地方），加上，（k个棋子放在除了这个格子的其他地方）。</p>
 <p><strong>棋盘多项式性质：</strong></p>
 <ol>
-<li><p>$R(C)=xR(C_x)+R(C_e)$</p>
-</li>
-<li><p>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</p>
-</li>
+<li>$R(C)=xR(C_x)+R(C_e)$</li>
+<li>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</li>
 </ol>
-<pre><code>&lt;img src=&quot;\mdpicture\禁区棋盘排列实例.jpg&quot; height=&quot;635&quot; width=&quot;413&quot; align=&quot;middle&quot; alt=&quot;棋盘排列构造多项式，利用棋盘多项式的性质，如图&quot;&gt;
-</code></pre><h4 id="有禁区的排列"><a href="#有禁区的排列" class="headerlink" title="有禁区的排列"></a>有禁区的排列</h4><p><strong>排列数定理：</strong><br>$$<br>n！-r_1(n-1)!+r_2(n-2)!-…±r_n<br>$$<br>$r_i$表示有$r_i$个棋子布置到禁区的方案数。（<strong><em>仅适用n·n的棋盘</em></strong>）</p>
+<p><img src="\mdpicture\禁区棋盘排列实例.jpg" height="635" width="413" alt="棋盘排列构造多项式，利棋盘多项式的性质，如图"></p>
+<h4 id="有禁区的排列"><a href="#有禁区的排列" class="headerlink" title="有禁区的排列"></a>有禁区的排列</h4><p><strong>排列数定理：</strong><br>$$<br>n！-r_1(n-1)!+r_2(n-2)!-…±r_n<br>$$<br>$r_i$表示有$r_i$个棋子布置到禁区的方案数。（<strong><em>仅适用n·n的棋盘</em></strong>）</p>
 <p><strong>&lt; 例题 &gt;</strong> 有1,2,3,4号工人，A,B,C,D四个人物，1号不做B，2号不做B、C，3号不做C、D，4号不做D，问有多少种分配方式？</p>
 <p>【解】先构造一个4*4的棋盘，然后画出这个棋盘的禁区，对于这个禁区计算它的棋盘多项式，得$R(C)=1+6x+10x^2+4x^3$，因此用容斥的思想，得到：<br>$$<br>4!- 6·(4-1)!+10·(4-2)!-4·(4-3)! +0(4-4)!= 4<br>$$</p>
-<p><img src="\mdpicture\禁区棋盘例题.jpg" height="123" width="296" align="middle" alt="例题棋盘禁区如图所示，构造的多项式原理同上图"></p>
+<p><img src="\mdpicture\禁区棋盘例题.jpg" height="123" width="296" alt="例题棋盘禁区如图所示，构造的多项式原理同上图"></p>
 <h1 id="鸽巢定理"><a href="#鸽巢定理" class="headerlink" title="鸽巢定理"></a>鸽巢定理</h1><h2 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h2><p><strong>n+1只鸽子飞回n个鸽巢，至少有一个鸽笼含有不少于2只的格子。</strong></p>
 <p><strong>数学描述：</strong></p>
 <p><strong>m($1\le m$)个元素分成n个组，那么总有一个组至少含有元素个数$\lceil\frac{m}{n}\rceil$</strong></p>
@@ -504,15 +503,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,15 +611,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,6 +631,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
@@ -640,15 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,19 +667,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">韩非</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">韩非</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
               </li>
             
             <div class="clearfix"></div>
