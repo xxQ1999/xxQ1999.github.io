@@ -276,7 +276,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="带劲的and和"><a href="#带劲的and和" class="headerlink" title="带劲的and和"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6411" target="_blank" rel="noopener">带劲的and和</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>度度熊有一张n个点m条边的<strong>无向图</strong>，第i个点的点权为vi。<br>如果图上存在一条<strong>路径</strong>使得点i可以走到点j，则称i,j是<strong>带劲</strong>的，记f(i,j)=1；否则f(i,j)=0。显然有f(i,j)=f(j,i)。<br>度度熊想知道求出：<br>$∑<em>{i=1}^{n−1}∑</em>{j=i+1}^nf(i,j)×max(v_i,v_j)×(v_i\&amp;v_j)$<br>其中&amp;是C++中的and位运算符，如1&amp;3=1, 2&amp;3=2。<br>请将答案对109+7取模后输出。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="带劲的and和"><a href="#带劲的and和" class="headerlink" title="带劲的and和"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6411" target="_blank" rel="noopener">带劲的and和</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>度度熊有一张n个点m条边的<strong>无向图</strong>，第i个点的点权为vi。<br>如果图上存在一条<strong>路径</strong>使得点i可以走到点j，则称i,j是<strong>带劲</strong>的，记f(i,j)=1；否则f(i,j)=0。显然有f(i,j)=f(j,i)。<br>度度熊想知道求出：<br>$\sum_{i=1}^{n−1}\sum_{j=i+1}^nf(i,j)×max(v_i,v_j)×(v_i\&amp;v_j)$<br>其中&amp;是C++中的and位运算符，如1&amp;3=1, 2&amp;3=2。<br>请将答案对109+7取模后输出。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先处理连通块。</p>
 <p>这里我用的是并查集，也可以用tarjan，然后对于每个连通块里的元素，我们按照从小到大排序。</p>
 <p>由于比如 9 8 7 这部分时，默认我们已经知道9是最大的元素，那么一定是9*(9&amp;8+9&amp;7),由于与运算是只有两位上的数字均为1时才能有贡献，那么也就是说，我们不需要对于每两个数字都计算&amp;运算，而可以对每一个数字的二进制位进行处理，当第i位上为1时，count[i]++，只有count[i]上的数&gt;=2时，才算对于这个有了贡献，并且我们是用同一的9去进行与运算，在count位&gt;=2时，也只有满足当9上的第i位也为1时才算数。</p>
@@ -1205,15 +1205,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1237,15 +1237,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1257,11 +1257,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,6 +1281,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
               </li>
              
@@ -1289,7 +1293,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ST表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,15 +1305,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">HDU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ST表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,11 +1337,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,7 +1349,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
