@@ -18,7 +18,7 @@
 <meta property="og:locale" content="UTF-8">
 <meta property="og:image" content="http://github.com/mdpicture/禁区棋盘排列实例.jpg">
 <meta property="og:image" content="http://github.com/mdpicture/禁区棋盘例题.jpg">
-<meta property="og:updated_time" content="2018-08-16T15:59:35.470Z">
+<meta property="og:updated_time" content="2018-08-31T04:44:11.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥与鸽巢定理">
 <meta name="twitter:description" content="容斥公式$$|A_1∪A_2∪…∪A_n|=\sum_{i=1}^n|A_i|-\sum_{i=1}^n\sum_{j&amp;gt;i}|A_i∩A_j|+\sum_{i=1}^n\sum_{j&amp;gt;i}\sum_{k&amp;gt;j}|A_i∩A_j∩A_k|+…$$ $$+(-1)^{n-1}|A_1∩A_2∩…∩A_n|$$ 应用错排问题【已写】 棋盘多项式与有禁区的排列布棋问题一个n*m棋盘上放k">
@@ -191,9 +191,10 @@
 <p><strong>布棋方案数</strong> $R_k(C)$ <strong>:</strong> k个棋子依照上述规则放在棋盘C中的方案数</p>
 <p><strong>棋盘多项式：</strong> 棋盘C中放不限定数量的棋子,$R(C)=\sum_{k=0}^∞R_k(C)x^k$（有点母函数的味道），由于k&lt;=C(格子数)，因此这个多项式也是有限的。</p>
 <p><strong>放置：</strong> $R_k(C)=R_{k-1}(C_x)+R_k(C_e)$</p>
-<p>​    C表示这个棋盘，$C_x$表示放在棋盘C除去这个格子所在的行和列之后的棋盘，$C_e$表示棋盘C删去这个格子后的棋盘。</p>
-<p>​    那么这个公式的意思就是，在棋盘C上放k个棋子的种数，等于（第k个棋子放在一个格子上，前k-1个数量的格子放在除了这个格子所在的行和列的地方），加上，（k个棋子放在除了这个格子的其他地方）。</p>
-<p><strong>棋盘多项式性质：</strong></p>
+<pre><code>C表示这个棋盘，$C_x$表示放在棋盘C除去这个格子所在的行和列之后的棋盘，$C_e$表示棋盘C删去这个格子后的棋盘。
+
+那么这个公式的意思就是，在棋盘C上放k个棋子的种数，等于（第k个棋子放在一个格子上，前k-1个数量的格子放在除了这个格子所在的行和列的地方），加上，（k个棋子放在除了这个格子的其他地方）。
+</code></pre><p><strong>棋盘多项式性质：</strong></p>
 <ol>
 <li>$R(C)=xR(C_x)+R(C_e)$</li>
 <li>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</li>
@@ -213,7 +214,7 @@
 <p>(2) 若没有一个sum[i]为m的倍数，则令$r_h\equiv S_h mod\ m $ 。    </p>
 <p>其中，h=1,2,…,m，我们已知上面所有的项都非m的倍数，故余数r[i]的范围在[1,m-1]，共m个数，根据鸽巢定理，m个余数在[1,m-1]共m-1的范围内至少存在一对$r_h$,$r_k$，满足$r_k=r_h$,则sum[k]和sum[h]满足：<br>$$<br>S_k\equiv S_h mod \ m<br>$$<br>设h&gt;k的话，得到<br>$$<br>S_h-S_k=(a_1+a_2+…+a_h)-(a_1+a_2+…+a_k)<br>=a_{k+1}+…+a_h\equiv 0\ mod \ m<br>$$<br>证毕。</p>
 </li>
-<li><p>To be continued……</p>
+<li><p><strong>中国剩余定理</strong></p>
 </li>
 </ol>
 
@@ -483,15 +484,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,6 +520,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
@@ -527,15 +532,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +544,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,7 +552,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +560,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,11 +568,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,7 +596,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ST表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,23 +608,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,6 +632,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
@@ -639,15 +652,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,10 +665,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">歌词</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,10 +681,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ST表</a>
               </li>
             
             <div class="clearfix"></div>
@@ -735,7 +736,7 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="http://pattle.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>friend AC</a>
+              <a href="http://pattle.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>婷婷</a>
             </li>
           
             <li class="search-li">
