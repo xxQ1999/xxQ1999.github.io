@@ -9,13 +9,14 @@
   <title>The Best Path(欧拉+并查集) | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="The Best Path题意给你n个点，m条边，问你是否能够一次性不重复的走完其他所有的边，对于每一点有一个权值，ans=经过的每一次点的异或和（一个点可以重复多次），求怎么走使得这个ans最大。 思路一次性走完很显然是要欧拉路或者回路的，那么条件就是0个或者2个奇数度数的点，这个开头计数一下就好，另外还要判断是否连通，否则永远走不到某些路，所以用并查集查询father即可。 然后对于欧拉路来">
+<meta name="keywords" content="并查集,欧拉路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Best Path(欧拉+并查集)">
 <meta property="og:url" content="http://github.com/xxq1999/2018/08/15/The-Best-Path(欧拉+并查集)/index.html">
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="The Best Path题意给你n个点，m条边，问你是否能够一次性不重复的走完其他所有的边，对于每一点有一个权值，ans=经过的每一次点的异或和（一个点可以重复多次），求怎么走使得这个ans最大。 思路一次性走完很显然是要欧拉路或者回路的，那么条件就是0个或者2个奇数度数的点，这个开头计数一下就好，另外还要判断是否连通，否则永远走不到某些路，所以用并查集查询father即可。 然后对于欧拉路来">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-08-15T14:52:39.615Z">
+<meta property="og:updated_time" content="2020-09-16T04:52:06.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Best Path(欧拉+并查集)">
 <meta name="twitter:description" content="The Best Path题意给你n个点，m条边，问你是否能够一次性不重复的走完其他所有的边，对于每一点有一个权值，ans=经过的每一次点的异或和（一个点可以重复多次），求怎么走使得这个ans最大。 思路一次性走完很显然是要欧拉路或者回路的，那么条件就是0个或者2个奇数度数的点，这个开头计数一下就好，另外还要判断是否连通，否则永远走不到某些路，所以用并查集查询father即可。 然后对于欧拉路来">
@@ -173,7 +174,7 @@
 
         
         <a href="/2018/08/15/The-Best-Path(欧拉+并查集)/" class="archive-article-date">
-  	<time datetime="2018-08-15T14:53:42.531Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+  	<time datetime="2018-08-15T14:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
 </a>
         
       </header>
@@ -193,7 +194,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">欧拉路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -257,18 +284,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/15/整数划分(裸五边形定理)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/16/Halloween-treats（鸽巢定理）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          整数划分(裸五边形定理)
+          Halloween treats（鸽巢定理）
         
       </div>
     </a>
   
   
-    <a href="/2018/08/15/Swordsman(多个优先队列)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swordsman(多个优先队列)</div>
+    <a href="/2018/08/15/Balanced-Sequence-(贪心)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Balanced Sequence (贪心)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -442,6 +469,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
@@ -454,15 +489,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,10 +502,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +517,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
+                <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,6 +541,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
@@ -522,15 +553,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +629,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
@@ -606,14 +645,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">韩非</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">嬴政</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
@@ -622,11 +653,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
               </li>
             
             <div class="clearfix"></div>
