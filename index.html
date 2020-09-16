@@ -258,103 +258,6 @@
 
 
   
-    <article id="post-新建文本文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/16/新建文本文档/">幻象波普星</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/16/新建文本文档/" class="archive-article-date">
-  	<time datetime="2020-09-16T04:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="音乐区"><a href="#音乐区" class="headerlink" title="音乐区"></a>音乐区</h2><ul>
-<li>《还愿》游戏原声带压缩包  <a href="https://pan.baidu.com/s/1QNMD75Z28f3BJm-4MrTedQ" title="《还愿》" target="_blank" rel="noopener">百度网盘 提取码: 9m7x</a></li>
-</ul>
-<h2 id="书籍区"><a href="#书籍区" class="headerlink" title="书籍区"></a>书籍区</h2><ul>
-<li><p>《迷茫的旅行商：一个无处不在的计算机算法问题》<a href="https://pan.baidu.com/s/1BQpElAkrS1XfGQAwDmhoIQ" title="l旅行商问题" target="_blank" rel="noopener">百度网盘 提取码：tix6 </a></p>
-</li>
-<li><p>《三体》（epub格式）<a href="https://pan.baidu.com/s/1WJo_8nG2cqLilXdOgSQxQQ" target="_blank" rel="noopener">百度网盘 提取码：zch6</a> </p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">下载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/资源//" class="article-tag-list-link color3">资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/16/新建文本文档/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-考研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1115,6 +1018,102 @@
 
 
   
+    <article id="post-Hillan-and-the-girl(莫比乌斯反演)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/Hillan-and-the-girl(莫比乌斯反演)/">Hillan and the girl(莫比乌斯反演)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/19/Hillan-and-the-girl(莫比乌斯反演)/" class="archive-article-date">
+  	<time datetime="2018-08-19T10:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5663" target="_blank" rel="noopener"> Hillan and the girl</a> </h1>
+
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于1&lt;=n,m&lt;=1e7，T&lt;=1e4，求：<br>$$<br>\sum_{i=1}^{n}\sum_{j=1}^{m}f(gcd(i,j)),其中f(x)=1，当且仅当x为平方数<br>$$</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>来，让我们来反演一波：<br>$$<br>\sum_{d=1}^{mim(n,m)}f(d)\sum_{i=1}^n\sum_{j=1}^m[gcd(i,j)==d]<br>$$</p>
+<p>$$<br>\sum_{d=1}^{min(n,m)}f(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[gcd(i,j)==1]<br>$$</p>
+<p>$$<br>\sum_{d=1}^{min(n,m)}f(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum_{t|gcd(i,j)}μ(t)<br>$$</p>
+<p>$$<br>\sum_{d=1}^{min(n,m)}f(d)\sum_{i=1}^{\lfloor\frac{n}{dt}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{dt}\rfloor}\sum_{t=1}^{min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}μ(t)<br>$$</p>
+<p>$$<br>\sum_{d=1}^{min(n,m)}f(d)\sum_{t=1}^{min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}μ(t){\lfloor\frac{n}{dt}\rfloor}{\lfloor\frac{m}{dt}\rfloor}<br>$$</p>
+<p>令dt=T，则：<br>$$<br>\sum_{T=1}^{min(n,m)}{\lfloor\frac{n}{T}\rfloor}{\lfloor\frac{m}{T}\rfloor\sum_{d|T}f(d)}μ(\frac{T}{d})<br>$$<br>由于$d=x^2$<br>$$<br>\sum_{T=1}^{min(n,m)}{\lfloor\frac{n}{T}\rfloor}{\lfloor\frac{m}{T}\rfloor\sum_{x=1}^{min(\sqrt{n},\sqrt{m})}\sum_{x^2|T}}μ(\frac{T}{x^2})<br>$$<br>对于T的前半部分，我们可以用分块，复杂度为$\sqrt{n}$，对于后半部分，就可以预处理出来。</p>
+<p>枚举x，以及每一个$x^2$的倍数$k·x^2$，处理出每一个T的对应的值，然后再求前缀和。</p>
+<p>预处理部分的复杂度为O(n)，求的时候的复杂度为$O(T\sqrt{n})$。</p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10000010</span>;</span><br><span class="line"><span class="keyword">int</span> mu[N],prim[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> sum[N]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123;prim[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            vis[prim[j]*i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span> mu[i*prim[j]]=-mu[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> d=<span class="number">1</span>;d*d&lt;=n;d++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k*d*d&lt;=n;k++)</span><br><span class="line">            sum[k*d*d]+=mu[k];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        sum[i]+=sum[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    get_mu(<span class="number">10000000</span>);</span><br><span class="line">    <span class="keyword">int</span> t,n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="keyword">int</span> MIN=min(n,m);</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=MIN;l=r+<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            r=min(n/(n/l),m/(m/l));</span><br><span class="line">            ans+=<span class="number">1l</span>l*(sum[r]-sum[l<span class="number">-1</span>])*(n/l)*(m/l);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,<span class="number">1l</span>l*n*m-ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">莫比乌斯反演</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/19/Hillan-and-the-girl(莫比乌斯反演)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1233,6 +1232,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
@@ -1249,10 +1252,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
@@ -1261,7 +1260,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,23 +1280,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,11 +1288,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,11 +1304,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1322,6 +1325,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,14 +1348,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
@@ -1353,15 +1356,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,6 +1376,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
@@ -1389,11 +1396,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+                <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,7 +1404,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1409,15 +1412,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">歌词</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
               </li>
              
               <li class="article-tag-list-item">
