@@ -161,6 +161,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GuGuFishtion(欧拉函数公式+莫比乌斯)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/GuGuFishtion(欧拉函数公式+莫比乌斯)/">GuGuFishtion(欧拉函数公式+莫比乌斯)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/14/GuGuFishtion(欧拉函数公式+莫比乌斯)/" class="archive-article-date">
+  	<time datetime="2018-08-13T17:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="GuGuFishtion"><a href="#GuGuFishtion" class="headerlink" title="GuGuFishtion"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6390" target="_blank" rel="noopener">GuGuFishtion</a></h2><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求：<br>$$<br>Ans=\sum_{i=1}^{n}\sum_{j=1}^m\frac{φ(ij)}{φ(i)φ(j)}%p<br>$$<br>其中，n,m&lt;=1e6, max(n,m)&lt;=p&lt;=1e9，且p为素数。</p>
+<p>##思路</p>
+<p>由欧拉函数公式：<br>$$<br>φ(x)=x(1-\frac{1}{p_1})(1-\frac{1}{p_2})(1-\frac{1}{p_3})…(1-\frac{1}{p_n})，其中p_i为x的质因子<br>$$<br>将公式带入$\frac{φ(ij)}{φ(i)φ(j)}$中：<br>$$<br>原式=\frac{ij(1-\frac{1}{c_1})…(1-\frac{1}{c_t})}{i(1-\frac{1}{a_1})…(1-\frac{1}{a_n})j(1-\frac{1}{b_1})…(1-\frac{1}{b_m})}<br>$$</p>
+<p>$$<br>=\frac{1}{(1-\frac{1}{a_1})(1-\frac{1}{a_2})…(1-\frac{1}{b_1})(1-\frac{1}{b_2})…}<br>$$</p>
+<p>上下同乘以gcd(i,j)，则可以得到：</p>
+<p>(这里虽然讲不清楚但是大致是一个容斥)<br>$$<br>原式=\frac{gcd(i,j)}{gcd(i,j)-gcd(i,j)/质因数的任意组合+gcd(i,j)/所有质因子的组合}<br>$$</p>
+<p>$$<br>=\frac{gcd(i,j)}{φ(gcd(i,j))}<br>$$</p>
+<p>因此<br>$$<br>Ans=\sum_{i=1}^{n}\sum_{j=1}^m\frac{gcd(i,j)}{φ(gcd(i,j))}%p<br>$$<br>令k=gcd(i,j)，并枚举k，有：<br>$$<br>Ans=\sum_{i=1}^{n}\sum_{j=1}^m\sum_{k=1}^{min(n,m)}\frac{k}{φ(k)}[gcd(i,j)==k]%p<br>$$</p>
+<p>$$<br>=\sum_{k=1}^{min(n,m)}\frac{k}{φ(k)}\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)==k]%p<br>$$</p>
+<p>$$<br>=\sum_{k=1}^{min(n,m)}\frac{k}{φ(k)}\sum_{i=1}^{\lfloor\frac{n}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{k}\rfloor}[gcd(i,j)==1]%p<br>$$</p>
+<p>$$<br>=\sum_{k=1}^{min(n,m)}\frac{k}{φ(k)}\sum_{i=1}^{\lfloor\frac{n}{dk}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{dk}\rfloor}<br>\sum_{d=1}^{min(n,m)}μ(d)%p<br>$$</p>
+<p>$$<br>=\sum_{k=1}^{min(n,m)}\frac{k}{φ(k)}\sum_{d=1}^{min(n,m)}μ(d){\lfloor\frac{n}{dk}\rfloor}{\lfloor\frac{m}{dk}\rfloor}%p<br>$$</p>
+<p>就可以做啦！</p>
+<p>枚举k=1~min(n,m)，先分析出要预先求的东西：</p>
+<ol>
+<li>μ(d)</li>
+<li>φ(k)</li>
+</ol>
+<p>预处理：由于n/dk向下取整时，当dk&gt;n，值为0，因此我们只要先枚举dk=1到min(n,m)即可。</p>
+<p>然后对于for(k)，dk为d的倍数增长，此时，d=dk/k,将μ(dk/k)、n/dk、m/dk相乘，取模得到F(k)+=。</p>
+<p>计算：然后就可以一个大循环，枚举k从1~min(n,m)，求得k*逆元(φ(k))，再*先前求得的F(k)，并取模即可。</p>
+<p>注意：由于时间限制， 取模一定要尽量少取。特别是在预处理阶段中，求F(k)时，由于F(k)是重复累加的，因此若是<strong>每一次累加都取模，会造成不必要的时间浪费</strong>，因此我们可以把F(k)开long long，然后在全部预处理完毕之后再一次性for取模。</p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll MOD;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> phi[maxn],mu[maxn],prim[maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">ll quzheng[maxn],f[maxn];</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function">ll <span class="title">ex_gcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span><span class="comment">//扩展欧几里得（扩展gcd）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a==<span class="number">0</span>&amp;&amp;b==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (b==<span class="number">0</span>)&#123;x=<span class="number">1</span>;y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">	ll d=ex_gcd(b,a%b,y,x);</span><br><span class="line">	y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">mod_inverse</span><span class="params">(ll a,ll n)</span><span class="comment">//乘法逆元，a与n必须互素</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll x,y;</span><br><span class="line">	ll d = ex_gcd(a,n,x,y);</span><br><span class="line">	<span class="keyword">return</span> (x%n+n)%n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 对于μ函数的线筛 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mu[<span class="number">1</span>]=phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">    	<span class="keyword">if</span>(!vis[i])&#123;prim[++cnt]=i;mu[i]=<span class="number">-1</span>;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">   	 	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        	vis[prim[j]*i]=<span class="number">1</span>;</span><br><span class="line">        	<span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>) &#123;phi[i*prim[j]]=phi[i]*prim[j];<span class="keyword">break</span>;&#125;</span><br><span class="line">        	<span class="keyword">else</span> &#123;mu[i*prim[j]]=-mu[i];phi[i*prim[j]] = phi[i] * phi[prim[j]];&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="keyword">int</span> MIN=min(n,m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MIN;i++) quzheng[i]=<span class="number">1l</span>l*(n/i)*(m/i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MIN;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=MIN;j+=i)</span><br><span class="line">            f[i]+=<span class="number">1l</span>l*mu[j/i]*quzheng[j];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MIN;i++) <span class="comment">//就是这个TLE</span></span><br><span class="line">        f[i]%=MOD;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,t;</span><br><span class="line">    get_mu(<span class="number">1000000</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%lld"</span>,&amp;m,&amp;n,&amp;MOD);</span><br><span class="line">        cal(n,m);</span><br><span class="line">        <span class="keyword">int</span> MIN=min(n,m);</span><br><span class="line">        ll ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MIN;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans=(ans+(<span class="number">1l</span>l*i*mod_inverse(phi[i],MOD))%MOD*f[i]+MOD)%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">莫比乌斯反演</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/14/GuGuFishtion(欧拉函数公式+莫比乌斯)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-recovery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1331,89 +1439,6 @@ $$
 
 
   
-    <article id="post-Color-it-(简单扫描)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/09/Color-it-(简单扫描)/">Color it (简单扫描)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/09/Color-it-(简单扫描)/" class="archive-article-date">
-  	<time datetime="2018-08-08T16:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1>Color it</h1>
-
-<h2>题意</h2>
-
-<p>给你一个表格样，再给出m个圆，满足式子：$\sqrt{(i-x_c)^2+(j-y_c)^2}\le{r}$ 的，都要染成黑色，问你最后没有被染色的格子数。</p>
-<p>思路就是简单模拟一下扫描线的操作，可以先对每一个圆，处理出圆内列对应的扫描线的长度，存在相应的列中。然后再遍历每一列，对于列中存在的扫描线，按照l小r大排序，然后如果这个区间的l要大于上个区间的r，ans就减去this.r-this.l+1，否则如果this.l&lt;last.r,并且this.r&gt;last.r，就this.r-last.r（不加1因为last.r已经算过），如果this.r&lt;last.r，则不必再计算。</p>
-<h2>看！代码</h2>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> up,down;</span><br><span class="line">    node(<span class="keyword">int</span> x,<span class="keyword">int</span> y)&#123;</span><br><span class="line">        up=x;down=y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.up==b.up) <span class="keyword">return</span> a.down&gt;b.down;</span><br><span class="line">    <span class="keyword">return</span> a.up&lt;b.up;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">int</span> n,m,q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x,y,r,ux,dx,ly,ry;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;q);</span><br><span class="line">        <span class="built_in">vector</span> &lt;node&gt; v[MAXN*<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;q;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;r);</span><br><span class="line">            ly=max(<span class="number">0</span>,y-r);</span><br><span class="line">            ry=min(y+r,m<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=ly;j&lt;=ry;j++) <span class="comment">//先处理出每列对应的扫描线，存下来</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> derta=<span class="built_in">sqrt</span>(r*r-(y-j)*(y-j));</span><br><span class="line">                ux=max(<span class="number">0</span>,x-derta);</span><br><span class="line">                dx=min(n<span class="number">-1</span>,x+derta);</span><br><span class="line">                v[j].push_back(node(ux,dx));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">int</span> last,ans=n*m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++) <span class="comment">//对应每一列存在的扫描线，先从l小，r大排序，然后判断计算</span></span><br><span class="line">        &#123;</span><br><span class="line">            len=v[i].size();</span><br><span class="line">            <span class="keyword">if</span>(len)</span><br><span class="line">            &#123;</span><br><span class="line">                last=<span class="number">-1</span>;</span><br><span class="line">                sort(v[i].begin(),v[i].end(),cmp);</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(v[i][j].down&lt;=last)</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span>(v[i][j].up&gt;last)</span><br><span class="line">                        ans-=v[i][j].down-v[i][j].up+<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(v[i][j].down&gt;last)</span><br><span class="line">                        ans-=v[i][j].down-last;</span><br><span class="line">                    last=v[i][j].down;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/09/Color-it-(简单扫描)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1532,6 +1557,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
@@ -1540,11 +1573,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1564,10 +1593,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
@@ -1584,10 +1609,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
@@ -1596,15 +1617,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1616,15 +1641,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1632,15 +1653,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">大数分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1660,23 +1685,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1688,11 +1709,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1704,11 +1721,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1724,11 +1749,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
               </li>
              
               <li class="article-tag-list-item">
