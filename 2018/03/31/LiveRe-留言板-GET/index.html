@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="在正式开始之前！ 容我先大笑三声！ 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈！！！">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:image" content="http://github.com/mdpicture/1803291.JPG">
-<meta property="og:image" content="http://github.com/mdpicture/1803292.JPG">
-<meta property="og:image" content="http://github.com/mdpicture/1803293.JPG">
-<meta property="og:image" content="http://github.com/mdpicture/1803294.JPG">
+<meta property="og:image" content="http://github.com/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture/1803291.JPG">
+<meta property="og:image" content="http://github.com/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture/1803292.JPG">
+<meta property="og:image" content="http://github.com/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture/1803293.JPG">
+<meta property="og:image" content="http://github.com/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture/1803294.JPG">
 <meta property="og:updated_time" content="2020-09-15T13:52:22.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LiveRe 留言板 GET(适用于第一个主题，改变中)">
 <meta name="twitter:description" content="在正式开始之前！ 容我先大笑三声！ 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈！！！">
-<meta name="twitter:image" content="http://github.com/mdpicture/1803291.JPG">
+<meta name="twitter:image" content="http://github.com/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture/1803291.JPG">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -190,22 +190,28 @@
 <p>容我先大笑三声！</p>
 <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈！！！</p>
 <a id="more"></a>
+
 <p>在尝试了Valine一直失败之后，</p>
 <p>LiveRe终于赐予了我成功的喜悦！</p>
 <p>看了很多乱七八糟的安装指南，就是合不到我的网站上来，</p>
 <p>很多人都是next主题，导致很多步骤其实跟我自己的都是不搭嘎的，所以我现在来记录一下这个过程吧：</p>
 <p>1、首先，当然是注册LiveRe啦！<a href="https://livere.com/" target="_blank" rel="noopener"> 来必力 </a></p>
 <p>2、选择安装板块，这里我们安装的是City版~</p>
-<p><img src="\mdpicture\1803291.JPG" width="511" height="646" alt="City"></p>
+<img src="/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture\1803291.JPG" width="511" height="646" alt="City">
+
 <p>3、接下来填写一些关于你想将LiveRe用于的博客的一些信息：（图片来自网络）</p>
-<p><img src="\mdpicture\1803292.JPG" width="875" height="593" alt="填写"></p>
+<img src="/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture\1803292.JPG" width="875" height="593" alt="填写">
+
 <p>4、填完之后，申请获取代码，此时其将会给你一段代码，该段代码等下需要加到你的个人博客的页面中，我们可以先将其复制并保存起来：</p>
-<p><img src="\mdpicture\1803293.JPG" width="794" height="756" alt="代码"></p>
+<img src="/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture\1803293.JPG" width="794" height="756" alt="代码">
+
 <p>5、在个人博客中加入LiveRe代码，首先去如路径：<em>hexo_bolg/themes/your-theme/layout/_partial/post</em>下创建livere.ejs代码。livere.ejs的内容就是上一步中获取的代码。</p>
 <p>6、然后修改路径：hexo_bolg/themes/your-theme/layout/_partial下的article.ejs文件，在<code>&lt;% if (!index &amp;&amp; post.comments){ %&gt;</code> 代码块下添加如下代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index)&#123; %&gt;</span><br><span class="line">  &lt;% <span class="keyword">if</span> (post.comments)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'post/livere'</span>) %&gt;</span><br><span class="line">  &lt;% &#125; <span class="keyword">else</span> &#123; %&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"lv-container"</span>&gt;&lt;/div&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
 <p>如图：</p>
-<p><img src="\mdpicture\1803294.JPG" width="593" height="765" alt="修改"></p>
+<img src="/xxq1999/2018/03/31/LiveRe-留言板-GET/mdpicture\1803294.JPG" width="593" height="765" alt="修改">
+
 <p>7、git g，git d~</p>
 <p>完成！！！</p>
 <p>我先去试用一波啦哈哈哈哈哈！！！！</p>
@@ -478,15 +484,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,6 +504,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
@@ -506,15 +516,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,6 +525,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,15 +548,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +560,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,7 +572,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,11 +580,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,11 +608,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,18 +621,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,6 +636,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
               </li>
              
@@ -650,15 +656,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
-  <title>CA Loves GCD(DP) | まだまだだね</title>
+  <title>个人取向变化记录 | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CA Loves GCD题意给你n个数，从里面任取几个（至少1个），计算它们的gcd，问你所有可能的取法的gcd之和。 对结果模1e8+7（注意是8） n&amp;lt;=1000 思路dp[i][j]表示取前i个数时gcd为j的种数。 取第i个时：dp[i][gcd(a[i],j)] += dp[i-1][j] ； 不取第i个时：dp[i][j] += dp[i-1][j]； 对1000内的任意两个数">
-<meta name="keywords" content="dp">
+  <meta name="description" content="每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧…… 好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。">
+<meta name="keywords" content="模板">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CA Loves GCD(DP)">
-<meta property="og:url" content="http://github.com/xxq1999/2018/08/19/CA-Loves-GCD(DP)/index.html">
+<meta property="og:title" content="个人取向变化记录">
+<meta property="og:url" content="http://github.com/xxq1999/2020/09/17/lyrics/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="CA Loves GCD题意给你n个数，从里面任取几个（至少1个），计算它们的gcd，问你所有可能的取法的gcd之和。 对结果模1e8+7（注意是8） n&amp;lt;=1000 思路dp[i][j]表示取前i个数时gcd为j的种数。 取第i个时：dp[i][gcd(a[i],j)] += dp[i-1][j] ； 不取第i个时：dp[i][j] += dp[i-1][j]； 对1000内的任意两个数">
+<meta property="og:description" content="每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧…… 好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2020-09-16T04:55:37.517Z">
+<meta property="og:updated_time" content="2020-09-17T08:54:40.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CA Loves GCD(DP)">
-<meta name="twitter:description" content="CA Loves GCD题意给你n个数，从里面任取几个（至少1个），计算它们的gcd，问你所有可能的取法的gcd之和。 对结果模1e8+7（注意是8） n&amp;lt;=1000 思路dp[i][j]表示取前i个数时gcd为j的种数。 取第i个时：dp[i][gcd(a[i],j)] += dp[i-1][j] ； 不取第i个时：dp[i][j] += dp[i-1][j]； 对1000内的任意两个数">
+<meta name="twitter:title" content="个人取向变化记录">
+<meta name="twitter:description" content="每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧…… 好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -161,35 +161,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CA-Loves-GCD(DP)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-lyrics" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CA Loves GCD(DP)
+      个人取向变化记录
     </h1>
   
 
         
-        <a href="/2018/08/19/CA-Loves-GCD(DP)/" class="archive-article-date">
-  	<time datetime="2018-08-19T15:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+        <a href="/2020/09/17/lyrics/" class="archive-article-date">
+  	<time datetime="2020-09-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="CA-Loves-GCD"><a href="#CA-Loves-GCD" class="headerlink" title="CA Loves GCD"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5656" target="_blank" rel="noopener">CA Loves GCD</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你n个数，从里面任取几个（至少1个），计算它们的gcd，问你所有可能的取法的gcd之和。</p>
-<p>对结果模1e8+7（注意是8）</p>
-<p>n&lt;=1000</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>dp[i][j]表示取前i个数时gcd为j的种数。</p>
-<p>取第i个时：dp[i][gcd(a[i],j)] += dp[i-1][j] ；</p>
-<p>不取第i个时：dp[i][j] += dp[i-1][j]；</p>
-<p>对1000内的任意两个数的gcd作预处理，i从0开始。</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e8</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10000010</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1010</span>][<span class="number">1010</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> gcd[<span class="number">1005</span>][<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1010</span>];</span><br><span class="line"><span class="comment">/*int ggcd(int a, int b) &#123;</span></span><br><span class="line"><span class="comment">    return b == 0 ? a : ggcd(b, a%b);</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            gcd[i][j]=__gcd(i,j);</span><br><span class="line">            gcd[j][i]=gcd[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init(<span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">int</span> t,n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">int</span> MAX=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">            MAX=max(MAX,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=MAX;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j]=(dp[i][j]+dp[i<span class="number">-1</span>][j])%MOD;</span><br><span class="line">                dp[i][gcd[a[i]][j]]=(dp[i][gcd[a[i]][j]]+dp[i<span class="number">-1</span>][j])%MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=MAX;i++)</span><br><span class="line">            ans=(ans+<span class="number">1l</span>l*dp[n][i]*i)%MOD;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><p>每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧……</p>
+<p>好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。</p>
+<a id="more"></a>
 
+<h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p><em>21岁，自己最喜欢的还是音乐</em></p>
+<hr>
+<blockquote>
+<p>在幻妙的时间里 有 望喜 和奇遇</p>
+<p>在嘈杂的城市间 有永恒 的相遇</p>
+<p>在有生之年里 常相伴 有知己</p>
+<p>在漫妙的年龄享有 诚挚的 爱情</p>
+</blockquote>
+<p><strong>[ 勐巴拉娜西 ]</strong> 刺猬的歌总是能给我带来许多惊喜。这一段是最后子健写给小春天的祝福，真的很美好。</p>
 
       
 
@@ -203,7 +207,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
         		</li>
       		
 		</ul>
@@ -215,7 +219,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
         		</li>
       		
 		</ul>
@@ -270,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/08/19/CA-Loves-GCD(DP)/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2020/09/17/lyrics/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +288,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/20/Mophues(莫比乌斯反演)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Mophues(莫比乌斯反演)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/19/Hillan-and-the-girl(莫比乌斯反演)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hillan and the girl(莫比乌斯反演)</div>
+    <a href="/2020/09/16/资源/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">幻象波普星</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,7 +317,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CA-Loves-GCD"><span class="toc-number">1.</span> <span class="toc-text">CA Loves GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看！代码"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#音乐"><span class="toc-number">1.</span> <span class="toc-text">音乐</span></a></li></ol>
                     </div>
                 </span>
             </div>
