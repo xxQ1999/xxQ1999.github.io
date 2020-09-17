@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
   <title>Goldbach （Miller Rabin模板+埃氏筛模板) | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Goldbach题意哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&amp;lt;n&amp;lt;2^63），输出任意一组素数a，b，使得a+b=n。 思路a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。 【Miller">
-<meta name="keywords" content="模板,素数">
+  <meta name="description" content="Goldbach题意哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&lt;n&lt;2^63），输出任意一组素数a，b，使得a+b&#x3D;n。 思路a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。 【Miller">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Goldbach （Miller Rabin模板+埃氏筛模板)">
-<meta property="og:url" content="http://github.com/xxq1999/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/index.html">
+<meta property="og:url" content="http://github.com/xxq1999/2018/04/23/2018-04-23-Goldbach-%EF%BC%88Miller-Rabin%E6%A8%A1%E6%9D%BF+%E5%9F%83%E6%B0%8F%E7%AD%9B%E6%A8%A1%E6%9D%BF)/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="Goldbach题意哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&amp;lt;n&amp;lt;2^63），输出任意一组素数a，b，使得a+b=n。 思路a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。 【Miller">
-<meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2018-04-23T08:40:16.000Z">
+<meta property="og:description" content="Goldbach题意哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&lt;n&lt;2^63），输出任意一组素数a，b，使得a+b&#x3D;n。 思路a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。 【Miller">
+<meta property="og:locale" content="utf_8">
+<meta property="article:published_time" content="2018-04-23T07:53:22.000Z">
+<meta property="article:modified_time" content="2018-04-23T08:40:16.000Z">
+<meta property="article:author" content="xxQ">
+<meta property="article:tag" content="模板">
+<meta property="article:tag" content="素数">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Goldbach （Miller Rabin模板+埃氏筛模板)">
-<meta name="twitter:description" content="Goldbach题意哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&amp;lt;n&amp;lt;2^63），输出任意一组素数a，b，使得a+b=n。 思路a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。 【Miller">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -37,7 +38,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,10 +52,8 @@
 			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">xxQ</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">飞光飞光，劝你一杯酒</p>
 		
 
 		<nav class="header-menu">
@@ -62,7 +61,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随想">随笔</a></li>
+				<li><a href="/tags/%E9%9A%8F%E6%83%B3">随笔</a></li>
 	        
 				<li><a href="/StudyPlan">计划</a></li>
 	        
@@ -111,10 +110,8 @@
 				<img src="/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">xxQ</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>飞光飞光，劝你一杯酒<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -144,7 +141,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随想">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E6%83%B3">随笔</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/StudyPlan">计划</a></li>
 		        
@@ -173,7 +170,7 @@
   
 
         
-        <a href="/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/" class="archive-article-date">
+        <a href="/2018/04/23/2018-04-23-Goldbach-%EF%BC%88Miller-Rabin%E6%A8%A1%E6%9D%BF+%E5%9F%83%E6%B0%8F%E7%AD%9B%E6%A8%A1%E6%9D%BF)/" class="archive-article-date">
   	<time datetime="2018-04-23T07:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
@@ -181,15 +178,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Goldbach"><a href="#Goldbach" class="headerlink" title="Goldbach"></a><a href="https://nanti.jisuanke.com/t/25985" target="_blank" rel="noopener">Goldbach</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&lt;n&lt;2^63），输出任意一组素数a，b，使得a+b=n。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Goldbach"><a href="#Goldbach" class="headerlink" title="Goldbach"></a><a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/25985">Goldbach</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>哥德巴赫猜想：输入一个T（100），输入一个偶数n（2&lt;n&lt;2^63），输出任意一组素数a，b，使得a+b=n。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>a和b必定为一大一小，从小的入手，用埃氏筛筛出1e6内的所有素数prim[]（猜想到小的那个素数一定不超过1e6），然后遍历prim[]，算出n-prim[i]，用基于概率的素数测试算法MillerRabin判断它是不是素数即可。</p>
-<p><a href="https://blog.csdn.net/sunshine_cfbsl/article/details/52425798" target="_blank" rel="noopener">【Miller Rabin素数判定】</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunshine_cfbsl/article/details/52425798">【Miller Rabin素数判定】</a></p>
 <p>这里注意，由于2^63次过大，在相乘得过程中会超longlong，因此要改用unsigned long long。</p>
 <blockquote>
 <p>做题的时候，遇到范围是2^63，取模2^64的这种题目。遇到这种限制条件时就要想到用unsigned long long类型。这样，如果ull类型的整数溢出了，就相当于取模2^64了。因为ull的范围是[0,2^64-1]。而ll的范围是[-2^63,2^63-1]，因为有符号的第63位表示“正负”而不表示数值。</p>
 </blockquote>
 <p><strong>附一个公式：(1+a1)(1+a2)(1+a3)……(1+an-1)(1+an) = 1+sum{ai}+sum{ai·aj}+sum{ai·aj·ak}+……+sum{a1·a2·…·an}</strong></p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">65</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX=<span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">typedef</span> ULL ULL;</span><br><span class="line">ULL n, x[MAXN];</span><br><span class="line"></span><br><span class="line">ULL pri[MAX+<span class="number">5</span>],num=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[MAX+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i]==<span class="literal">false</span>)pri[num++]=i;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;num&amp;&amp;i*pri[j]&lt;MAX;j++)</span><br><span class="line">            vis[i*pri[j]]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">multi</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = (ans+a)%p;</span><br><span class="line">        a = (a+a)%p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">qpow</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = multi(ans, a, p);</span><br><span class="line">        a = multi(a, a, p);</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Miller_Rabin</span><span class="params">(ULL n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">20</span>, i, t = <span class="number">0</span>;</span><br><span class="line">    ULL u = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!(u &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">        t++;</span><br><span class="line">        u &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(s--) &#123;</span><br><span class="line">        ULL a = rand()%(n<span class="number">-2</span>)+<span class="number">2</span>;</span><br><span class="line">        x[<span class="number">0</span>] = qpow(a, u, n);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= t; i++) &#123;</span><br><span class="line">            x[i] = multi(x[i<span class="number">-1</span>], x[i<span class="number">-1</span>], n);</span><br><span class="line">            <span class="keyword">if</span>(x[i] == <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != n<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x[t] != <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    ULL n,temp;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Miller_Rabin(n-pri[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>,pri[i],n-pri[i]);<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">65</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX=<span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">typedef</span> ULL ULL;</span><br><span class="line">ULL n, x[MAXN];</span><br><span class="line"></span><br><span class="line">ULL pri[MAX+<span class="number">5</span>],num=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[MAX+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i]==<span class="literal">false</span>)pri[num++]=i;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;num&amp;&amp;i*pri[j]&lt;MAX;j++)</span><br><span class="line">            vis[i*pri[j]]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">multi</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = (ans+a)%p;</span><br><span class="line">        a = (a+a)%p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">qpow</span><span class="params">(ULL a, ULL b, ULL p)</span> </span>&#123;</span><br><span class="line">    ULL ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1L</span>L) ans = multi(ans, a, p);</span><br><span class="line">        a = multi(a, a, p);</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Miller_Rabin</span><span class="params">(ULL n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">20</span>, i, t = <span class="number">0</span>;</span><br><span class="line">    ULL u = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!(u &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">        t++;</span><br><span class="line">        u &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(s--) &#123;</span><br><span class="line">        ULL a = rand()%(n<span class="number">-2</span>)+<span class="number">2</span>;</span><br><span class="line">        x[<span class="number">0</span>] = qpow(a, u, n);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= t; i++) &#123;</span><br><span class="line">            x[i] = multi(x[i<span class="number">-1</span>], x[i<span class="number">-1</span>], n);</span><br><span class="line">            <span class="keyword">if</span>(x[i] == <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != <span class="number">1</span> &amp;&amp; x[i<span class="number">-1</span>] != n<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x[t] != <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    ULL n,temp;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Miller_Rabin(n-pri[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%lld %lld\n&quot;</span>,pri[i],n-pri[i]);<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -275,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/04/23/2018-04-23-Goldbach-（Miller-Rabin模板+埃氏筛模板)/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/04/23/2018-04-23-Goldbach-%EF%BC%88Miller-Rabin%E6%A8%A1%E6%9D%BF+%E5%9F%83%E6%B0%8F%E7%AD%9B%E6%A8%A1%E6%9D%BF)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,7 +286,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/23/2018-04-23-Clever-King-(最大权闭合子图模板)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/23/2018-04-23-Clever-King-(%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE%E6%A8%A1%E6%9D%BF)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -327,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Goldbach"><span class="toc-number">1.</span> <span class="toc-text">Goldbach</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看！代码"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Goldbach"><span class="toc-number">1.</span> <span class="toc-text">Goldbach</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%EF%BC%81%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,10 +459,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
@@ -478,15 +471,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,11 +503,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,10 +520,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,15 +543,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +559,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,11 +579,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
+                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
+                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,6 +599,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
@@ -614,7 +615,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,19 +631,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -11,14 +11,14 @@
   <meta name="description" content="Swordsman题意给你一个n,代表有n个队伍，一个k，代表每个队伍中有k个战士，对应k个经验值，我方队伍中也有k个战士。 输入我方战士的k个战斗力， 接下来每一行输入敌方每个队伍k个战士的战斗力，打败k个战士后可以得到的经验值。 只有我方k个战士的战斗力均对应大于敌方某个队伍中k个战士的战斗值，才能得到相应的k个经验，提升战斗力，然后接着跟其他的队伍打。 问你我方战士每个人最后最多能为多少">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swordsman(多个优先队列)">
-<meta property="og:url" content="http://github.com/xxq1999/2018/08/15/Swordsman(多个优先队列)/index.html">
+<meta property="og:url" content="http://github.com/xxq1999/2018/08/15/Swordsman(%E5%A4%9A%E4%B8%AA%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97)/index.html">
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="Swordsman题意给你一个n,代表有n个队伍，一个k，代表每个队伍中有k个战士，对应k个经验值，我方队伍中也有k个战士。 输入我方战士的k个战斗力， 接下来每一行输入敌方每个队伍k个战士的战斗力，打败k个战士后可以得到的经验值。 只有我方k个战士的战斗力均对应大于敌方某个队伍中k个战士的战斗值，才能得到相应的k个经验，提升战斗力，然后接着跟其他的队伍打。 问你我方战士每个人最后最多能为多少">
-<meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2020-09-15T14:06:43.950Z">
+<meta property="og:locale" content="utf_8">
+<meta property="article:published_time" content="2018-08-14T16:49:00.000Z">
+<meta property="article:modified_time" content="2020-09-15T14:06:43.950Z">
+<meta property="article:author" content="xxQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swordsman(多个优先队列)">
-<meta name="twitter:description" content="Swordsman题意给你一个n,代表有n个队伍，一个k，代表每个队伍中有k个战士，对应k个经验值，我方队伍中也有k个战士。 输入我方战士的k个战斗力， 接下来每一行输入敌方每个队伍k个战士的战斗力，打败k个战士后可以得到的经验值。 只有我方k个战士的战斗力均对应大于敌方某个队伍中k个战士的战斗值，才能得到相应的k个经验，提升战斗力，然后接着跟其他的队伍打。 问你我方战士每个人最后最多能为多少">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -36,7 +36,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -50,10 +50,8 @@
 			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">xxQ</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">飞光飞光，劝你一杯酒</p>
 		
 
 		<nav class="header-menu">
@@ -61,7 +59,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随想">随笔</a></li>
+				<li><a href="/tags/%E9%9A%8F%E6%83%B3">随笔</a></li>
 	        
 				<li><a href="/StudyPlan">计划</a></li>
 	        
@@ -110,10 +108,8 @@
 				<img src="/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">xxQ</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>飞光飞光，劝你一杯酒<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -143,7 +139,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随想">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E6%83%B3">随笔</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/StudyPlan">计划</a></li>
 		        
@@ -172,7 +168,7 @@
   
 
         
-        <a href="/2018/08/15/Swordsman(多个优先队列)/" class="archive-article-date">
+        <a href="/2018/08/15/Swordsman(%E5%A4%9A%E4%B8%AA%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97)/" class="archive-article-date">
   	<time datetime="2018-08-14T16:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
 </a>
         
@@ -180,7 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Swordsman"><a href="#Swordsman" class="headerlink" title=" Swordsman"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6396" target="_blank" rel="noopener"> Swordsman</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你一个n,代表有n个队伍，一个k，代表每个队伍中有k个战士，对应k个经验值，我方队伍中也有k个战士。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Swordsman"><a href="#Swordsman" class="headerlink" title=" Swordsman"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=6396"> Swordsman</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你一个n,代表有n个队伍，一个k，代表每个队伍中有k个战士，对应k个经验值，我方队伍中也有k个战士。</p>
 <p>输入我方战士的k个战斗力，</p>
 <p>接下来每一行输入敌方每个队伍k个战士的战斗力，打败k个战士后可以得到的经验值。</p>
 <p>只有我方k个战士的战斗力均对应大于敌方某个队伍中k个战士的战斗值，才能得到相应的k个经验，提升战斗力，然后接着跟其他的队伍打。</p>
@@ -190,7 +186,7 @@
 <p>然后我们可以对每一种敌方战士（列），建立k个优先队列，以战斗值小为上。</p>
 <p>然后不断循环，每次从第1个战士开始和第1个队列中的敌方战士打，如果强于他，就弹出这个战士，并记录这个战士对应的队伍中的战败情况，一旦他们的队伍全军覆没，我方每个战士就可以得到相应的经验值，然后和第i个队列中的战士打，一直到i=k为止，结束一轮循环。</p>
 <p>然后一直循环直到某一次循环中不再有打赢他们的情况出现。</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;,<span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt;,greater&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt; &gt;a[<span class="number">6</span>];</span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> MX = <span class="number">4e7</span>; <span class="comment">//1e7 占用内存 11000kb</span></span><br><span class="line">    <span class="keyword">char</span> buf[MX]; <span class="keyword">int</span> c, sz;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">begin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        c = <span class="number">0</span>;</span><br><span class="line">        sz = fread(buf, <span class="number">1</span>, MX, <span class="built_in">stdin</span>);<span class="comment">//一次性全部读入</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (c &lt; sz &amp;&amp; buf[c] != <span class="string">'-'</span> &amp;&amp; (buf[c] &lt; <span class="string">'0'</span> || buf[c] &gt; <span class="string">'9'</span>)) c++;</span><br><span class="line">        <span class="keyword">if</span> (c &gt;= sz) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//若读完整个缓冲块则退出</span></span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="number">0</span>; <span class="keyword">if</span>(buf[c] == <span class="string">'-'</span>) flag = <span class="number">1</span>, c++;</span><br><span class="line">        <span class="keyword">for</span>(t = <span class="number">0</span>; c &lt; sz &amp;&amp; <span class="string">'0'</span> &lt;= buf[c] &amp;&amp; buf[c] &lt;= <span class="string">'9'</span>; c++) t = t * <span class="number">10</span> + buf[c] - <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag) t = -t;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> n,k,x,d[<span class="number">6</span>],b[<span class="number">100008</span>][<span class="number">6</span>],c[<span class="number">100008</span>]; <span class="comment">//d用来存当前战斗力，b是打败的奖励，c是记录某一行的打败情况</span></span><br><span class="line">pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;zz;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    IO::begin();</span><br><span class="line">    IO::read(t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        IO::read(n);</span><br><span class="line">        IO::read(k);</span><br><span class="line">        <span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="keyword">sizeof</span>(c));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++) IO::read(d[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(a[i].size()) a[i].pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) IO::read(x),zz.first=x,zz.second=i,a[j].push(zz); <span class="comment">//先把所有的情况放到优先队列中</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) IO::read(b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">bool</span> f;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            f=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)    <span class="comment">//对于每一列</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!a[i].empty()) <span class="comment">//对于某一列的最小的元素</span></span><br><span class="line">                &#123;</span><br><span class="line">                    zz=a[i].top();</span><br><span class="line">                    <span class="keyword">if</span>(zz.first&lt;=d[i])  <span class="comment">//可以打败</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        a[i].pop();</span><br><span class="line">                        c[zz.second]++;  <span class="comment">//记录下这一行的打败情况</span></span><br><span class="line">                        <span class="keyword">if</span>(c[zz.second]==k) <span class="comment">//如果这一行都打败了 ，就吃掉啦</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) d[j]+=b[zz.second][j];</span><br><span class="line">                            ans++,f=<span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!f) <span class="keyword">break</span>; <span class="comment">//如果某次循环中没有能吃的，就break了</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;d[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;d[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">priority_queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;,<span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt;,greater&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt; &gt;a[<span class="number">6</span>];</span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> MX = <span class="number">4e7</span>; <span class="comment">//1e7 占用内存 11000kb</span></span><br><span class="line">    <span class="keyword">char</span> buf[MX]; <span class="keyword">int</span> c, sz;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">begin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        c = <span class="number">0</span>;</span><br><span class="line">        sz = fread(buf, <span class="number">1</span>, MX, <span class="built_in">stdin</span>);<span class="comment">//一次性全部读入</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (c &lt; sz &amp;&amp; buf[c] != <span class="string">&#x27;-&#x27;</span> &amp;&amp; (buf[c] &lt; <span class="string">&#x27;0&#x27;</span> || buf[c] &gt; <span class="string">&#x27;9&#x27;</span>)) c++;</span><br><span class="line">        <span class="keyword">if</span> (c &gt;= sz) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//若读完整个缓冲块则退出</span></span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="number">0</span>; <span class="keyword">if</span>(buf[c] == <span class="string">&#x27;-&#x27;</span>) flag = <span class="number">1</span>, c++;</span><br><span class="line">        <span class="keyword">for</span>(t = <span class="number">0</span>; c &lt; sz &amp;&amp; <span class="string">&#x27;0&#x27;</span> &lt;= buf[c] &amp;&amp; buf[c] &lt;= <span class="string">&#x27;9&#x27;</span>; c++) t = t * <span class="number">10</span> + buf[c] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag) t = -t;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> n,k,x,d[<span class="number">6</span>],b[<span class="number">100008</span>][<span class="number">6</span>],c[<span class="number">100008</span>]; <span class="comment">//d用来存当前战斗力，b是打败的奖励，c是记录某一行的打败情况</span></span><br><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;zz;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    IO::begin();</span><br><span class="line">    IO::read(t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        IO::read(n);</span><br><span class="line">        IO::read(k);</span><br><span class="line">        <span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="keyword">sizeof</span>(c));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++) IO::read(d[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(a[i].size()) a[i].pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) IO::read(x),zz.first=x,zz.second=i,a[j].push(zz); <span class="comment">//先把所有的情况放到优先队列中</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) IO::read(b[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">bool</span> f;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            f=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)    <span class="comment">//对于每一列</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!a[i].empty()) <span class="comment">//对于某一列的最小的元素</span></span><br><span class="line">                &#123;</span><br><span class="line">                    zz=a[i].top();</span><br><span class="line">                    <span class="keyword">if</span>(zz.first&lt;=d[i])  <span class="comment">//可以打败</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        a[i].pop();</span><br><span class="line">                        c[zz.second]++;  <span class="comment">//记录下这一行的打败情况</span></span><br><span class="line">                        <span class="keyword">if</span>(c[zz.second]==k) <span class="comment">//如果这一行都打败了 ，就吃掉啦</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) d[j]+=b[zz.second][j];</span><br><span class="line">                            ans++,f=<span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!f) <span class="keyword">break</span>; <span class="comment">//如果某次循环中没有能吃的，就break了</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;d[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;d[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -261,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/08/15/Swordsman(多个优先队列)/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/08/15/Swordsman(%E5%A4%9A%E4%B8%AA%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,7 +271,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/15/Balanced-Sequence-(贪心)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/15/Balanced-Sequence-(%E8%B4%AA%E5%BF%83)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -313,7 +309,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swordsman"><span class="toc-number">1.</span> <span class="toc-text"> Swordsman</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看！代码"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swordsman"><span class="toc-number">1.</span> <span class="toc-text"> Swordsman</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-number">1.1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%EF%BC%81%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">看！代码</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -448,10 +444,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
@@ -464,15 +456,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,11 +488,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素数</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,10 +505,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +528,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,11 +544,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +564,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
+                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">母函数</a>
+                <a href="javascript:void(0)" class="js-tag color4">HDU</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,6 +584,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
@@ -600,7 +600,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,19 +616,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
