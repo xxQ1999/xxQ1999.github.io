@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="まだまだだね">
 <meta property="og:description" content="例如：有一个自来水管道输送系统，起点是S，目标是T，图中经过的管道都有一个最大的容量：   网络流的定义在有向图G&#x3D;（V,E）中： 1、有唯一的一个源点S（入度为0：出发点） 2、有唯一的一个汇点（出度为0：结束点） 3、图中的每条弧（u,v）都有一个非负的容量c（u,v） 满足上述条件的图G称为网络流图。 记为：G&#x3D;（V,E,C）">
 <meta property="og:locale" content="utf_8">
-<meta property="og:image" content="http://github.com/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture/水管流量.jpg">
-<meta property="og:image" content="http://github.com/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture/可行流.JPG">
-<meta property="og:image" content="http://github.com/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture/残余网络.JPG">
+<meta property="og:image" content="http://qgsuuzgw0.hn-bkt.clouddn.com/%E6%B0%B4%E7%AE%A1%E6%B5%81%E9%87%8F.jpg">
+<meta property="og:image" content="http://qgsuuzgw0.hn-bkt.clouddn.com/%E5%8F%AF%E8%A1%8C%E6%B5%81.JPG">
+<meta property="og:image" content="http://qgsuuzgw0.hn-bkt.clouddn.com/%E6%AE%8B%E4%BD%99%E7%BD%91%E7%BB%9C.JPG">
 <meta property="article:published_time" content="2018-04-23T11:26:23.000Z">
-<meta property="article:modified_time" content="2018-05-13T07:20:16.000Z">
+<meta property="article:modified_time" content="2020-09-18T06:28:43.056Z">
 <meta property="article:author" content="xxQ">
 <meta property="article:tag" content="网络流">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://github.com/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture/水管流量.jpg">
+<meta name="twitter:image" content="http://qgsuuzgw0.hn-bkt.clouddn.com/%E6%B0%B4%E7%AE%A1%E6%B5%81%E9%87%8F.jpg">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -182,7 +182,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <script src="/assets/js/APlayer.min.js"> </script><p>例如：有一个自来水管道输送系统，起点是S，目标是T，图中经过的管道都有一个最大的容量：</p>
-<img src="/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture\水管流量.jpg" alt="水管流量最大该是多少呢">
+<img src="http://qgsuuzgw0.hn-bkt.clouddn.com/%E6%B0%B4%E7%AE%A1%E6%B5%81%E9%87%8F.jpg" alt="水管流量最大该是多少呢">
 
 <h2 id="网络流的定义"><a href="#网络流的定义" class="headerlink" title="网络流的定义"></a>网络流的定义</h2><p>在有向图G=（V,E）中：</p>
 <p>1、有唯一的一个源点S（入度为0：出发点）</p>
@@ -193,14 +193,14 @@
 <a id="more"></a>
 
 <h3 id="可行流"><a href="#可行流" class="headerlink" title="可行流"></a>可行流</h3><p>每条管道中可以通过的流量。</p>
-<img src="/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture\可行流.JPG" alt="可行流">
+<img src="http://qgsuuzgw0.hn-bkt.clouddn.com/%E5%8F%AF%E8%A1%8C%E6%B5%81.JPG" alt="可行流">
 
 <h3 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h3><p>在所有的可行流中，流量最大的一个流。（最大流可能不止一个）</p>
 <p>解决最大流的问题常用到Ford-Fulkerson方法（在此方法下，存在着若干种不同时间复杂度下的实现）</p>
 <h4 id="Ford-Fulkerson和Edmonds-Karp"><a href="#Ford-Fulkerson和Edmonds-Karp" class="headerlink" title="Ford-Fulkerson和Edmonds-Karp"></a>Ford-Fulkerson和Edmonds-Karp</h4><p>1、残存网络</p>
 <p>第一个图是流网络，边上的12/16,12指的是流量，16是容量。</p>
 <p>第二个图是残存网络，可能会存在一对相反的边，如刚刚12/16在残存网络中，体现为 v1-&gt;s = 12，s-&gt;v1 = 16-12。与流网络中对应的边代表的是该边的残余容量，流网络中不存在的边是一条反向的已有流量边，这部分流量<strong>可以通过回流减少</strong>。（残存网络中值为0的边不画出）</p>
-<img src="/xxq1999/2018/04/23/2018-04-23-%E7%BD%91%E7%BB%9C%E6%B5%81/mdpicture\残余网络.JPG" alt="残存网络和流网络对比">
+<img src="http://qgsuuzgw0.hn-bkt.clouddn.com/%E6%AE%8B%E4%BD%99%E7%BD%91%E7%BB%9C.JPG" alt="残存网络和流网络对比">
 
 <p>2、增广路径</p>
 <p>假如有这么一条路，这条路从源点开始一直一段一段的连到了汇点，并且，这条路上的每一段都满足流量&lt;容量，注意，是严格的&lt;,而不是&lt;=。那么，我们一定能找到这条路上的每一段的(容量-流量)的值当中的最小值delta。我们把这条路上每一段的流量都加上这个delta，一定可以保证这个流依然是可行流，这是显然的。这样我们就得到了一个更大的流，他的流量是之前的流量+delta，而这条路就叫做增广路。</p>
@@ -484,15 +484,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +500,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,19 +632,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
