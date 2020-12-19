@@ -377,7 +377,7 @@
 <p>A. 思维题，重点在于当剩余的n&lt;k时，只要k%n==0就可以成功，比如 64 6的时候，先约分：32：6，再约：16:6，一直约到 1:6 ，那n=1，当然ok。</p>
 <p>B. dijkstra最短路一下</p>
 <p>D. Dp，结束后想了一下，dp[i]表示第i层停下来的所有怨气，dp[i]=min(dp[i],dp[j] + val(j-&gt;i)) ,（j&lt;i）i之前电梯停在j层，然后从j直接到i 的话，加上这一部分的怨气就好了val，而valij的怨气就是i的前缀和加上若每一层都停的怨气，再减去了j层停下来的人消失的这部分怨气。</p>
-<img src="/xxq1999/2018/08/11/2018%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/mdpicture\20180712A.jpg" alt="20180712A">
+<img src="/xxq1999/2018/08/11/2018%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/mdpicture/20180712A.jpg" alt="20180712A">
 
 <p>F. 飞行航道 水</p>
 <p>J. 找单词，八方找，正反找。看了题解 好像是先判断了一下回文减少了一下长度？</p>
@@ -391,7 +391,7 @@
 
 <p>G. 水</p>
 <p>I. 计算组成n的最小的两个斐波那契数a b，其中按b小来排，且a&lt;b</p>
-<img src="/xxq1999/2018/08/11/2018%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/mdpicture\180710I.jpg" alt="180710I.jpg">
+<img src="/xxq1999/2018/08/11/2018%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/mdpicture/180710I.jpg" alt="180710I.jpg">
 
 <p>由上可知，先计算出最大的两个相邻数相加小于n的地方，设为x，y（x&lt;y），然后xa+yb=n,从b=1开始求满足条件的a，且a&lt;b。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a[<span class="number">0</span>]=a[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">44</span>;i++)</span><br><span class="line">        a[i]=a[i<span class="number">-1</span>]+a[i<span class="number">-2</span>];</span><br><span class="line">    <span class="comment">//小于1e9的斐波那契</span></span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">int</span> loc;</span><br><span class="line">        <span class="comment">//计算出最大的两个相邻数相加小于n的地方</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">43</span>;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((a[i]+a[i<span class="number">-1</span>])&lt;=n)</span><br><span class="line">            &#123;</span><br><span class="line">                loc=i;<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ai_1;</span><br><span class="line">        <span class="keyword">while</span>(loc&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i*a[loc]&lt;n;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>((n-a[loc]*i)%a[loc<span class="number">-1</span>]==<span class="number">0</span>&amp;&amp;(n-a[loc]*i)/a[loc<span class="number">-1</span>]&lt;=i)</span><br><span class="line">                &#123;</span><br><span class="line">                    ai_1=i;<span class="keyword">goto</span> out;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            loc--;</span><br><span class="line">        &#125;</span><br><span class="line">    out:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,(n-a[loc]*ai_1)/a[loc<span class="number">-1</span>],ai_1);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1529,6 +1529,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
@@ -1537,19 +1549,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规律</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1561,15 +1561,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">最大权闭合子图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滚动数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1601,15 +1601,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1617,7 +1617,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1633,6 +1633,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
@@ -1642,10 +1646,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ST表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1669,11 +1669,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
               <li class="article-tag-list-item">
