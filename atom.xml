@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/xxq1999/"/>
-  <updated>2020-09-26T07:32:48.115Z</updated>
+  <updated>2021-04-09T04:29:42.310Z</updated>
   <id>http://github.com/xxq1999/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>研一下-&gt;暑期目标</title>
+    <link href="http://github.com/xxq1999/2021/04/09/%E6%AF%8F%E6%97%A5%E5%AE%89%E6%8E%92/"/>
+    <id>http://github.com/xxq1999/2021/04/09/每日安排/</id>
+    <published>2021-04-09T03:13:00.000Z</published>
+    <updated>2021-04-09T04:29:42.310Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ul><li><p>总目标：找到实习</p></li><li><p>每日任务</p><ul><li>刷题</li><li>基础知识补足</li><li>拿出两个小时看论文+笔记</li></ul></li><li><p>思路</p><p>要么睡前看论文，要么起床后看</p><p>刷题LeetCode 剑指offer100题</p><p>基础知识：计网、操作系统、基础的数据结构、c++基础、linux知识</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;总目标：找到实习&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每日任务&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;刷题&lt;/li&gt;
+&lt;li&gt;基础知识补足&lt;/li&gt;
+&lt;li&gt;拿出两个小时
+      
+    
+    </summary>
+    
+      <category term="目标" scheme="http://github.com/xxq1999/categories/%E7%9B%AE%E6%A0%87/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>个人取向变化记录</title>
@@ -99,7 +129,7 @@
     <published>2020-01-18T14:11:00.000Z</published>
     <updated>2020-12-19T06:43:23.326Z</updated>
     
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link href="/style.css" rel="stylesheet" type="text/css"><script src="/crypto-js.js"></script><script src="/mcommon.js"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <div id="security"> <div> <div class="input-container"> <input type="password" class="form-control" id="pass" placeholder=" 记得 "> <label for="pass"> 记得 </label> <div class="bottom-line"></div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX184pkYZu7zbch6iC6ZIz9wkhcnBGqge9plo86F0adDpdtbErvzp1lQPHPkcaSMvZoibZOwKxb+0vPM0Q4fTesyRWxOS0ylKzp7a6KtuGRNw38fpzJxcVzCXT51hGk5qV5fzBlSzc8mvnJPRDpEwz2frX+Krp0nZHKrrkey7oiqDQFRPV84d6BWVZWV6bNE3hKDoTG/2jKju0fSkfFsRm8iWG73U3mE1nwyUjY/nvEBfQTSUdRvHDDb6i55YVXBDah+C46wV+JvIiGBAkbKxxO5ukpCRkNwPJt5jkobyowrRYDAPRgRTPU099/UmfSh3Js/f4DkxjnxkI58C3Y32yeIwmD0eD34NMmHW50snYfgMR9GToH7kD4IJ </div>]]></content>
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><link href="/style.css" rel="stylesheet" type="text/css"><script src="/crypto-js.js"></script><script src="/mcommon.js"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <div id="security"> <div> <div class="input-container"> <input type="password" class="form-control" id="pass" placeholder=" 记得 "> <label for="pass"> 记得 </label> <div class="bottom-line"></div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX1+VvotBY4llI1n0QeAH109orccAssWKvX0leBaJsaCMru0VqPeE/XXEbR/4FpiYwY1k4kkAFzWqPOETSVL2fXQSMLW+n6dCc6h5m/eivl+Y8BKPPCFMqucMQm+Wt9Mi6ObMaFihze4f417bjcAO/BmtDDBKLBQwLwMNxoS4NSU+xfm9O3DNkguyAd4Mi20wJpWFy909dZ91uadNaidu9bLw01BzB++/LTO09WHgbzBB6CPr6GKiQQbShPnD2BObkuykore+0co7PO3Z0O2IZVmOxtraWj2q2q6rrL1jS99CxPFbdkTDPiMkMdX6R2GKqqc97zHMz2VFyojmYSB0A0R+tWeUcaywrwp9fAJg1xzYPucBBOMOWzvo </div>]]></content>
     
     <summary type="html">
     
@@ -496,33 +526,6 @@
       <category term="学习" scheme="http://github.com/xxq1999/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="欧拉函数" scheme="http://github.com/xxq1999/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>莫比乌斯反演</title>
-    <link href="http://github.com/xxq1999/2018/08/16/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
-    <id>http://github.com/xxq1999/2018/08/16/莫比乌斯反演/</id>
-    <published>2018-08-16T15:10:00.000Z</published>
-    <updated>2020-09-16T04:53:11.136Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="整数分块"><a href="#整数分块" class="headerlink" title="整数分块"></a>整数分块</h2><p>比如：<br>$$<br>\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor<br>$$<br>$O(n)$的做法之外，还有一种$O(\sqrt{n})$的做法。</p><p>对于每个$\lfloor\frac{n}{i}\rfloor$我们可以通过打表发现有许多的值是不断重复的，再继续寻找规律（不会找啊Orz）发现每一块的数字都是n/(n/i)，那么就可以利用分块的道理：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    r=n/(n/l); <span class="comment">//右边的数应当取min，这里只有一个n就没关系</span></span><br><span class="line">    ans+=(r-l+<span class="number">1</span>)*(n/l);</span><br><span class="line">    <span class="comment">//这里根据情况改啊！r-（l-1）是因为这里的积性函数可以看作是μ(i)=1，n/l是后面的那个n/i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>有时候可能推出来的式子没有这么裸，它可能乘了一个积性函数$\mu,\varphi $，这时候就要对这些函数统计一个前缀和，因为当我们跳过一个分块的时候，就相当于跳过了这个块的函数值。</p><p>P.S. 当$O(n)$也T，杜教筛？？？？？？？？？？？？</p><h2 id="莫比乌斯函数μ-d"><a href="#莫比乌斯函数μ-d" class="headerlink" title="莫比乌斯函数μ(d)"></a>莫比乌斯函数μ(d)</h2><p><strong>定义：</strong></p><ol><li>d = 1时，μ(d) = 1；</li><li>d = $\Pi_{i=1}^{k}p_i $ ，pi为互不相同的素数时，$μ(d) =(-1)^k$（也就是说，当用于乘积的某一个质因子的次数不大于1时，μ值由用于乘积的质因子个数决定）；</li><li>其他情况，都为0 。</li></ol><p><strong>性质：</strong></p><ol><li>$\sum_{d|n}μ(d) = (n=1)$</li><li>$\sum_{d|n}\frac{μ(d)}{d} = \frac{φ(n)}{n}$,其中φ为小于n与n互质的数字的个数</li></ol><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 对于μ函数的线筛 */</span></span><br><span class="line"><span class="keyword">int</span> mu[N],prim[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!vis[i])&#123;prim[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        vis[prim[j]*i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> mu[i*prim[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>有时候要同时求φ(x)和μ(x)，整合版：</strong></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*mu为μ，phi为φ */</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> phi[maxn],mu[maxn],prim[maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_mu</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mu[<span class="number">1</span>]=phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!vis[i])&#123;prim[++cnt]=i;mu[i]=<span class="number">-1</span>;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prim[j]*i&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        vis[prim[j]*i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i%prim[j]==<span class="number">0</span>) &#123;phi[i*prim[j]]=phi[i]*prim[j];<span class="keyword">break</span>;&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;mu[i*prim[j]]=-mu[i];phi[i*prim[j]] = phi[i] * phi[prim[j]];&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 做题时看到一版少开一个数组的*/</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span>+<span class="number">100</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> fac[maxn],miu[maxn],phi[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;maxn;++i) fac[i]=i;</span><br><span class="line">    phi[<span class="number">1</span>]=miu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(fac[i]==i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i&lt;&lt;<span class="number">1</span>;j&lt;maxn;j+=i)</span><br><span class="line">                fac[j]=i;</span><br><span class="line">        <span class="keyword">if</span>(i/fac[i]%fac[i]) phi[i]=(fac[i]<span class="number">-1</span>)*phi[i/fac[i]],miu[i]=-miu[i/fac[i]];</span><br><span class="line">        <span class="keyword">else</span> phi[i]=fac[i]*phi[i/fac[i]],miu[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>定理：F(n)和f(n)是定义在非负整数集合上的两个函数，并且满足条件：<br>$$<br>F(n)=\sum_{d|n}f(d)<br>$$<br> 那么参考容斥的话，就能推出：<br>$$<br>f(n)=\sum_{d|n}μ(d)F(\frac{n}{d})<br>$$<br>一个更好用的形式，当满足：<br>$$<br>F(n)=\sum_{n|d}f(d)<br>$$<br>有：<br>$$<br>f(n)=\sum_{n|d}μ(\frac{d}{n})F(d)<br>$$</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;整数分块&quot;&gt;&lt;a href=&quot;#整数分块&quot; class=&quot;headerlink&quot; title=&quot;整数分块&quot;&gt;&lt;/a&gt;整数分块&lt;/h2&gt;&lt;p&gt;比如：&lt;br&gt;$$&lt;br
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="http://github.com/xxq1999/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="莫比乌斯反演" scheme="http://github.com/xxq1999/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
-    
-      <category term="学习" scheme="http://github.com/xxq1999/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
