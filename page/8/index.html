@@ -156,6 +156,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2018-05-11-飞行员配对(最大流模板)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/2018-05-11-%E9%A3%9E%E8%A1%8C%E5%91%98%E9%85%8D%E5%AF%B9(%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A8%A1%E6%9D%BF)/">飞行员配对(最大流模板)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/11/2018-05-11-%E9%A3%9E%E8%A1%8C%E5%91%98%E9%85%8D%E5%AF%B9(%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A8%A1%E6%9D%BF)/" class="archive-article-date">
+  	<time datetime="2018-05-11T14:44:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">201</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> g[MAXN][MAXN];        <span class="comment">//残留网络，初始为原图</span></span><br><span class="line"><span class="keyword">int</span> flow[MAXN][MAXN];</span><br><span class="line"><span class="keyword">int</span> nodeNum;            <span class="comment">//节点总数量</span></span><br><span class="line"><span class="keyword">int</span> pre[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="comment">//bfs找增广路</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> que[<span class="number">201</span>],p,q,v,i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">        pre[i]=<span class="number">-1</span>;</span><br><span class="line">    que[<span class="number">0</span>]=s;</span><br><span class="line">    pre[s]=s;</span><br><span class="line">    p=<span class="number">0</span>,q=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(p&lt;q)</span><br><span class="line">    &#123;</span><br><span class="line">        v=que[p++];</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">            <span class="keyword">if</span> (pre[i]==<span class="number">-1</span>&amp;&amp;(flow[v][i]&lt;g[v][i]||flow[i][v]&gt;<span class="number">0</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                pre[i]=v;</span><br><span class="line">                que[q++]=i;</span><br><span class="line">                <span class="keyword">if</span> (i==t) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改残留矩阵和增广路</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">track_back</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=t,v,MIN=INF;</span><br><span class="line">    <span class="keyword">while</span> (i!=s)</span><br><span class="line">    &#123;</span><br><span class="line">        v = pre[i];</span><br><span class="line">        <span class="keyword">if</span> (flow[v][i]&lt;g[v][i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(MIN&gt;g[v][i]-flow[v][i])</span><br><span class="line">                MIN=g[v][i]-flow[v][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flow[i][v]&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(MIN&gt;flow[i][v])</span><br><span class="line">                MIN=flow[i][v];</span><br><span class="line">        &#125;</span><br><span class="line">        i=v;</span><br><span class="line">    &#125;</span><br><span class="line">    i=t;</span><br><span class="line">    <span class="keyword">while</span> (i!=s)</span><br><span class="line">    &#123;</span><br><span class="line">        v = pre[i];</span><br><span class="line">        <span class="keyword">if</span> (flow[v][i]&lt;g[v][i])</span><br><span class="line">            flow[v][i]+=MIN;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flow[i][v]&gt;<span class="number">0</span>)</span><br><span class="line">            flow[i][v]-= MIN;</span><br><span class="line">        i = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回 从节点s到节点t的最大流</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max_flow</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;s, <span class="keyword">const</span> <span class="keyword">int</span> &amp;t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (bfs(s,t))</span><br><span class="line">        track_back(s,t);</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>,i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;=nodeNum+<span class="number">1</span>;i++)</span><br><span class="line">        <span class="keyword">if</span> (i!=s)res+=flow[s][i];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m,b,e,c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;m,&amp;nodeNum);</span><br><span class="line">    <span class="built_in">memset</span>(g,<span class="number">0</span>,<span class="keyword">sizeof</span>(g));</span><br><span class="line">    <span class="built_in">memset</span>(flow,<span class="number">0</span>,<span class="keyword">sizeof</span>(flow));</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;b,&amp;e))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">-1</span>&amp;&amp;e==<span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">        g[e][b]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        g[i][nodeNum+<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m+<span class="number">1</span>;i&lt;=nodeNum;i++)</span><br><span class="line">        g[<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,max_flow(<span class="number">0</span>,nodeNum+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/11/2018-05-11-%E9%A3%9E%E8%A1%8C%E5%91%98%E9%85%8D%E5%AF%B9(%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A8%A1%E6%9D%BF)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018-04-24-我依赖成瘾了的你" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1034,104 +1120,9 @@
 
 
   
-    <article id="post-2018-04-15-K序列（DP）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/15/2018-04-15-K%E5%BA%8F%E5%88%97%EF%BC%88DP%EF%BC%89/">K序列（DP）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/15/2018-04-15-K%E5%BA%8F%E5%88%97%EF%BC%88DP%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2018-04-15T12:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="K序列"><a href="#K序列" class="headerlink" title="K序列"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/acm/contest/91/L">K序列</a></h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给一个数组 a，长度为 n，若某个子序列中的和为 K 的倍数，那么这个序列被称为“K 序列”。对数组 a 求出最长的子序列的长度，满足这个序列是 K 序列。 </p>
-<p>输入一个n，k，接下来输入n个整数，表示A[1]~A[n] ,1&lt;=n&lt;=1e5,1&lt;=a[i]&lt;=1e9,1&lt;=nK&lt;=1e7。输出最长子序列的长度。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>又一道DP。</p>
-<p>dp[i][j] : 表示前i个数中，对k取模余数为j的最长的子序列长度</p>
-<p>dp[i][j] =max (dp[i-1][j],dp[i-1][(k-a[i]%k+j)%k]+1) </p>
-<p>解释一下，指的是上一层（前i-1个数字）余数一样的，和上一层再加上a[i]（前i个数字）[余数]+1。</p>
-<p>这里有个条件是要判断一下这个取模的余数是否已经存在了，不然就不能比较。</p>
-<p>讲的不太清楚，看代码吧。</p>
-<p>（这里用二维 vector存dp）</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;dp(n+<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        dp[i].resize(k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]%k==j) dp[i][j]=<span class="number">1</span>;</span><br><span class="line">            dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i][j]);</span><br><span class="line">            <span class="keyword">if</span>(dp[i<span class="number">-1</span>][(j-a[i]%k+k)%k]!=<span class="number">0</span>)</span><br><span class="line">                dp[i][j]=max(dp[i][j],dp[i<span class="number">-1</span>][(j-a[i]%k+k)%k]+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dp[n][<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/15/2018-04-15-K%E5%BA%8F%E5%88%97%EF%BC%88DP%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/7/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">Next »</a>
     </nav>
   
 
@@ -1247,15 +1238,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,11 +1318,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1387,6 +1378,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
               </li>
              
@@ -1396,10 +1391,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,11 +1410,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1439,11 +1430,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
