@@ -156,6 +156,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-拉格朗日插值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/">拉格朗日插值法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/" class="archive-article-date">
+  	<time datetime="2018-08-16T15:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>可以求给定式子的前n项和。</p>
+<p>感觉可以求给定式子的前n项和。</p>
+<p>如：求3x^5+4x^3-5x+8;</p>
+<p>式子中最高项次数为5，则需要先计算出6个数字。</p>
+<p>板子的使用：</p>
+<p>先调用polysum::init(m); 这里的m要和D一起改，m&lt;D;</p>
+<p>然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。</p>
+<p>模板（<a target="_blank" rel="noopener" href="https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1258">求n^k的前n项和</a>）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">先调用polysum::init(m); 这里的m要和D一起改，m&lt;D;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">namespace</span> polysum &#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for (int i=a;i&lt;n;i++)</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> per(i,a,n) for (int i=n-1;i&gt;=a;i--)</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> D=<span class="number">51000</span>;</span><br><span class="line">	ll a[D],f[D],g[D],p[D],p1[D],p2[D],b[D],h[D][<span class="number">2</span>],C[D];</span><br><span class="line">	<span class="function">ll <span class="title">powmod</span><span class="params">(ll a,ll b)</span></span>&#123;ll res=<span class="number">1</span>;a%=mod;assert(b&gt;=<span class="number">0</span>);<span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=res*a%mod;a=a*a%mod;&#125;<span class="keyword">return</span> res;&#125;</span><br><span class="line">	<span class="function">ll <span class="title">calcn</span><span class="params">(<span class="keyword">int</span> d,ll *a,ll n)</span> </span>&#123; <span class="comment">// a[0].. a[d]  a[n]</span></span><br><span class="line">		<span class="keyword">if</span> (n&lt;=d) <span class="keyword">return</span> a[n];</span><br><span class="line">		p1[<span class="number">0</span>]=p2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=(n-i+mod)%mod;</span><br><span class="line">			p1[i+<span class="number">1</span>]=p1[i]*t%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=(n-d+i+mod)%mod;</span><br><span class="line">			p2[i+<span class="number">1</span>]=p2[i]*t%mod;</span><br><span class="line">         &#125;</span><br><span class="line">		ll ans=<span class="number">0</span>;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=g[i]*g[d-i]%mod*p1[i]%mod*p2[d-i]%mod*a[i]%mod;</span><br><span class="line">			<span class="keyword">if</span> ((d-i)&amp;<span class="number">1</span>) ans=(ans-t+mod)%mod;</span><br><span class="line">			<span class="keyword">else</span> ans=(ans+t)%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> M)</span> </span>&#123;</span><br><span class="line">		f[<span class="number">0</span>]=f[<span class="number">1</span>]=g[<span class="number">0</span>]=g[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">2</span>,M+<span class="number">5</span>) f[i]=f[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">		g[M+<span class="number">4</span>]=powmod(f[M+<span class="number">4</span>],mod<span class="number">-2</span>);</span><br><span class="line">		per(i,<span class="number">1</span>,M+<span class="number">4</span>) g[i]=g[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ll <span class="title">polysum</span><span class="params">(ll m,ll *a,ll n)</span> </span>&#123; <span class="comment">// a[0].. a[m] \sum_&#123;i=0&#125;^&#123;n-1&#125; a[i]</span></span><br><span class="line">		ll b[D];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++) b[i]=a[i];</span><br><span class="line">		b[m+<span class="number">1</span>]=calcn(m,b,m+<span class="number">1</span>);</span><br><span class="line">		rep(i,<span class="number">1</span>,m+<span class="number">2</span>) b[i]=(b[i<span class="number">-1</span>]+b[i])%mod;</span><br><span class="line">		<span class="keyword">return</span> calcn(m+<span class="number">1</span>,b,n<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ll <span class="title">qpolysum</span><span class="params">(ll R,ll n,ll *a,ll m)</span> </span>&#123; <span class="comment">// a[0].. a[m] \sum_&#123;i=0&#125;^&#123;n-1&#125; a[i]*R^i</span></span><br><span class="line">		<span class="keyword">if</span> (R==<span class="number">1</span>) <span class="keyword">return</span> polysum(n,a,m);</span><br><span class="line">		a[m+<span class="number">1</span>]=calcn(m,a,m+<span class="number">1</span>);</span><br><span class="line">		ll r=powmod(R,mod<span class="number">-2</span>),p3=<span class="number">0</span>,p4=<span class="number">0</span>,c,ans;</span><br><span class="line">		h[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">0</span>;h[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">1</span>,m+<span class="number">2</span>) &#123;</span><br><span class="line">			h[i][<span class="number">0</span>]=(h[i<span class="number">-1</span>][<span class="number">0</span>]+a[i<span class="number">-1</span>])*r%mod;</span><br><span class="line">			h[i][<span class="number">1</span>]=h[i<span class="number">-1</span>][<span class="number">1</span>]*r%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) &#123;</span><br><span class="line">			ll t=g[i]*g[m+<span class="number">1</span>-i]%mod;</span><br><span class="line">			<span class="keyword">if</span> (i&amp;<span class="number">1</span>) p3=((p3-h[i][<span class="number">0</span>]*t)%mod+mod)%mod,p4=((p4-h[i][<span class="number">1</span>]*t)%mod+mod)%mod;</span><br><span class="line">			<span class="keyword">else</span> p3=(p3+h[i][<span class="number">0</span>]*t)%mod,p4=(p4+h[i][<span class="number">1</span>]*t)%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		c=powmod(p4,mod<span class="number">-2</span>)*(mod-p3)%mod;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) h[i][<span class="number">0</span>]=(h[i][<span class="number">0</span>]+h[i][<span class="number">1</span>]*c)%mod;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) C[i]=h[i][<span class="number">0</span>];</span><br><span class="line">		ans=(calcn(m,C,n)*powmod(R,n)-c)%mod;</span><br><span class="line">		<span class="keyword">if</span> (ans&lt;<span class="number">0</span>) ans+=mod;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">// polysum::init();</span></span><br><span class="line"><span class="function">ll <span class="title">pow2</span><span class="params">(ll a,ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=res*a%mod;</span><br><span class="line">		a=a*a%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    ll b[<span class="number">51000</span>];</span><br><span class="line">    b[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    polysum::init(<span class="number">50000</span>);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll n,k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=k+<span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            b[i]=pow2(i,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,polysum::polysum(k,b,n+<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-欧拉函数计算φ(n)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1202,105 +1301,6 @@ $$
 
 
   
-    <article id="post-Sequence(整除分块+矩阵快速幂)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/Sequence(%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97+%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82)/">Sequence(整除分块+矩阵快速幂)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/14/Sequence(%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97+%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82)/" class="archive-article-date">
-  	<time datetime="2018-08-14T14:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="Sequence"><a href="#Sequence" class="headerlink" title=" Sequence"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=6395"> Sequence</a></h2><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义：<br>$$<br>F_1=A<br>$$</p>
-<p>$$<br>F_2=B<br>$$</p>
-<p>$$<br>F_n=D\cdot{}F_{n-1}+C\cdot{}F_{n-2}+\lfloor\frac{P}{n}\rfloor<br>$$</p>
-<p>求Fn，Mod1e9+7。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一看到这个向下取整！</p>
-<p>多么亲切啊！</p>
-<p>整除分块啊！</p>
-<p>……</p>
-<p>一开始怎么都想不出来怎么把分块用进去，队友一波机智，先分块，然后矩阵快速幂，哇，秒啊，然后两个小时过去了……</p>
-<p>由于莫比乌斯中我们经常会用到一个分块的概念：<br>$$<br>\sum_{i=1}^n\lfloor\frac{n}{i}\rfloor<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    r=n/(n/l);</span><br><span class="line">    ans+=(r-l+<span class="number">1</span>)*(n/l);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么我们就想，因为矩阵快速幂要求的是尾项是个常数，而对于这个整除来说，在某些区间内它的值是一定的，因此我们就可以先把他们划分为好几块，然后对于每个区间进行矩阵快速幂即可，有些细节注意，比如说次数不足3次时，要手写一波判断，因为没有需要的Fn-1，Fn-2，比如n小于p的时候，需要在循环内直接结束，比如n大于p的时候，分块结束后再进行裸的矩阵快速幂。</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mat</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line">&#125;m,r;</span><br><span class="line"><span class="function">mat <span class="title">mult</span><span class="params">(mat x,mat y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mat res=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">    <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;<span class="number">3</span>;k++)</span><br><span class="line">        res.a[i][j]=(res.a[i][j]+(x.a[i][k]*y.a[k][j])%MOD)%MOD;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">mat <span class="title">PowerMod</span><span class="params">(mat x,<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mat ans=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">    ans.a[i][i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">        ans=mult(ans,x);</span><br><span class="line">        x=mult(x,x);</span><br><span class="line">        n=n/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    ll a,b,c,d,p,n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld%lld%lld%lld%lld&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;p,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,a);<span class="keyword">continue</span>;&#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">2</span>) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,b);<span class="keyword">continue</span>;&#125;</span><br><span class="line">        m.a[<span class="number">0</span>][<span class="number">2</span>]=m.a[<span class="number">1</span>][<span class="number">1</span>]=m.a[<span class="number">2</span>][<span class="number">1</span>]=m.a[<span class="number">2</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        m.a[<span class="number">0</span>][<span class="number">0</span>]=d;m.a[<span class="number">0</span>][<span class="number">1</span>]=c;</span><br><span class="line">        m.a[<span class="number">1</span>][<span class="number">0</span>]=m.a[<span class="number">2</span>][<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">        ll pre=b,ppre=a;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> L=<span class="number">3</span>,R;L&lt;=p;L=R+<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            R=p/(p/L); </span><br><span class="line">            <span class="keyword">int</span> zs=min(<span class="number">1l</span>l*R-L+<span class="number">1</span>,n-L+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(zs&lt;=<span class="number">3</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=zs;i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    ll tmp=pre;</span><br><span class="line">                    pre=((pre*d+ppre*c)%MOD+p/L)%MOD;</span><br><span class="line">                    ppre=tmp;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(n&gt;=L&amp;&amp;n&lt;=R) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            m.a[<span class="number">0</span>][<span class="number">2</span>]=p/L;</span><br><span class="line">            r=PowerMod(m,zs);</span><br><span class="line">            ll p1=(r.a[<span class="number">0</span>][<span class="number">0</span>]*pre+r.a[<span class="number">0</span>][<span class="number">1</span>]*ppre+r.a[<span class="number">0</span>][<span class="number">2</span>])%MOD;</span><br><span class="line">            ll p2=(r.a[<span class="number">1</span>][<span class="number">0</span>]*pre+r.a[<span class="number">1</span>][<span class="number">1</span>]*ppre+r.a[<span class="number">1</span>][<span class="number">2</span>])%MOD;</span><br><span class="line">            pre=p1;ppre=p2;</span><br><span class="line">            <span class="keyword">if</span>(n&gt;=L&amp;&amp;n&lt;=R) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&gt;p)</span><br><span class="line">        &#123;</span><br><span class="line">            m.a[<span class="number">0</span>][<span class="number">2</span>]=<span class="number">0</span>;</span><br><span class="line">            r=PowerMod(m,n-max(<span class="number">2l</span>l,p));</span><br><span class="line">            ll p1=(r.a[<span class="number">0</span>][<span class="number">0</span>]*pre+r.a[<span class="number">0</span>][<span class="number">1</span>]*ppre+r.a[<span class="number">0</span>][<span class="number">2</span>])%MOD;</span><br><span class="line">            pre=p1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,pre);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">矩阵快速幂</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/14/Sequence(%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97+%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
@@ -1471,15 +1471,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1503,11 +1503,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1527,15 +1527,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ST表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1611,11 +1611,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">欧拉函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔试</a>
               </li>
              
               <li class="article-tag-list-item">
