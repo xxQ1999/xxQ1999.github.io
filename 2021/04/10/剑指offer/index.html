@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
   <title>剑指offer | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="剑指offer刷题记一边看书一边刷题">
+  <meta name="description" content="一边看书一边刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer">
 <meta property="og:url" content="http://github.com/xxq1999/2021/04/10/%E5%89%91%E6%8C%87offer/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="剑指offer刷题记一边看书一边刷题">
+<meta property="og:description" content="一边看书一边刷题">
 <meta property="og:locale" content="utf_8">
 <meta property="article:published_time" content="2021-04-10T03:13:00.000Z">
-<meta property="article:modified_time" content="2021-04-10T12:01:40.287Z">
+<meta property="article:modified_time" content="2021-04-12T14:19:25.048Z">
 <meta property="article:author" content="xxQ">
 <meta name="twitter:card" content="summary">
   
@@ -176,51 +176,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="剑指offer刷题记"><a href="#剑指offer刷题记" class="headerlink" title="剑指offer刷题记"></a>剑指offer刷题记</h1><p>一边看书一边刷题</p>
+        <script src="/assets/js/APlayer.min.js"> </script><p>一边看书一边刷题</p>
 <a id="more"></a>
 
-<h3 id="1-赋值运算符函数"><a href="#1-赋值运算符函数" class="headerlink" title="1. 赋值运算符函数"></a>1. 赋值运算符函数</h3><blockquote>
+<h2 id="1-赋值运算符函数"><a href="#1-赋值运算符函数" class="headerlink" title="1. 赋值运算符函数"></a>1. 赋值运算符函数</h2><blockquote>
 <p>类型CMyString，添加一个赋值运算符函数。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CMyString</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CMyString(<span class="keyword">char</span>* pData=<span class="literal">nullptr</span>);</span><br><span class="line">	CMyString(<span class="keyword">const</span> CMyString&amp; cMyString);</span><br><span class="line">	~CMyString(<span class="keyword">void</span>);</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* m_pData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>返回值</p>
+<ul>
+<li><strong>返回值</strong></li>
+</ul>
 <p>str1=str2=str3（为了连续赋值的可能性）</p>
 <p>将返回值设置为该类型的引用</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>传入参数</p>
+
+<ul>
+<li><strong>传入参数</strong></li>
+</ul>
 <p>常量引用，如果传入的不是引用而是实例的话，那么从形参到实参，就会多调用一次拷贝构造函数，降低效率。</p>
-</li>
-<li><p>释放内存</p>
+<ul>
+<li><strong>释放内存</strong></li>
+</ul>
 <p>防止内存泄漏。</p>
-</li>
-<li><p>细节</p>
+<ul>
+<li><strong>细节</strong></li>
+</ul>
 <p>要判断传入的参数与赋值的是不是同一个，这样如果释放内存的话，就会导致传入的参数也被释放了。</p>
-</li>
-</ol>
-<hr>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::Operator=(<span class="keyword">const</span> CMyString&amp; cMyString)&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span>==&amp;cMyString)</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	<span class="comment">// 释放原有的空间</span></span><br><span class="line">	<span class="keyword">delete</span>[] m_pData;</span><br><span class="line">	m_pData=<span class="literal">nullptr</span>;</span><br><span class="line">	<span class="comment">// 申请一块新的空间，并赋值</span></span><br><span class="line">	m_pData=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(cMyString.m_pData)+<span class="number">1</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(m_pData,cMyString.m_pData);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::Operator=(<span class="keyword">const</span> CMyString&amp; cMyString)&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span>!=&amp;cMyString)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 新建一个临时的实例</span></span><br><span class="line">		CMyString new_str(cMyString);</span><br><span class="line">		<span class="comment">// 指针指向这临时实例的地址</span></span><br><span class="line">		<span class="keyword">char</span> *temp = new_str.m_pData;</span><br><span class="line">		<span class="comment">// 临时实例的char指向赋值对象的地址</span></span><br><span class="line">		new_str.m_pData = m_pData;</span><br><span class="line">		<span class="comment">// 赋值对象的地址指向指针的地址。</span></span><br><span class="line">		m_pData = temp;</span><br><span class="line">	&#125; <span class="comment">// 跳出if后，临时实例被析构，指向地址的空间被自动释放</span></span><br><span class="line">	<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><em>Q：1. 把一个CMyString的实例赋值给另一个实例</em>。</p>
-<ol start="2">
-<li><p><em>把一个CMyString的实例赋值给它自己</em>。</p>
-<pre><code>   3. *连续赋值。* </code></pre>
-</li>
+<ol>
+<li><em>把一个CMyString的实例赋值给另一个实例</em>。</li>
+<li><em>把一个CMyString的实例赋值给它自己</em>。</li>
+<li><em>连续赋值。</em> </li>
 </ol>
-<h3 id="2-C-单例模式"><a href="#2-C-单例模式" class="headerlink" title="2. C# 单例模式"></a>2. C# 单例模式</h3><hr>
-<h3 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h3><h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a><strong>sizeof</strong></h4><ol>
+<br>
+
+<h2 id="2-C-单例模式"><a href="#2-C-单例模式" class="headerlink" title="2. C# 单例模式"></a>2. C# 单例模式</h2><br>
+
+<h2 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h2><h6 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a><strong>sizeof</strong></h6><ul>
 <li><p>int类型，一个占4字节。int a[]={1,2,3,4,5}, 则sizeof(a) = 20。</p>
 </li>
 <li><p>对指针int* p = a, 则sizeof(p) = 4。</p>
 </li>
 <li><p>当数组通过函数的参数进行传递时，数组就自动退化为同类型的指针。因此对于函数中的数组参数sizeof，结果也是4。</p>
 </li>
-</ol>
-<h4 id="数组中重复元素"><a href="#数组中重复元素" class="headerlink" title="数组中重复元素"></a><strong>数组中重复元素</strong></h4><blockquote>
+</ul>
+<h6 id="数组中重复元素"><a href="#数组中重复元素" class="headerlink" title="数组中重复元素"></a><strong>数组中重复元素</strong></h6><blockquote>
 <p>n个整数，a[i]∈[0,n-1]，a中有重复的数字，也不知道重复了几次，有几个数字重复，求所有的重复数字。</p>
 </blockquote>
 <ol>
@@ -229,51 +233,89 @@
 </ol>
 <p>上述，时间复杂度为O(n)，空间复杂度O(1)。</p>
 <p>如果不能修改数组呢？</p>
-<ol>
+<ul>
 <li><p>二分（需要自己写一下）</p>
-<p>长度为8的数组{2,3,5,4,3,2,6,7}，从中间数字4，分为1<del>4，5</del>7，那么先判断1~4的数字一共出现了几次，不难发现是5次，那么一定有重复的数字……</p>
+<p>长度为8的数组{2,3,5,4,3,2,6,7}，从中间数字4，分为1-4，5-7，那么先判断1~4的数字一共出现了几次，不难发现是5次，那么一定有重复的数字……</p>
 <p>这种方法不可保证能找到所有重复的数字。</p>
 </li>
-</ol>
-<h4 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h4><blockquote>
+</ul>
+<h6 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h6><blockquote>
 <p>在一个二维数组中，每一行都按照从左到右递增，每一列从上到下递增。</p>
 <p>输入这样的二维数组，判断该数组中是否含有某一整数。</p>
 </blockquote>
 <p>思路：从右上角判断，剔除一列、一行，缩小范围。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> curi,curj;</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        n=matrix.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        m=matrix[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        curi=<span class="number">0</span>;</span><br><span class="line">        curj=m<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>((!flag)&amp;&amp;curi&lt;n&amp;&amp;curj&lt;m&amp;&amp;curi&gt;=<span class="number">0</span>&amp;&amp;curj&gt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[curi][curj]&gt;target)</span><br><span class="line">                curj=curj<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(matrix[curi][curj]&lt;target)</span><br><span class="line">                curi=curi+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                flag=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-字符串"><a href="#4-字符串" class="headerlink" title="4. 字符串"></a>4. 字符串</h3><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s1[]=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span> s2[]=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>* s3=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>* s4=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//判断s1与s2，s3与s4是否相同</span></span><br></pre></td></tr></table></figure>
+<br>
 
-<h4 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h4><blockquote>
+<h2 id="4-字符串"><a href="#4-字符串" class="headerlink" title="4. 字符串"></a>4. 字符串</h2><h6 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s1[]=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span> s2[]=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>* s3=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>* s4=<span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//判断s1与s2，s3与s4是否相同</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h6><blockquote>
 <p>将字符串中每个空格替换成”%20”</p>
 </blockquote>
 <p>思考：提前申请空间。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">replaceSpace</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> p1,p2;</span><br><span class="line">        p1=s.length()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=p1;i++) <span class="comment">//这里也可以for(char/auto c : s) if(c==&#x27; &#x27;) ..</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27; &#x27;</span>) </span><br><span class="line">                cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        p2=p1+<span class="number">2</span>*cnt;</span><br><span class="line">        s+=<span class="built_in">string</span>(cnt*<span class="number">2</span>,<span class="string">&#x27; &#x27;</span>); <span class="comment">// 或者直接用char* c=new char[],然后s=string(c)</span></span><br><span class="line">        <span class="comment">// s.resize(p1+2*cnt);</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=p1;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]!=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">                s[p2--]=s[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                s[p2--]=<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                s[p2--]=<span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                s[p2--]=<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-链表"><a href="#5-链表" class="headerlink" title="5. 链表"></a>5. 链表</h3><hr>
-<h3 id="6-树"><a href="#6-树" class="headerlink" title="6. 树"></a>6. 树</h3><h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p>先序遍历、中序遍历、后序遍历、层次遍历</p>
-<ol>
-<li><p><strong>重建二叉树</strong></p>
-<blockquote>
+<br>
+
+<h2 id="5-链表"><a href="#5-链表" class="headerlink" title="5. 链表"></a>5. 链表</h2><br>
+
+<h2 id="6-树"><a href="#6-树" class="headerlink" title="6. 树"></a>6. 树</h2><h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p>先序遍历、中序遍历、后序遍历、层次遍历</p>
+<h6 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h6><blockquote>
 <p>输入二叉树的前序、中序遍历的结果，重建该二叉树。假设输入的遍历结果中都不含重复的数字。</p>
 </blockquote>
 <p>思路：先序中取得根节点，在中序中查找根节点，左边的是左子树，右边的是右子树，递归。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMe</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder,<span class="keyword">int</span> cur,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=r;i++)</span><br><span class="line">            <span class="keyword">if</span>(inorder[i]==cur)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;;</span><br><span class="line">   </span><br><span class="line">    <span class="function">TreeNode* <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> cur)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;r) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        TreeNode* tree = <span class="keyword">new</span> TreeNode(preorder[cur]);</span><br><span class="line">        <span class="keyword">int</span> x = getMe(inorder,preorder[cur],l,r);</span><br><span class="line">        tree-&gt;left = solve(preorder,inorder,l,x<span class="number">-1</span>,cur+<span class="number">1</span>);</span><br><span class="line">        tree-&gt;right = solve(preorder,inorder,x+<span class="number">1</span>,r,cur+<span class="number">1</span>+x-l);</span><br><span class="line">        <span class="keyword">return</span> tree;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size=preorder.size();</span><br><span class="line">        <span class="keyword">if</span>(size==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> solve(preorder,inorder,<span class="number">0</span>,size<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>二叉树的下一个节点</p>
-<blockquote>
+
+<h6 id="二叉树的下一个节点"><a href="#二叉树的下一个节点" class="headerlink" title="二叉树的下一个节点"></a>二叉树的下一个节点</h6><blockquote>
 <p>给定一棵二叉树和其中一个节点，如何找出中序遍历序列的下一个节点？树中的节点除了两个左右子树的指针，还有一个父节点指针。</p>
 </blockquote>
-</li>
-</ol>
-<ol start="3">
-<li><h5 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h5></li>
-</ol>
-<p>O(logn)</p>
+<p>讲一下思路，这里的思路就是分类讨论：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">存在右子节点</td>
+<td align="left">找到右子节点的最左节点</td>
+</tr>
+<tr>
+<td align="left">不存在右子节点，是父节点的左子节点</td>
+<td align="left">父节点</td>
+</tr>
+<tr>
+<td align="left">不存在右子节点，是父节点的右子节点</td>
+<td align="left">向上寻找，直到找到一个点是父节点的左子节点</td>
+</tr>
+</tbody></table>
+<h6 id="中序遍历二叉树（递归与非递归）"><a href="#中序遍历二叉树（递归与非递归）" class="headerlink" title="中序遍历二叉树（递归与非递归）"></a>中序遍历二叉树（递归与非递归）</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 递归实现</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">recurse_solve</span><span class="params">(TreeNode* p,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vv)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;left!=<span class="literal">nullptr</span>)</span><br><span class="line">            recurse_solve(p-&gt;left,vv);</span><br><span class="line">        vv.push_back(p-&gt;val);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;right!=<span class="literal">nullptr</span>)</span><br><span class="line">            recurse_solve(p-&gt;right,vv);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 栈非递归实现</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">stack_solve</span><span class="params">(TreeNode* root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vv)</span></span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt;myst;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">nullptr</span>||!myst.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p!=<span class="literal">nullptr</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                myst.push(p);</span><br><span class="line">                p=p-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                p=myst.top();</span><br><span class="line">                myst.pop();</span><br><span class="line">                vv.push_back(p-&gt;val);</span><br><span class="line">                p=p-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 主函数</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vv;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">nullptr</span>) <span class="keyword">return</span> vv;</span><br><span class="line">        stack_solve(root,vv);</span><br><span class="line">        <span class="keyword">return</span> vv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h5><p>O(logn)</p>
 <h5 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h5><h5 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h5><blockquote>
 <p>把树中的节点定义为红、黑两种颜色，并通过规则确保从根节点到叶子节点的最长路径的长度不超过最短路径的两倍。</p>
 <p>在C++的STL中，set、multiset、map、multimap等数据结构都是基于红黑树实现的。</p>
 </blockquote>
+<br>
+
+<h2 id="7-栈和队列"><a href="#7-栈和队列" class="headerlink" title="7. 栈和队列"></a>7. 栈和队列</h2><h6 id="用两个栈实现队列"><a href="#用两个栈实现队列" class="headerlink" title="用两个栈实现队列"></a>用两个栈实现队列</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">略</span><br></pre></td></tr></table></figure>
+
+<h6 id="求斐波那契数列n项"><a href="#求斐波那契数列n项" class="headerlink" title="求斐波那契数列n项"></a>求斐波那契数列n项</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> eMarix[<span class="number">2</span>][<span class="number">2</span>]=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 递归</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">recurse</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> (fib(n<span class="number">-1</span>)+fib(n<span class="number">-2</span>))%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 普通</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">normal</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> last1=<span class="number">0</span>,last2=<span class="number">1</span>,temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = last2;</span><br><span class="line">            last2 = (last1+last2)%MOD;</span><br><span class="line">            last1 = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> last2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">marix_solve</span><span class="params">(<span class="keyword">int</span> a[<span class="number">2</span>][<span class="number">2</span>],<span class="keyword">int</span> b[<span class="number">2</span>][<span class="number">2</span>])</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> temp[<span class="number">2</span>][<span class="number">2</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;<span class="number">2</span>;k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    temp[i][j]+=<span class="number">1l</span>l*a[i][k]*b[k][j]%MOD;</span><br><span class="line">                &#125;</span><br><span class="line">                temp[i][j]%=MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++)</span><br><span class="line">                a[i][j]=temp[i][j];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 矩阵快速幂</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">marix</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 0,1,1,2,3,5,8</span></span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> curMarix[<span class="number">2</span>][<span class="number">2</span>]=&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">while</span>(n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(n&amp;<span class="number">1</span>)</span><br><span class="line">                marix_solve(curMarix,eMarix);</span><br><span class="line">            marix_solve(eMarix,eMarix);</span><br><span class="line">            n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curMarix[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 主函数</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> marix(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>$$ {矩阵快速幂}<br>\begin{bmatrix}f(n) &amp; f(n-1) \ f(n-1) &amp; f(n-2)\ \end{bmatrix}<br>=<br>\begin{bmatrix}1 &amp; 1 \ 1 &amp; 0 \end{bmatrix}^{n-1}<br>$$</p>
+<h2 id="8-查找和排序"><a href="#8-查找和排序" class="headerlink" title="8. 查找和排序"></a>8. 查找和排序</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求非降序范围内第一个不小于value的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[],<span class="keyword">int</span> n,<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid,l=<span class="number">0</span>,r=n<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">		mid = l+(r-l)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[mid]&lt;value) l=mid+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> r=mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> l;<span class="comment">//or return r;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//stl </span></span><br><span class="line">lower_bound(a,a+n,value)-a <span class="comment">// 第一个不小于value的位置</span></span><br><span class="line">upper_bound(a,a+n,value)-a <span class="comment">// 第一个大于value的位置</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="旋转数组的最小数"><a href="#旋转数组的最小数" class="headerlink" title="旋转数组的最小数"></a>旋转数组的最小数</h6><blockquote>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; numbers)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=numbers.size();</span><br><span class="line">        <span class="keyword">int</span> mid,l=<span class="number">0</span>,r=len<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r) <span class="comment">// 如果当前值要比最后的值小，说明要往前找（包括本身）；如果当前值要比最后的值大，说明要往后找，还没到；如果相等，有可能还在前面（包括本身：1 3 3/5 4 4）……</span></span><br><span class="line">        &#123;</span><br><span class="line">            mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(numbers[mid]&lt;numbers[r])</span><br><span class="line">                r=mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid]&gt;numbers[r])</span><br><span class="line">                l=mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[l];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> solve(numbers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h3 id="交换数字"><a href="#交换数字" class="headerlink" title="交换数字"></a>交换数字</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只能对int 和 char</span></span><br><span class="line">x=x^y; </span><br><span class="line">y=x^y;</span><br><span class="line">x=x^y;</span><br><span class="line"></span><br><span class="line">x=x+y;</span><br><span class="line">y=x-y;</span><br><span class="line">x=x-y;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -395,7 +437,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">剑指offer刷题记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 赋值运算符函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-C-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. C# 单例模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sizeof"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">sizeof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">数组中重复元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">二维数组中的查找</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">替换空格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%93%BE%E8%A1%A8"><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%A0%91"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. 树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="toc-number">1.0.6.1.1.</span> <span class="toc-text">二叉搜索树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">1.0.6.1.2.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">1.0.6.1.3.</span> <span class="toc-text">红黑树</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 赋值运算符函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-C-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">2. C# 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">3. 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#sizeof"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">sizeof</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="toc-number">3.0.0.0.2.</span> <span class="toc-text">数组中重复元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">3.0.0.0.3.</span> <span class="toc-text">二维数组中的查找</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">4. 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text">比较</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">4.0.0.0.2.</span> <span class="toc-text">替换空格</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%93%BE%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">5. 链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%A0%91"><span class="toc-number">6.</span> <span class="toc-text">6. 树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">6.0.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">6.0.1.0.1.</span> <span class="toc-text">重建二叉树</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">6.0.1.0.2.</span> <span class="toc-text">二叉树的下一个节点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88%E9%80%92%E5%BD%92%E4%B8%8E%E9%9D%9E%E9%80%92%E5%BD%92%EF%BC%89"><span class="toc-number">6.0.1.0.3.</span> <span class="toc-text">中序遍历二叉树（递归与非递归）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="toc-number">6.0.1.1.</span> <span class="toc-text">二叉搜索树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">6.0.1.2.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">6.0.1.3.</span> <span class="toc-text">红黑树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97"><span class="toc-number">7.</span> <span class="toc-text">7. 栈和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">7.0.0.0.1.</span> <span class="toc-text">用两个栈实现队列</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97n%E9%A1%B9"><span class="toc-number">7.0.0.0.2.</span> <span class="toc-text">求斐波那契数列n项</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8E%92%E5%BA%8F"><span class="toc-number">8.</span> <span class="toc-text">8. 查找和排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">8.1.</span> <span class="toc-text">二分查找</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0"><span class="toc-number">8.1.0.0.1.</span> <span class="toc-text">旋转数组的最小数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">8.2.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%95%B0%E5%AD%97"><span class="toc-number">8.3.</span> <span class="toc-text">交换数字</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -582,6 +624,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
@@ -590,19 +636,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +656,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,15 +680,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ST表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,11 +708,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,6 +781,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>

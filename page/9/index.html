@@ -156,6 +156,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2018-04-18-Cashback-(DP-区间最小值)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/2018-04-18-Cashback-(DP-%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC)/">Cashback (DP 区间最小值)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/2018-04-18-Cashback-(DP-%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC)/" class="archive-article-date">
+  	<time datetime="2018-04-18T07:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Cashback"><a href="#Cashback" class="headerlink" title="Cashback"></a>Cashback</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>输入n和c。接下来给出长度为n的数组A。你可以将数组A划分成任意个子数组，假设其中一个子数组的长度为k，那么可以减去这个子数组内前k/c个（向下取整）小的数。要使划分后数组内的元素和最小，问最小的和为多少？</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>预感到是DP，但是没有什么L用……</p>
+<p>分析一下：如果其中一个子数组的长度k&lt; c，那么这个数组就一个也不能减少；如果长度k=c，那么就刚好减少一个；如果长度在c&lt; k&lt; 2c之间，并没有任何贡献，还是只能少一个。也就是说，长度正好为c的数组是优秀的。那么长度为2c的数组呢？我们假设[0,c-1]内，最小的数字为min1，第二小的是min2，[c,2c-1]内，最小的数字为min3，那么，如果min2&lt; min3，对于划分（2个长度为c）来说，消去的数字是min1+min3，而对于划分（1个长度为2c），消去的数字就是min1+min2，显然是两个c长度的划算。如果min2&gt;=min3，对于划分成（2个长度为c）来说，消去的数字就是min1+min3，对于划分（一个长度为2c），消去的数字为min1+min3，两者是相等的。因此综上而言，将数组划分成长度为c的小数组更划算一些。</p>
+<p>那么就用到dp了，dp[i]指 前i个数字的最小和。</p>
+<p>对于一个数字a[i]来说，（i&gt;c）dp[i] 要么是接受前一个数字的dp再加上自己的大小，要么就是重新进入一个长度是c的数组，起始index为i-c+1，dp[i]=dp[i-c] (前i-c的最小和）+sum[i]-sum[i-c] （这一段新的长度为c的数组的总和）- min{a[i-c+1], … , a[i] }（这一段长度是c的区间里的最小值），即：</p>
+<p><strong>dp[i] = min(dp[i-1]+a[i] , dp[i-c] + sum[i] - sum[i-c] -  min{a[i-c+1], … , a[i] } )</strong></p>
+<p>对于区间最小值min，用一个multiset维护就好了。multiset里只放当前i为最后一个数字的c个数字。而multiset中的.begin() 会返回容器中最小的数的指针。如果去掉最前面一个放进来的数字呢？. erase( .find(a[i-c+1]))就好了。</p>
+<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n,c;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[MAX],a[MAX]; <span class="comment">//dp[i]指前i个元素相加的最小和</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> sum[MAX]; <span class="comment">//前i个元素和</span></span><br><span class="line"><span class="built_in">multiset</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt;s; <span class="comment">//s用来维护长度为c的区间内的最小值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;c);</span><br><span class="line">	sum[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;a[i]);</span><br><span class="line">		dp[i]=sum[i]=sum[i<span class="number">-1</span>]+a[i]; </span><br><span class="line">		<span class="comment">//初始化dp值，显然长度不足c的dp值为前i个数之和，其他的默认初始值为前i个数之和</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;c;i++)</span><br><span class="line">        s.insert(a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=c;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s.insert(a[i]);</span><br><span class="line">        dp[i]=min(dp[i<span class="number">-1</span>]+a[i],dp[i-c]+sum[i]-sum[i-c]-*s.begin());</span><br><span class="line">        <span class="comment">//前一个数加上自己的和，前一个c区间及之前的最小和加上这个新的c区间的总和，减去这个区间的最小值</span></span><br><span class="line">        s.erase(s.find(a[i-c+<span class="number">1</span>]));<span class="comment">//删去下一步到了区间外的数字</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,dp[n]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CodeForces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/2018-04-18-Cashback-(DP-%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018-04-15-二数(就没啥)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1027,93 +1124,6 @@
 
 
   
-    <article id="post-反省" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/%E5%8F%8D%E7%9C%81/">日常反省</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/%E5%8F%8D%E7%9C%81/" class="archive-article-date">
-  	<time datetime="2018-03-31T10:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        NEED PASSWORD 文章已加密
-        
-          <a class="article-more-a" href="/2018/03/31/%E5%8F%8D%E7%9C%81/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/%E5%8F%8D%E7%9C%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
@@ -1284,6 +1294,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
@@ -1292,19 +1306,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,11 +1326,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1350,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ST表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1368,11 +1378,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+                <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1441,6 +1451,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>
