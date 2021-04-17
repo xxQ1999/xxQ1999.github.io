@@ -156,6 +156,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在比赛中遇到的稀奇古怪的结论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/09/%E5%9C%A8%E6%AF%94%E8%B5%9B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%A8%80%E5%A5%87%E5%8F%A4%E6%80%AA%E7%9A%84%E7%BB%93%E8%AE%BA/">在比赛中遇到的稀奇古怪的结论</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/09/%E5%9C%A8%E6%AF%94%E8%B5%9B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%A8%80%E5%A5%87%E5%8F%A4%E6%80%AA%E7%9A%84%E7%BB%93%E8%AE%BA/" class="archive-article-date">
+  	<time datetime="2018-08-09T12:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p><strong>将多边形对角线相连，其对角线最多被分割成多少段？</strong></p>
+<p>$$<br>max=(n^4-6n^3+17n^2-24n)/12<br>$$</p>
+<p><strong>一个圆，一个圆的内接n边形，连接多边形对角线，求整个圆被分割成几块?</strong></p>
+<p>$$<br>max=(n^4-6n^3+23n^2-18n+24)/24<br>$$</p>
+<p><strong>根号函数的性质：</strong><br>$$<br>\sqrt{a+b+c+…}\le\sqrt{a}+\sqrt{b}+\sqrt{c}+…<br>$$<br> <strong>求$(\sum_{i=1}^mx_i )= k (0≤x_i &lt; n)​$的整数解的组数</strong>(<a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=6397">Character Encoding</a> )</p>
+<p>分析后发现答案为$(1+x+x^2+x^3+…+x^n)^m$的展开式中项的次数为k的项的系数，对于n,m,k，有答案：<br>$$<br>    \sum_{i=0}^{\lfloor{\frac{k}{n}}\rfloor}(-1)^iC_m^iC_{m+k-1-n*i}^{m-1}<br>$$<br><strong>多边形公式</strong></p>
+<p>$$S=\frac{1}{2}\left|\sum\limits_{i=0}^{n-1}(X_iY_{i+1}-X_{i+1}Y_i)\right|$$</p>
+<p>其中是相邻的点，对于n-1的i+1是0代表这第一个点，由于顺时针逆时针会使正负号改变，所以取绝对值。</p>
+<p><strong>摆线与圆面积关系</strong></p>
+<ol>
+<li>摆线留下的面积是圆面积的三倍。</li>
+<li>它的长度等于旋转圆直径的 4 倍，是 一个不依赖于π的有理数。</li>
+</ol>
+<p>摆线定义：摆线(cycloid)是数学中众多的迷人曲线之一．它是这样定义的：一个圆沿一直线缓慢地滚动，则圆上一固定点所经过的轨迹称为摆线．</p>
+<p><strong>两条直线夹角</strong></p>
+<p>$${\left|\frac{A_{1}B_{2}-A_{2}B_{1}}{A_{1}A_{2}+B_{1}B_{2}}\right|}$$</p>
+<p><strong>素数定理</strong><br>$$\lim\limits_{n-&gt;\infty}\frac{\pi(n)}{n/\ln{n}}$$</p>
+<p>描述素数的分布，素数分布规律，以36N（N+1）为单位，随着N的增大，素数的个数发波浪形式渐渐增多。素数定理可以给出第n个素数p(n)的渐近估计： 它也给出从整数中抽到素数的概率。从不大于n的自然数随机选一个，它是素数的概率大约是1/ln n。 π(n)为小于等于n的素数的个数。</p>
+<p><strong>GCD(1)</strong><br>a&gt; 0；m,n &gt; 0，那么有$$\gcd(a^m-1,a^n-1)=a^{gcd(m,n)}-1$$</p>
+<p><strong>GCD(2)</strong><br>a&gt;b;gcd(a,b)=1,那么$\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(m,n)}-{b^{\gcd(m,n)}} $</p>
+<p><strong>GCD(3)</strong><br>设$$\gcd(a^m-1,a^n-1)=a^{gcd(m,n)}-1$$,那么G的值为<br>(1)n为素数，那么答案就是n。<br>(2)n有多个素因子，那么答案就是1。<br>(3)n只有一个素因子，那么答案就是该因子。</p>
+<p><strong>GCD(4)</strong></p>
+<p>$$\sum\limits_{i=1}^{N}\gcd(i,N)=\sum\limits_{d|N}dφ(\frac{N}{d})=\sum\limits_{d|N}\frac{N}{d}φ(d)$$</p>
+<p>φ(x)为欧拉函数，d是N的质因子</p>
+<p><strong>欧拉函数</strong></p>
+<p>$\sum_{d|n}\varphi(d)=n $</p>
+<p><strong>Fibonacci(1)</strong><br>设Fn为Fib数，那么有$$\gcd(F_m,F_n) = F_{gcd(m,n)}​$$</p>
+<p><strong>Fibonacci(2)</strong><br>给定两个互素的正整数A和B，那么它们最大不能组合的数为A∗B−A−B不能组合的个数为$$num=\frac{(A-1)(B-1)}{2}$$</p>
+<p><strong>lcm(1)</strong><br>$$(n+1)lcm(C_n^0,C_n^1,\cdots,C_n^n)=lcm(1,2,\cdots,n+1)$$</p>
+<p><strong>lcm(2)</strong><br>给一个正整数n，求lcm(1,2,3,⋯,n)lcm(1,2,3,⋯,n)的值，(1&lt;=n&lt;=10^8)</p>
+<p>定义L(n)L(n)为1,2,3,……,n的最小公倍数。则可以发现：<br>$$<br>L(n+1)=L(n)*p \ \ \ \ \   \ \ \ \ \ 如果(n+1)是p的次方数<br>$$</p>
+<p>$$<br>= L(n)     \ \  \ \ \ \  \ \  \ \ \  \ 否则<br>$$</p>
+<p>所以有: </p>
+<p>L(1) = 1<br>L(2) = 1 x 2<br>L(3) = 1 x 2 x 3<br>L(4) = 1 x 2 x 3 x 2<br>L(5) = 1 x 2 x 3 x 2 x 5<br>L(6) = 1 x 2 x 3 x 2 x 5<br>L(7) = 1 x 2 x 3 x 2 x 5 x 7</p>
+<p><strong>φ(ab)和gcd(a,b)的关系</strong><br>$$<br>\frac{φ(ab)}{φ(a)φ(b)}=\frac{gcd(a,b)}{φ(gcd(a,b))}<br>$$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/09/%E5%9C%A8%E6%AF%94%E8%B5%9B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%A8%80%E5%A5%87%E5%8F%A4%E6%80%AA%E7%9A%84%E7%BB%93%E8%AE%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Harvest-of-Apples-(莫队)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1054,121 +1162,6 @@ $$
 
 
   
-    <article id="post-懵逼钨丝常用套路公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/03/%E6%87%B5%E9%80%BC%E9%92%A8%E4%B8%9D%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E5%85%AC%E5%BC%8F/">懵逼钨丝常用套路公式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/03/%E6%87%B5%E9%80%BC%E9%92%A8%E4%B8%9D%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E5%85%AC%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2018-08-03T12:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><ol>
-<li><p>$[n=1]=\sum_{d|n}\mu_d $ </p>
-<p><strong>可以把一个“判一”的式子化成可以计算的函数</strong> </p>
-<p>$[\gcd(a,b)=1]=\sum_{d|\gcd(a,b)}\mu_d $</p>
-</li>
-<li><p>$n=\sum_{d|n}\varphi_d $ </p>
-<p><strong>把一个数化到枚举范围里面去</strong> </p>
-<p>$\gcd(a,b)=\sum_{d|\gcd(a,b)}\varphi_d $</p>
-</li>
-<li><p><strong>重排变换</strong></p>
-<p>$\sum_{i=1}^n\sum_{d|\gcd(i,n)}f_d=\sum_{d|n}f_d\lfloor\frac{n}{d}\rfloor $</p>
-</li>
-<li><p><strong>混合重排变换</strong> </p>
-<p>$\sum_{i=1}^n\sum_{d|\gcd(i,m)}f_d=\sum_{d|m}f_d\lfloor\frac{n}{d}\rfloor $</p>
-</li>
-<li><p><strong>扩展混合重排变换</strong>  </p>
-<p>$\sum_{i=1}^n\sum_{d|\gcd(i,m)}f_dg_i=\sum_{d|m}f_d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}g_{id} $</p>
-</li>
-<li><p><strong>扩展变换</strong> </p>
-<p>$\sum_{i=1}^n[d|i]f_i=\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}f_{id}$</p>
-</li>
-<li><p><strong>收缩变换</strong> </p>
-<p>$\sum_{i=1}^n\sum_{d|i}f_d=\sum_{i=1}^n\sum_{d=1}^{\lfloor\frac{n}{i}\rfloor}f_d $</p>
-</li>
-<li><p><strong>杜教筛变换</strong> </p>
-</li>
-<li><p><strong>约数个数变换</strong> </p>
-<p>$d(x)=d_{nm}=\sum_{i|n}\sum_{j|m}[\gcd(i,j)=1] $</p>
-<p>x的约数个数</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/03/%E6%87%B5%E9%80%BC%E9%92%A8%E4%B8%9D%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E5%85%AC%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">Next »</a>
@@ -1295,15 +1288,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1371,11 +1364,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1423,23 +1416,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1451,6 +1436,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
@@ -1459,11 +1452,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1491,15 +1484,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>

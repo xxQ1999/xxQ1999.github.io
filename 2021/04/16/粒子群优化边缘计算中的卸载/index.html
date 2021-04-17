@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
-  <title>高斯消元模板 | まだまだだね</title>
+  <title>粒子群优化边缘计算 | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单版本1234567891011121314151617181920212223242526272829（1）有解的方程组：#define N 205using namespace std;const double eps&#x3D;1e-8;int n;double a[N][N],del;bool gauss()&amp;#123;    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&amp;#123;">
+  <meta name="description" content="摘要用户设备会将任务分发到移动边缘计算服务器上，但是在offload过程中，由于小基站的高干扰、多址、资源有限，需要一种高效的计算卸载方案。在这篇论文中，作者研究了在小型蜂窝网络下的边缘计算系统的节能计算卸载方案，通过计算卸载决策、频谱、功率和计算资源的联合优化，为的就是减少所有终端设备的能耗。终端设备不仅要决策是否卸载，也要决策卸载到哪里。 文章首先给出了计算卸载模型，并将此问题表述为一个NP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高斯消元模板">
-<meta property="og:url" content="http://github.com/xxq1999/2018/08/03/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%A8%A1%E6%9D%BF/index.html">
+<meta property="og:title" content="粒子群优化边缘计算">
+<meta property="og:url" content="http://github.com/xxq1999/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="简单版本1234567891011121314151617181920212223242526272829（1）有解的方程组：#define N 205using namespace std;const double eps&#x3D;1e-8;int n;double a[N][N],del;bool gauss()&amp;#123;    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&amp;#123;">
+<meta property="og:description" content="摘要用户设备会将任务分发到移动边缘计算服务器上，但是在offload过程中，由于小基站的高干扰、多址、资源有限，需要一种高效的计算卸载方案。在这篇论文中，作者研究了在小型蜂窝网络下的边缘计算系统的节能计算卸载方案，通过计算卸载决策、频谱、功率和计算资源的联合优化，为的就是减少所有终端设备的能耗。终端设备不仅要决策是否卸载，也要决策卸载到哪里。 文章首先给出了计算卸载模型，并将此问题表述为一个NP">
 <meta property="og:locale" content="utf_8">
-<meta property="article:published_time" content="2018-08-02T16:11:00.000Z">
-<meta property="article:modified_time" content="2020-09-15T13:58:04.699Z">
+<meta property="article:published_time" content="2021-04-16T10:22:00.000Z">
+<meta property="article:modified_time" content="2021-04-17T07:51:42.237Z">
 <meta property="article:author" content="xxQ">
-<meta property="article:tag" content="模板">
+<meta property="article:tag" content="边缘计算">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
@@ -157,30 +157,445 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-高斯消元模板" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-粒子群优化边缘计算中的卸载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      高斯消元模板
+      粒子群优化边缘计算
     </h1>
   
 
         
-        <a href="/2018/08/03/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2018-08-02T16:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+        <a href="/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2021-04-16T10:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="简单版本"><a href="#简单版本" class="headerlink" title="简单版本"></a>简单版本</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）有解的方程组：</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 205</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">double</span> a[N][N],del;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">gauss</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> k=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)<span class="keyword">if</span>(<span class="built_in">fabs</span>(a[j][i])&gt;<span class="built_in">fabs</span>(a[k][i]))k=j;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(del=a[k][i])&lt;eps)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=n+<span class="number">1</span>;j++)swap(a[i][j],a[k][j]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=n+<span class="number">1</span>;j++)a[i][j]/=del;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=n;k++)<span class="keyword">if</span>(k!=i)&#123;</span><br><span class="line">            del=a[k][i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=n+<span class="number">1</span>;j++)a[k][j]-=a[i][j]*del;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n+<span class="number">1</span>;j++)<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;a[i][j]);</span><br><span class="line">    <span class="keyword">bool</span> flag=gauss();</span><br><span class="line">    <span class="keyword">if</span>(!flag)<span class="built_in">puts</span>(<span class="string">&quot;No Solution&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">printf</span>(<span class="string">&quot;%.2lf\n&quot;</span>,a[i][n+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="kuangbin的模板"><a href="#kuangbin的模板" class="headerlink" title="kuangbin的模板"></a>kuangbin的模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//来自kuangbin大神的模板</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[MAXN][MAXN];<span class="comment">//增广矩阵</span></span><br><span class="line"><span class="keyword">int</span> x[MAXN];<span class="comment">//解集</span></span><br><span class="line"><span class="keyword">bool</span> free_x[MAXN];<span class="comment">//标记是否是不确定的变元</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">void Debug(void)</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    int i, j;</span></span><br><span class="line"><span class="comment">    for (i = 0; i &lt; equ; i++)</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        for (j = 0; j &lt; var + 1; j++)</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            cout &lt;&lt; a[i][j] &lt;&lt; &quot; &quot;;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        cout &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    cout &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">while</span>(b!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        t=b;</span><br><span class="line">        b=a%b;</span><br><span class="line">        a=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a/gcd(a,b)*b;<span class="comment">//先除后乘防溢出</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高斯消元法解方程组(Gauss-Jordan elimination).(-2表示有浮点数解，但无整数解，</span></span><br><span class="line"><span class="comment">//-1表示无解，0表示唯一解，大于0表示无穷解，并返回自由变元的个数)</span></span><br><span class="line"><span class="comment">//有equ个方程，var个变元。增广矩阵行数为equ,分别为0到equ-1,列数为var+1,分别为0到var.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Gauss</span><span class="params">(<span class="keyword">int</span> equ,<span class="keyword">int</span> var)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">int</span> max_r;<span class="comment">// 当前这列绝对值最大的行.</span></span><br><span class="line">    <span class="keyword">int</span> col;<span class="comment">//当前处理的列</span></span><br><span class="line">    <span class="keyword">int</span> ta,tb;</span><br><span class="line">    <span class="keyword">int</span> LCM;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">int</span> free_x_num;</span><br><span class="line">    <span class="keyword">int</span> free_index;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=var;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        x[i]=<span class="number">0</span>;</span><br><span class="line">        free_x[i]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//转换为阶梯阵.</span></span><br><span class="line">    col=<span class="number">0</span>; <span class="comment">// 当前处理的列</span></span><br><span class="line">    <span class="keyword">for</span>(k = <span class="number">0</span>;k &lt; equ &amp;&amp; col &lt; var;k++,col++)</span><br><span class="line">    &#123;<span class="comment">// 枚举当前处理的行.</span></span><br><span class="line"><span class="comment">// 找到该col列元素绝对值最大的那行与第k行交换.(为了在除法时减小误差)</span></span><br><span class="line">        max_r=k;</span><br><span class="line">        <span class="keyword">for</span>(i=k+<span class="number">1</span>;i&lt;equ;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">abs</span>(a[i][col])&gt;<span class="built_in">abs</span>(a[max_r][col])) max_r=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max_r!=k)</span><br><span class="line">        &#123;<span class="comment">// 与第k行交换.</span></span><br><span class="line">            <span class="keyword">for</span>(j=k;j&lt;var+<span class="number">1</span>;j++) swap(a[k][j],a[max_r][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[k][col]==<span class="number">0</span>)</span><br><span class="line">        &#123;<span class="comment">// 说明该col列第k行以下全是0了，则处理当前行的下一列.</span></span><br><span class="line">            k--;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(i=k+<span class="number">1</span>;i&lt;equ;i++)</span><br><span class="line">        &#123;<span class="comment">// 枚举要删去的行.</span></span><br><span class="line">            <span class="keyword">if</span>(a[i][col]!=<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                LCM = lcm(<span class="built_in">abs</span>(a[i][col]),<span class="built_in">abs</span>(a[k][col]));</span><br><span class="line">                ta = LCM/<span class="built_in">abs</span>(a[i][col]);</span><br><span class="line">                tb = LCM/<span class="built_in">abs</span>(a[k][col]);</span><br><span class="line">                <span class="keyword">if</span>(a[i][col]*a[k][col]&lt;<span class="number">0</span>)tb=-tb;<span class="comment">//异号的情况是相加</span></span><br><span class="line">                <span class="keyword">for</span>(j=col;j&lt;var+<span class="number">1</span>;j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    a[i][j] = a[i][j]*ta-a[k][j]*tb;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  Debug();</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 无解的情况: 化简的增广阵中存在(0, 0, ..., a)这样的行(a != 0).</span></span><br><span class="line">    <span class="keyword">for</span> (i = k; i &lt; equ; i++)</span><br><span class="line">    &#123; <span class="comment">// 对于无穷解来说，如果要判断哪些是自由变元，那么初等行变换中的交换就会影响，则要记录交换.</span></span><br><span class="line">        <span class="keyword">if</span> (a[i][col] != <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2. 无穷解的情况: 在var * (var + 1)的增广阵中出现(0, 0, ..., 0)这样的行，即说明没有形成严格的上三角阵.</span></span><br><span class="line">    <span class="comment">// 且出现的行数即为自由变元的个数.</span></span><br><span class="line">    <span class="keyword">if</span> (k &lt; var)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 首先，自由变元有var - k个，即不确定的变元至少有var - k个.</span></span><br><span class="line">        <span class="keyword">for</span> (i = k - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 第i行一定不会是(0, 0, ..., 0)的情况，因为这样的行是在第k行到第equ行.</span></span><br><span class="line">            <span class="comment">// 同样，第i行一定不会是(0, 0, ..., a), a != 0的情况，这样的无解的.</span></span><br><span class="line">            free_x_num = <span class="number">0</span>; <span class="comment">// 用于判断该行中的不确定的变元的个数，如果超过1个，则无法求解，它们仍然为不确定的变元.</span></span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; var; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i][j] != <span class="number">0</span> &amp;&amp; free_x[j]) free_x_num++, free_index = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (free_x_num &gt; <span class="number">1</span>) <span class="keyword">continue</span>; <span class="comment">// 无法求解出确定的变元.</span></span><br><span class="line">            <span class="comment">// 说明就只有一个不确定的变元free_index，那么可以求解出该变元，且该变元是确定的.</span></span><br><span class="line">            temp = a[i][var];</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; var; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i][j] != <span class="number">0</span> &amp;&amp; j != free_index) temp -= a[i][j] * x[j];</span><br><span class="line">            &#125;</span><br><span class="line">            x[free_index] = temp / a[i][free_index]; <span class="comment">// 求出该变元.</span></span><br><span class="line">            free_x[free_index] = <span class="number">0</span>; <span class="comment">// 该变元是确定的.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> var - k; <span class="comment">// 自由变元有var - k个.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3. 唯一解的情况: 在var * (var + 1)的增广阵中形成严格的上三角阵.</span></span><br><span class="line">    <span class="comment">// 计算出Xn-1, Xn-2 ... X0.</span></span><br><span class="line">    <span class="keyword">for</span> (i = var - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = a[i][var];</span><br><span class="line">        <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; var; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i][j] != <span class="number">0</span>) temp -= a[i][j] * x[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (temp % a[i][i] != <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-2</span>; <span class="comment">// 说明有浮点数解，但无整数解.</span></span><br><span class="line">        x[i] = temp / a[i][i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">&quot;in.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">&quot;out.txt&quot;</span>,<span class="string">&quot;w&quot;</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">int</span> equ,var;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;equ, &amp;var) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; equ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; var + <span class="number">1</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        Debug();</span></span><br><span class="line">        <span class="keyword">int</span> free_num = Gauss(equ,var);</span><br><span class="line">        <span class="keyword">if</span> (free_num == <span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">&quot;无解!\n&quot;</span>);</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span> (free_num == <span class="number">-2</span>) <span class="built_in">printf</span>(<span class="string">&quot;有浮点数解，无整数解!\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (free_num &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;无穷多解! 自由变元个数为%d\n&quot;</span>, free_num);</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; var; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (free_x[i]) <span class="built_in">printf</span>(<span class="string">&quot;x%d 是不确定的\n&quot;</span>, i + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;x%d: %d\n&quot;</span>, i + <span class="number">1</span>, x[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; var; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;x%d: %d\n&quot;</span>, i + <span class="number">1</span>, x[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>用户设备会将任务分发到移动边缘计算服务器上，但是在offload过程中，由于小基站的高干扰、多址、资源有限，需要一种高效的计算卸载方案。在这篇论文中，作者研究了在小型蜂窝网络下的边缘计算系统的节能计算卸载方案，通过计算卸载决策、频谱、功率和计算资源的联合优化，为的就是减少所有终端设备的能耗。终端设备不仅要决策是否卸载，也要决策卸载到哪里。</p>
+<p>文章首先给出了计算卸载模型，并将此问题表述为一个NP难的混合整数非线性规划问题。利用遗传算法和粒子群优化算法，设计了一个次优算法——分层遗传算法（hierarchical GA）和基于粒子群算法（PSO-based computation）的计算算法。最后通过仿真研究了收敛性，并与其他基准算法比较，验证了它的性能。</p>
+<table>
+<thead>
+<tr>
+<th>英文缩写</th>
+<th>全称</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UEs</td>
+<td>user equipments</td>
+<td>用户设备</td>
+</tr>
+<tr>
+<td>MEC</td>
+<td>mobile edge computing</td>
+<td>移动边缘计算</td>
+</tr>
+<tr>
+<td>SCNs</td>
+<td>small cell networks</td>
+<td>小型蜂窝网络</td>
+</tr>
+<tr>
+<td>SBSs</td>
+<td>small cell base station</td>
+<td>小型蜂窝基站</td>
+</tr>
+<tr>
+<td>PSO</td>
+<td>particle swarm optimization</td>
+<td>粒子群算法</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>genetic algorithm</td>
+<td>遗传算法</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>quality of user services</td>
+<td>用户服务质量</td>
+</tr>
+<tr>
+<td>MBS</td>
+<td>Macro base stations</td>
+<td>大型/宏基站</td>
+</tr>
+<tr>
+<td>MINLP</td>
+<td>mix integer non-linear programming</td>
+<td>混合整型非线性编程问题</td>
+</tr>
+<tr>
+<td>HGPCA</td>
+<td></td>
+<td>作者提出的次优化算法</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>​        high interference、multi-access property、limited resources of small cell base station</p>
+<h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>移动边缘计算中，计算卸载是关键环节，包含：传输过程、远程执行过程、结果回传过程。通过网络将计算卸载到边缘计算服务器中，大大降低时延，延长设备使用。</p>
+<p>该团队解决了三个挑战：计算决策、无线资源分配、计算资源分配。</p>
+<ul>
+<li><p>计算决策问题</p>
+<p>决定计算任务要在云端还是用户设备端进行。虽然边缘服务器可以为设备提供云服务，但是无法保证所有的设备在有限的网络和计算能力下都能得到服务。或者是过量的任务卸载到边缘，会造成拥塞、用户间交流的高干扰。</p>
+<p>——通过优化多用户间多小区网络中的计算决策问题、平衡用户服务和系统收益。</p>
+</li>
+<li><p>无线资源分配</p>
+<p>能耗是很重要的一部分。由于UE与边缘服务器的通信距离相对短，可以降低能耗。但是计算卸载的能效依赖于无线资源分配方案。传输功率增加，数据速率增加，但干扰和传输能耗也增加，延迟也可能增加。因此分配无线资源时，需要更高效的干扰管理方案，自适应的功率控制。</p>
+</li>
+<li><p>计算资源分配</p>
+<p>应该不均匀分配。1）不同用户有不同的任务大小；2）根据网络状况的良莠，QoS需要更多/更少的计算资源</p>
+<p>联合动态无线和计算资源分配方案。</p>
+</li>
+</ul>
+<p>考虑多个SBS服务多个用户的MEC系统，考虑干扰管理、功率控制方案，优化卸载决策、信道分配、计算资源分配方案来研究节能计算方案。工作：</p>
+<ul>
+<li>提出采用MEC的分布式SCN的计算卸载系统模型，MBS与SBS都配备了MEC服务器。从延迟和能耗方面给用户带来好处，给系统的效率提升。</li>
+<li>在边缘计算系统中，将能耗计算卸载问题定义为一个混合整型非线性编程问题（MINLP）——NP-hard。主要就是为例如在满足所有用户设备的异构质量服务要求和资源分配原则下，以最少的能耗完成任务。</li>
+<li>基于层次GA、PSO，提出HGPCA次优化算法。提高收敛速度和性能。并分析算法的复杂性和收敛性。</li>
+<li>模拟时，部署了数百个用户和数十个小基站，研究算法收敛性并与其他基准算法比较验证性能。</li>
+</ul>
+<h3 id="系统模型"><a href="#系统模型" class="headerlink" title="系统模型"></a>系统模型</h3><h4 id="A-小型蜂窝网络下的移动边缘计算系统"><a href="#A-小型蜂窝网络下的移动边缘计算系统" class="headerlink" title="A. 小型蜂窝网络下的移动边缘计算系统"></a>A. 小型蜂窝网络下的移动边缘计算系统</h4><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$N_B={0,1,2,…i,…,N}$$</td>
+<td>SBS</td>
+<td>基站</td>
+</tr>
+<tr>
+<td>$$u={1,2,…,j,…,U}$$</td>
+<td>UEs</td>
+<td>用户终端</td>
+</tr>
+<tr>
+<td>$$T_j={d_j,X_j,T^{max}_j}$$</td>
+<td>Task</td>
+<td>j的计算任务</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>每个UE都有一个非密集型计算任务需要完成。</p>
+</li>
+<li><p>SBS与UE随机分配在MBS周围</p>
+</li>
+<li><p>计算任务j：<br>$$<br>T_j={d_j,X_j,t^{max}_j}<br>$$</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$d_j$$</td>
+<td>计算需要上传的数据</td>
+</tr>
+<tr>
+<td>$$X_j$$</td>
+<td>处理1位输入需要的CPU周期数，每个任务都不同</td>
+</tr>
+<tr>
+<td>$$t^{max}_j$$</td>
+<td>任务能接受的最大时延</td>
+</tr>
+<tr>
+<td>$$f_j=d_jX_j$$</td>
+<td>完成第j个计算任务需要的CPU周期数</td>
+</tr>
+</tbody></table>
+<ul>
+<li>每个任务可以在本地计算，也可以卸载到MBS或SBS中的MEC服务器。</li>
+<li>卸载需要三步：1）通过无线信道上传数据；2）在MEC服务器上执行任务；3）从MEC服务器上下载结果到UE。【重点放在前两步，涉及到一个通信模型和一个计算模型】</li>
+</ul>
+<h4 id="B-通信模型"><a href="#B-通信模型" class="headerlink" title="B. 通信模型"></a>B. 通信模型</h4><p>主要集中在上行链路传输。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$a^{(i)}_j\in{0,1}$$</td>
+<td>任务j是否卸载、卸载到哪个基站</td>
+<td>0：不卸载，1：卸载</td>
+</tr>
+<tr>
+<td>$$A={a^{(i)}_j,i\in N_B,j\in u}$$</td>
+<td>决策profile</td>
+<td></td>
+</tr>
+<tr>
+<td>$$\sum_{i\in N_B}a^{(i)}_j \le1$$</td>
+<td>终端j的任务只能被一个基站处理</td>
+<td></td>
+</tr>
+<tr>
+<td>$$c={1,2,…,k,…,C}$$</td>
+<td>信道们</td>
+<td></td>
+</tr>
+<tr>
+<td>$$c_M={1,2,…,C_M}$$</td>
+<td>MBS的信道</td>
+<td></td>
+</tr>
+<tr>
+<td>$$c_S={C_M+1,C_M+2,…,C}$$</td>
+<td>SBS的信道</td>
+<td>$$C-C_M=</td>
+</tr>
+<tr>
+<td>$$W$$</td>
+<td>每个信道的带宽</td>
+<td>每个信道都是独立同分布的</td>
+</tr>
+</tbody></table>
+<ul>
+<li>假设MBS与SBS使用不用的无线电频谱来避免层间干扰。对于SBS，频谱 以叠加的方式使用时，意味着在小区之间存在干扰。而每个信道是正交的，也就是说同一个区内，不存在干扰。</li>
+<li>MaUs ：UE的任务被大型基站处理    </li>
+<li>SUs ：UE的任务被小型基站处理</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$b^{(k)}_j\in{0,1}$$</td>
+<td>信道分配指示器</td>
+<td>信道k分配给UE-j</td>
+</tr>
+<tr>
+<td>$$B={b^{(k)}_j,j\in u,k\in c}$$</td>
+<td>信道分配指示profile</td>
+<td>满足1）2）条件</td>
+</tr>
+<tr>
+<td>$$\sum_{i\in N_B}\sum_{k\in{c_a}}a^{(i)}_jb^{(k)}_j\le1$$</td>
+<td>每个基站的一个信道最多只能分配给给一个任务</td>
+<td>1）</td>
+</tr>
+<tr>
+<td>$$\sum_{j\in u}\sum {k\in c_a}a^{(i)}_jb^{(k)}_j\le</td>
+<td>c_a</td>
+<td>$$</td>
+</tr>
+<tr>
+<td>$$c_a$$</td>
+<td>一些基站中可得到的信道集合</td>
+<td>对于SBS来说$$c_a=C_S$$,对于MBS来说$$c_a=C_M$$</td>
+</tr>
+</tbody></table>
+<ul>
+<li>假设所有终端在传输时它的传输功率是静态的。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$p_j$$</td>
+<td>终端j的传输功率</td>
+</tr>
+<tr>
+<td>$$P={p_1,…,p_j,…,p_U}$$</td>
+<td>终端传输功率集profile</td>
+</tr>
+<tr>
+<td>$$p_{max}$$</td>
+<td>最大传输功率</td>
+</tr>
+</tbody></table>
+<h5 id="传输速率R-0"><a href="#传输速率R-0" class="headerlink" title="传输速率R_0"></a>传输速率R_0</h5><p>当满足$$a^{(0)}<em>j=1$$时，UE-j分配得信道k ($$b^{(k)}_j=1$$)，则<strong>传输速率R</strong>满足：<br>$$<br>R^{0}_j(A</em>{_j},B,P)=\sum_{k\in{c_a}}b^{(k)}<em>jWlog_2(1+\frac{p_j|h</em>{0j}^{(k)}|^2}{N_0})<br>$$</p>
+<ul>
+<li>$$A_{_j}$$是除了UE-j外的卸载决策profile</li>
+<li>$$h_{0j}^{(k)}$$是从UE-j到MBS的信道增益</li>
+<li>$$N_0$$是复高斯白噪声方差</li>
+</ul>
+<h5 id="小区间干扰指示函数-delta"><a href="#小区间干扰指示函数-delta" class="headerlink" title="小区间干扰指示函数$$\delta$$"></a>小区间干扰指示函数$$\delta$$</h5><p>考虑相邻的SBS中的SU对该SU接收信号的干扰，将<strong>小区间干扰指示函数</strong>表示为：<br>$$<br>\delta_{i,j^{‘}}^{(k)}=\begin{cases}<br>1,RSS_{i,j^{‘}}^{(k)} \ge RSS_{th}\<br>0,else.<br>\end{cases}<br>$$</p>
+<p>$$<br>RSS_{i,j^{‘}}^{(k)} =  \sum_{i^{‘}\in{N_B}\setminus i}<br>a^{(i{‘})}<em>{j{‘}}b^{(k)}</em>{j{‘}}p_{j{‘}}<br>|h^{(k)}_{i,j{‘}}|^2<br>$$</p>
+<p>RSS表示SU-j’ 对SBS-i的分配信道k上的干扰功率，RSSth表示干扰阈值；su-j’和SBS-i不相关。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$RSS_{i,j^{‘}}^{(k)}$$</td>
+<td>$$SU-j’$$ 在$$SBS-i$$ 分配的信道$$k$$上收到的干扰功率</td>
+</tr>
+<tr>
+<td>$$RSS_{th}$$</td>
+<td>干扰阈值</td>
+</tr>
+<tr>
+<td></td>
+<td>$$SU-j’$$ 与$$SBS-i$$ 不相关</td>
+</tr>
+</tbody></table>
+<h5 id="来自其他SU对SBS-i的信道k的干扰I"><a href="#来自其他SU对SBS-i的信道k的干扰I" class="headerlink" title="来自其他SU对SBS-i的信道k的干扰I"></a>来自其他SU对SBS-i的信道k的干扰I</h5><p>来自其他SU对SBS-i、信道k的干扰：<br>$$<br>I_{ij}^{(k)}(A_{_j},B_{_j},P_{_j})=<br>\sum_{i’\in N_B\setminus 0}<br>\sum_{j’\in u\setminus j}<br>a^{(i’)}<em>{j’}b^{(k)}</em>{j’}<br>\delta_{i,j^{‘}}^{(k)}<br>p_{j’}|h_{i,j’}^{(k)}|^2<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$B_{_j}$$</td>
+<td>除了UE-j外的信道分配指示集</td>
+</tr>
+<tr>
+<td>$$P_{_j}$$</td>
+<td>除了UE-j外的传输功率集</td>
+</tr>
+<tr>
+<td>$$h_{i,j’}^{(k)}$$</td>
+<td>在SBS-i和UE-j’之间的信道k的信道增益</td>
+</tr>
+</tbody></table>
+<h5 id="传输速率R-i"><a href="#传输速率R-i" class="headerlink" title="传输速率R_i"></a>传输速率R_i</h5><p>故，达到的<strong>传输速率</strong>：<br>$$<br>R^i_j(A_{_j},B,P)=<br>\sum_{k\in c_a}<br>b^{(k)}<em>j Wlog_2<br>(1+\frac<br>{p_j|h</em>{ij}^{(k)}|^2}<br>{I^{(k)}<em>{ij} (A</em>{_j},B_{_j},P_{_j})+N_0})<br>$$</p>
+<h4 id="C-计算模型"><a href="#C-计算模型" class="headerlink" title="C. 计算模型"></a>C. 计算模型</h4><p>计算任务是如何在本地终端的UE上执行的，或者是在MEC服务器上远程执行。</p>
+<h5 id="1）本地计算"><a href="#1）本地计算" class="headerlink" title="1）本地计算"></a>1）本地计算</h5><p>假设每个终端的CPU在计算时的频率不变，但不同的终端可能有不同的频率。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$F_j^{(l)}$$</td>
+<td>每个终端UE-j的计算能力</td>
+<td>通过CPU周期表示(Hz/s)</td>
+</tr>
+<tr>
+<td>$$p^{(e)}_{j,l}$$</td>
+<td>终端UE-j本地计算时CPU一个周期的能耗</td>
+<td></td>
+</tr>
+</tbody></table>
+<h6 id="终端本地计算的延迟T"><a href="#终端本地计算的延迟T" class="headerlink" title="终端本地计算的延迟T"></a>终端本地计算的延迟T</h6><p>$$<br>T^{(e)}_{j,l}=\frac<br>{f_j}<br>{F_j^{(l)}}<br>$$</p>
+<h6 id="本地计算的能耗E"><a href="#本地计算的能耗E" class="headerlink" title="本地计算的能耗E"></a>本地计算的能耗E</h6><p>$$<br>E_{j,l}^{(e)}=f_jp^{(e)}_{j,l}<br>$$</p>
+<h5 id="2）边缘计算"><a href="#2）边缘计算" class="headerlink" title="2）边缘计算"></a>2）边缘计算</h5><h6 id="BS-传输的延迟T（第一阶段）"><a href="#BS-传输的延迟T（第一阶段）" class="headerlink" title="BS 传输的延迟T（第一阶段）"></a>BS 传输的延迟T（第一阶段）</h6><p>$$<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)=\frac<br>{d_j}<br>{R_j^{(i)}(A_{_j},B,P)}<br>,i \ge0<br>$$</p>
+<h6 id="BS-传输能耗E（第一阶段）"><a href="#BS-传输能耗E（第一阶段）" class="headerlink" title="BS 传输能耗E（第一阶段）"></a>BS 传输能耗E（第一阶段）</h6><p>$$<br>E_{j,off}^{(i,tr)}(A__j,B,P)=<br>P_jT_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>意义</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$F_i (i\in N_B)$$</td>
+<td>每个BS的计算能力</td>
+<td>$$F_0 \gg F_i,i&gt;0$$，大型基站的计算能力要远远大于小型基站</td>
+</tr>
+<tr>
+<td>$$F_j^{(i)}$$</td>
+<td>UE=j分配到的MEC-i的计算资源</td>
+<td></td>
+</tr>
+<tr>
+<td>$$F={F_j^{(i)},i\in N_B,j\in u }$$</td>
+<td>计算资源的分配集profile</td>
+<td>$$\sum_{j\in u}F_j^{(i)} \le F_i,\forall i\in N_B $$，即对于分配给终端j的资源，必须小于等于基站i的总资源</td>
+</tr>
+<tr>
+<td>边缘计算时延：</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>T_{j,off}^{(i,e)}(F)=\frac{f_j}{F_j^{(i)}}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>忽略MEC上执行任务的能耗，因为BS能源丰富。另外也不考虑第三阶段，因为实际情况，传入数据往往比输出的数据要大。</p>
+<h6 id="总时延T"><a href="#总时延T" class="headerlink" title="总时延T"></a>总时延T</h6><p>$$<br>T_j^{(i,off)}(A_{_j},B,P,F)=<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)+<br>T_{j,off}^{(i,e)}(F)<br>$$</p>
+<h6 id="总能耗E"><a href="#总能耗E" class="headerlink" title="总能耗E"></a>总能耗E</h6><p>$$<br>E_j^{(i,off)}(A_{_j},B,P)=E_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
 
       
 
@@ -194,7 +609,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">边缘计算</a>
         		</li>
       		
 		</ul>
@@ -206,7 +621,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/study-plan//" class="article-tag-list-link color3">study & plan</a>
         		</li>
       		
 		</ul>
@@ -261,7 +676,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/08/03/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%A8%A1%E6%9D%BF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +690,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/03/%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E6%A8%A1%E6%9D%BF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          乘法逆元模板
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/02/Let-Sudoku-Rotate-(dfs+%E5%89%AA%E6%9E%9D)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Let Sudoku Rotate (dfs+剪枝)</div>
+    <a href="/2021/04/13/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%BB%BC%E8%BF%B01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">边缘计算综述1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +719,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%89%88%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">简单版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kuangbin%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.</span> <span class="toc-text">kuangbin的模板</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">简单介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">系统模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E5%B0%8F%E5%9E%8B%E8%9C%82%E7%AA%9D%E7%BD%91%E7%BB%9C%E4%B8%8B%E7%9A%84%E7%A7%BB%E5%8A%A8%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text">A. 小型蜂窝网络下的移动边缘计算系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">B. 通信模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-0"><span class="toc-number">2.2.1.</span> <span class="toc-text">传输速率R_0</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E5%8C%BA%E9%97%B4%E5%B9%B2%E6%89%B0%E6%8C%87%E7%A4%BA%E5%87%BD%E6%95%B0-delta"><span class="toc-number">2.2.2.</span> <span class="toc-text">小区间干扰指示函数$$\delta$$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96SU%E5%AF%B9SBS-i%E7%9A%84%E4%BF%A1%E9%81%93k%E7%9A%84%E5%B9%B2%E6%89%B0I"><span class="toc-number">2.2.3.</span> <span class="toc-text">来自其他SU对SBS-i的信道k的干扰I</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-i"><span class="toc-number">2.2.4.</span> <span class="toc-text">传输速率R_i</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">C. 计算模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.1.</span> <span class="toc-text">1）本地计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BB%B6%E8%BF%9FT"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">终端本地计算的延迟T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">本地计算的能耗E</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.2.</span> <span class="toc-text">2）边缘计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BB%B6%E8%BF%9FT%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">BS 传输的延迟T（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E8%83%BD%E8%80%97E%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">BS 传输能耗E（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E6%97%B6%E5%BB%B6T"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">总时延T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">总能耗E</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

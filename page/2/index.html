@@ -156,6 +156,125 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-容斥与鸽巢定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/31/%E5%AE%B9%E6%96%A5%E4%B8%8E%E9%B8%BD%E5%B7%A2%E5%AE%9A%E7%90%86/">容斥与鸽巢定理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/31/%E5%AE%B9%E6%96%A5%E4%B8%8E%E9%B8%BD%E5%B7%A2%E5%AE%9A%E7%90%86/" class="archive-article-date">
+  	<time datetime="2018-08-31T04:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="容斥"><a href="#容斥" class="headerlink" title="容斥"></a>容斥</h1><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>$$<br>|A_1∪A_2∪…∪A_n|=\sum_{i=1}^n|A_i|-\sum_{i=1}^n\sum_{j&gt;i}|A_i∩A_j|+\sum_{i=1}^n\sum_{j&gt;i}\sum_{k&gt;j}|A_i∩A_j∩A_k|+…<br>$$</p>
+<p>$$<br>+(-1)^{n-1}|A_1∩A_2∩…∩A_n|<br>$$</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="错排问题"><a href="#错排问题" class="headerlink" title="错排问题"></a>错排问题</h3><p><a target="_blank" rel="noopener" href="http://xheartbeat.top/2018/08/14/%E9%94%99%E6%8E%92%EF%BC%88%E5%85%AC%E5%BC%8F+%E4%B8%89%E7%A7%8D%E7%94%9F%E6%88%90%EF%BC%89/">【已写】</a></p>
+<h3 id="棋盘多项式与有禁区的排列"><a href="#棋盘多项式与有禁区的排列" class="headerlink" title="棋盘多项式与有禁区的排列"></a>棋盘多项式与有禁区的排列</h3><h4 id="布棋问题"><a href="#布棋问题" class="headerlink" title="布棋问题"></a>布棋问题</h4><p>一个n*m棋盘上放k个棋子，其中任意两个棋子不能位于同一行或者同一列上。问种数。</p>
+<p><strong>布棋方案数</strong> $R_k(C)$ <strong>:</strong> k个棋子依照上述规则放在棋盘C中的方案数</p>
+<p><strong>棋盘多项式：</strong> 棋盘C中放不限定数量的棋子,$R(C)=\sum_{k=0}^∞R_k(C)x^k$（有点母函数的味道），由于k&lt;=C(格子数)，因此这个多项式也是有限的。</p>
+<p><strong>放置：</strong>  $R_k(C)=R_{k-1}(C_x)+R_k(C_e)$</p>
+<p>C表示这个棋盘，$C_x$表示放在棋盘C除去这个格子所在的行和列之后的棋盘，$C_e$表示棋盘C删去这个格子后的棋盘。<br>那么这个公式的意思就是，在棋盘C上放k个棋子的种数，等于（第k个棋子放在一个格子上，前k-1个数量的格子放在除了这个格子所在的行和列的地方），加上，（k个棋子放在除了这个格子的其他地方）。</p>
+<p><strong>棋盘多项式性质：</strong></p>
+<ol>
+<li>$R(C)=xR(C_x)+R(C_e)$</li>
+<li>若C由两个互不干扰的棋盘组成，有$R(C)=R(C_1)·R(C_2)$</li>
+</ol>
+<img src="https://xheartbeat.top/mdpicture/%E7%A6%81%E5%8C%BA%E6%A3%8B%E7%9B%98%E6%8E%92%E5%88%97%E5%AE%9E%E4%BE%8B.jpg" height="635" width="413" alt="棋盘排列构造多项式，利棋盘多项式的性质，如图">
+
+
+
+<h4 id="有禁区的排列"><a href="#有禁区的排列" class="headerlink" title="有禁区的排列"></a>有禁区的排列</h4><p><strong>排列数定理：</strong><br>$$<br>n！-r_1(n-1)!+r_2(n-2)!-…±r_n<br>$$<br>$r_i$表示有$r_i$个棋子布置到禁区的方案数。（**<em>仅适用n·n的棋盘**</em>）</p>
+<p><strong>&lt; 例题 &gt;</strong> 有1,2,3,4号工人，A,B,C,D四个人物，1号不做B，2号不做B、C，3号不做C、D，4号不做D，问有多少种分配方式？</p>
+<p>【解】先构造一个4*4的棋盘，然后画出这个棋盘的禁区，对于这个禁区计算它的棋盘多项式，得$R(C)=1+6x+10x^2+4x^3$，因此用容斥的思想，得到：<br>$$<br>4!- 6·(4-1)!+10·(4-2)!-4·(4-3)! +0(4-4)!= 4<br>$$</p>
+<img src="https://xheartbeat.top/mdpicture/%E7%A6%81%E5%8C%BA%E6%A3%8B%E7%9B%98%E4%BE%8B%E9%A2%98.jpg" height="123" width="296" alt="例题棋盘禁区如图所示，构造的多项式原理同上图">
+
+<h1 id="鸽巢定理"><a href="#鸽巢定理" class="headerlink" title="鸽巢定理"></a>鸽巢定理</h1><h2 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h2><p><strong>n+1只鸽子飞回n个鸽巢，至少有一个鸽笼含有不少于2只的格子。</strong></p>
+<p><strong>数学描述：</strong></p>
+<p><strong>m($1\le m$)个元素分成n个组，那么总有一个组至少含有元素个数$\lceil\frac{m}{n}\rceil$</strong></p>
+<h2 id="小应用"><a href="#小应用" class="headerlink" title="小应用"></a>小应用</h2><ol>
+<li><p><strong>对于正整数序列，$a_1，a_2，…，a_m$，至少存在整数k和l, $1\le k&lt;l\le m$，使得$a_k+a_{k+1}+…+a_l$是m的倍数。</strong></p>
+<p>【证明】对每个元素$a_i$构造一个前缀和sum[i]，则有两种可能性：</p>
+<p>(1) 若有一个sum[i]是m的倍数，则证毕；</p>
+<p>(2) 若没有一个sum[i]为m的倍数，则令$r_h\equiv S_h mod\ m $ 。    </p>
+<p>其中，h=1,2,…,m，我们已知上面所有的项都非m的倍数，故余数r[i]的范围在[1,m-1]，共m个数，根据鸽巢定理，m个余数在[1,m-1]共m-1的范围内至少存在一对$r_h$,$r_k$，满足$r_k=r_h$,则sum[k]和sum[h]满足：<br>$$<br>S_k\equiv S_h mod \ m<br>$$<br>设h&gt;k的话，得到<br>$$<br>S_h-S_k=(a_1+a_2+…+a_h)-(a_1+a_2+…+a_k)<br>=a_{k+1}+…+a_h\equiv 0\ mod \ m<br>$$<br>证毕。</p>
+</li>
+<li><p><strong>中国剩余定理</strong></p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/31/%E5%AE%B9%E6%96%A5%E4%B8%8E%E9%B8%BD%E5%B7%A2%E5%AE%9A%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GCDLCM!(莫比乌斯反演)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1043,100 +1162,6 @@
 
 
   
-    <article id="post-Prefix-Free-Code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/Prefix-Free-Code/">Prefix Free Code（字符串）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/16/Prefix-Free-Code/" class="archive-article-date">
-  	<time datetime="2018-08-16T15:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>## <a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/29556">Prefix Free Code</a> </p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你n个字符串，这些字符串都不是互相的前缀，再给你一个模式串。模式串由k个其中的字符串任意排列组成。求这个模式串是从中选k个按照字典序排列组成的第几个串？</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>用全排列的方法，1~n表示前n个字符串，用字符串哈希的方法把他们压缩成数字放在map里映射字符串的序号。</p>
-<p>然后遍历模式串。对于每找到一个字符串，按照（比此序号小的字符串-前面已经用掉的字符串的个数）*剩下的位子的全排列数量乘以原先算出来的种数，然后把这个新找到的字符串add到树状数组中，用来标记已经用掉的字符串的个数。</p>
-<h2 id="看！代码"><a href="#看！代码" class="headerlink" title="看！代码"></a>看！代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1000010</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll fac[<span class="number">1000010</span>];</span><br><span class="line">ll inv[<span class="number">1000010</span>];</span><br><span class="line"><span class="built_in">string</span> s[<span class="number">1000010</span>];</span><br><span class="line"><span class="built_in">string</span> ss;</span><br><span class="line"><span class="keyword">const</span> ll base=<span class="number">131</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1234567891011l</span>l;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ll,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=s[id].size();</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        ans=(ans*base+(s[id][i]))%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;<span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">1000010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x)</span><br><span class="line">    &#123;</span><br><span class="line">        res+=d[x];</span><br><span class="line">        x-=lowbit(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(x&lt;=n)</span><br><span class="line">    &#123;</span><br><span class="line">        d[x]+=v;</span><br><span class="line">        x+=lowbit(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">PowerMod</span><span class="params">(ll a,ll b,ll c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    ll k;</span><br><span class="line">    k=a;</span><br><span class="line">    k=k%c;</span><br><span class="line">    <span class="keyword">while</span>(b&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans=(ans*k)%c;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        k=(k*k)%c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=fac[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=MAXN;i++)</span><br><span class="line">        fac[i]=fac[i<span class="number">-1</span>]*i%MOD;</span><br><span class="line">    inv[MAXN]=PowerMod(fac[MAXN],MOD<span class="number">-2</span>,MOD);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=MAXN<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        inv[i]=inv[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%MOD;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;s[i];</span><br><span class="line">    sort(s+<span class="number">1</span>,s+n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ll tot=solve(i);</span><br><span class="line">        mp[tot]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;ss;</span><br><span class="line">    <span class="keyword">int</span> len=ss.size();</span><br><span class="line">    ll temp=<span class="number">0</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        temp=(temp*base+(ss[i]))%mod;</span><br><span class="line">        <span class="keyword">if</span>(mp[temp]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">int</span> id=mp[temp];</span><br><span class="line">            ll sum=<span class="number">1</span>;</span><br><span class="line">            sum=id<span class="number">-1</span>-query(id);</span><br><span class="line">            sum=((fac[n-cnt]*inv[n-k])%MOD*sum)%MOD;</span><br><span class="line">            ans=(ans+sum)%MOD;</span><br><span class="line">            temp=<span class="number">0</span>;</span><br><span class="line">            add(id,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,(ans+<span class="number">1</span>)%MOD);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">全排列构造</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">字符串哈希</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/16/Prefix-Free-Code/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
@@ -1263,15 +1288,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">斐波那契</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规律</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1339,11 +1364,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1391,23 +1416,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站优化</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Universe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,6 +1436,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
@@ -1427,11 +1452,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1459,15 +1484,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>
