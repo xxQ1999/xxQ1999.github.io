@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://xheartbeat.top/mdpicture/image-20210421152724086.png">
 <meta property="og:image" content="https://xheartbeat.top/mdpicture/image-20210421152734203.png">
 <meta property="article:published_time" content="2021-04-22T10:22:00.000Z">
-<meta property="article:modified_time" content="2021-04-21T07:58:53.709Z">
+<meta property="article:modified_time" content="2021-04-21T08:39:14.910Z">
 <meta property="article:author" content="xxQ">
 <meta property="article:tag" content="边缘计算">
 <meta name="twitter:card" content="summary">
@@ -376,7 +376,7 @@
 <tr>
 <td>$$c_S={C_M+1,C_M+2,…,C}$$</td>
 <td>SBS的信道</td>
-<td>$$C-C_M=</td>
+<td>$C-C_M=\rvert c_S\rvert$</td>
 </tr>
 <tr>
 <td>$$W$$</td>
@@ -413,14 +413,14 @@
 <td>1）</td>
 </tr>
 <tr>
-<td>$$\sum_{j\in u}\sum {k\in c_a}a^{(i)}_jb^{(k)}_j\le</td>
-<td>c_a</td>
-<td>$$</td>
+<td>$\sum_{j\in u}\sum {k\in c_a}a^{(i)}_jb^{(k)}_j\le\rvert c_a\rvert$</td>
+<td>分配给所有终端的信道不能超过每个BS中的信道总数。</td>
+<td>2）</td>
 </tr>
 <tr>
 <td>$$c_a$$</td>
 <td>一些基站中可得到的信道集合</td>
-<td>对于SBS来说$$c_a=C_S$$,对于MBS来说$$c_a=C_M$$</td>
+<td>对于SBS来说$c_a=C_S$,对于MBS来说$c_a=C_M$</td>
 </tr>
 </tbody></table>
 <ul>
@@ -446,14 +446,14 @@
 <td>最大传输功率</td>
 </tr>
 </tbody></table>
-<h5 id="传输速率R-0"><a href="#传输速率R-0" class="headerlink" title="传输速率R_0"></a>传输速率R_0</h5><p>当满足$$a^{(0)}<em>j=1$$时，UE-j分配得信道k ($$b^{(k)}_j=1$$)，则<strong>传输速率R</strong>满足：<br>$$<br>R^{0}_j(A</em>{_j},B,P)=\sum_{k\in{c_a}}b^{(k)}<em>jWlog_2(1+\frac{p_j|h</em>{0j}^{(k)}|^2}{N_0})<br>$$</p>
+<h5 id="传输速率R-0"><a href="#传输速率R-0" class="headerlink" title="传输速率R_0"></a>传输速率R_0</h5><p>当满足$a^{(0)}<em>j=1$时，UE-j分配得信道k ($b^{(k)}_j=1$)，则<strong>传输速率R</strong>满足：<br>$$<br>R^{0}_j(A</em>{_j},B,P)=\sum_{k\in{c_a}}b^{(k)}<em>jWlog_2(1+\frac{p_j\rvert h</em>{0j}^{(k)}\rvert^2}{N_0})<br>$$</p>
 <ul>
-<li>$$A_{_j}$$是除了UE-j外的卸载决策profile</li>
-<li>$$h_{0j}^{(k)}$$是从UE-j到MBS的信道增益</li>
-<li>$$N_0$$是复高斯白噪声方差</li>
+<li>$A_{_j}$是除了UE-j外的卸载决策profile</li>
+<li>$h_{0j}^{(k)}$是从UE-j到MBS的信道增益</li>
+<li>$N_0$是复高斯白噪声方差</li>
 </ul>
-<h5 id="小区间干扰指示函数-delta"><a href="#小区间干扰指示函数-delta" class="headerlink" title="小区间干扰指示函数$$\delta$$"></a>小区间干扰指示函数$$\delta$$</h5><p>考虑相邻的SBS中的SU对该SU接收信号的干扰，将<strong>小区间干扰指示函数</strong>表示为：<br>$$<br>\delta_{i,j^{‘}}^{(k)}=\begin{cases}<br>1,RSS_{i,j^{‘}}^{(k)} \ge RSS_{th}\<br>0,else.<br>\end{cases}<br>$$</p>
-<p>$$<br>RSS_{i,j^{‘}}^{(k)} =  \sum_{i^{‘}\in{N_B}\setminus i}<br>a^{(i{‘})}<em>{j{‘}}b^{(k)}</em>{j{‘}}p_{j{‘}}<br>|h^{(k)}_{i,j{‘}}|^2<br>$$</p>
+<h5 id="小区间干扰指示函数-delta"><a href="#小区间干扰指示函数-delta" class="headerlink" title="小区间干扰指示函数$\delta$"></a>小区间干扰指示函数$\delta$</h5><p>考虑相邻的SBS中的SU对该SU接收信号的干扰，将<strong>小区间干扰指示函数</strong>表示为：<br>$$<br>\delta_{i,j^{‘}}^{(k)}=\begin{cases}<br>1,RSS_{i,j^{‘}}^{(k)} \ge RSS_{th}\<br>0,else.<br>\end{cases}<br>$$</p>
+<p>$$<br>RSS_{i,j^{‘}}^{(k)} =  \sum_{i^{‘}\in{N_B}\setminus i}<br>a^{(i{‘})}<em>{j{‘}}b^{(k)}</em>{j{‘}}p_{j{‘}}<br>\rvert h^{(k)}_{i,j{‘}}\rvert^2<br>$$</p>
 <p>RSS表示SU-j’ 对SBS-i的分配信道k上的干扰功率，RSSth表示干扰阈值；su-j’和SBS-i不相关。</p>
 <table>
 <thead>
@@ -464,7 +464,7 @@
 </thead>
 <tbody><tr>
 <td>$$RSS_{i,j^{‘}}^{(k)}$$</td>
-<td>$$SU-j’$$ 在$$SBS-i$$ 分配的信道$$k$$上收到的干扰功率</td>
+<td>$SU-j’$ 在$SBS-i$ 分配的信道$k$上收到的干扰功率</td>
 </tr>
 <tr>
 <td>$$RSS_{th}$$</td>
@@ -472,10 +472,10 @@
 </tr>
 <tr>
 <td></td>
-<td>$$SU-j’$$ 与$$SBS-i$$ 不相关</td>
+<td>$SU-j’$ 与$SBS-i$ 不相关</td>
 </tr>
 </tbody></table>
-<h5 id="来自其他SU对SBS-i的信道k的干扰I"><a href="#来自其他SU对SBS-i的信道k的干扰I" class="headerlink" title="来自其他SU对SBS-i的信道k的干扰I"></a>来自其他SU对SBS-i的信道k的干扰I</h5><p>来自其他SU对SBS-i、信道k的干扰：<br>$$<br>I_{ij}^{(k)}(A_{_j},B_{_j},P_{_j})=<br>\sum_{i’\in N_B\setminus 0}<br>\sum_{j’\in u\setminus j}<br>a^{(i’)}<em>{j’}b^{(k)}</em>{j’}<br>\delta_{i,j^{‘}}^{(k)}<br>p_{j’}|h_{i,j’}^{(k)}|^2<br>$$</p>
+<h5 id="来自其他SU对SBS-i的信道k的干扰I"><a href="#来自其他SU对SBS-i的信道k的干扰I" class="headerlink" title="来自其他SU对SBS-i的信道k的干扰I"></a>来自其他SU对SBS-i的信道k的干扰I</h5><p>来自其他SU对SBS-i、信道k的干扰：<br>$$<br>I_{ij}^{(k)}(A_{_j},B_{_j},P_{_j})=<br>\sum_{i’\in N_B\setminus 0}<br>\sum_{j’\in u\setminus j}<br>a^{(i’)}<em>{j’}b^{(k)}</em>{j’}<br>\delta_{i,j^{‘}}^{(k)}<br>p_{j’}\rvert h_{i,j’}^{(k)}\rvert^2<br>$$</p>
 <table>
 <thead>
 <tr>
@@ -496,7 +496,7 @@
 <td>在SBS-i和UE-j’之间的信道k的信道增益</td>
 </tr>
 </tbody></table>
-<h5 id="传输速率R-i"><a href="#传输速率R-i" class="headerlink" title="传输速率R_i"></a>传输速率R_i</h5><p>故，达到的<strong>传输速率</strong>：<br>$$<br>R^i_j(A_{_j},B,P)=<br>\sum_{k\in c_a}<br>b^{(k)}<em>j Wlog_2<br>(1+\frac<br>{p_j|h</em>{ij}^{(k)}|^2}<br>{I^{(k)}<em>{ij} (A</em>{_j},B_{_j},P_{_j})+N_0})<br>$$</p>
+<h5 id="传输速率R-i"><a href="#传输速率R-i" class="headerlink" title="传输速率R_i"></a>传输速率R_i</h5><p>故，达到的<strong>传输速率</strong>：<br>$$<br>R^i_j(A_{_j},B,P)=<br>\sum_{k\in c_a}<br>b^{(k)}<em>j Wlog_2<br>(1+\frac<br>{p_j\rvert h</em>{ij}^{(k)}\rvert^2}<br>{I^{(k)}<em>{ij} (A</em>{_j},B_{_j},P_{_j})+N_0})<br>$$</p>
 <h4 id="C-计算模型"><a href="#C-计算模型" class="headerlink" title="C. 计算模型"></a>C. 计算模型</h4><p>计算任务是如何在本地终端的UE上执行的，或者是在MEC服务器上远程执行。</p>
 <h5 id="1）本地计算"><a href="#1）本地计算" class="headerlink" title="1）本地计算"></a>1）本地计算</h5><p>假设每个终端的CPU在计算时的频率不变，但不同的终端可能有不同的频率。</p>
 <table>
@@ -521,7 +521,7 @@
 <h6 id="终端本地计算的延迟T"><a href="#终端本地计算的延迟T" class="headerlink" title="终端本地计算的延迟T"></a>终端本地计算的延迟T</h6><p>$$<br>T^{(e)}_{j,l}=\frac<br>{f_j}<br>{F_j^{(l)}}<br>$$</p>
 <h6 id="本地计算的能耗E"><a href="#本地计算的能耗E" class="headerlink" title="本地计算的能耗E"></a>本地计算的能耗E</h6><p>$$<br>E_{j,l}^{(e)}=f_jp^{(e)}_{j,l}<br>$$</p>
 <h5 id="2）边缘计算"><a href="#2）边缘计算" class="headerlink" title="2）边缘计算"></a>2）边缘计算</h5><h6 id="BS-传输的延迟T（第一阶段）"><a href="#BS-传输的延迟T（第一阶段）" class="headerlink" title="BS 传输的延迟T（第一阶段）"></a>BS 传输的延迟T（第一阶段）</h6><p>$$<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)=\frac<br>{d_j}<br>{R_j^{(i)}(A_{_j},B,P)}<br>,i \ge0<br>$$</p>
-<h6 id="BS-传输能耗E（第一阶段）"><a href="#BS-传输能耗E（第一阶段）" class="headerlink" title="BS 传输能耗E（第一阶段）"></a>BS 传输能耗E（第一阶段）</h6><p>$$<br>E_{j,off}^{(i,tr)}(A__j,B,P)=<br>P_jT_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
+<h6 id="BS-传输能耗E（第一阶段）"><a href="#BS-传输能耗E（第一阶段）" class="headerlink" title="BS 传输能耗E（第一阶段）"></a>BS 传输能耗E（第一阶段）</h6><p>$$<br>E_{j,off}^{(i,tr)}(A_{_j},B,P)=<br>P_jT_{j,off}^{(i,tr)}(A_{_j},B,P)<br>$$</p>
 <table>
 <thead>
 <tr>
@@ -533,7 +533,7 @@
 <tbody><tr>
 <td>$$F_i (i\in N_B)$$</td>
 <td>每个BS的计算能力</td>
-<td>$$F_0 \gg F_i,i&gt;0$$，大型基站的计算能力要远远大于小型基站</td>
+<td>$F_0 \gg F_i,i&gt;0$，大型基站的计算能力要远远大于小型基站</td>
 </tr>
 <tr>
 <td>$$F_j^{(i)}$$</td>
@@ -543,38 +543,19 @@
 <tr>
 <td>$$F={F_j^{(i)},i\in N_B,j\in u }$$</td>
 <td>计算资源的分配集profile</td>
-<td>$$\sum_{j\in u}F_j^{(i)} \le F_i,\forall i\in N_B $$，即对于分配给终端j的资源，必须小于等于基站i的总资源</td>
-</tr>
-<tr>
-<td>边缘计算时延：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>T_{j,off}^{(i,e)}(F)=\frac{f_j}{F_j^{(i)}}</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
+<td>$\sum_{j\in u}F_j^{(i)} \le F_i,\forall i\in N_B $，即对于分配给终端j的资源，必须小于等于基站i的总资源</td>
 </tr>
 </tbody></table>
+<h6 id="边缘计算时延"><a href="#边缘计算时延" class="headerlink" title="边缘计算时延"></a>边缘计算时延</h6><p>$$<br>T_{j,off}^{(i,e)}(F)=\frac{f_j}{F_j^{(i)}}<br>$$</p>
 <p>忽略MEC上执行任务的能耗，因为BS能源丰富。另外也不考虑第三阶段，因为实际情况，传入数据往往比输出的数据要大。</p>
 <h6 id="总时延T"><a href="#总时延T" class="headerlink" title="总时延T"></a>总时延T</h6><p>$$<br>T_j^{(i,off)}(A_{_j},B,P,F)=<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)+<br>T_{j,off}^{(i,e)}(F)<br>$$</p>
-<h6 id="总能耗E"><a href="#总能耗E" class="headerlink" title="总能耗E"></a>总能耗E</h6><p>$$<br>E_j^{(i,off)}(A_{_j},B,P)=E_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
+<h6 id="总能耗E"><a href="#总能耗E" class="headerlink" title="总能耗E"></a>总能耗E</h6><p>$$<br>E_j^{(i,off)}(A_{_j},B,P)=E_{j,off}^{(i,tr)}(A__j,B,P)<br>$$</p>
 <h3 id="问题公式化和分析"><a href="#问题公式化和分析" class="headerlink" title="问题公式化和分析"></a>问题公式化和分析</h3><p>在该系统模型的基础上，将计算卸载问题定义为一个优化问题，包括计算卸载决策、无线资源管理、功率控制和计算资源分配。然后对所述问题进行了复杂性分析。</p>
 <h5 id="A-问题表示"><a href="#A-问题表示" class="headerlink" title="A. 问题表示"></a>A. 问题表示</h5><p>对于A、B、F，可以得到完成UE-j任务的时延和能耗</p>
 <h6 id="完成任务的时延"><a href="#完成任务的时延" class="headerlink" title="完成任务的时延"></a>完成任务的时延</h6><p>$$<br>T_j(A,B,P,F)=<br>\sum_{i \in N_B}a_j^{(i)}T_j^{(i,off)}<br>(A_{_j},B,P,F)+(1-\sum_{i\in N_B}a_j^{(i)})<br>T_{j,l}^{(e)}<br>$$</p>
 <h6 id="完成任务的能耗"><a href="#完成任务的能耗" class="headerlink" title="完成任务的能耗"></a>完成任务的能耗</h6><p>$$<br>E_j(A,B,P,F)=<br>\sum_{i\in N_B}a_j^{(i)}E_j^{(i,off)}(A_{_j},B,P)+<br>(1-\sum_{i\in N_B}a_j^{(i)})E_{j,l}^{(e)}<br>$$</p>
-<p>当满足$$a_j^{(i)}=0$$时，有$$T_j^{(i,off)}=0,E_j^{(i,off)}=0$$</p>
-<h6 id="问题P-0"><a href="#问题P-0" class="headerlink" title="$$问题P_0$$"></a>$$问题P_0$$</h6><p>求最小的所有终端总能耗<br>$$<br>P_0: \min_{A,B,P,F} \sum_{j\in u}E_j(A,B,P,F)\<br>$$</p>
+<p>当满足$a_j^{(i)}=0$时，有$T_j^{(i,off)}=0,E_j^{(i,off)}=0$</p>
+<h6 id="问题-P-0"><a href="#问题-P-0" class="headerlink" title="问题$P_0$"></a>问题$P_0$</h6><p>求最小的所有终端总能耗<br>$$<br>P_0: \min_{A,B,P,F} \sum_{j\in u}E_j(A,B,P,F)\<br>$$</p>
 <table>
 <thead>
 <tr>
@@ -590,8 +571,8 @@
 </tr>
 <tr>
 <td>C2</td>
-<td>$$\sum_{j\in u}\sum_{k\in c_a}a_j^{(i)}b_j^{(k)}\le</td>
-<td>c_a</td>
+<td>$$\sum_{j\in u}\sum_{k\in c_a}a_j^{(i)}b_j^{(k)}\le\rvert c_a\rvert$$</td>
+<td>分配的信道之和不能超出可分配量</td>
 </tr>
 <tr>
 <td>C3</td>
@@ -635,12 +616,12 @@
 </tr>
 <tr>
 <td></td>
-<td>$$I(·)=\begin{cases}1,·&gt;0\0,otherwise\end{cases}$$</td>
+<td>$$I(·)=\begin{cases}1,·&gt;0\ 0,otherwise\end{cases}$$</td>
 <td>指示器，避免一个终端只分配到计算资源或无线资源下的资源浪费</td>
 </tr>
 </tbody></table>
-<h5 id="B-问题分析"><a href="#B-问题分析" class="headerlink" title="B. 问题分析"></a>B. 问题分析</h5><h6 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h6><p>$$P_0$$旨在求得所有终端最小的总能耗，通过优化卸载决策A，信道分配指示B，传输功率P，计算资源分配指示F。</p>
-<p>NP难问题——混合整数非线性编程问题（MINLP）A,B中是二进制变量，P、F中是正实数。$$P_0$$问题非光滑、非微分或连续。</p>
+<h5 id="B-问题分析"><a href="#B-问题分析" class="headerlink" title="B. 问题分析"></a>B. 问题分析</h5><h6 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h6><p>$P_0$旨在求得所有终端最小的总能耗，通过优化卸载决策A，信道分配指示B，传输功率P，计算资源分配指示F。</p>
+<p>NP难问题——混合整数非线性编程问题（MINLP）A,B中是二进制变量，P、F中是正实数。$P_0$问题非光滑、非微分或连续。</p>
 <h3 id="拟议算法"><a href="#拟议算法" class="headerlink" title="拟议算法"></a>拟议算法</h3><table>
 <thead>
 <tr>
@@ -648,7 +629,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>1. <strong>input</strong> : 种群个体数量K，HGPCA的迭代T，收敛准则$\epsilon$，GA的参数$$p_m,p_c,T_1$$,PSO的参数$$w,c_1,c_2,T_2$$</td>
+<td>1. <strong>input</strong> : 种群个体数量K，HGPCA的迭代T，收敛准则$\epsilon$，GA的参数$p_m,p_c,T_1$,PSO的参数$w,c_1,c_2,T_2$</td>
 </tr>
 <tr>
 <td>2. <strong>output</strong> :  在T此迭代后的K个个体，和历史中的适应度值最佳的值</td>
@@ -738,8 +719,8 @@
 </tr>
 </tbody></table>
 <h4 id="B-GA"><a href="#B-GA" class="headerlink" title="B. GA"></a>B. GA</h4><p>遗传算法采用了生物遗传中优胜劣汰的思想，只要求问题是可计算的，忽略它是否可微、连续等。它从一组初始解开始，通过选择、交叉和变异进行优化，直到达成可接受的解决方案或收敛。交叉和突变的操作可以保持种群多样性，扩展搜索区域，故不容易陷入局部最优。</p>
-<h5 id="1）-染色体和适应度函数"><a href="#1）-染色体和适应度函数" class="headerlink" title="1） 染色体和适应度函数"></a>1） 染色体和适应度函数</h5><h6 id="染色体-expression（15）"><a href="#染色体-expression（15）" class="headerlink" title="染色体 expression（15）"></a>染色体 expression（15）</h6><p>使用real coded GA。一个个体由染色体定义，染色体是问题$P_0$的一个解决方案，某个种群的染色体和结构。为了减少要优化的变量的数量，将${A,B,P,F}$转化为$I$：<br>$$<br>I=[A^<em>\space\space B^</em>\space\space P\space\space F^*]^{\top}<br>$$<br><img src="https://xheartbeat.top/mdpicture/image-20210418150851266.png" alt="image-20210418150851266" style="zoom: 25%;"></p>
-<img src="https://xheartbeat.top/mdpicture/image-20210418150908872.png" alt="image-20210418150908872" style="zoom:25%;">
+<h5 id="1）-染色体和适应度函数"><a href="#1）-染色体和适应度函数" class="headerlink" title="1） 染色体和适应度函数"></a>1） 染色体和适应度函数</h5><h6 id="染色体-expression（15）"><a href="#染色体-expression（15）" class="headerlink" title="染色体 expression（15）"></a>染色体 expression（15）</h6><p>使用real coded GA。一个个体由染色体定义，染色体是问题$P_0$的一个解决方案，某个种群的染色体和结构。为了减少要优化的变量的数量，将${A,B,P,F}$转化为$I$：<br>$$<br>I=[A^{<em>} \space\space B^{</em>}\space\space P\space\space F^{*}]^{\top}<br>$$<br><img src="https://xheartbeat.top/mdpicture/image-20210418150851266.png" alt="image-20210418150851266"></p>
+<img src="https://xheartbeat.top/mdpicture/image-20210418150908872.png" alt="image-20210418150908872">
 
 <table>
 <thead>
@@ -793,17 +774,17 @@
 <td>仅约束$C_1$使用，因为在初始化和遗传操作中确保了其他的约束们</td>
 </tr>
 </tbody></table>
-<h5 id="2）初始化和选择"><a href="#2）初始化和选择" class="headerlink" title="2）初始化和选择"></a>2）初始化和选择</h5><h6 id="初始化-expression-18"><a href="#初始化-expression-18" class="headerlink" title="初始化 expression(18)"></a>初始化 expression(18)</h6><p>算法1中的初始化是在此工作中随机生成的，但是在$P_0$的约束中（除了$C_1$）。初始种群的基因产生如下：<br>$$<br>a^<em>_j(0)=randin({-1}\cup N_B)\<br>b^</em><em>j(0)=randin({0}\cup c_a)\<br>p_j(0)=rand(p</em>{max})\<br>f_j^*(0)=rand(F_{a_j^*(0)})<br>$$<br>$randin(Set)$是一个生成器函数，元素的输出是从随机选择器$Set.rand(x)$返回的，在$[0,X]$的随机数。对于$b_j^*(0)$，有：<br>$$<br>\kappa = \begin{cases}<br>\emptyset,\space\space\space\space\space\space a_j^*(0)=-1\<br>C_M,\space\space a_j^*(0)=0\<br>C_S,\space\space\space a_j^*(0)&gt;0<br>\end{cases}<br>$$</p>
+<h5 id="2）初始化和选择"><a href="#2）初始化和选择" class="headerlink" title="2）初始化和选择"></a>2）初始化和选择</h5><h6 id="初始化-expression-18"><a href="#初始化-expression-18" class="headerlink" title="初始化 expression(18)"></a>初始化 expression(18)</h6><p>算法1中的初始化是在此工作中随机生成的，但是在$P_0$的约束中（除了$C_1$）。初始种群的基因产生如下：<br>$$<br>a^{<em>}_j(0)=randin({-1}\cup N_B)\<br>b^{</em>}<em>j(0)=randin({0}\cup c_a)\<br>p_j(0)=rand(p</em>{max})\<br>f_j^{<em>}(0)=rand(F_{a_j^{</em>}(0)})<br>$$<br>$randin(Set)$是一个生成器函数，元素的输出是从随机选择器$Set.rand(x)$返回的，在$[0,X]$的随机数。对于$b_j^{<em>}(0)$，有：<br>$$<br>\kappa = \begin{cases}<br>\emptyset,\space\space\space\space\space\space a_j^{</em>}(0)=-1\<br>C_M,\space\space a_j^{<em>}(0)=0\<br>C_S,\space\space\space a_j^{</em>}(0)&gt;0<br>\end{cases}<br>$$</p>
 <h6 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h6><p>选择的方法上，采用了锦标赛，它是在选择父母时从K个人中选择最适合的一个。1. 计算成本较低，2. 选择好父母比只选择最好的父母更好。它保持多样性，并有机会培养更好的人, 3. 将其应用于最小化MINLP问题时无需修改。</p>
 <h5 id="3）交叉与突变"><a href="#3）交叉与突变" class="headerlink" title="3）交叉与突变"></a>3）交叉与突变</h5><p>每次迭代中，应该用选择来维持父代，然后对父结点进行交叉和变异操作产生子结点。</p>
 <h6 id="交叉"><a href="#交叉" class="headerlink" title="交叉"></a>交叉</h6><p>随机选择两个父代，以交叉概率$p_c$交换对应的基因片段，从而产生两个后代。保持多样性。</p>
-<img src="https://xheartbeat.top/mdpicture/image-20210418160827150.png" alt="image-20210418160827150" style="zoom:25%;">
+<img src="https://xheartbeat.top/mdpicture/image-20210418160827150.png" alt="image-20210418160827150">
 
 <h6 id="突变-expression-19-20"><a href="#突变-expression-19-20" class="headerlink" title="突变 expression(19)(20)"></a>突变 expression(19)(20)</h6><p>先选择一个个体，然后对染色体的每个元素，在表达式（15）定义后的变量范围内以突变概率$p_m$发生突变。</p>
-<img src="https://xheartbeat.top/mdpicture/image-20210418161401864.png" alt="image-20210418161401864" style="zoom:25%;">
+<img src="https://xheartbeat.top/mdpicture/image-20210418161401864.png" alt="image-20210418161401864">
 
-<p>突变原理如下：<br>$$<br>\hat x ^<em>_j=\begin{cases}<br>round(x_j^</em>+\gamma_1(x_{max}-x_j^*)),<br>\space\space\gamma_2&gt;0.5<br>\<br>round(x_j^*-\gamma_1(x_j^*-x_{min})),<br>\space\space\gamma_2\le0.5<br>\<br>\end{cases}<br>$$</p>
-<p>$$<br>\hat y ^<em>_j=\begin{cases}<br>y_j^</em>+\gamma_1(y_{max}-y_j^*),<br>\space\space\gamma_2&gt;0.5<br>\<br>y_j^*-\gamma_1(y_j^*-y_{min}),<br>\space\space\gamma_2\le0.5<br>\<br>\end{cases}<br>$$</p>
+<p>突变原理如下：<br>$$<br>\hat x ^{<em>}_j=\begin{cases}<br>round(x_j^{</em>}+\gamma_1(x_{max}-x_j^{<em>})),<br>\space\space\gamma_2&gt;0.5<br>\<br>round(x_j^{</em>}-\gamma_1(x_j^{*}-x_{min})),<br>\space\space\gamma_2\le0.5<br>\<br>\end{cases}<br>$$</p>
+<p>$$<br>\hat y ^{<em>}_j=\begin{cases}<br>y_j^{</em>}+\gamma_1(y_{max}-y_j^{<em>}),<br>\space\space\gamma_2&gt;0.5<br>\<br>y_j^{</em>}-\gamma_1(y_j^{*}-y_{min}),<br>\space\space\gamma_2\le0.5<br>\<br>\end{cases}<br>$$</p>
 <p>$x$ 代表前两行的整数变量，$y$代表后两行连续的整数变量。</p>
 <p>$round(·)$是输出不超过$(·)$的整数。</p>
 <p>$\gamma_1$,$\gamma_2$是两个(0,1)范围内的随机数</p>
@@ -843,7 +824,7 @@
 </tbody></table>
 <h4 id="C-PSO-exp-21"><a href="#C-PSO-exp-21" class="headerlink" title="C. PSO exp(21)"></a>C. PSO exp(21)</h4><p>粒子有速度、位置（基于社会信息共享）。粒子的位置表示所提问题的解，而速度表示解的演化过程。与GA相似，粒子的位置用$X=I$表示expression（15），粒子的速度：<br>$$<br>V=[V_1\space\space\space\space V_2\space\space\space\space V_3\space\space\space\space V_4]^{\top}<br>$$</p>
 <h5 id="粒子的速度-expression-22"><a href="#粒子的速度-expression-22" class="headerlink" title="粒子的速度 expression(22)"></a>粒子的速度 expression(22)</h5><p>$$<br>V_{r,d}^{t+1}=wV_{r,d}^t+r_1c_1(pbest_{r,d}-X_{r,d}^{t})+r_2c_2(gbest_{r,d}-X_{r,d}^t)<br>$$</p>
-<h5 id="粒子的位置-expression-23"><a href="#粒子的位置-expression-23" class="headerlink" title="粒子的位置 expression(23)"></a>粒子的位置 expression(23)</h5><p>$$<br>X_{r,d}^{t+1}=\begin{cases}<br>round(X_{r,d}^t+V_{r,d}^{t+1}),\space\space r=1,2\<br>X_{r,d}^t+V_{r,d}^{t+1}\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space r=3,4\<br>\end{cases}<br>$$</p>
+<h5 id="粒子的位置-expression-23"><a href="#粒子的位置-expression-23" class="headerlink" title="粒子的位置 expression(23)"></a>粒子的位置 expression(23)</h5><p>$$<br>X_{r,d}^{t+1}=\begin{cases} \begin{aligned}<br>round(X_{r,d}^t+V_{r,d}^{t+1}),\space\space r=1,2\<br>X_{r,d}^t+V_{r,d}^{t+1}\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space r=3,4\<br>\end{aligned}\end{cases}<br>$$</p>
 <p>$w$是惯性权值，$c_1$,$c_2$是瞬间加速度，$r_1$,$r_2$增加搜索随机性，在$[0,1]$之间。速度和位置不会超出expression(15)的约束。</p>
 <h4 id="D-计算复杂性"><a href="#D-计算复杂性" class="headerlink" title="D. 计算复杂性"></a>D. 计算复杂性</h4><p>初始化、适合度计算、选择、交叉、突变操作。每个-&gt;总体</p>
 <h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><table>
@@ -924,7 +905,7 @@
 <p>1）下层GA在评估流程中总是包含最优解决方案；</p>
 <p>2）惯性权值$w$、上层PSO的加速度常数$c_1,c_2$满足以下约束：<br>$$<br>\sqrt{2(1+w-\beta)^2-4w}&lt;2<br>$$<br>且$\beta=\beta_1+\beta_2，\beta_1=c_1r_1，\beta_2=c_2r_2$</p>
 <h6 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h6><p>虽然经典的GA是无法全局收敛到最优处的，但是GA的一个变体确是可做到的，那就是无论在选择前还是选择后，最佳个体总是存在于种群之中。在算法2中的第四步，总有用最优个体$I_{best}$代替最糟糕的个体。故底层GA是可收敛的。</p>
-<p>对于PSO，已有证明它收敛于：<br>$$<br>X\to \frac<br>{\beta_1p_{best}+\beta_2g_{best}}<br>{\beta}<br>$$<br>假设全局最优为$g_{best}^*$，当上层粒子群达到全局最优时，下层GA也达到全局最优点$g_{best}^*$，故：<br>$$<br>X\to \frac<br>{\beta_1p_{best}+\beta_2g_{best}}<br>{\beta}<br>=<br>\frac<br>{(\beta_1+\beta_2)g_{best}}<br>{\beta}<br>=g_{best}^*<br>$$</p>
+<p>对于PSO，已有证明它收敛于：<br>$$<br>X\to \frac<br>{\beta_1p_{best}+\beta_2g_{best}}<br>{\beta}<br>$$<br>假设全局最优为$g_{best}^{<em>}$，当上层粒子群达到全局最优时，下层GA也达到全局最优点$g_{best}^</em>$，故：<br>$$<br>X\to \frac<br>{\beta_1p_{best}+\beta_2g_{best}}<br>{\beta}<br>=<br>\frac<br>{(\beta_1+\beta_2)g_{best}}<br>{\beta}<br>=g_{best}^*<br>$$</p>
 <h3 id="仿真结果与讨论"><a href="#仿真结果与讨论" class="headerlink" title="仿真结果与讨论"></a>仿真结果与讨论</h3><h4 id="A-仿真设置"><a href="#A-仿真设置" class="headerlink" title="A. 仿真设置"></a>A. 仿真设置</h4><table>
 <thead>
 <tr>
@@ -939,14 +920,6 @@
 <tr>
 <td>maximum latency</td>
 <td>90% of the local latency</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 <table>
@@ -1013,9 +986,9 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184422195.png" alt="image-20210420184422195" style="zoom:25%;"></td>
-<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184459883.png" alt="image-20210420184459883" style="zoom:25%;"></td>
-<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184554456.png" alt="image-20210420184554456" style="zoom:25%;"></td>
+<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184422195.png" alt="image-20210420184422195"></td>
+<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184459883.png" alt="image-20210420184459883"></td>
+<td align="center"><img src="https://xheartbeat.top/mdpicture/image-20210420184554456.png" alt="image-20210420184554456"></td>
 </tr>
 <tr>
 <td align="center">$K=16$</td>
@@ -1028,10 +1001,10 @@
 <td align="center">突变是很随机的，它不参考任何已知的信息，设计的本意是增加种群的多样性，而突变概率过大的时候可能会违背这个本意。</td>
 </tr>
 </tbody></table>
-<img src="https://xheartbeat.top/mdpicture/image-20210420190705148.png" alt="image-20210420190705148" style="zoom: 33%;">
+<img src="https://xheartbeat.top/mdpicture/image-20210420190705148.png" alt="image-20210420190705148">
 
 <p>在上述参数下，跟GA与PSO算法对比，可以看到，PSO算法明显收敛最快，HGPCA次之，最后是GA；其次，HGPCA有着最低的能耗，PSO最高，这是因为HGPCA结合了两者的优点——GA更适合全局搜索、PSO更适合局部精确搜索。由于PSO收敛最快，因此它在传统的GA基础上，使算法的收敛速度提高。</p>
-<img src="https://xheartbeat.top/mdpicture/image-20210420191531497.png" alt="image-20210420191531497" style="zoom:33%;">
+<img src="https://xheartbeat.top/mdpicture/image-20210420191531497.png" alt="image-20210420191531497">
 
 <p>和暴力搜索相比，（4个SBS，4UE，随机分布在MBS，每个SBS有一个信道，2.4GHz）随着迭代，能耗减少，但迭代次数更加大时，性能优化不明显。</p>
 <h4 id="C-性能分析"><a href="#C-性能分析" class="headerlink" title="C. 性能分析"></a>C. 性能分析</h4><h5 id="信道和计算资源不同"><a href="#信道和计算资源不同" class="headerlink" title="信道和计算资源不同"></a>信道和计算资源不同</h5><p>首先分析SBS不同资源量（信道和计算资源）对此算法的影响。然后，在各种参数下，与前面提到的其他基线算法进行比较后，可以验证所提出的算法。</p>
@@ -1266,7 +1239,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">简单介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">系统模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E5%B0%8F%E5%9E%8B%E8%9C%82%E7%AA%9D%E7%BD%91%E7%BB%9C%E4%B8%8B%E7%9A%84%E7%A7%BB%E5%8A%A8%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text">A. 小型蜂窝网络下的移动边缘计算系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">B. 通信模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-0"><span class="toc-number">2.2.1.</span> <span class="toc-text">传输速率R_0</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E5%8C%BA%E9%97%B4%E5%B9%B2%E6%89%B0%E6%8C%87%E7%A4%BA%E5%87%BD%E6%95%B0-delta"><span class="toc-number">2.2.2.</span> <span class="toc-text">小区间干扰指示函数$$\delta$$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96SU%E5%AF%B9SBS-i%E7%9A%84%E4%BF%A1%E9%81%93k%E7%9A%84%E5%B9%B2%E6%89%B0I"><span class="toc-number">2.2.3.</span> <span class="toc-text">来自其他SU对SBS-i的信道k的干扰I</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-i"><span class="toc-number">2.2.4.</span> <span class="toc-text">传输速率R_i</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">C. 计算模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.1.</span> <span class="toc-text">1）本地计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BB%B6%E8%BF%9FT"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">终端本地计算的延迟T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">本地计算的能耗E</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.2.</span> <span class="toc-text">2）边缘计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BB%B6%E8%BF%9FT%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">BS 传输的延迟T（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E8%83%BD%E8%80%97E%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">BS 传输能耗E（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E6%97%B6%E5%BB%B6T"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">总时延T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">总能耗E</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AC%E5%BC%8F%E5%8C%96%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">问题公式化和分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#A-%E9%97%AE%E9%A2%98%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.0.1.</span> <span class="toc-text">A. 问题表示</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%97%B6%E5%BB%B6"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">完成任务的时延</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%83%BD%E8%80%97"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">完成任务的能耗</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%97%AE%E9%A2%98P-0"><span class="toc-number">3.0.1.3.</span> <span class="toc-text">$$问题P_0$$</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#B-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">3.0.2.</span> <span class="toc-text">B. 问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">目标</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%9F%E8%AE%AE%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">拟议算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-HGPCA-%E6%B5%81%E7%A8%8B"><span class="toc-number">4.1.</span> <span class="toc-text">A. HGPCA 流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-GA"><span class="toc-number">4.2.</span> <span class="toc-text">B. GA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89-%E6%9F%93%E8%89%B2%E4%BD%93%E5%92%8C%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.1.</span> <span class="toc-text">1） 染色体和适应度函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%93%E8%89%B2%E4%BD%93-expression%EF%BC%8815%EF%BC%89"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">染色体 expression（15）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">适应度函数</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E9%80%89%E6%8B%A9"><span class="toc-number">4.2.2.</span> <span class="toc-text">2）初始化和选择</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-expression-18"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">初始化 expression(18)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%89%E6%8B%A9"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">选择</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89%E4%BA%A4%E5%8F%89%E4%B8%8E%E7%AA%81%E5%8F%98"><span class="toc-number">4.2.3.</span> <span class="toc-text">3）交叉与突变</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">交叉</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%AA%81%E5%8F%98-expression-19-20"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">突变 expression(19)(20)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-PSO-exp-21"><span class="toc-number">4.3.</span> <span class="toc-text">C. PSO exp(21)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%9A%84%E9%80%9F%E5%BA%A6-expression-22"><span class="toc-number">4.3.1.</span> <span class="toc-text">粒子的速度 expression(22)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%9A%84%E4%BD%8D%E7%BD%AE-expression-23"><span class="toc-number">4.3.2.</span> <span class="toc-text">粒子的位置 expression(23)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D-%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-number">4.4.</span> <span class="toc-text">D. 计算复杂性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.4.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GA-%E9%80%89%E6%8B%A9%E3%80%81%E4%BA%A4%E5%8F%89%E3%80%81%E7%AA%81%E5%8F%98"><span class="toc-number">4.4.2.</span> <span class="toc-text">GA 选择、交叉、突变</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PSO"><span class="toc-number">4.4.3.</span> <span class="toc-text">PSO</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.4.4.</span> <span class="toc-text">总复杂度</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#E-%E6%94%B6%E6%95%9B%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">4.5.</span> <span class="toc-text">E. 收敛性分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Lemma-1"><span class="toc-number">4.5.1.</span> <span class="toc-text">Lemma 1</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">4.5.1.1.</span> <span class="toc-text">证明</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C%E4%B8%8E%E8%AE%A8%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">仿真结果与讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E4%BB%BF%E7%9C%9F%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.1.</span> <span class="toc-text">A. 仿真设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%94%B6%E6%95%9B%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">5.2.</span> <span class="toc-text">B. 收敛性分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">5.3.</span> <span class="toc-text">C. 性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%92%8C%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90%E4%B8%8D%E5%90%8C"><span class="toc-number">5.3.1.</span> <span class="toc-text">信道和计算资源不同</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%AD%E7%A7%8D%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="toc-number">5.3.2.</span> <span class="toc-text">六种算法对比</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GA-PSO-R-L"><span class="toc-number">5.3.2.1.</span> <span class="toc-text">GA&#x2F;PSO&#x2F;R&#x2F;L</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#JOIS"><span class="toc-number">5.3.2.2.</span> <span class="toc-text">JOIS</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">简单介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">系统模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E5%B0%8F%E5%9E%8B%E8%9C%82%E7%AA%9D%E7%BD%91%E7%BB%9C%E4%B8%8B%E7%9A%84%E7%A7%BB%E5%8A%A8%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text">A. 小型蜂窝网络下的移动边缘计算系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">B. 通信模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-0"><span class="toc-number">2.2.1.</span> <span class="toc-text">传输速率R_0</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E5%8C%BA%E9%97%B4%E5%B9%B2%E6%89%B0%E6%8C%87%E7%A4%BA%E5%87%BD%E6%95%B0-delta"><span class="toc-number">2.2.2.</span> <span class="toc-text">小区间干扰指示函数$\delta$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96SU%E5%AF%B9SBS-i%E7%9A%84%E4%BF%A1%E9%81%93k%E7%9A%84%E5%B9%B2%E6%89%B0I"><span class="toc-number">2.2.3.</span> <span class="toc-text">来自其他SU对SBS-i的信道k的干扰I</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87R-i"><span class="toc-number">2.2.4.</span> <span class="toc-text">传输速率R_i</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">C. 计算模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.1.</span> <span class="toc-text">1）本地计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BB%B6%E8%BF%9FT"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">终端本地计算的延迟T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%AE%A1%E7%AE%97%E7%9A%84%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">本地计算的能耗E</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.2.</span> <span class="toc-text">2）边缘计算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BB%B6%E8%BF%9FT%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">BS 传输的延迟T（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#BS-%E4%BC%A0%E8%BE%93%E8%83%BD%E8%80%97E%EF%BC%88%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">BS 传输能耗E（第一阶段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E6%97%B6%E5%BB%B6"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">边缘计算时延</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E6%97%B6%E5%BB%B6T"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">总时延T</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%BB%E8%83%BD%E8%80%97E"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">总能耗E</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AC%E5%BC%8F%E5%8C%96%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">问题公式化和分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#A-%E9%97%AE%E9%A2%98%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.0.1.</span> <span class="toc-text">A. 问题表示</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%97%B6%E5%BB%B6"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">完成任务的时延</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%83%BD%E8%80%97"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">完成任务的能耗</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-P-0"><span class="toc-number">3.0.1.3.</span> <span class="toc-text">问题$P_0$</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#B-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">3.0.2.</span> <span class="toc-text">B. 问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">目标</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%9F%E8%AE%AE%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">拟议算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-HGPCA-%E6%B5%81%E7%A8%8B"><span class="toc-number">4.1.</span> <span class="toc-text">A. HGPCA 流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-GA"><span class="toc-number">4.2.</span> <span class="toc-text">B. GA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89-%E6%9F%93%E8%89%B2%E4%BD%93%E5%92%8C%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.1.</span> <span class="toc-text">1） 染色体和适应度函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%93%E8%89%B2%E4%BD%93-expression%EF%BC%8815%EF%BC%89"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">染色体 expression（15）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">适应度函数</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E9%80%89%E6%8B%A9"><span class="toc-number">4.2.2.</span> <span class="toc-text">2）初始化和选择</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-expression-18"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">初始化 expression(18)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%89%E6%8B%A9"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">选择</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89%E4%BA%A4%E5%8F%89%E4%B8%8E%E7%AA%81%E5%8F%98"><span class="toc-number">4.2.3.</span> <span class="toc-text">3）交叉与突变</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">交叉</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%AA%81%E5%8F%98-expression-19-20"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">突变 expression(19)(20)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-PSO-exp-21"><span class="toc-number">4.3.</span> <span class="toc-text">C. PSO exp(21)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%9A%84%E9%80%9F%E5%BA%A6-expression-22"><span class="toc-number">4.3.1.</span> <span class="toc-text">粒子的速度 expression(22)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%9A%84%E4%BD%8D%E7%BD%AE-expression-23"><span class="toc-number">4.3.2.</span> <span class="toc-text">粒子的位置 expression(23)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D-%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-number">4.4.</span> <span class="toc-text">D. 计算复杂性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.4.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GA-%E9%80%89%E6%8B%A9%E3%80%81%E4%BA%A4%E5%8F%89%E3%80%81%E7%AA%81%E5%8F%98"><span class="toc-number">4.4.2.</span> <span class="toc-text">GA 选择、交叉、突变</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PSO"><span class="toc-number">4.4.3.</span> <span class="toc-text">PSO</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.4.4.</span> <span class="toc-text">总复杂度</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#E-%E6%94%B6%E6%95%9B%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">4.5.</span> <span class="toc-text">E. 收敛性分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Lemma-1"><span class="toc-number">4.5.1.</span> <span class="toc-text">Lemma 1</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">4.5.1.1.</span> <span class="toc-text">证明</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C%E4%B8%8E%E8%AE%A8%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">仿真结果与讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E4%BB%BF%E7%9C%9F%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.1.</span> <span class="toc-text">A. 仿真设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%94%B6%E6%95%9B%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">5.2.</span> <span class="toc-text">B. 收敛性分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">5.3.</span> <span class="toc-text">C. 性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%92%8C%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90%E4%B8%8D%E5%90%8C"><span class="toc-number">5.3.1.</span> <span class="toc-text">信道和计算资源不同</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%AD%E7%A7%8D%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="toc-number">5.3.2.</span> <span class="toc-text">六种算法对比</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GA-PSO-R-L"><span class="toc-number">5.3.2.1.</span> <span class="toc-text">GA&#x2F;PSO&#x2F;R&#x2F;L</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#JOIS"><span class="toc-number">5.3.2.2.</span> <span class="toc-text">JOIS</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1445,11 +1418,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1458,10 +1435,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1485,11 +1458,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1505,6 +1478,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
@@ -1514,10 +1491,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ST表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1557,10 +1530,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
@@ -1569,15 +1538,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">欧拉路</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
