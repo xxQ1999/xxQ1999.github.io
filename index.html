@@ -163,439 +163,24 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/">粒子群优化边缘计算</a>
+      <a class="article-title" href="/2021/04/22/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/">粒子群优化边缘计算</a>
     </h1>
   
 
         
-        <a href="/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2021-04-16T10:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
+        <a href="/2021/04/22/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2021-04-22T10:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>用户设备会将任务分发到移动边缘计算服务器上，但是在offload过程中，由于小基站的高干扰、多址、资源有限，需要一种高效的计算卸载方案。在这篇论文中，作者研究了在小型蜂窝网络下的边缘计算系统的节能计算卸载方案，通过计算卸载决策、频谱、功率和计算资源的联合优化，为的就是减少所有终端设备的能耗。终端设备不仅要决策是否卸载，也要决策卸载到哪里。</p>
+        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>用户设备会将任务分发到移动边缘计算服务器上，但是在offload过程中，由于小基站的高干扰、多址、资源有限，需要一种高效的计算卸载方案。在这篇论文中，作者研究了在小型蜂窝网络下的边缘计算系统的节能计算卸载方案，通过计算卸载决策、频谱、功率和计算资源的联合优化，为的就是减少所有终端设备的能耗。终端设备不仅要决策是否卸载，也要决策卸载到哪里。</p>
 <p>文章首先给出了计算卸载模型，并将此问题表述为一个NP难的混合整数非线性规划问题。利用遗传算法和粒子群优化算法，设计了一个次优算法——分层遗传算法（hierarchical GA）和基于粒子群算法（PSO-based computation）的计算算法。最后通过仿真研究了收敛性，并与其他基准算法比较，验证了它的性能。</p>
-<table>
-<thead>
-<tr>
-<th>英文缩写</th>
-<th>全称</th>
-<th>中文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UEs</td>
-<td>user equipments</td>
-<td>用户设备</td>
-</tr>
-<tr>
-<td>MEC</td>
-<td>mobile edge computing</td>
-<td>移动边缘计算</td>
-</tr>
-<tr>
-<td>SCNs</td>
-<td>small cell networks</td>
-<td>小型蜂窝网络</td>
-</tr>
-<tr>
-<td>SBSs</td>
-<td>small cell base station</td>
-<td>小型蜂窝基站</td>
-</tr>
-<tr>
-<td>PSO</td>
-<td>particle swarm optimization</td>
-<td>粒子群算法</td>
-</tr>
-<tr>
-<td>GA</td>
-<td>genetic algorithm</td>
-<td>遗传算法</td>
-</tr>
-<tr>
-<td>QoS</td>
-<td>quality of user services</td>
-<td>用户服务质量</td>
-</tr>
-<tr>
-<td>MBS</td>
-<td>Macro base stations</td>
-<td>大型/宏基站</td>
-</tr>
-<tr>
-<td>MINLP</td>
-<td>mix integer non-linear programming</td>
-<td>混合整型非线性编程问题</td>
-</tr>
-<tr>
-<td>HGPCA</td>
-<td></td>
-<td>作者提出的次优化算法</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>​        high interference、multi-access property、limited resources of small cell base station</p>
-<h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>移动边缘计算中，计算卸载是关键环节，包含：传输过程、远程执行过程、结果回传过程。通过网络将计算卸载到边缘计算服务器中，大大降低时延，延长设备使用。</p>
-<p>该团队解决了三个挑战：计算决策、无线资源分配、计算资源分配。</p>
-<ul>
-<li><p>计算决策问题</p>
-<p>决定计算任务要在云端还是用户设备端进行。虽然边缘服务器可以为设备提供云服务，但是无法保证所有的设备在有限的网络和计算能力下都能得到服务。或者是过量的任务卸载到边缘，会造成拥塞、用户间交流的高干扰。</p>
-<p>——通过优化多用户间多小区网络中的计算决策问题、平衡用户服务和系统收益。</p>
-</li>
-<li><p>无线资源分配</p>
-<p>能耗是很重要的一部分。由于UE与边缘服务器的通信距离相对短，可以降低能耗。但是计算卸载的能效依赖于无线资源分配方案。传输功率增加，数据速率增加，但干扰和传输能耗也增加，延迟也可能增加。因此分配无线资源时，需要更高效的干扰管理方案，自适应的功率控制。</p>
-</li>
-<li><p>计算资源分配</p>
-<p>应该不均匀分配。1）不同用户有不同的任务大小；2）根据网络状况的良莠，QoS需要更多/更少的计算资源</p>
-<p>联合动态无线和计算资源分配方案。</p>
-</li>
-</ul>
-<p>考虑多个SBS服务多个用户的MEC系统，考虑干扰管理、功率控制方案，优化卸载决策、信道分配、计算资源分配方案来研究节能计算方案。工作：</p>
-<ul>
-<li>提出采用MEC的分布式SCN的计算卸载系统模型，MBS与SBS都配备了MEC服务器。从延迟和能耗方面给用户带来好处，给系统的效率提升。</li>
-<li>在边缘计算系统中，将能耗计算卸载问题定义为一个混合整型非线性编程问题（MINLP）——NP-hard。主要就是为例如在满足所有用户设备的异构质量服务要求和资源分配原则下，以最少的能耗完成任务。</li>
-<li>基于层次GA、PSO，提出HGPCA次优化算法。提高收敛速度和性能。并分析算法的复杂性和收敛性。</li>
-<li>模拟时，部署了数百个用户和数十个小基站，研究算法收敛性并与其他基准算法比较验证性能。</li>
-</ul>
-<h3 id="系统模型"><a href="#系统模型" class="headerlink" title="系统模型"></a>系统模型</h3><h4 id="A-小型蜂窝网络下的移动边缘计算系统"><a href="#A-小型蜂窝网络下的移动边缘计算系统" class="headerlink" title="A. 小型蜂窝网络下的移动边缘计算系统"></a>A. 小型蜂窝网络下的移动边缘计算系统</h4><table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-<th>中文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$N_B={0,1,2,…i,…,N}$$</td>
-<td>SBS</td>
-<td>基站</td>
-</tr>
-<tr>
-<td>$$u={1,2,…,j,…,U}$$</td>
-<td>UEs</td>
-<td>用户终端</td>
-</tr>
-<tr>
-<td>$$T_j={d_j,X_j,T^{max}_j}$$</td>
-<td>Task</td>
-<td>j的计算任务</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>每个UE都有一个非密集型计算任务需要完成。</p>
-</li>
-<li><p>SBS与UE随机分配在MBS周围</p>
-</li>
-<li><p>计算任务j：<br>$$<br>T_j={d_j,X_j,t^{max}_j}<br>$$</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$d_j$$</td>
-<td>计算需要上传的数据</td>
-</tr>
-<tr>
-<td>$$X_j$$</td>
-<td>处理1位输入需要的CPU周期数，每个任务都不同</td>
-</tr>
-<tr>
-<td>$$t^{max}_j$$</td>
-<td>任务能接受的最大时延</td>
-</tr>
-<tr>
-<td>$$f_j=d_jX_j$$</td>
-<td>完成第j个计算任务需要的CPU周期数</td>
-</tr>
-</tbody></table>
-<ul>
-<li>每个任务可以在本地计算，也可以卸载到MBS或SBS中的MEC服务器。</li>
-<li>卸载需要三步：1）通过无线信道上传数据；2）在MEC服务器上执行任务；3）从MEC服务器上下载结果到UE。【重点放在前两步，涉及到一个通信模型和一个计算模型】</li>
-</ul>
-<h4 id="B-通信模型"><a href="#B-通信模型" class="headerlink" title="B. 通信模型"></a>B. 通信模型</h4><p>主要集中在上行链路传输。</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$a^{(i)}_j\in{0,1}$$</td>
-<td>任务j是否卸载、卸载到哪个基站</td>
-<td>0：不卸载，1：卸载</td>
-</tr>
-<tr>
-<td>$$A={a^{(i)}_j,i\in N_B,j\in u}$$</td>
-<td>决策profile</td>
-<td></td>
-</tr>
-<tr>
-<td>$$\sum_{i\in N_B}a^{(i)}_j \le1$$</td>
-<td>终端j的任务只能被一个基站处理</td>
-<td></td>
-</tr>
-<tr>
-<td>$$c={1,2,…,k,…,C}$$</td>
-<td>信道们</td>
-<td></td>
-</tr>
-<tr>
-<td>$$c_M={1,2,…,C_M}$$</td>
-<td>MBS的信道</td>
-<td></td>
-</tr>
-<tr>
-<td>$$c_S={C_M+1,C_M+2,…,C}$$</td>
-<td>SBS的信道</td>
-<td>$$C-C_M=</td>
-</tr>
-<tr>
-<td>$$W$$</td>
-<td>每个信道的带宽</td>
-<td>每个信道都是独立同分布的</td>
-</tr>
-</tbody></table>
-<ul>
-<li>假设MBS与SBS使用不用的无线电频谱来避免层间干扰。对于SBS，频谱 以叠加的方式使用时，意味着在小区之间存在干扰。而每个信道是正交的，也就是说同一个区内，不存在干扰。</li>
-<li>MaUs ：UE的任务被大型基站处理    </li>
-<li>SUs ：UE的任务被小型基站处理</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$b^{(k)}_j\in{0,1}$$</td>
-<td>信道分配指示器</td>
-<td>信道k分配给UE-j</td>
-</tr>
-<tr>
-<td>$$B={b^{(k)}_j,j\in u,k\in c}$$</td>
-<td>信道分配指示profile</td>
-<td>满足1）2）条件</td>
-</tr>
-<tr>
-<td>$$\sum_{i\in N_B}\sum_{k\in{c_a}}a^{(i)}_jb^{(k)}_j\le1$$</td>
-<td>每个基站的一个信道最多只能分配给给一个任务</td>
-<td>1）</td>
-</tr>
-<tr>
-<td>$$\sum_{j\in u}\sum {k\in c_a}a^{(i)}_jb^{(k)}_j\le</td>
-<td>c_a</td>
-<td>$$</td>
-</tr>
-<tr>
-<td>$$c_a$$</td>
-<td>一些基站中可得到的信道集合</td>
-<td>对于SBS来说$$c_a=C_S$$,对于MBS来说$$c_a=C_M$$</td>
-</tr>
-</tbody></table>
-<ul>
-<li>假设所有终端在传输时它的传输功率是静态的。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$p_j$$</td>
-<td>终端j的传输功率</td>
-</tr>
-<tr>
-<td>$$P={p_1,…,p_j,…,p_U}$$</td>
-<td>终端传输功率集profile</td>
-</tr>
-<tr>
-<td>$$p_{max}$$</td>
-<td>最大传输功率</td>
-</tr>
-</tbody></table>
-<h5 id="传输速率R-0"><a href="#传输速率R-0" class="headerlink" title="传输速率R_0"></a>传输速率R_0</h5><p>当满足$$a^{(0)}<em>j=1$$时，UE-j分配得信道k ($$b^{(k)}_j=1$$)，则<strong>传输速率R</strong>满足：<br>$$<br>R^{0}_j(A</em>{_j},B,P)=\sum_{k\in{c_a}}b^{(k)}<em>jWlog_2(1+\frac{p_j|h</em>{0j}^{(k)}|^2}{N_0})<br>$$</p>
-<ul>
-<li>$$A_{_j}$$是除了UE-j外的卸载决策profile</li>
-<li>$$h_{0j}^{(k)}$$是从UE-j到MBS的信道增益</li>
-<li>$$N_0$$是复高斯白噪声方差</li>
-</ul>
-<h5 id="小区间干扰指示函数-delta"><a href="#小区间干扰指示函数-delta" class="headerlink" title="小区间干扰指示函数$$\delta$$"></a>小区间干扰指示函数$$\delta$$</h5><p>考虑相邻的SBS中的SU对该SU接收信号的干扰，将<strong>小区间干扰指示函数</strong>表示为：<br>$$<br>\delta_{i,j^{‘}}^{(k)}=\begin{cases}<br>1,RSS_{i,j^{‘}}^{(k)} \ge RSS_{th}\<br>0,else.<br>\end{cases}<br>$$</p>
-<p>$$<br>RSS_{i,j^{‘}}^{(k)} =  \sum_{i^{‘}\in{N_B}\setminus i}<br>a^{(i{‘})}<em>{j{‘}}b^{(k)}</em>{j{‘}}p_{j{‘}}<br>|h^{(k)}_{i,j{‘}}|^2<br>$$</p>
-<p>RSS表示SU-j’ 对SBS-i的分配信道k上的干扰功率，RSSth表示干扰阈值；su-j’和SBS-i不相关。</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$RSS_{i,j^{‘}}^{(k)}$$</td>
-<td>$$SU-j’$$ 在$$SBS-i$$ 分配的信道$$k$$上收到的干扰功率</td>
-</tr>
-<tr>
-<td>$$RSS_{th}$$</td>
-<td>干扰阈值</td>
-</tr>
-<tr>
-<td></td>
-<td>$$SU-j’$$ 与$$SBS-i$$ 不相关</td>
-</tr>
-</tbody></table>
-<h5 id="来自其他SU对SBS-i的信道k的干扰I"><a href="#来自其他SU对SBS-i的信道k的干扰I" class="headerlink" title="来自其他SU对SBS-i的信道k的干扰I"></a>来自其他SU对SBS-i的信道k的干扰I</h5><p>来自其他SU对SBS-i、信道k的干扰：<br>$$<br>I_{ij}^{(k)}(A_{_j},B_{_j},P_{_j})=<br>\sum_{i’\in N_B\setminus 0}<br>\sum_{j’\in u\setminus j}<br>a^{(i’)}<em>{j’}b^{(k)}</em>{j’}<br>\delta_{i,j^{‘}}^{(k)}<br>p_{j’}|h_{i,j’}^{(k)}|^2<br>$$</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$B_{_j}$$</td>
-<td>除了UE-j外的信道分配指示集</td>
-</tr>
-<tr>
-<td>$$P_{_j}$$</td>
-<td>除了UE-j外的传输功率集</td>
-</tr>
-<tr>
-<td>$$h_{i,j’}^{(k)}$$</td>
-<td>在SBS-i和UE-j’之间的信道k的信道增益</td>
-</tr>
-</tbody></table>
-<h5 id="传输速率R-i"><a href="#传输速率R-i" class="headerlink" title="传输速率R_i"></a>传输速率R_i</h5><p>故，达到的<strong>传输速率</strong>：<br>$$<br>R^i_j(A_{_j},B,P)=<br>\sum_{k\in c_a}<br>b^{(k)}<em>j Wlog_2<br>(1+\frac<br>{p_j|h</em>{ij}^{(k)}|^2}<br>{I^{(k)}<em>{ij} (A</em>{_j},B_{_j},P_{_j})+N_0})<br>$$</p>
-<h4 id="C-计算模型"><a href="#C-计算模型" class="headerlink" title="C. 计算模型"></a>C. 计算模型</h4><p>计算任务是如何在本地终端的UE上执行的，或者是在MEC服务器上远程执行。</p>
-<h5 id="1）本地计算"><a href="#1）本地计算" class="headerlink" title="1）本地计算"></a>1）本地计算</h5><p>假设每个终端的CPU在计算时的频率不变，但不同的终端可能有不同的频率。</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$F_j^{(l)}$$</td>
-<td>每个终端UE-j的计算能力</td>
-<td>通过CPU周期表示(Hz/s)</td>
-</tr>
-<tr>
-<td>$$p^{(e)}_{j,l}$$</td>
-<td>终端UE-j本地计算时CPU一个周期的能耗</td>
-<td></td>
-</tr>
-</tbody></table>
-<h6 id="终端本地计算的延迟T"><a href="#终端本地计算的延迟T" class="headerlink" title="终端本地计算的延迟T"></a>终端本地计算的延迟T</h6><p>$$<br>T^{(e)}_{j,l}=\frac<br>{f_j}<br>{F_j^{(l)}}<br>$$</p>
-<h6 id="本地计算的能耗E"><a href="#本地计算的能耗E" class="headerlink" title="本地计算的能耗E"></a>本地计算的能耗E</h6><p>$$<br>E_{j,l}^{(e)}=f_jp^{(e)}_{j,l}<br>$$</p>
-<h5 id="2）边缘计算"><a href="#2）边缘计算" class="headerlink" title="2）边缘计算"></a>2）边缘计算</h5><h6 id="BS-传输的延迟T（第一阶段）"><a href="#BS-传输的延迟T（第一阶段）" class="headerlink" title="BS 传输的延迟T（第一阶段）"></a>BS 传输的延迟T（第一阶段）</h6><p>$$<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)=\frac<br>{d_j}<br>{R_j^{(i)}(A_{_j},B,P)}<br>,i \ge0<br>$$</p>
-<h6 id="BS-传输能耗E（第一阶段）"><a href="#BS-传输能耗E（第一阶段）" class="headerlink" title="BS 传输能耗E（第一阶段）"></a>BS 传输能耗E（第一阶段）</h6><p>$$<br>E_{j,off}^{(i,tr)}(A__j,B,P)=<br>P_jT_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>意义</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$$F_i (i\in N_B)$$</td>
-<td>每个BS的计算能力</td>
-<td>$$F_0 \gg F_i,i&gt;0$$，大型基站的计算能力要远远大于小型基站</td>
-</tr>
-<tr>
-<td>$$F_j^{(i)}$$</td>
-<td>UE=j分配到的MEC-i的计算资源</td>
-<td></td>
-</tr>
-<tr>
-<td>$$F={F_j^{(i)},i\in N_B,j\in u }$$</td>
-<td>计算资源的分配集profile</td>
-<td>$$\sum_{j\in u}F_j^{(i)} \le F_i,\forall i\in N_B $$，即对于分配给终端j的资源，必须小于等于基站i的总资源</td>
-</tr>
-<tr>
-<td>边缘计算时延：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>T_{j,off}^{(i,e)}(F)=\frac{f_j}{F_j^{(i)}}</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>忽略MEC上执行任务的能耗，因为BS能源丰富。另外也不考虑第三阶段，因为实际情况，传入数据往往比输出的数据要大。</p>
-<h6 id="总时延T"><a href="#总时延T" class="headerlink" title="总时延T"></a>总时延T</h6><p>$$<br>T_j^{(i,off)}(A_{_j},B,P,F)=<br>T_{j,off}^{(i,tr)}(A_{_j},B,P)+<br>T_{j,off}^{(i,e)}(F)<br>$$</p>
-<h6 id="总能耗E"><a href="#总能耗E" class="headerlink" title="总能耗E"></a>总能耗E</h6><p>$$<br>E_j^{(i,off)}(A_{_j},B,P)=E_{j,off}^{(i,tr)}(A__j,B,P).<br>$$</p>
-
+        
+          <a class="article-more-a" href="/2021/04/22/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/#more">more >></a>
+        
       
 
       
@@ -629,7 +214,127 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/16/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/04/22/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lyrics" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/21/lyrics/">个人取向变化记录</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/21/lyrics/" class="archive-article-date">
+  	<time datetime="2021-04-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧……</p>
+<p>好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。</p>
+<h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p><em>21岁，自己最喜欢的还是音乐</em></p>
+<hr>
+<blockquote>
+<p>在幻妙的时间里 有 望喜 和奇遇</p>
+<p>在嘈杂的城市间 有永恒 的相遇</p>
+<p>在有生之年里 常相伴 有知己</p>
+<p>在漫妙的年龄享有 诚挚的 爱情</p>
+</blockquote>
+<p><strong>[ 勐巴拉娜西 ]</strong> 刺猬的歌总是能给我带来许多惊喜。这一段是最后子健写给小春天的祝福，真的很美好。</p>
+<blockquote>
+<p>晚星就像你的眼睛杀人又放火</p>
+</blockquote>
+<p><strong>[ 漠河舞厅 ]</strong> 《再见了晚星》</p>
+<h2 id="文学"><a href="#文学" class="headerlink" title="文学"></a>文学</h2><blockquote>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。</p>
+<p>倘若有了炬火，出了太阳，我们自然心悦诚服的消失。不但毫无不平，而且还要随喜赞美这炬火或太阳；因为他照了人类，连我都在内。我又愿中国青年都只是向上走，不必理会这冷笑和暗箭。</p>
+</blockquote>
+<p><strong>[ 热风 · 随感录四十一 ]</strong> </p>
+<blockquote>
+<p>我凭依栏杆，细看那萤火虫。我和萤火虫双方都长久地一动未动。只有夜风从我们身边掠过。榉树在黑暗中磨擦着无数叶片，籁籁作响。 </p>
+<p>我久久、久久地等待着。</p>
+<p>过了很长很长时间，萤火虫才起身飞去。它顿有所悟似的，蓦地张开双翅，旋即穿过栏杆，淡淡的萤光在黑暗中滑行开来。它绕着水塔飞快地曳着光环，似乎要挽回失去的时光。为了等待风力的缓和，它又稍停了一会儿，然后向东飞去。 </p>
+<p>萤火虫消失之后，那光的轨迹仍久久地印在我脑海中。那微弱浅淡的光点，仿佛迷失方向的魂灵，在漆黑厚重的夜幕中往来彷徨。</p>
+<p>我几次朝夜幕中伸出手去，指尖毫无所触，那小小的光点总是同指尖保持着不可触及的距离。</p>
+</blockquote>
+<p><strong>[ 萤 ]</strong> 读了一遍《萤》，过程中一直被那种从何而来的悲伤笼罩着，心里又很安静很安静。</p>
+<blockquote>
+<p>亲爱的康氏：</p>
+<p>抱歉因为生分，再唤你为康氏，因为阔别许久，无法想象你因为衰老而未曾出现的祥和的相貌。苦难已过，世界大好，如果有通往另一处日夜不眠的隧道，我将驾驶我深褐色的吉普车，摇下吱吱作响因寒冷而结霜的脆窗，我想向你展示我坚不可摧的礼扣，以及我未有一日曾动摇的思念若渴。</p>
+<p>我时常想，人因何而美丽，又因何而凋谢，是食用了天合造化的菌类，或者瘟不知所起的家禽，动人的颜料片片剥落，毛发似雪花。你一定不属于任何一种，羞耻地，我竟然还会夸奖你，你的美丽在我一亩三方田地里，从未凋谢过。</p>
+<p>倘若我晚生十年，我一定是当代赫赫有名的情话大王，早生十年，孩子们一定也会背诵我的诗歌，他们将短小精悍的句子摘抄在硬皮本的扉页，坑坑巴巴地撕下，送给心仪的女孩。不免有些遗憾，我为你书写的信件，没有哪一家出版社愿意刊登，瞎了眼，谁看了都知道，若不是用情至深，我怎敢肆无忌惮地表达我对你的喜爱，我甚至找不出词汇，轻易描述你的优雅。换言之，我一定免不了花言巧语之嫌，被史学家所诟病，为搏你芳心，人们一定指责我有意令宇宙短暂熄灭。</p>
+<p> ……</p>
+</blockquote>
+<p><strong>[再见了晚星]</strong> 我们看过许多婚姻的悲剧，却也仍然坚信爱情的美好。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/21/lyrics/">展开全文 >></a>
         </p>
       
 
@@ -1210,114 +915,6 @@
 
 
   
-    <article id="post-lyrics" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/lyrics/">个人取向变化记录</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/17/lyrics/" class="archive-article-date">
-  	<time datetime="2020-09-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>每当我偶尔翻到以前写的、或者是摘录的文字的时候，总是感觉，咦……原来我那时候是这种调调啊……啧啧啧……</p>
-<p>好奇自己究竟有什么“审美”上的变化过程，顺便也摘一些喜欢的句子，开了这部分记录，给自己以后回过头来翻看的时候用。</p>
-<h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p><em>21岁，自己最喜欢的还是音乐</em></p>
-<hr>
-<blockquote>
-<p>在幻妙的时间里 有 望喜 和奇遇</p>
-<p>在嘈杂的城市间 有永恒 的相遇</p>
-<p>在有生之年里 常相伴 有知己</p>
-<p>在漫妙的年龄享有 诚挚的 爱情</p>
-</blockquote>
-<p><strong>[ 勐巴拉娜西 ]</strong> 刺猬的歌总是能给我带来许多惊喜。这一段是最后子健写给小春天的祝福，真的很美好。</p>
-<h2 id="文学"><a href="#文学" class="headerlink" title="文学"></a>文学</h2><blockquote>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。</p>
-<p>倘若有了炬火，出了太阳，我们自然心悦诚服的消失。不但毫无不平，而且还要随喜赞美这炬火或太阳；因为他照了人类，连我都在内。我又愿中国青年都只是向上走，不必理会这冷笑和暗箭。</p>
-</blockquote>
-<p><strong>[ 热风 · 随感录四十一 ]</strong> </p>
-<blockquote>
-<p>我凭依栏杆，细看那萤火虫。我和萤火虫双方都长久地一动未动。只有夜风从我们身边掠过。榉树在黑暗中磨擦着无数叶片，籁籁作响。 </p>
-<p>我久久、久久地等待着。</p>
-<p>过了很长很长时间，萤火虫才起身飞去。它顿有所悟似的，蓦地张开双翅，旋即穿过栏杆，淡淡的萤光在黑暗中滑行开来。它绕着水塔飞快地曳着光环，似乎要挽回失去的时光。为了等待风力的缓和，它又稍停了一会儿，然后向东飞去。 </p>
-<p>萤火虫消失之后，那光的轨迹仍久久地印在我脑海中。那微弱浅淡的光点，仿佛迷失方向的魂灵，在漆黑厚重的夜幕中往来彷徨。</p>
-<p>我几次朝夜幕中伸出手去，指尖毫无所触，那小小的光点总是同指尖保持着不可触及的距离。</p>
-</blockquote>
-<p><strong>[ 萤 ]</strong> 读了一遍《萤》，过程中一直被那种从何而来的悲伤笼罩着，心里又很安静很安静。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life-Story//" class="article-tag-list-link color3">Life & Story</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/lyrics/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-资源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1865,11 +1462,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bfs</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1881,11 +1478,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">次短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1945,19 +1542,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拓扑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串哈希</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2001,15 +1598,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>
