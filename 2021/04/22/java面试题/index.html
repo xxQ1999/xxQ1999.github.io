@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://github.com/xxq1999">
-  <title>拉格朗日插值法 | まだまだだね</title>
+  <title>JAVA 面试 | まだまだだね</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="可以求给定式子的前n项和。 感觉可以求给定式子的前n项和。 如：求3x^5+4x^3-5x+8; 式子中最高项次数为5，则需要先计算出6个数字。 板子的使用： 先调用polysum::init(m); 这里的m要和D一起改，m&lt;D; 然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。 模板（求n^k的前n项和）： 1">
+  <meta name="description" content="1）equals和&#x3D; &#x3D;的区别？1public boolean equals(Object obj)&amp;#123;return(this &#x3D;&#x3D; obj);&amp;#125;  equals也是用&#x3D; &#x3D;来比较的，但equals可以根据需求重写。&#x3D; &#x3D;如果比较的是两个值类型的话，就是比较它们之间是否相等，如果是引用类型，则比较的是地址。 2）为什么重写equals一定要重写hash code？默认的hash">
 <meta property="og:type" content="article">
-<meta property="og:title" content="拉格朗日插值法">
-<meta property="og:url" content="http://github.com/xxq1999/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/index.html">
+<meta property="og:title" content="JAVA 面试">
+<meta property="og:url" content="http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="まだまだだね">
-<meta property="og:description" content="可以求给定式子的前n项和。 感觉可以求给定式子的前n项和。 如：求3x^5+4x^3-5x+8; 式子中最高项次数为5，则需要先计算出6个数字。 板子的使用： 先调用polysum::init(m); 这里的m要和D一起改，m&lt;D; 然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。 模板（求n^k的前n项和）： 1">
+<meta property="og:description" content="1）equals和&#x3D; &#x3D;的区别？1public boolean equals(Object obj)&amp;#123;return(this &#x3D;&#x3D; obj);&amp;#125;  equals也是用&#x3D; &#x3D;来比较的，但equals可以根据需求重写。&#x3D; &#x3D;如果比较的是两个值类型的话，就是比较它们之间是否相等，如果是引用类型，则比较的是地址。 2）为什么重写equals一定要重写hash code？默认的hash">
 <meta property="og:locale" content="utf_8">
-<meta property="article:published_time" content="2018-08-16T15:12:00.000Z">
-<meta property="article:modified_time" content="2020-09-16T04:54:01.323Z">
+<meta property="og:image" content="http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/Users/10244/AppData/Roaming/Typora/typora-user-images/image-20210421223202543.png">
+<meta property="article:published_time" content="2021-04-22T11:13:00.000Z">
+<meta property="article:modified_time" content="2021-04-22T11:58:44.504Z">
 <meta property="article:author" content="xxQ">
-<meta property="article:tag" content="模板">
-<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/Users/10244/AppData/Roaming/Typora/typora-user-images/image-20210421223202543.png">
   
     <link rel="alternative" href="/atom.xml" title="まだまだだね" type="application/atom+xml">
   
@@ -158,37 +158,314 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-拉格朗日插值" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java面试题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      拉格朗日插值法
+      JAVA 面试
     </h1>
   
 
         
-        <a href="/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2018-08-16T15:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+        <a href="/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-04-22T11:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>可以求给定式子的前n项和。</p>
-<p>感觉可以求给定式子的前n项和。</p>
-<p>如：求3x^5+4x^3-5x+8;</p>
-<p>式子中最高项次数为5，则需要先计算出6个数字。</p>
-<p>板子的使用：</p>
-<p>先调用polysum::init(m); 这里的m要和D一起改，m&lt;D;</p>
-<p>然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。</p>
-<p>模板（<a target="_blank" rel="noopener" href="https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1258">求n^k的前n项和</a>）：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">先调用polysum::init(m); 这里的m要和D一起改，m&lt;D;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">然后处理最高次数+1个数字存入b[],然后调用polysum::polysum(k,b,n+1)求得前n项和，k为最高次数。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">namespace</span> polysum &#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for (int i=a;i&lt;n;i++)</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> per(i,a,n) for (int i=n-1;i&gt;=a;i--)</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> D=<span class="number">51000</span>;</span><br><span class="line">	ll a[D],f[D],g[D],p[D],p1[D],p2[D],b[D],h[D][<span class="number">2</span>],C[D];</span><br><span class="line">	<span class="function">ll <span class="title">powmod</span><span class="params">(ll a,ll b)</span></span>&#123;ll res=<span class="number">1</span>;a%=mod;assert(b&gt;=<span class="number">0</span>);<span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=res*a%mod;a=a*a%mod;&#125;<span class="keyword">return</span> res;&#125;</span><br><span class="line">	<span class="function">ll <span class="title">calcn</span><span class="params">(<span class="keyword">int</span> d,ll *a,ll n)</span> </span>&#123; <span class="comment">// a[0].. a[d]  a[n]</span></span><br><span class="line">		<span class="keyword">if</span> (n&lt;=d) <span class="keyword">return</span> a[n];</span><br><span class="line">		p1[<span class="number">0</span>]=p2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=(n-i+mod)%mod;</span><br><span class="line">			p1[i+<span class="number">1</span>]=p1[i]*t%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=(n-d+i+mod)%mod;</span><br><span class="line">			p2[i+<span class="number">1</span>]=p2[i]*t%mod;</span><br><span class="line">         &#125;</span><br><span class="line">		ll ans=<span class="number">0</span>;</span><br><span class="line">		rep(i,<span class="number">0</span>,d+<span class="number">1</span>) &#123;</span><br><span class="line">			ll t=g[i]*g[d-i]%mod*p1[i]%mod*p2[d-i]%mod*a[i]%mod;</span><br><span class="line">			<span class="keyword">if</span> ((d-i)&amp;<span class="number">1</span>) ans=(ans-t+mod)%mod;</span><br><span class="line">			<span class="keyword">else</span> ans=(ans+t)%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> M)</span> </span>&#123;</span><br><span class="line">		f[<span class="number">0</span>]=f[<span class="number">1</span>]=g[<span class="number">0</span>]=g[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">2</span>,M+<span class="number">5</span>) f[i]=f[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">		g[M+<span class="number">4</span>]=powmod(f[M+<span class="number">4</span>],mod<span class="number">-2</span>);</span><br><span class="line">		per(i,<span class="number">1</span>,M+<span class="number">4</span>) g[i]=g[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ll <span class="title">polysum</span><span class="params">(ll m,ll *a,ll n)</span> </span>&#123; <span class="comment">// a[0].. a[m] \sum_&#123;i=0&#125;^&#123;n-1&#125; a[i]</span></span><br><span class="line">		ll b[D];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++) b[i]=a[i];</span><br><span class="line">		b[m+<span class="number">1</span>]=calcn(m,b,m+<span class="number">1</span>);</span><br><span class="line">		rep(i,<span class="number">1</span>,m+<span class="number">2</span>) b[i]=(b[i<span class="number">-1</span>]+b[i])%mod;</span><br><span class="line">		<span class="keyword">return</span> calcn(m+<span class="number">1</span>,b,n<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ll <span class="title">qpolysum</span><span class="params">(ll R,ll n,ll *a,ll m)</span> </span>&#123; <span class="comment">// a[0].. a[m] \sum_&#123;i=0&#125;^&#123;n-1&#125; a[i]*R^i</span></span><br><span class="line">		<span class="keyword">if</span> (R==<span class="number">1</span>) <span class="keyword">return</span> polysum(n,a,m);</span><br><span class="line">		a[m+<span class="number">1</span>]=calcn(m,a,m+<span class="number">1</span>);</span><br><span class="line">		ll r=powmod(R,mod<span class="number">-2</span>),p3=<span class="number">0</span>,p4=<span class="number">0</span>,c,ans;</span><br><span class="line">		h[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">0</span>;h[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		rep(i,<span class="number">1</span>,m+<span class="number">2</span>) &#123;</span><br><span class="line">			h[i][<span class="number">0</span>]=(h[i<span class="number">-1</span>][<span class="number">0</span>]+a[i<span class="number">-1</span>])*r%mod;</span><br><span class="line">			h[i][<span class="number">1</span>]=h[i<span class="number">-1</span>][<span class="number">1</span>]*r%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) &#123;</span><br><span class="line">			ll t=g[i]*g[m+<span class="number">1</span>-i]%mod;</span><br><span class="line">			<span class="keyword">if</span> (i&amp;<span class="number">1</span>) p3=((p3-h[i][<span class="number">0</span>]*t)%mod+mod)%mod,p4=((p4-h[i][<span class="number">1</span>]*t)%mod+mod)%mod;</span><br><span class="line">			<span class="keyword">else</span> p3=(p3+h[i][<span class="number">0</span>]*t)%mod,p4=(p4+h[i][<span class="number">1</span>]*t)%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		c=powmod(p4,mod<span class="number">-2</span>)*(mod-p3)%mod;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) h[i][<span class="number">0</span>]=(h[i][<span class="number">0</span>]+h[i][<span class="number">1</span>]*c)%mod;</span><br><span class="line">		rep(i,<span class="number">0</span>,m+<span class="number">2</span>) C[i]=h[i][<span class="number">0</span>];</span><br><span class="line">		ans=(calcn(m,C,n)*powmod(R,n)-c)%mod;</span><br><span class="line">		<span class="keyword">if</span> (ans&lt;<span class="number">0</span>) ans+=mod;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">// polysum::init();</span></span><br><span class="line"><span class="function">ll <span class="title">pow2</span><span class="params">(ll a,ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=res*a%mod;</span><br><span class="line">		a=a*a%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    ll b[<span class="number">51000</span>];</span><br><span class="line">    b[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    polysum::init(<span class="number">50000</span>);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll n,k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=k+<span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            b[i]=pow2(i,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,polysum::polysum(k,b,n+<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><h5 id="1）equals和-的区别？"><a href="#1）equals和-的区别？" class="headerlink" title="1）equals和= =的区别？"></a><strong>1）equals和= =的区别？</strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;<span class="keyword">return</span>(<span class="keyword">this</span> == obj);&#125;</span><br></pre></td></tr></table></figure>
 
-<hr>
+<p>equals也是用= =来比较的，但equals可以根据需求重写。= =如果比较的是两个值类型的话，就是比较它们之间是否相等，如果是引用类型，则比较的是地址。</p>
+<h5 id="2）为什么重写equals一定要重写hash-code？"><a href="#2）为什么重写equals一定要重写hash-code？" class="headerlink" title="2）为什么重写equals一定要重写hash code？"></a><strong>2）为什么重写equals一定要重写hash code？</strong></h5><p>默认的hash code方法是根据对象的内存地址经过哈希算法得到的，如果不重写的话，那么在两个相同的对象使用equals时就可能得到不同的结果，比如map里面，如果以对象为key，会导致逻辑上的key相同但值不同。</p>
+<h5 id="3）Integer与int的-比较是怎样的？"><a href="#3）Integer与int的-比较是怎样的？" class="headerlink" title="3）Integer与int的= =比较是怎样的？"></a><strong>3）Integer与int的= =比较是怎样的？</strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;        </span><br><span class="line">    Integer a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">3</span>;        </span><br><span class="line">    Integer c = Integer.valueOf(<span class="number">3</span>);        </span><br><span class="line">    Integer d = <span class="keyword">new</span> Integer(<span class="number">3</span>);        </span><br><span class="line">    System.out.println(a == b);<span class="comment">//输出true</span></span><br><span class="line">    System.out.println(b == c);<span class="comment">//输出true</span></span><br><span class="line">    System.out.println(b == d);<span class="comment">//输出true</span></span><br><span class="line">    System.out.println(a == c);<span class="comment">//输出true</span></span><br><span class="line">    System.out.println(c == d);<span class="comment">//输出false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Integer在int比较的时候，会自动拆箱，再做值比较，所以返回true；</p>
+<p>Integer在于Integer比较的时候，除了new Integer之外，其他比较的都是同一段地址（3），而new的新对象则不是，所以返回false。</p>
+<h5 id="4）接口和抽象类的区别？"><a href="#4）接口和抽象类的区别？" class="headerlink" title="4）接口和抽象类的区别？"></a><strong>4）接口和抽象类的区别？</strong></h5><p>接口中所有的方法都是抽象的，而抽象类可以有抽象和非抽象；</p>
+<p>类可以实现多个接口，但只能继承一个抽象类；</p>
+<p>（？）类可以不实现抽象类和接口声明的所有方法，但是该类必须声明成抽象的；</p>
+<p>接口的成员方法默认是public，而抽象类的成员可以是private、protected、public；</p>
+<p>JDK1.8 开始，接口中可以包含default方法（可以进行实现），但是抽象类没有。</p>
+<h5 id="5）java的异常处理机制，Error和Exception的区别？"><a href="#5）java的异常处理机制，Error和Exception的区别？" class="headerlink" title="5）java的异常处理机制，Error和Exception的区别？"></a><strong>5）java的异常处理机制，Error和Exception的区别？</strong></h5><p>二者都有共同的父类：Throwable</p>
+<p>Error：表示程序发生错误，是程序无法处理、不可恢复的，如OutOfMemoryError（内存溢出）、VirtualMachineError（虚拟机错误）、、ThreadDeath（线程死锁）；</p>
+<p>Exception：表示程序可处理的异常，又分为CheckedException（受检异常）、UncheckedException（非受检异常）。受检异常发生在编译期，必须要使用try…catch或者throws抛出异常，否则编译不通过（IOException、多线程之类）；非受检异常发生在运行期，具有不确定性，主要由程序的逻辑问题引起，如NullPointException参数值为null（空指针），IndexOutOfBoundsException下标参数越界。</p>
+<p><strong>有哪些Exception？</strong>设计模式、mapreduce</p>
+<p><img src="/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/Users/10244\AppData\Roaming\Typora\typora-user-images\image-20210421223202543.png" alt="image-20210421223202543"></p>
+<h5 id="6）-和–是否为原子操作，为什么？"><a href="#6）-和–是否为原子操作，为什么？" class="headerlink" title="6）++和–是否为原子操作，为什么？"></a><strong>6）++和–是否为原子操作，为什么？</strong></h5><p>不是原子操作。原子操作意思是操作不可分割，但是++和–可以分为三个步骤：</p>
+<p>1.从栈读取值</p>
+<p>2.进行加1的操作</p>
+<p>3.将值压回栈</p>
+<p>在多线程时就会导致自增或者自减不准确。</p>
+<h5 id="7）面向对象的三大特性是什么？"><a href="#7）面向对象的三大特性是什么？" class="headerlink" title="7）面向对象的三大特性是什么？"></a><strong>7）面向对象的三大特性是什么？</strong></h5><p>封装、继承、多态。</p>
+<p><strong>封装：把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。</strong>通过这种方式，对象对内部数据提供了不同级别的保护，防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。</p>
+<p><strong>继承：指让某个类型的对象获得另一个类型的对象的属性和方法。</strong>可以使用现有类的所有功能，并在无需重新编写原来的类的情况下，对这些功能进行扩展。</p>
+<ul>
+<li><p>实现继承：直接使用基类的属性和方法，无需额外编码；</p>
+</li>
+<li><p>接口继承：仅使用属性和方法的名称，但子类必须提供实现的能力。</p>
+</li>
+</ul>
+<p><strong>多态：指一个类实例的相同方法在不同的情形有不同的表现。</strong></p>
+<h5 id="8）JAVA中具体如何实现多态？"><a href="#8）JAVA中具体如何实现多态？" class="headerlink" title="8）JAVA中具体如何实现多态？"></a><strong>8）JAVA中具体如何实现多态？</strong></h5><ul>
+<li><p>接口</p>
+<p>implements  A,B</p>
+<p>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</p>
+<p>接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类。另外，在 Java 中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。</p>
+<p>接口不能包含成员变量，除了 static 和 final 变量。</p>
+<p>接口不能用于实例化对象。</p>
+<p>接口没有构造方法。</p>
+<p>接口中所有的方法必须是抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameA</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span>,<span class="title">C</span></span>&#123; <span class="comment">// 接口继承</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameB</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">B</span></span>&#123; <span class="comment">// 实现接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameA</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;A,&quot;</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameB</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;B,&quot;</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写（overriding）与重载（overloading）</p>
+<table>
+<thead>
+<tr>
+<th>重写</th>
+<th>重载</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>子类对父类允许访问的方法的实现过程进行重新编写，返回值和形参都不变。</td>
+<td>在一个类中，方法名字相同，而参数不同，返回类型可以不同。</td>
+</tr>
+<tr>
+<td>声明为final和static的方法不能被重写，但能够被再次声明。</td>
+<td>被重载的方法可以改变访问修饰符</td>
+</tr>
+<tr>
+<td>构造方法不能被重写。</td>
+<td>最常见的就是构造器重载。</td>
+</tr>
+<tr>
+<td>被重载的方法不可以声明新的或更广的检查异常，但可以减少或删除</td>
+<td>被重载的方法可以声明新的或更广的检查异常</td>
+</tr>
+<tr>
+<td>不能做更严格的访问限制</td>
+<td>可以修改访问的限制</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>抽象类和抽象方法</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">employee</span></span>&#123; <span class="comment">//抽象类</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">employee</span><span class="params">(String name,<span class="keyword">int</span> number)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.number=number;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showNow</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Employee Now&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">computePay</span><span class="params">()</span></span>; <span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">salary</span> <span class="keyword">extends</span> <span class="title">employee</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> sala;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">salary</span><span class="params">(String name, <span class="keyword">int</span> number, <span class="keyword">double</span> sala)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name,number);</span><br><span class="line">        <span class="keyword">this</span>.sala=sala;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showNow</span><span class="params">()</span></span>&#123; <span class="comment">// 重写，返回值和形参都不变</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Salary Now&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">computePay</span><span class="params">()</span></span>&#123; <span class="comment">// 实现抽象方法</span></span><br><span class="line">        <span class="keyword">return</span> sala/<span class="number">52</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Unique</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;I am unique.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractDemo</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">        salary s = <span class="keyword">new</span> salary(<span class="string">&quot;张三&quot;</span>,<span class="number">1</span>,<span class="number">5000</span>);</span><br><span class="line">        employee e = <span class="keyword">new</span> employee(<span class="string">&quot;李四&quot;</span>,<span class="number">2</span>,<span class="number">6000</span>); <span class="comment">// 编译错误</span></span><br><span class="line">        employee e = <span class="keyword">new</span> salary(<span class="string">&quot;李四&quot;</span>,<span class="number">2</span>,<span class="number">6000</span>);</span><br><span class="line">      	s.showNow(); <span class="comment">// 输出 Salary Now</span></span><br><span class="line">        e.showNow(); <span class="comment">// 输出 Salary Now，在编译阶段，只检查参数的引用类型Salary，在运行时，JVM指定对象的类型并且运行该对象的方法。</span></span><br><span class="line">        s.Unique(); <span class="comment">// 输出 I am unique.</span></span><br><span class="line">        e.Unique(); <span class="comment">// 编译错误</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9）面向对象和面向过程的区别？"><a href="#9）面向对象和面向过程的区别？" class="headerlink" title="9）面向对象和面向过程的区别？"></a><strong>9）面向对象和面向过程的区别？</strong></h5><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>介绍</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>面向对象</td>
+<td>把数据和数据操作放在一起，组成对象；对同类的对象抽象出其共性组成类；类通过简单的接口与外界发生联系，对象和对象之间通过消息进行通信。</td>
+<td>易维护、易复用、易扩展，由于面向对象有封装、继承、多态的特性，可以设计出低耦合的系统。</td>
+</tr>
+<tr>
+<td>面向过程</td>
+<td>以过程为中心开发，自顶向下进行，程序结构按照功能划分成若干个基本模块，这些模块形成树状结构。</td>
+<td>性能比面向对象高，因为类调用时需要实例化，开销大，消耗资源；比如嵌入式开发、linux/unix等一般采用面向过程开发，性能优先。</td>
+</tr>
+</tbody></table>
+<h5 id="10）String-StringBuffer-StringBuilder的区别？"><a href="#10）String-StringBuffer-StringBuilder的区别？" class="headerlink" title="10）String/StringBuffer/StringBuilder的区别？"></a><strong>10）String/StringBuffer/StringBuilder的区别？</strong></h5><p>字符串直接相加本质也是转换成StringBuilder调用append，但是会产生大量的StringBuilder对象，所以不如直接new一个StringBuffer来用效率高。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;123&quot;</span>;  <span class="comment">// 存储在公共池中</span></span><br><span class="line">String s2 = s1;  <span class="comment">// 相同引用</span></span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>); <span class="comment">// String对象创建，在堆上</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>String</th>
+<th>StringBuffer</th>
+<th>StringBuilder</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不可变字符序列</td>
+<td>可变字符序列</td>
+<td>可变字符序列</td>
+</tr>
+<tr>
+<td></td>
+<td>能被多次修改且不产生新的未使用对象</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>线程安全（Synchronized）</td>
+<td>非线程安全</td>
+</tr>
+<tr>
+<td></td>
+<td>效率低</td>
+<td>效率高</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="11）什么是面向函数式编程？"><a href="#11）什么是面向函数式编程？" class="headerlink" title="11）什么是面向函数式编程？"></a><strong>11）什么是面向函数式编程？</strong></h5><h5 id="12）谈谈static、final关键字？（JVM和内存模型）"><a href="#12）谈谈static、final关键字？（JVM和内存模型）" class="headerlink" title="12）谈谈static、final关键字？（JVM和内存模型）"></a><strong>12）谈谈static、final关键字？（JVM和内存模型）</strong></h5><p>final 把类定义为不能继承的最终类，或者用于修饰方法，使得该方法不能被子类重写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;<span class="comment">//&#125; // 太监类hhh</span></span><br><span class="line"><span class="keyword">public</span>/.. <span class="function"><span class="keyword">final</span> <span class="keyword">int</span> <span class="title">Move</span><span class="params">()</span></span>&#123;<span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>Static</th>
+<th>Final</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>全局、静态，修饰成员变量和成员方法</td>
+<td>修饰类、属性和方法</td>
+</tr>
+<tr>
+<td></td>
+<td>不依赖类特定的实例，被类的所有实例共享</td>
+<td>修饰基本类型，放的就是值，值不可被改变；修饰引用类型，引用地址不可变，地址指向的对象或数组内容可以变。</td>
+</tr>
+<tr>
+<td></td>
+<td>只要这个类被加载，Java虚拟机就能根据类名在运行时数据区内找到它们，因此static对象可以在它任何对象创建之前访问，无需引用任何对象</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Class A{ static int a = 1;}             A.a</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>……</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> ABC=<span class="number">100</span>;<span class="comment">//全局常量</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="13）谈谈volatile、synchronized关键字？"><a href="#13）谈谈volatile、synchronized关键字？" class="headerlink" title="13）谈谈volatile、synchronized关键字？"></a><strong>13）谈谈volatile、synchronized关键字？</strong></h5><p>线程安全的两个方面：<strong>执行控制</strong>和<strong>内存可见</strong>。</p>
+<p><strong>执行控制</strong>的目的是控制代码执行顺序以及是否可以并发执行。</p>
+<p><strong>内存可见</strong>控制的是线程执行结果在内存中对其他线程的可见性。JAVA内存模型的实现，线程在具体执行时，会先拷贝主存数据到线程本地（CPU缓存），操作完成后再把结果从线程本地刷新到主存。</p>
+<p>synchronized关键字解决的是执行控制的问题，它会阻止其他线程获取当前对象的监控锁，使得当前对象中被synchronized关键字保护的代码块无法被其他线程访问，也就无法并发执行。同时它会创建一个内存屏障，内存屏障指令保证了所有CPU操作结果都会直接刷到主存中，从而保证了操作的内存可见性。</p>
+<p>volatile关键字解决内存可见性问题，对所有volatile变量的读写都会直接刷新到主存，即保证了变量的可见性。满足一些对变量可见性有要求而对读取顺序没有要求的需求。</p>
+<p><strong>区别</strong>：volatile本质是再告诉jvm当前变量在寄存器中的值是不确定的，需要从主存中读取；synchronized则是锁定当前变量，只有当前的线程可以访问该变量，其他线程都会被阻塞。</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>volatile</th>
+<th>synchronized</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本质</td>
+<td>告诉jvm，当前的变量在寄存器中不确定，需要从主存中读取</td>
+<td>锁定当前变量，只有当前线程可以访问该变量，其他线程都会被阻塞</td>
+</tr>
+<tr>
+<td>应用级别</td>
+<td>变量</td>
+<td>变量、方法、类</td>
+</tr>
+<tr>
+<td>线程阻塞</td>
+<td>不会造成</td>
+<td>可能会造成</td>
+</tr>
+<tr>
+<td>变量修改可见性和原子性</td>
+<td>仅实现变量的修改可见性，不能保证原子性</td>
+<td>保证变量的修改可见性和原子性</td>
+</tr>
+<tr>
+<td>编译器优化</td>
+<td>不会</td>
+<td>可以</td>
+</tr>
+</tbody></table>
+<h5 id="14）谈谈深拷贝和浅拷贝？"><a href="#14）谈谈深拷贝和浅拷贝？" class="headerlink" title="14）谈谈深拷贝和浅拷贝？"></a><strong>14）谈谈深拷贝和浅拷贝？</strong></h5><p>浅拷贝：1. 数据类型是基本数据类型的成员变量，浅拷贝会直接进行值传递，也就是将该属性值复制一份给新的对象；2.数据类型是引用类型的成员变量，比如某个数组、某个类的对象，会进行引用传递，即将内存地址复制一份给新的对象，这种情况下，在一个对象中修改该成员变量会影响到另一个对象。</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>浅拷贝</th>
+<th>深拷贝</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>介绍</td>
+<td>1.基本数据类型：直接值传递；<br>2.引用类型(某个数组、类的对象)：引用传递，即将内存地址复制一份给新的对象，这种情况下，在一个对象中修改会影响到另一对象</td>
+<td>对象图。对象进行深拷贝要对整个对象图进行拷贝。对引用数据类型的成员变量的对象图中所有对象都开辟了内存空间。</td>
+</tr>
+<tr>
+<td>实现方式</td>
+<td>1.拷贝构造函数<br>2.重写clone()</td>
+<td>1.重写clone()</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123; <span class="comment">// 浅拷贝</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	Object obj=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            obj = <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(CloneNotSupportedException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    A b = a.clone();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shakinghead/p/7651502.html">https://www.cnblogs.com/shakinghead/p/7651502.html</a></p>
+<h5 id="15）JAVA线程和系统线程的区别？"><a href="#15）JAVA线程和系统线程的区别？" class="headerlink" title="15）JAVA线程和系统线程的区别？"></a><strong>15）JAVA线程和系统线程的区别？</strong></h5><h5 id="16）开多个JAVA进程和多个线程的区别？"><a href="#16）开多个JAVA进程和多个线程的区别？" class="headerlink" title="16）开多个JAVA进程和多个线程的区别？"></a><strong>16）开多个JAVA进程和多个线程的区别？</strong></h5><h5 id="17）什么是同步与异步，阻塞和非阻塞？"><a href="#17）什么是同步与异步，阻塞和非阻塞？" class="headerlink" title="17）什么是同步与异步，阻塞和非阻塞？"></a><strong>17）什么是同步与异步，阻塞和非阻塞？</strong></h5><h5 id="18）多进程之间如何通信？"><a href="#18）多进程之间如何通信？" class="headerlink" title="18）多进程之间如何通信？"></a><strong>18）多进程之间如何通信？</strong></h5><h5 id="19）枚举enum"><a href="#19）枚举enum" class="headerlink" title="19）枚举enum"></a><strong>19）枚举enum</strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Color</span></span>&#123;</span><br><span class="line">	RED,GREEN,BLUE;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Color</span><span class="params">()</span></span>&#123; System.out.println(<span class="keyword">this</span>.toString()); &#125;<span class="comment">// 外部无法调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">colorInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;wow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Color c1 = Color.RED; <span class="comment">// 会调用三次构造函数</span></span><br><span class="line">        Color[] all = Color.values();</span><br><span class="line">        <span class="keyword">for</span>(Color c : all)&#123;</span><br><span class="line">            System.out.println(c.ordinal());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>20）JVM垃圾回收机制</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引用计数</td>
+<td>给对象添加一个引用计数器，但难以解决循环引用问题。</td>
+</tr>
+<tr>
+<td>可达性分析</td>
+<td>通过一系列的GC Roots的对象作为起点，从起点出发所走过的路径称为引用链。当一个对象到起点没有任何引用链时，说明不可用。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>回收算法</th>
+<th>方法</th>
+<th>优缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标记-清除</td>
+<td>直接标记清除</td>
+<td>效率不高<br>空间产生大量碎片</td>
+</tr>
+<tr>
+<td>复制法</td>
+<td>把空间分为两块，每次对一块进行GC，当这块内存用完，就将还存活的对象复制到另一块，然后这块全部清空</td>
+<td>空间利用率低下，多数新生代熬不过第一次GC</td>
+</tr>
+<tr>
+<td>标记-整理</td>
+<td>针对老年代，把存活对象移到内存一端</td>
+<td></td>
+</tr>
+<tr>
+<td>分代回收</td>
+<td>分为新生代和老年代，新生代每次都有大量对象死去，因此选择复制法；老年代对象存活率高，使用标记清除法或标记整理</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>21）Redis 非关系型数据库</p>
+<p>22）Java设计模式与实现</p>
+<p>23）Java引用类型</p>
 
       
 
@@ -197,28 +474,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/目标//" class="article-tag-list-link color3">目标</a>
         		</li>
       		
 		</ul>
@@ -273,7 +535,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2018/08/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +549,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/16/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          输入输出
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/16/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%CF%86(n)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">欧拉</div>
+    <a href="/2021/04/22/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%8D%B8%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">粒子群优化边缘计算</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -325,7 +578,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89equals%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1）equals和&#x3D; &#x3D;的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99equals%E4%B8%80%E5%AE%9A%E8%A6%81%E9%87%8D%E5%86%99hash-code%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2）为什么重写equals一定要重写hash code？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89Integer%E4%B8%8Eint%E7%9A%84-%E6%AF%94%E8%BE%83%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3）Integer与int的&#x3D; &#x3D;比较是怎样的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%89%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">4）接口和抽象类的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%EF%BC%89java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%EF%BC%8CError%E5%92%8CException%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">5）java的异常处理机制，Error和Exception的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%EF%BC%89-%E5%92%8C%E2%80%93%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6）++和–是否为原子操作，为什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">7）面向对象的三大特性是什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%EF%BC%89JAVA%E4%B8%AD%E5%85%B7%E4%BD%93%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">8）JAVA中具体如何实现多态？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">9）面向对象和面向过程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10%EF%BC%89String-StringBuffer-StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">10）String&#x2F;StringBuffer&#x2F;StringBuilder的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">11）什么是面向函数式编程？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12%EF%BC%89%E8%B0%88%E8%B0%88static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F%EF%BC%88JVM%E5%92%8C%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">12）谈谈static、final关键字？（JVM和内存模型）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13%EF%BC%89%E8%B0%88%E8%B0%88volatile%E3%80%81synchronized%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">13）谈谈volatile、synchronized关键字？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14%EF%BC%89%E8%B0%88%E8%B0%88%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">14）谈谈深拷贝和浅拷贝？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15%EF%BC%89JAVA%E7%BA%BF%E7%A8%8B%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">15）JAVA线程和系统线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16%EF%BC%89%E5%BC%80%E5%A4%9A%E4%B8%AAJAVA%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">16）开多个JAVA进程和多个线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#17%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">17）什么是同步与异步，阻塞和非阻塞？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#18%EF%BC%89%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">18）多进程之间如何通信？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#19%EF%BC%89%E6%9E%9A%E4%B8%BEenum"><span class="toc-number">19.</span> <span class="toc-text">19）枚举enum</span></a></li></ol>
                     </div>
                 </span>
             </div>
