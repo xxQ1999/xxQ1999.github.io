@@ -17,7 +17,7 @@
 <meta property="og:locale" content="utf_8">
 <meta property="og:image" content="http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/Users/10244/AppData/Roaming/Typora/typora-user-images/image-20210421223202543.png">
 <meta property="article:published_time" content="2021-04-22T11:13:00.000Z">
-<meta property="article:modified_time" content="2021-04-22T11:58:44.504Z">
+<meta property="article:modified_time" content="2021-04-26T09:39:51.387Z">
 <meta property="article:author" content="xxQ">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://github.com/xxq1999/2021/04/22/java%E9%9D%A2%E8%AF%95%E9%A2%98/Users/10244/AppData/Roaming/Typora/typora-user-images/image-20210421223202543.png">
@@ -463,10 +463,32 @@
 <td></td>
 </tr>
 </tbody></table>
-<p>21）Redis 非关系型数据库</p>
-<p>22）Java设计模式与实现</p>
-<p>23）Java引用类型</p>
-
+<p><strong>21）Redis 非关系型数据库</strong></p>
+<h5 id="22）Java设计模式与实现"><a href="#22）Java设计模式与实现" class="headerlink" title="22）Java设计模式与实现"></a><strong>22）Java设计模式与实现</strong></h5><h5 id="23）Java引用类型"><a href="#23）Java引用类型" class="headerlink" title="23）Java引用类型"></a><strong>23）Java引用类型</strong></h5><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>强引用</td>
+<td>一个对象被人拥有强引用，那么垃圾回收器不会回收它。当内存不足，JVM宁可抛出OutOfMemoryError，也随意回收</td>
+</tr>
+<tr>
+<td>软引用</td>
+<td>如果内存足够，垃圾回收器不会回收；如果内存不够之前，就会回收</td>
+</tr>
+<tr>
+<td>弱引用</td>
+<td>可有可无的对象，只要被gc扫描到了，就随时被回收。</td>
+</tr>
+<tr>
+<td>虚引用</td>
+<td>任何时候都可能被回收，必须与引用队列联合使用</td>
+</tr>
+</tbody></table>
+<h5 id="24）HashMap和HashTable"><a href="#24）HashMap和HashTable" class="headerlink" title="24）HashMap和HashTable"></a><strong>24）HashMap和HashTable</strong></h5>
       
 
       
@@ -578,7 +600,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89equals%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1）equals和&#x3D; &#x3D;的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99equals%E4%B8%80%E5%AE%9A%E8%A6%81%E9%87%8D%E5%86%99hash-code%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2）为什么重写equals一定要重写hash code？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89Integer%E4%B8%8Eint%E7%9A%84-%E6%AF%94%E8%BE%83%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3）Integer与int的&#x3D; &#x3D;比较是怎样的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%89%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">4）接口和抽象类的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%EF%BC%89java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%EF%BC%8CError%E5%92%8CException%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">5）java的异常处理机制，Error和Exception的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%EF%BC%89-%E5%92%8C%E2%80%93%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6）++和–是否为原子操作，为什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">7）面向对象的三大特性是什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%EF%BC%89JAVA%E4%B8%AD%E5%85%B7%E4%BD%93%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">8）JAVA中具体如何实现多态？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">9）面向对象和面向过程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10%EF%BC%89String-StringBuffer-StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">10）String&#x2F;StringBuffer&#x2F;StringBuilder的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">11）什么是面向函数式编程？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12%EF%BC%89%E8%B0%88%E8%B0%88static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F%EF%BC%88JVM%E5%92%8C%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">12）谈谈static、final关键字？（JVM和内存模型）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13%EF%BC%89%E8%B0%88%E8%B0%88volatile%E3%80%81synchronized%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">13）谈谈volatile、synchronized关键字？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14%EF%BC%89%E8%B0%88%E8%B0%88%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">14）谈谈深拷贝和浅拷贝？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15%EF%BC%89JAVA%E7%BA%BF%E7%A8%8B%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">15）JAVA线程和系统线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16%EF%BC%89%E5%BC%80%E5%A4%9A%E4%B8%AAJAVA%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">16）开多个JAVA进程和多个线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#17%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">17）什么是同步与异步，阻塞和非阻塞？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#18%EF%BC%89%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">18）多进程之间如何通信？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#19%EF%BC%89%E6%9E%9A%E4%B8%BEenum"><span class="toc-number">19.</span> <span class="toc-text">19）枚举enum</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89equals%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1）equals和&#x3D; &#x3D;的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99equals%E4%B8%80%E5%AE%9A%E8%A6%81%E9%87%8D%E5%86%99hash-code%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2）为什么重写equals一定要重写hash code？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89Integer%E4%B8%8Eint%E7%9A%84-%E6%AF%94%E8%BE%83%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3）Integer与int的&#x3D; &#x3D;比较是怎样的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%89%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">4）接口和抽象类的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%EF%BC%89java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%EF%BC%8CError%E5%92%8CException%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">5）java的异常处理机制，Error和Exception的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%EF%BC%89-%E5%92%8C%E2%80%93%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6）++和–是否为原子操作，为什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">7）面向对象的三大特性是什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%EF%BC%89JAVA%E4%B8%AD%E5%85%B7%E4%BD%93%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">8）JAVA中具体如何实现多态？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">9）面向对象和面向过程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10%EF%BC%89String-StringBuffer-StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">10）String&#x2F;StringBuffer&#x2F;StringBuilder的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">11）什么是面向函数式编程？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12%EF%BC%89%E8%B0%88%E8%B0%88static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F%EF%BC%88JVM%E5%92%8C%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">12）谈谈static、final关键字？（JVM和内存模型）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13%EF%BC%89%E8%B0%88%E8%B0%88volatile%E3%80%81synchronized%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">13）谈谈volatile、synchronized关键字？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14%EF%BC%89%E8%B0%88%E8%B0%88%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">14）谈谈深拷贝和浅拷贝？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15%EF%BC%89JAVA%E7%BA%BF%E7%A8%8B%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">15）JAVA线程和系统线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16%EF%BC%89%E5%BC%80%E5%A4%9A%E4%B8%AAJAVA%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">16）开多个JAVA进程和多个线程的区别？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#17%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">17）什么是同步与异步，阻塞和非阻塞？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#18%EF%BC%89%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">18）多进程之间如何通信？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#19%EF%BC%89%E6%9E%9A%E4%B8%BEenum"><span class="toc-number">19.</span> <span class="toc-text">19）枚举enum</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#22%EF%BC%89Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-number">20.</span> <span class="toc-text">22）Java设计模式与实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#23%EF%BC%89Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">21.</span> <span class="toc-text">23）Java引用类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#24%EF%BC%89HashMap%E5%92%8CHashTable"><span class="toc-number">22.</span> <span class="toc-text">24）HashMap和HashTable</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -785,15 +807,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排列组合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,10 +831,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
@@ -817,11 +839,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随机化算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,10 +891,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">全排列构造</a>
               </li>
              
@@ -881,11 +899,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
+                <a href="javascript:void(0)" class="js-tag color3">Subline</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
+                <a href="javascript:void(0)" class="js-tag color1">矩阵快速幂</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,11 +911,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
+                <a href="javascript:void(0)" class="js-tag color2">中国剩余定理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ZOJ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">歌词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -917,15 +939,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">边缘计算</a>
               </li>
             
             <div class="clearfix"></div>
